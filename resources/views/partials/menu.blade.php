@@ -100,7 +100,7 @@
         @can('skill_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.skills.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/skills") || request()->is("admin/skills/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    <i class="fa-fw fas fa-award c-sidebar-nav-icon">
 
                     </i>
                     {{ trans('cruds.skill.title') }}
