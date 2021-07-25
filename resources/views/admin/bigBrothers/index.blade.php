@@ -38,31 +38,7 @@
                             {{ trans('cruds.user.fields.address') }}
                         </th>
                         <th>
-                            {{ trans('cruds.bigBrother.fields.job') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.bigBrother.fields.job_place') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.bigBrother.fields.salary') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.bigBrother.fields.family_male') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.bigBrother.fields.family_female') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.bigBrother.fields.degree') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.bigBrother.fields.brotherhood_reason') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.bigBrother.fields.charactarstics') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.bigBrother.fields.skills') }}
                         </th>
                         <th>
                             &nbsp;
@@ -91,35 +67,7 @@
                                 {{ $bigBrother->user->address ?? '' }}
                             </td>
                             <td>
-                                {{ $bigBrother->job ?? '' }}
-                            </td>
-                            <td>
-                                {{ $bigBrother->job_place ?? '' }}
-                            </td>
-                            <td>
-                                {{ $bigBrother->salary ?? '' }}
-                            </td>
-                            <td>
-                                {{ $bigBrother->family_male ?? '' }}
-                            </td>
-                            <td>
-                                {{ $bigBrother->family_female ?? '' }}
-                            </td>
-                            <td>
                                 {{ $bigBrother->degree ?? '' }}
-                            </td>
-                            <td>
-                                {{ $bigBrother->brotherhood_reason ?? '' }}
-                            </td>
-                            <td>
-                                @foreach($bigBrother->charactarstics as $key => $item)
-                                    <span class="badge badge-info">{{ $item->name_ar }}</span>
-                                @endforeach
-                            </td>
-                            <td>
-                                @foreach($bigBrother->skills as $key => $item)
-                                    <span class="badge badge-info">{{ $item->name_ar }}</span>
-                                @endforeach
                             </td>
                             <td>
                                 @can('big_brother_show')

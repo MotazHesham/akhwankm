@@ -159,7 +159,7 @@ return [
         'fields'         => [
             'id'                        => 'ID',
             'id_helper'                 => ' ',
-            'user'                      => 'user',
+            'user'                      => 'email',
             'user_helper'               => ' ',
             'job'                       => 'Job',
             'job_helper'                => ' ',

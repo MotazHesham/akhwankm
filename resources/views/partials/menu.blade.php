@@ -67,7 +67,7 @@
                     @can('small_brother_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.small-brothers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/small-brothers") || request()->is("admin/small-brothers/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                                <i class="fa-fw fas fa-child c-sidebar-nav-icon">
 
                                 </i>
                                 {{ trans('cruds.smallBrother.title') }}
@@ -77,7 +77,7 @@
                     @can('big_brother_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.big-brothers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/big-brothers") || request()->is("admin/big-brothers/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                                <i class="fa-fw fas fa-male c-sidebar-nav-icon">
 
                                 </i>
                                 {{ trans('cruds.bigBrother.title') }}
@@ -110,7 +110,7 @@
         @can('characteristic_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.characteristics.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/characteristics") || request()->is("admin/characteristics/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    <i class="fa-fw fas fa-address-card c-sidebar-nav-icon">
 
                     </i>
                     {{ trans('cruds.characteristic.title') }}
@@ -120,7 +120,7 @@
         @can('outing_type_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.outing-types.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/outing-types") || request()->is("admin/outing-types/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    <i class="fa-fw far fa-grin c-sidebar-nav-icon">
 
                     </i>
                     {{ trans('cruds.outingType.title') }}
@@ -130,7 +130,7 @@
         @can('brothers_deal_form_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.brothers-deal-forms.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/brothers-deal-forms") || request()->is("admin/brothers-deal-forms/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
 
                     </i>
                     {{ trans('cruds.brothersDealForm.title') }}
@@ -140,7 +140,7 @@
         @can('outing_request_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.outing-requests.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/outing-requests") || request()->is("admin/outing-requests/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    <i class="fa-fw fas fa-calendar-alt c-sidebar-nav-icon">
 
                     </i>
                     {{ trans('cruds.outingRequest.title') }}
@@ -150,7 +150,7 @@
         @can('approvement_form_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.approvement-forms.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/approvement-forms") || request()->is("admin/approvement-forms/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    <i class="fa-fw fas fa-check-circle c-sidebar-nav-icon">
 
                     </i>
                     {{ trans('cruds.approvementForm.title') }}
