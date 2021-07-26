@@ -18,7 +18,7 @@ class UpdateSmallBrotherRequest extends FormRequest
     {
         return [
             'user_id' => [
-               
+                'required',
                 'integer',
             ],
             'skills.*' => [
