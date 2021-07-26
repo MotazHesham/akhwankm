@@ -129,16 +129,6 @@
                 <span class="help-block">{{ trans('cruds.user.fields.city_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="nationality">{{ trans('cruds.user.fields.nationality') }}</label>
-                <input class="form-control {{ $errors->has('nationality') ? 'is-invalid' : '' }}" type="text" name="nationality" id="nationality" value="{{ old('nationality', '') }}" required>
-                @if($errors->has('nationality'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('nationality') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.user.fields.nationality_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label for="phone">{{ trans('cruds.user.fields.phone') }}</label>
                 <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="text" name="phone" id="phone" value="{{ old('phone', '') }}">
                 @if($errors->has('phone'))
@@ -157,6 +147,31 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.address_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required">{{ trans('cruds.user.fields.gender') }}</label>
+                @foreach(App\Models\User::GENDER_RADIO as $key => $label)
+                    <div class="form-check {{ $errors->has('gender') ? 'is-invalid' : '' }}">
+                        <input class="form-check-input" type="radio" id="gender_{{ $key }}" name="gender" value="{{ $key }}" {{ old('gender', '') === (string) $key ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="gender_{{ $key }}">{{ $label }}</label>
+                    </div>
+                @endforeach
+                @if($errors->has('gender'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('gender') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.user.fields.gender_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="degree">{{ trans('cruds.user.fields.degree') }}</label>
+                <input class="form-control {{ $errors->has('degree') ? 'is-invalid' : '' }}" type="text" name="degree" id="degree" value="{{ old('degree', '') }}" required>
+                @if($errors->has('degree'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('degree') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.user.fields.degree_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

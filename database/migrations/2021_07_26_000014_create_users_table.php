@@ -22,9 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('marital_status')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
-            $table->string('nationality')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('degree')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -119,14 +119,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.nationality') }}
-                        </th>
-                        <td>
-                            {{ $user->nationality }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.user.fields.phone') }}
                         </th>
                         <td>
@@ -139,6 +131,22 @@
                         </th>
                         <td>
                             {{ $user->address }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.gender') }}
+                        </th>
+                        <td>
+                            {{ App\Models\User::GENDER_RADIO[$user->gender] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.degree') }}
+                        </th>
+                        <td>
+                            {{ $user->degree }}
                         </td>
                     </tr>
                 </tbody>

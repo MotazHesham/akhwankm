@@ -15,7 +15,6 @@ class CreateBigBrothersTable extends Migration
             $table->decimal('salary', 15, 2);
             $table->integer('family_male');
             $table->integer('family_female');
-            $table->string('degree');
             $table->longText('brotherhood_reason');
             $table->timestamps();
             $table->softDeletes();
