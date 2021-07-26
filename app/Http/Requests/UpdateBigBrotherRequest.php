@@ -18,7 +18,7 @@ class UpdateBigBrotherRequest extends FormRequest
     {
         return [
             'user_id' => [
-                'required',
+          
                 'integer',
             ],
             'job' => [
