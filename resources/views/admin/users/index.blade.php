@@ -37,13 +37,16 @@
                         {{ trans('cruds.user.fields.roles') }}
                     </th>
                     <th>
-                        {{ trans('cruds.user.fields.nationality') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.user.fields.phone') }}
                     </th>
                     <th>
                         {{ trans('cruds.user.fields.address') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.user.fields.gender') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.user.fields.degree') }}
                     </th>
                     <th>
                         &nbsp;
@@ -106,9 +109,10 @@
 { data: 'email', name: 'email' },
 { data: 'email_verified_at', name: 'email_verified_at' },
 { data: 'roles', name: 'roles.title' },
-{ data: 'nationality', name: 'nationality' },
 { data: 'phone', name: 'phone' },
 { data: 'address', name: 'address' },
+{ data: 'gender', name: 'gender' },
+{ data: 'degree', name: 'degree' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

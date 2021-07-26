@@ -75,16 +75,6 @@
                 <span class="help-block">{{ trans('cruds.bigBrother.fields.family_female_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="degree">{{ trans('cruds.bigBrother.fields.degree') }}</label>
-                <input class="form-control {{ $errors->has('degree') ? 'is-invalid' : '' }}" type="text" name="degree" id="degree" value="{{ old('degree', $bigBrother->degree) }}" required>
-                @if($errors->has('degree'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('degree') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.bigBrother.fields.degree_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label class="required" for="brotherhood_reason">{{ trans('cruds.bigBrother.fields.brotherhood_reason') }}</label>
                 <textarea class="form-control {{ $errors->has('brotherhood_reason') ? 'is-invalid' : '' }}" name="brotherhood_reason" id="brotherhood_reason" required>{{ old('brotherhood_reason', $bigBrother->brotherhood_reason) }}</textarea>
                 @if($errors->has('brotherhood_reason'))

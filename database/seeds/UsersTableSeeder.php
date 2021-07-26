@@ -19,9 +19,9 @@ class UsersTableSeeder extends Seeder
                 'marital_status'  => '',
                 'country'         => '',
                 'city'            => '',
-                'nationality'     => '',
                 'phone'           => '',
                 'address'         => '',
+                'degree'          => '',
             ],
         ];
 

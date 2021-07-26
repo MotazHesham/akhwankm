@@ -22,6 +22,11 @@ class User extends Authenticatable implements HasMedia
     use HasMediaTrait;
     use Auditable;
 
+    public const GENDER_RADIO = [
+        'f' => 'female',
+        'm' => 'male',
+    ];
+
     public $table = 'users';
 
     protected $appends = [
@@ -55,9 +60,10 @@ class User extends Authenticatable implements HasMedia
         'marital_status',
         'country',
         'city',
-        'nationality',
         'phone',
         'address',
+        'gender',
+        'degree',
         'created_at',
         'updated_at',
         'deleted_at',

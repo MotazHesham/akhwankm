@@ -56,10 +56,6 @@ class UpdateUserRequest extends FormRequest
                 'string',
                 'nullable',
             ],
-            'nationality' => [
-                'string',
-                'required',
-            ],
             'phone' => [
                 'string',
                 'nullable',
@@ -67,6 +63,13 @@ class UpdateUserRequest extends FormRequest
             'address' => [
                 'string',
                 'nullable',
+            ],
+            'gender' => [
+                'required',
+            ],
+            'degree' => [
+                'string',
+                'required',
             ],
         ];
     }

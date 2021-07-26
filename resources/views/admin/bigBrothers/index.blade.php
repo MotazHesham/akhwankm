@@ -38,9 +38,6 @@
                             {{ trans('cruds.user.fields.address') }}
                         </th>
                         <th>
-                            {{ trans('cruds.bigBrother.fields.degree') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -65,9 +62,6 @@
                             </td>
                             <td>
                                 {{ $bigBrother->user->address ?? '' }}
-                            </td>
-                            <td>
-                                {{ $bigBrother->degree ?? '' }}
                             </td>
                             <td>
                                 @can('big_brother_show')

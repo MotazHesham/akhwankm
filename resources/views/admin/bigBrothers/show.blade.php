@@ -73,14 +73,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.bigBrother.fields.degree') }}
-                        </th>
-                        <td>
-                            {{ $bigBrother->degree }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.bigBrother.fields.brotherhood_reason') }}
                         </th>
                         <td>

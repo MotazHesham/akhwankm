@@ -63,14 +63,17 @@ class UsersController extends Controller
 
                 return implode(' ', $labels);
             });
-            $table->editColumn('nationality', function ($row) {
-                return $row->nationality ? $row->nationality : '';
-            });
             $table->editColumn('phone', function ($row) {
                 return $row->phone ? $row->phone : '';
             });
             $table->editColumn('address', function ($row) {
                 return $row->address ? $row->address : '';
+            });
+            $table->editColumn('gender', function ($row) {
+                return $row->gender ? User::GENDER_RADIO[$row->gender] : '';
+            });
+            $table->editColumn('degree', function ($row) {
+                return $row->degree ? $row->degree : '';
             });
 
             $table->rawColumns(['actions', 'placeholder', 'roles']);

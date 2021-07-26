@@ -25,7 +25,6 @@ class BigBrother extends Model
         'salary',
         'family_male',
         'family_female',
-        'degree',
         'brotherhood_reason',
         'created_at',
         'updated_at',
