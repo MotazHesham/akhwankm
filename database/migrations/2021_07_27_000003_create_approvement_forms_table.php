@@ -10,7 +10,6 @@ class CreateApprovementFormsTable extends Migration
     {
         Schema::create('approvement_forms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
             $table->integer('approved')->nullable();
             $table->longText('reason');
             $table->longText('description');

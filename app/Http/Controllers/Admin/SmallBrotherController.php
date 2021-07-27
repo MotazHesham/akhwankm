@@ -11,7 +11,6 @@ use App\Models\Characteristic;
 use App\Models\Skill;
 use App\Models\SmallBrother;
 use App\Models\User;
-use App\Models\Role;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,30 +38,12 @@ class SmallBrotherController extends Controller
 
         $charactaristics = Characteristic::all()->pluck('name_ar', 'id');
 
-        $roles = Role::all()->pluck('title', 'id');
-
-        return view('admin.smallBrothers.create', compact('users', 'skills', 'big_brothers', 'charactaristics','roles'));
+        return view('admin.smallBrothers.create', compact('users', 'skills', 'big_brothers', 'charactaristics'));
     }
 
     public function store(StoreSmallBrotherRequest $request)
-    { 
-        $user = User::create($request->all());
-        $user->roles()->sync($request->input('roles', []));
-        if ($request->input('cv', false)) {
-            $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
-        }
-
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $user->id]);
-        }
-
-
-        
-        $smallBrother = SmallBrother::create([
-
-            'user_id'=> $user->id,
-
-        ]);
+    {
+        $smallBrother = SmallBrother::create($request->all());
         $smallBrother->skills()->sync($request->input('skills', []));
         $smallBrother->charactaristics()->sync($request->input('charactaristics', []));
 
@@ -82,26 +63,15 @@ class SmallBrotherController extends Controller
         $charactaristics = Characteristic::all()->pluck('name_ar', 'id');
 
         $smallBrother->load('user', 'skills', 'big_brother', 'charactaristics');
-        
-        $user=User::find($smallBrother->user_id);
 
-        $roles = Role::all()->pluck('title', 'id');
-        $user->load('roles');
-
-        return view('admin.smallBrothers.edit', compact('users', 'skills', 'big_brothers', 'charactaristics', 'smallBrother','user','roles'));
+        return view('admin.smallBrothers.edit', compact('users', 'skills', 'big_brothers', 'charactaristics', 'smallBrother'));
     }
 
-    public function update(UpdateSmallBrotherRequest $request, SmallBrother $smallBrother,User $user)
+    public function update(UpdateSmallBrotherRequest $request, SmallBrother $smallBrother)
     {
         $smallBrother->update($request->all());
         $smallBrother->skills()->sync($request->input('skills', []));
         $smallBrother->charactaristics()->sync($request->input('charactaristics', []));
-        
-
-        $user=User::find($smallBrother->user_id);
-
-        $user->update($request->all());
-
 
         return redirect()->route('admin.small-brothers.index');
     }

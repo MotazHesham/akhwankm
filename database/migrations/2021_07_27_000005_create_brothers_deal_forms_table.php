@@ -11,7 +11,6 @@ class CreateBrothersDealFormsTable extends Migration
         Schema::create('brothers_deal_forms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('day');
-            $table->string('code');
             $table->string('department_of_social_service');
             $table->string('executive_committee');
             $table->string('social_worker');

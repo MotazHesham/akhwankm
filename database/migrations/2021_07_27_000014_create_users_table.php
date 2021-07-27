@@ -19,12 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('identity_number')->nullable();
             $table->date('identity_date')->nullable();
             $table->date('dbo')->nullable();
-            $table->string('marital_status')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('gender')->nullable();
+            $table->string('marital_status')->nullable();
             $table->string('degree')->nullable();
             $table->timestamps();
             $table->softDeletes();

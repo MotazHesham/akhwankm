@@ -16,7 +16,11 @@ class UpdateBigBrotherRequest extends FormRequest
 
     public function rules()
     {
-        return [ 
+        return [
+            'user_id' => [
+                'required',
+                'integer',
+            ],
             'job' => [
                 'string',
                 'required',
