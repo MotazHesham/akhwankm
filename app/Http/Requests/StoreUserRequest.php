@@ -47,6 +47,10 @@ class StoreUserRequest extends FormRequest
                 'required',
                 'date_format:' . config('panel.date_format'),
             ],
+            'marital_status' => [
+                'string',
+                'nullable',
+            ],
             'country' => [
                 'string',
                 'nullable',
@@ -67,6 +71,7 @@ class StoreUserRequest extends FormRequest
                 'required',
             ],
             'degree' => [
+                'string',
                 'required',
             ],
         ];

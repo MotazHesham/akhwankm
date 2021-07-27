@@ -17,8 +17,57 @@ class StoreBigBrotherRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => [
+            'name' => [
+                'string',
                 'required',
+            ],
+            'email' => [
+                'required',
+                'unique:users',
+            ],
+            'password' => [
+                'required',
+            ], 
+            'identity_number' => [
+                'string',
+                'required',
+            ],
+            'identity_date' => [
+                'required',
+                'date_format:' . config('panel.date_format'),
+            ],
+            'dbo' => [
+                'required',
+                'date_format:' . config('panel.date_format'),
+            ],
+            'marital_status' => [
+                'string',
+                'nullable',
+            ],
+            'country' => [
+                'string',
+                'nullable',
+            ],
+            'city' => [
+                'string',
+                'nullable',
+            ],
+            'phone' => [
+                'string',
+                'nullable',
+            ],
+            'address' => [
+                'string',
+                'nullable',
+            ],
+            'gender' => [
+                'required',
+            ],
+            'degree' => [
+                'string',
+                'required',
+            ],
+            'user_id' => [ 
                 'integer',
             ],
             'job' => [
@@ -58,6 +107,9 @@ class StoreBigBrotherRequest extends FormRequest
             ],
             'skills' => [
                 'array',
+            ],
+            'cv'=>[
+                'required', 
             ],
         ];
     }
