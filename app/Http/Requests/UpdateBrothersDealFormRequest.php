@@ -21,10 +21,6 @@ class UpdateBrothersDealFormRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'code' => [
-                'string',
-                'required',
-            ],
             'department_of_social_service' => [
                 'string',
                 'required',

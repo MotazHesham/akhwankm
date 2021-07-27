@@ -100,16 +100,6 @@
                 <span class="help-block">{{ trans('cruds.user.fields.dbo_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="marital_status">{{ trans('cruds.user.fields.marital_status') }}</label>
-                <input class="form-control {{ $errors->has('marital_status') ? 'is-invalid' : '' }}" type="text" name="marital_status" id="marital_status" value="{{ old('marital_status', $user->marital_status) }}">
-                @if($errors->has('marital_status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('marital_status') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.user.fields.marital_status_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label for="country">{{ trans('cruds.user.fields.country') }}</label>
                 <input class="form-control {{ $errors->has('country') ? 'is-invalid' : '' }}" type="text" name="country" id="country" value="{{ old('country', $user->country) }}">
                 @if($errors->has('country'))
@@ -165,8 +155,28 @@
                 <span class="help-block">{{ trans('cruds.user.fields.gender_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="degree">{{ trans('cruds.user.fields.degree') }}</label>
-                <input class="form-control {{ $errors->has('degree') ? 'is-invalid' : '' }}" type="text" name="degree" id="degree" value="{{ old('degree', $user->degree) }}" required>
+                <label>{{ trans('cruds.user.fields.marital_status') }}</label>
+                @foreach(App\Models\User::MARITAL_STATUS_RADIO as $key => $label)
+                    <div class="form-check {{ $errors->has('marital_status') ? 'is-invalid' : '' }}">
+                        <input class="form-check-input" type="radio" id="marital_status_{{ $key }}" name="marital_status" value="{{ $key }}" {{ old('marital_status', $user->marital_status) === (string) $key ? 'checked' : '' }}>
+                        <label class="form-check-label" for="marital_status_{{ $key }}">{{ $label }}</label>
+                    </div>
+                @endforeach
+                @if($errors->has('marital_status'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('marital_status') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.user.fields.marital_status_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required">{{ trans('cruds.user.fields.degree') }}</label>
+                @foreach(App\Models\User::DEGREE_RADIO as $key => $label)
+                    <div class="form-check {{ $errors->has('degree') ? 'is-invalid' : '' }}">
+                        <input class="form-check-input" type="radio" id="degree_{{ $key }}" name="degree" value="{{ $key }}" {{ old('degree', $user->degree) === (string) $key ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="degree_{{ $key }}">{{ $label }}</label>
+                    </div>
+                @endforeach
                 @if($errors->has('degree'))
                     <div class="invalid-feedback">
                         {{ $errors->first('degree') }}

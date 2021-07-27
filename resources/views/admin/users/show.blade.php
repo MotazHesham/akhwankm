@@ -95,14 +95,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.marital_status') }}
-                        </th>
-                        <td>
-                            {{ $user->marital_status }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.user.fields.country') }}
                         </th>
                         <td>
@@ -143,10 +135,18 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.user.fields.marital_status') }}
+                        </th>
+                        <td>
+                            {{ App\Models\User::MARITAL_STATUS_RADIO[$user->marital_status] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.user.fields.degree') }}
                         </th>
                         <td>
-                            {{ $user->degree }}
+                            {{ App\Models\User::DEGREE_RADIO[$user->degree] ?? '' }}
                         </td>
                     </tr>
                 </tbody>

@@ -20,16 +20,6 @@
                 <span class="help-block">{{ trans('cruds.brothersDealForm.fields.day_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="code">{{ trans('cruds.brothersDealForm.fields.code') }}</label>
-                <input class="form-control {{ $errors->has('code') ? 'is-invalid' : '' }}" type="text" name="code" id="code" value="{{ old('code', '') }}" required>
-                @if($errors->has('code'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('code') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.brothersDealForm.fields.code_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label class="required" for="department_of_social_service">{{ trans('cruds.brothersDealForm.fields.department_of_social_service') }}</label>
                 <input class="form-control {{ $errors->has('department_of_social_service') ? 'is-invalid' : '' }}" type="text" name="department_of_social_service" id="department_of_social_service" value="{{ old('department_of_social_service', '') }}" required>
                 @if($errors->has('department_of_social_service'))

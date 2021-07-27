@@ -33,14 +33,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.brothersDealForm.fields.code') }}
-                        </th>
-                        <td>
-                            {{ $brothersDealForm->code }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.brothersDealForm.fields.department_of_social_service') }}
                         </th>
                         <td>

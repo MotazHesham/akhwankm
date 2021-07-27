@@ -20,7 +20,6 @@ class BrothersDealForm extends Model
 
     protected $fillable = [
         'day',
-        'code',
         'department_of_social_service',
         'executive_committee',
         'social_worker',

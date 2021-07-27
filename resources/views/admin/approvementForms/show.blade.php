@@ -25,14 +25,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.approvementForm.fields.code') }}
-                        </th>
-                        <td>
-                            {{ $approvementForm->code }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.approvementForm.fields.approved') }}
                         </th>
                         <td>
@@ -52,7 +44,7 @@
                             {{ trans('cruds.approvementForm.fields.brothers_deal_form') }}
                         </th>
                         <td>
-                            {{ $approvementForm->brothers_deal_form->code ?? '' }}
+                            {{ $approvementForm->brothers_deal_form->social_worker ?? '' }}
                         </td>
                     </tr>
                     <tr>
