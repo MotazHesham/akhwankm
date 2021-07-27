@@ -16,12 +16,10 @@ class UsersTableSeeder extends Seeder
                 'remember_token'  => null,
                 'user_type'       => '',
                 'identity_number' => '',
-                'marital_status'  => '',
                 'country'         => '',
                 'city'            => '',
                 'phone'           => '',
                 'address'         => '',
-                'degree'          => '',
             ],
         ];
 

@@ -11,16 +11,6 @@
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label class="required" for="code">{{ trans('cruds.approvementForm.fields.code') }}</label>
-                <input class="form-control {{ $errors->has('code') ? 'is-invalid' : '' }}" type="text" name="code" id="code" value="{{ old('code', $approvementForm->code) }}" required>
-                @if($errors->has('code'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('code') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.approvementForm.fields.code_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label for="approved">{{ trans('cruds.approvementForm.fields.approved') }}</label>
                 <input class="form-control {{ $errors->has('approved') ? 'is-invalid' : '' }}" type="number" name="approved" id="approved" value="{{ old('approved', $approvementForm->approved) }}" step="1">
                 @if($errors->has('approved'))

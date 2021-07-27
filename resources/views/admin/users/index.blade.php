@@ -46,6 +46,9 @@
                         {{ trans('cruds.user.fields.gender') }}
                     </th>
                     <th>
+                        {{ trans('cruds.user.fields.marital_status') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.user.fields.degree') }}
                     </th>
                     <th>
@@ -112,6 +115,7 @@
 { data: 'phone', name: 'phone' },
 { data: 'address', name: 'address' },
 { data: 'gender', name: 'gender' },
+{ data: 'marital_status', name: 'marital_status' },
 { data: 'degree', name: 'degree' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],

@@ -17,10 +17,6 @@ class UpdateApprovementFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => [
-                'string',
-                'required',
-            ],
             'approved' => [
                 'nullable',
                 'integer',

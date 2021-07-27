@@ -10,7 +10,6 @@ use App\Models\BigBrother;
 use App\Models\Characteristic;
 use App\Models\Skill;
 use App\Models\User;
-use App\Models\Role;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,41 +35,19 @@ class BigBrotherController extends Controller
 
         $skills = Skill::all()->pluck('name_ar', 'id');
 
-        $roles = Role::all()->pluck('title', 'id');
-
-
-        return view('admin.bigBrothers.create', compact('users', 'charactarstics', 'skills','roles'));
+        return view('admin.bigBrothers.create', compact('users', 'charactarstics', 'skills'));
     }
 
     public function store(StoreBigBrotherRequest $request)
     {
-        $user = User::create($request->all());
-        $user->roles()->sync($request->input('roles', []));
-        if ($request->input('cv', false)) {
-            $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
-        }
-
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $user->id]);
-        }
-   $bigBrother=BigBrother::create ([
-        'job'=>$request->job,
-        'job_place'=>$request->job_place,
-        'salary'=>$request->salary,
-        'family_male'=>$request->family_male,
-        'family_female'=> $request->family_female,
-        'marital_status'=>$request->marital_status,
-        'brotherhood_reason'=>$request->brotherhood_reason,
-        'user_id'=>$user->id,
-
-    ]);
+        $bigBrother = BigBrother::create($request->all());
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
         $bigBrother->skills()->sync($request->input('skills', []));
 
         return redirect()->route('admin.big-brothers.index');
     }
 
-    public function edit(BigBrother $bigBrother,User $user)
+    public function edit(BigBrother $bigBrother)
     {
         abort_if(Gate::denies('big_brother_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
@@ -82,15 +59,7 @@ class BigBrotherController extends Controller
 
         $bigBrother->load('user', 'charactarstics', 'skills');
 
-        
-        $user=User::find($bigBrother->user_id);
-
-        $roles = Role::all()->pluck('title', 'id');
-
-        $user->load('roles');
-
-
-        return view('admin.bigBrothers.edit', compact('users', 'charactarstics', 'skills', 'bigBrother','roles','user'));
+        return view('admin.bigBrothers.edit', compact('users', 'charactarstics', 'skills', 'bigBrother'));
     }
 
     public function update(UpdateBigBrotherRequest $request, BigBrother $bigBrother)
@@ -98,11 +67,6 @@ class BigBrotherController extends Controller
         $bigBrother->update($request->all());
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
         $bigBrother->skills()->sync($request->input('skills', []));
-
-
-        $user=User::find($bigBrother->user_id);
-
-        $user->update($request->all());
 
         return redirect()->route('admin.big-brothers.index');
     }

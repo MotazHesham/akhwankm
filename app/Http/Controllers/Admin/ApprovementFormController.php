@@ -30,7 +30,7 @@ class ApprovementFormController extends Controller
 
         $specialists = User::all()->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $brothers_deal_forms = BrothersDealForm::all()->pluck('code', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $brothers_deal_forms = BrothersDealForm::all()->pluck('social_worker', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.approvementForms.create', compact('specialists', 'brothers_deal_forms'));
     }
@@ -48,7 +48,7 @@ class ApprovementFormController extends Controller
 
         $specialists = User::all()->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $brothers_deal_forms = BrothersDealForm::all()->pluck('code', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $brothers_deal_forms = BrothersDealForm::all()->pluck('social_worker', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $approvementForm->load('specialist', 'brothers_deal_form');
 

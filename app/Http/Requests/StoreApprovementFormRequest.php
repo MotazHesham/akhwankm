@@ -17,10 +17,6 @@ class StoreApprovementFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => [
-                'string',
-                'required',
-            ],
             'specialist_id' => [
                 'required',
                 'integer',

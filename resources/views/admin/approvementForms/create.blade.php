@@ -10,16 +10,6 @@
         <form method="POST" action="{{ route("admin.approvement-forms.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="code">{{ trans('cruds.approvementForm.fields.code') }}</label>
-                <input class="form-control {{ $errors->has('code') ? 'is-invalid' : '' }}" type="text" name="code" id="code" value="{{ old('code', '') }}" required>
-                @if($errors->has('code'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('code') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.approvementForm.fields.code_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label class="required" for="specialist_id">{{ trans('cruds.approvementForm.fields.specialist') }}</label>
                 <select class="form-control select2 {{ $errors->has('specialist') ? 'is-invalid' : '' }}" name="specialist_id" id="specialist_id" required>
                     @foreach($specialists as $id => $entry)

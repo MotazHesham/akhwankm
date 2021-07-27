@@ -27,6 +27,23 @@ class User extends Authenticatable implements HasMedia
         'm' => 'male',
     ];
 
+    public const MARITAL_STATUS_RADIO = [
+        'Single'   => 'Single',
+        'married'  => 'married',
+        'divorced' => 'divorced',
+        'widowed'  => 'widowed',
+    ];
+
+    public const DEGREE_RADIO = [
+        'Literate without Certificate' => 'Literate without Certificate',
+        'Primary Certificate'          => 'Primary Certificate',
+        'middle school certificate'    => 'middle school certificate',
+        'High School Certificate'      => 'High School Certificate',
+        'Diploma'                      => 'Diploma',
+        'Bachelors Degree'             => 'Bachelors Degree',
+        'Masters Degree'               => 'Masters Degree',
+    ];
+
     public $table = 'users';
 
     protected $appends = [
@@ -57,12 +74,12 @@ class User extends Authenticatable implements HasMedia
         'identity_number',
         'identity_date',
         'dbo',
-        'marital_status',
         'country',
         'city',
         'phone',
         'address',
         'gender',
+        'marital_status',
         'degree',
         'created_at',
         'updated_at',

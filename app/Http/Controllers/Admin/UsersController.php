@@ -72,8 +72,11 @@ class UsersController extends Controller
             $table->editColumn('gender', function ($row) {
                 return $row->gender ? User::GENDER_RADIO[$row->gender] : '';
             });
+            $table->editColumn('marital_status', function ($row) {
+                return $row->marital_status ? User::MARITAL_STATUS_RADIO[$row->marital_status] : '';
+            });
             $table->editColumn('degree', function ($row) {
-                return $row->degree ? $row->degree : '';
+                return $row->degree ? User::DEGREE_RADIO[$row->degree] : '';
             });
 
             $table->rawColumns(['actions', 'placeholder', 'roles']);

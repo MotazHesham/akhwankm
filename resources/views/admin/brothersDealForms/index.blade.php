@@ -29,9 +29,6 @@
                             {{ trans('cruds.brothersDealForm.fields.day') }}
                         </th>
                         <th>
-                            {{ trans('cruds.brothersDealForm.fields.code') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.brothersDealForm.fields.department_of_social_service') }}
                         </th>
                         <th>
@@ -71,9 +68,6 @@
                             </td>
                             <td>
                                 {{ $brothersDealForm->day ?? '' }}
-                            </td>
-                            <td>
-                                {{ $brothersDealForm->code ?? '' }}
                             </td>
                             <td>
                                 {{ $brothersDealForm->department_of_social_service ?? '' }}

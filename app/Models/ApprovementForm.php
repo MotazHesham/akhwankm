@@ -19,7 +19,6 @@ class ApprovementForm extends Model
     ];
 
     protected $fillable = [
-        'code',
         'approved',
         'specialist_id',
         'brothers_deal_form_id',
