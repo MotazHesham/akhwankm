@@ -15,13 +15,13 @@ use App\Models\Role;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Alert;
 
 class SmallBrotherController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('small_brother_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
+        abort_if(Gate::denies('small_brother_access'), Response::HTTP_FORBIDDEN, '403 Forbidden'); 
         $smallBrothers = SmallBrother::with(['user', 'skills', 'big_brother', 'charactaristics'])->get();
 
         return view('admin.smallBrothers.index', compact('smallBrothers'));
@@ -31,23 +31,32 @@ class SmallBrotherController extends Controller
     {
         abort_if(Gate::denies('small_brother_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $users = User::all()->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
-
         $skills = Skill::all()->pluck('name_ar', 'id');
 
         $big_brothers = BigBrother::all()->pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $charactaristics = Characteristic::all()->pluck('name_ar', 'id');
 
-        $roles = Role::all()->pluck('title', 'id');
 
-        return view('admin.smallBrothers.create', compact('users', 'skills', 'big_brothers', 'charactaristics','roles'));
+        return view('admin.smallBrothers.create', compact('skills', 'big_brothers', 'charactaristics'));
     }
 
     public function store(StoreSmallBrotherRequest $request)
     { 
-        $user = User::create($request->all());
-        $user->roles()->sync($request->input('roles', []));
+        
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'user_type' => 'small_brother',
+            'identity_number' => $request->identity_number,
+            'identity_date' => $request->identity_date,
+            'dbo' => $request->dbo,  
+            'phone' => $request->phone,
+            'gender' => $request->gender,
+            'degree' => $request->degree,
+        ]);
+
         if ($request->input('cv', false)) {
             $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
         }
@@ -63,9 +72,9 @@ class SmallBrotherController extends Controller
             'user_id'=> $user->id,
 
         ]);
+
         $smallBrother->skills()->sync($request->input('skills', []));
         $smallBrother->charactaristics()->sync($request->input('charactaristics', []));
-
         return redirect()->route('admin.small-brothers.index');
     }
 

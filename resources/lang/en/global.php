@@ -310,5 +310,51 @@ return [
     'courses'                        => 'Courses',
     'team-members'                   => 'Team members',
     'calendar'                       => 'Calendar',
-    'messenger'                      => 'Messenger',
+    'messenger'                      => 'Messenger', 
+    'flash' => [
+        '404' => 'Not Found !!',
+        'error' => 'Something Went Wrong !!',
+        'success' => 'Success',
+        'created' => 'Added Successfully',
+        'updated' => 'Updated Successfully',
+        'deleted' => 'Deleted Successfully',
+        'delete_' => 'Delete?',
+        'sure_' => 'Please ensure and then confirm!',
+        'yes_' => 'Yes, delete it!',
+        'no_' => 'No, cancel!',
+        'fix_errors' => 'Fix Errors Below',
+        'city' => [
+            'status' => 'City Status Updated Successfully',
+            'success' => 'A New City Inserted Successfully',
+            'updated' => "City Updated Successfully",
+            'deleted' => "City Deleted Successfully",
+            'mass_destroy' => "All Cities Deleted Successfully",
+        ],
+        'skill' => [
+            'status' => 'Skill Status Updated Successfully',
+            'success' => 'A New Skill Inserted Successfully',
+            'updated' => "Skill Updated Successfully",
+            'deleted' => "Skill Deleted Successfully",
+            'mass_destroy' => "All Skills Deleted Successfully",
+        ],
+        'role' => [
+            'success' => "A New Role Inserted Successfully",
+            'updated' => "Role Updated Successfully",
+            'deleted' => "Role Deleted Successfully",
+            'mass_destroy' => "All Roles Deleted Successfully",
+        ],
+        'user_alert' => [
+            'success' => "A New User Alert Inserted Successfully",
+            'updated' => "User Alert Updated Successfully",
+            'deleted' => "User Alert Deleted Successfully",
+            'mass_destroy' => "All User Alerts Deleted Successfully",
+        ],
+        'user' => [
+            'approve' => "User Approved Updated Successfully",
+            'success' => "A New User Inserted Successfully",
+            'updated' => "User Updated Successfully",
+            'deleted' => "User Deleted Successfully",
+            'mass_destroy' => "All Users Deleted Successfully",
+        ]
+    ]
 ];

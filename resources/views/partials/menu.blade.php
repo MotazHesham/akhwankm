@@ -34,6 +34,26 @@
                             </a>
                         </li>
                     @endcan
+                    @can('small_brother_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.small-brothers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/small-brothers") || request()->is("admin/small-brothers/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-child c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.smallBrother.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('big_brother_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.big-brothers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/big-brothers") || request()->is("admin/big-brothers/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-male c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.bigBrother.title') }}
+                            </a>
+                        </li>
+                    @endcan
                     @can('role_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.roles.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/roles") || request()->is("admin/roles/*") ? "c-active" : "" }}">
@@ -61,26 +81,6 @@
 
                                 </i>
                                 {{ trans('cruds.auditLog.title') }}
-                            </a>
-                        </li>
-                    @endcan
-                    @can('small_brother_access')
-                        <li class="c-sidebar-nav-item">
-                            <a href="{{ route("admin.small-brothers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/small-brothers") || request()->is("admin/small-brothers/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-child c-sidebar-nav-icon">
-
-                                </i>
-                                {{ trans('cruds.smallBrother.title') }}
-                            </a>
-                        </li>
-                    @endcan
-                    @can('big_brother_access')
-                        <li class="c-sidebar-nav-item">
-                            <a href="{{ route("admin.big-brothers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/big-brothers") || request()->is("admin/big-brothers/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-male c-sidebar-nav-icon">
-
-                                </i>
-                                {{ trans('cruds.bigBrother.title') }}
                             </a>
                         </li>
                     @endcan
