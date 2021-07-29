@@ -33,7 +33,7 @@ class BigBrotherController extends Controller
         $charactarstics = Characteristic::all()->pluck('name_ar', 'id');
 
         $skills = Skill::all()->pluck('name_ar', 'id');
-        
+
         return view('admin.bigBrothers.create', compact( 'charactarstics', 'skills'));
     }
 
@@ -55,7 +55,7 @@ class BigBrotherController extends Controller
             'gender' => $request->gender,
             'degree' => $request->degree,
         ]);
-        
+
         if ($request->input('cv', false)) {
             $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
         }
@@ -82,13 +82,13 @@ class BigBrotherController extends Controller
 
     public function edit(BigBrother $bigBrother,User $user)
     {
-        abort_if(Gate::denies('big_brother_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden'); 
+        abort_if(Gate::denies('big_brother_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $charactarstics = Characteristic::all()->pluck('name_ar', 'id');
 
         $skills = Skill::all()->pluck('name_ar', 'id');
 
-        $bigBrother->load('user', 'charactarstics', 'skills'); 
+        $bigBrother->load('user', 'charactarstics', 'skills');
 
 
         return view('admin.bigBrothers.edit', compact('charactarstics', 'skills', 'bigBrother'));
@@ -96,7 +96,7 @@ class BigBrotherController extends Controller
 
     public function update(UpdateBigBrotherRequest $request, BigBrother $bigBrother)
     {
-        
+
 
         $bigBrother=BigBrother::create ([
             'job'=>$request->job,
@@ -108,7 +108,7 @@ class BigBrotherController extends Controller
             'brotherhood_reason'=>$request->brotherhood_reason,
 
         ]);
-        
+
         $user = User::find($bigBrother->user_id);
 
         $user->update([
@@ -126,9 +126,9 @@ class BigBrotherController extends Controller
             'gender' => $request->gender,
             'degree' => $request->degree,
         ]);
-        
+
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
-        $bigBrother->skills()->sync($request->input('skills', [])); 
+        $bigBrother->skills()->sync($request->input('skills', []));
 
         return redirect()->route('admin.big-brothers.index');
     }
@@ -157,4 +157,12 @@ class BigBrotherController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function printinfo(BigBrother $bigBrother)
+    {
+        $userinfo=User::findOrFail($bigBrother->user_id);
+
+        return view('forms.bigBrother_registration', compact('userinfo','bigBrother'));
+    }
+    
 }

@@ -39,7 +39,7 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.password_helper') }}</span>
-            </div> 
+            </div>
             <div class="form-group">
                 <label for="cv">{{ trans('cruds.user.fields.cv') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone">

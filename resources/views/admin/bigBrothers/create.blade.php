@@ -9,6 +9,8 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.big-brothers.store") }}" enctype="multipart/form-data">
             @csrf
+    <div class="row" >
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="name">{{ trans('cruds.user.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
@@ -19,6 +21,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.name_helper') }}</span>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="email">{{ trans('cruds.user.fields.email') }}</label>
                 <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" id="email" value="{{ old('email') }}" required>
@@ -29,6 +33,10 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.email_helper') }}</span>
             </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>
                 <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password" required>
@@ -38,18 +46,9 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.password_helper') }}</span>
-            </div> 
-            <div class="form-group">
-                <label class="required" for="cv">{{ trans('cruds.user.fields.cv') }}</label>
-                <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone" required>
-                </div>
-                @if($errors->has('cv'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('cv') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="identity_number">{{ trans('cruds.user.fields.identity_number') }}</label>
                 <input class="form-control {{ $errors->has('identity_number') ? 'is-invalid' : '' }}" type="text" name="identity_number" id="identity_number" value="{{ old('identity_number', '') }}" required>
@@ -60,6 +59,10 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.identity_number_helper') }}</span>
             </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="identity_date">{{ trans('cruds.user.fields.identity_date') }}</label>
                 <input class="form-control date {{ $errors->has('identity_date') ? 'is-invalid' : '' }}" type="text" name="identity_date" id="identity_date" value="{{ old('identity_date') }}" required>
@@ -70,6 +73,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.identity_date_helper') }}</span>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="dbo">{{ trans('cruds.user.fields.dbo') }}</label>
                 <input class="form-control date {{ $errors->has('dbo') ? 'is-invalid' : '' }}" type="text" name="dbo" id="dbo" value="{{ old('dbo') }}" required>
@@ -80,16 +85,25 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.dbo_helper') }}</span>
             </div>
-            <div class="form-group">
-                <label for="marital_status">{{ trans('cruds.user.fields.marital_status') }}</label>
-                <input class="form-control {{ $errors->has('marital_status') ? 'is-invalid' : '' }}" type="text" name="marital_status" id="marital_status" value="{{ old('marital_status', '') }}">
-                @if($errors->has('marital_status'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('marital_status') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.user.fields.marital_status_helper') }}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>{{ trans('cruds.user.fields.marital_status') }}</label>
+        @foreach(App\Models\User::MARITAL_STATUS_RADIO as $key => $label)
+            <div class="form-check {{ $errors->has('marital_status') ? 'is-invalid' : '' }}">
+                <input class="form-check-input" type="radio" id="marital_status_{{ $key }}" name="marital_status" value="{{ $key }}" {{ old('marital_status', '') === (string) $key ? 'checked' : '' }}>
+                <label class="form-check-label" for="marital_status_{{ $key }}">{{ $label }}</label>
             </div>
+        @endforeach
+        @if($errors->has('marital_status'))
+            <div class="invalid-feedback">
+                {{ $errors->first('marital_status') }}
+            </div>
+        @endif
+        <span class="help-block">{{ trans('cruds.user.fields.marital_status_helper') }}</span>
+    </div>
+    <div class="row" >
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="country">{{ trans('cruds.user.fields.country') }}</label>
                 <input class="form-control {{ $errors->has('country') ? 'is-invalid' : '' }}" type="text" name="country" id="country" value="{{ old('country', '') }}">
@@ -100,6 +114,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.country_helper') }}</span>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="city">{{ trans('cruds.user.fields.city') }}</label>
                 <input class="form-control {{ $errors->has('city') ? 'is-invalid' : '' }}" type="text" name="city" id="city" value="{{ old('city', '') }}">
@@ -110,6 +126,10 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.city_helper') }}</span>
             </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="phone">{{ trans('cruds.user.fields.phone') }}</label>
                 <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="text" name="phone" id="phone" value="{{ old('phone', '') }}">
@@ -120,6 +140,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.phone_helper') }}</span>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="address">{{ trans('cruds.user.fields.address') }}</label>
                 <input class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" type="text" name="address" id="address" value="{{ old('address', '') }}">
@@ -130,6 +152,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.address_helper') }}</span>
             </div>
+        </div>
+    </div>
             <div class="form-group">
                 <label class="required">{{ trans('cruds.user.fields.gender') }}</label>
                 @foreach(App\Models\User::GENDER_RADIO as $key => $label)
@@ -160,6 +184,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.degree_helper') }}</span>
             </div>
+    <div class="row" >
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="job">{{ trans('cruds.bigBrother.fields.job') }}</label>
                 <input class="form-control {{ $errors->has('job') ? 'is-invalid' : '' }}" type="text" name="job" id="job" value="{{ old('job', '') }}" required>
@@ -170,6 +196,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.bigBrother.fields.job_helper') }}</span>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="job_place">{{ trans('cruds.bigBrother.fields.job_place') }}</label>
                 <input class="form-control {{ $errors->has('job_place') ? 'is-invalid' : '' }}" type="text" name="job_place" id="job_place" value="{{ old('job_place', '') }}" required>
@@ -180,6 +208,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.bigBrother.fields.job_place_helper') }}</span>
             </div>
+        </div>
+    </div>
             <div class="form-group">
                 <label class="required" for="salary">{{ trans('cruds.bigBrother.fields.salary') }}</label>
                 <input class="form-control {{ $errors->has('salary') ? 'is-invalid' : '' }}" type="number" name="salary" id="salary" value="{{ old('salary', '') }}" step="0.01" required>
@@ -190,6 +220,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.bigBrother.fields.salary_helper') }}</span>
             </div>
+    <div class="row" >
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="family_male">{{ trans('cruds.bigBrother.fields.family_male') }}</label>
                 <input class="form-control {{ $errors->has('family_male') ? 'is-invalid' : '' }}" type="number" name="family_male" id="family_male" value="{{ old('family_male', '') }}" step="1" required>
@@ -200,6 +232,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.bigBrother.fields.family_male_helper') }}</span>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="family_female">{{ trans('cruds.bigBrother.fields.family_female') }}</label>
                 <input class="form-control {{ $errors->has('family_female') ? 'is-invalid' : '' }}" type="number" name="family_female" id="family_female" value="{{ old('family_female', '') }}" step="1" required>
@@ -209,6 +243,20 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.bigBrother.fields.family_female_helper') }}</span>
+            </div>
+        </div>
+    </div>
+
+            <div class="form-group">
+                <label class="required" for="cv">{{ trans('cruds.user.fields.cv') }}</label>
+                <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone" required>
+                </div>
+                @if($errors->has('cv'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('cv') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="brotherhood_reason">{{ trans('cruds.bigBrother.fields.brotherhood_reason') }}</label>
