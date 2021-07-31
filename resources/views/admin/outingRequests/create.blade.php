@@ -9,6 +9,8 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.outing-requests.store") }}" enctype="multipart/form-data">
             @csrf
+        <div class="row" >
+            <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="outing_type_id">{{ trans('cruds.outingRequest.fields.outing_type') }}</label>
                 <select class="form-control select2 {{ $errors->has('outing_type') ? 'is-invalid' : '' }}" name="outing_type_id" id="outing_type_id" required>
@@ -23,26 +25,9 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.outingRequest.fields.outing_type_helper') }}</span>
             </div>
-            <div class="form-group">
-                <label class="required" for="start_date">{{ trans('cruds.outingRequest.fields.start_date') }}</label>
-                <input class="form-control datetime {{ $errors->has('start_date') ? 'is-invalid' : '' }}" type="text" name="start_date" id="start_date" value="{{ old('start_date') }}" required>
-                @if($errors->has('start_date'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('start_date') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.outingRequest.fields.start_date_helper') }}</span>
             </div>
-            <div class="form-group">
-                <label class="required" for="end_date">{{ trans('cruds.outingRequest.fields.end_date') }}</label>
-                <input class="form-control datetime {{ $errors->has('end_date') ? 'is-invalid' : '' }}" type="text" name="end_date" id="end_date" value="{{ old('end_date') }}" required>
-                @if($errors->has('end_date'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('end_date') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.outingRequest.fields.end_date_helper') }}</span>
-            </div>
+
+                <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="place">{{ trans('cruds.outingRequest.fields.place') }}</label>
                 <input class="form-control {{ $errors->has('place') ? 'is-invalid' : '' }}" type="text" name="place" id="place" value="{{ old('place', '') }}" required>
@@ -53,6 +38,36 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.outingRequest.fields.place_helper') }}</span>
             </div>
+                </div>
+        </div>
+        <div class="row" >
+            <div class="col-md-6">
+            <div class="form-group">
+                <label class="required" for="start_date">{{ trans('cruds.outingRequest.fields.start_date') }}</label>
+                <input class="form-control datetime {{ $errors->has('start_date') ? 'is-invalid' : '' }}" type="text" name="start_date" id="start_date" value="{{ old('start_date') }}" required>
+                @if($errors->has('start_date'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('start_date') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.outingRequest.fields.start_date_helper') }}</span>
+            </div>
+            </div>
+
+                <div class="col-md-6">
+            <div class="form-group">
+                <label class="required" for="end_date">{{ trans('cruds.outingRequest.fields.end_date') }}</label>
+                <input class="form-control datetime {{ $errors->has('end_date') ? 'is-invalid' : '' }}" type="text" name="end_date" id="end_date" value="{{ old('end_date') }}" required>
+                @if($errors->has('end_date'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('end_date') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.outingRequest.fields.end_date_helper') }}</span>
+            </div>
+                </div>
+        </div>
+
             <div class="form-group">
                 <label for="reason">{{ trans('cruds.outingRequest.fields.reason') }}</label>
                 <input class="form-control {{ $errors->has('reason') ? 'is-invalid' : '' }}" type="text" name="reason" id="reason" value="{{ old('reason', '') }}">
@@ -63,26 +78,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.outingRequest.fields.reason_helper') }}</span>
             </div>
-            <div class="form-group">
-                <label for="outing_date">{{ trans('cruds.outingRequest.fields.outing_date') }}</label>
-                <input class="form-control datetime {{ $errors->has('outing_date') ? 'is-invalid' : '' }}" type="text" name="outing_date" id="outing_date" value="{{ old('outing_date') }}">
-                @if($errors->has('outing_date'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('outing_date') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.outingRequest.fields.outing_date_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="done_time">{{ trans('cruds.outingRequest.fields.done_time') }}</label>
-                <input class="form-control datetime {{ $errors->has('done_time') ? 'is-invalid' : '' }}" type="text" name="done_time" id="done_time" value="{{ old('done_time') }}">
-                @if($errors->has('done_time'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('done_time') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.outingRequest.fields.done_time_helper') }}</span>
-            </div>
+
             <div class="form-group">
                 <label class="required" for="big_brother_id">{{ trans('cruds.outingRequest.fields.big_brother') }}</label>
                 <select class="form-control select2 {{ $errors->has('big_brother') ? 'is-invalid' : '' }}" name="big_brother_id" id="big_brother_id" required>
@@ -97,20 +93,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.outingRequest.fields.big_brother_helper') }}</span>
             </div>
-            <div class="form-group">
-                <label class="required" for="small_brother_id">{{ trans('cruds.outingRequest.fields.small_brother') }}</label>
-                <select class="form-control select2 {{ $errors->has('small_brother') ? 'is-invalid' : '' }}" name="small_brother_id" id="small_brother_id" required>
-                    @foreach($small_brothers as $id => $entry)
-                        <option value="{{ $id }}" {{ old('small_brother_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('small_brother'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('small_brother') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.outingRequest.fields.small_brother_helper') }}</span>
-            </div>
+            
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}

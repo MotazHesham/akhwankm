@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Big Brother
     Route::delete('big-brothers/destroy', 'BigBrotherController@massDestroy')->name('big-brothers.massDestroy');
     Route::get('big-brothers/brothers', 'BigBrotherController@showBrothers')->name('big-brothers.right_brothers');
+    Route::get('big-brothers/printinfo/{bigBrother}' , 'BigBrotherController@printinfo')->name('big-brothers.print');
     Route::resource('big-brothers', 'BigBrotherController');
     
 
@@ -59,8 +60,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Brothers Deal Form
     Route::delete('brothers-deal-forms/destroy', 'BrothersDealFormController@massDestroy')->name('brothers-deal-forms.massDestroy');
+    Route::get('brothers-deal-forms/printForm/{BrothersDealForm}' , 'BrothersDealFormController@printForm')->name('brothers-deal-forms.print');
     Route::resource('brothers-deal-forms', 'BrothersDealFormController');
-
+   
     // Outing Request
     Route::delete('outing-requests/destroy', 'OutingRequestController@massDestroy')->name('outing-requests.massDestroy');
     Route::resource('outing-requests', 'OutingRequestController');
@@ -86,5 +88,6 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('password', 'ChangePasswordController@update')->name('password.update');
         Route::post('profile', 'ChangePasswordController@updateProfile')->name('password.updateProfile');
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
+
     }
 });

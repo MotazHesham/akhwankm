@@ -12,6 +12,7 @@ use App\Models\SmallBrother;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+Use Alert;
 
 class BrothersDealFormController extends Controller
 {
@@ -92,4 +93,12 @@ class BrothersDealFormController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function printForm(BrothersDealForm $brothersDealForm)
+    {
+       
+      
+        return view('forms.brothersDeal', compact('brothersDealForm'));
+    }
+    
 }

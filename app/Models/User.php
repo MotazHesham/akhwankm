@@ -23,8 +23,8 @@ class User extends Authenticatable implements HasMedia
     use Auditable;
 
     public const GENDER_RADIO = [
-        'f' => 'female',
-        'm' => 'male',
+        'female' => 'female',
+        'male' => 'male',
     ];
 
     public const MARITAL_STATUS_RADIO = [

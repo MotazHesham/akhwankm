@@ -11,6 +11,7 @@ use App\Models\Role;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+Use Alert;
 
 class RolesController extends Controller
 {

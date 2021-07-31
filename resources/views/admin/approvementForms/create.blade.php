@@ -9,6 +9,8 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.approvement-forms.store") }}" enctype="multipart/form-data">
             @csrf
+    <div class="row" >
+        <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="specialist_id">{{ trans('cruds.approvementForm.fields.specialist') }}</label>
                 <select class="form-control select2 {{ $errors->has('specialist') ? 'is-invalid' : '' }}" name="specialist_id" id="specialist_id" required>
@@ -23,6 +25,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.approvementForm.fields.specialist_helper') }}</span>
             </div>
+        </div>
+            <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="brothers_deal_form_id">{{ trans('cruds.approvementForm.fields.brothers_deal_form') }}</label>
                 <select class="form-control select2 {{ $errors->has('brothers_deal_form') ? 'is-invalid' : '' }}" name="brothers_deal_form_id" id="brothers_deal_form_id" required>
@@ -37,6 +41,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.approvementForm.fields.brothers_deal_form_helper') }}</span>
             </div>
+            </div>
+    </div>
             <div class="form-group">
                 <label class="required" for="reason">{{ trans('cruds.approvementForm.fields.reason') }}</label>
                 <textarea class="form-control {{ $errors->has('reason') ? 'is-invalid' : '' }}" name="reason" id="reason" required>{{ old('reason') }}</textarea>

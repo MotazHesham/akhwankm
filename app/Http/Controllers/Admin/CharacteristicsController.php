@@ -10,6 +10,8 @@ use App\Models\Characteristic;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+Use Alert;
+
 
 class CharacteristicsController extends Controller
 {

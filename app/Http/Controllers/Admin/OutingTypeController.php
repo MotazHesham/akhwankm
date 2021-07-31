@@ -10,6 +10,7 @@ use App\Models\OutingType;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+Use Alert;
 
 class OutingTypeController extends Controller
 {
