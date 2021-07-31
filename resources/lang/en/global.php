@@ -26,6 +26,8 @@ return [
     'logout'                         => 'Logout',
     'month'                          => 'Month',
     'no'                             => 'No',
+    'right'                          => 'The right brothers for you',
+    'choose'                          =>'  choose',
     'pleaseSelect'                   => 'Please select',
     'register'                       => 'Register',
     'remember_me'                    => 'Remember me',

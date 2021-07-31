@@ -52,12 +52,16 @@ class ApprovementFormController extends Controller
 
         $approvementForm->load('specialist', 'brothers_deal_form');
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+
         return view('admin.approvementForms.edit', compact('specialists', 'brothers_deal_forms', 'approvementForm'));
     }
 
     public function update(UpdateApprovementFormRequest $request, ApprovementForm $approvementForm)
     {
         $approvementForm->update($request->all());
+
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('admin.approvement-forms.index');
     }
@@ -77,6 +81,8 @@ class ApprovementFormController extends Controller
 
         $approvementForm->delete();
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
+        
         return back();
     }
 

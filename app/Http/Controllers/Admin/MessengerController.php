@@ -77,6 +77,8 @@ class MessengerController extends Controller
 
         $topic->delete();
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
+
         return redirect()->route('admin.messenger.index');
     }
 

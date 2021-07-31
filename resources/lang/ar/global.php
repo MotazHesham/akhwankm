@@ -26,6 +26,8 @@ return [
     'logout'                         => 'تسجيل خروج',
     'month'                          => 'الشهر',
     'no'                             => 'لا',
+    'right'                          =>' الإخوة المناسبين لك',
+    'choose'                          =>'  اختار',
     'pleaseSelect'                   => 'الرجاء الإختيار',
     'register'                       => 'سجل',
     'remember_me'                    => 'تذكرني',

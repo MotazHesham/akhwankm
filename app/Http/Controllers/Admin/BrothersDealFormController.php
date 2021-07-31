@@ -38,6 +38,8 @@ class BrothersDealFormController extends Controller
     public function store(StoreBrothersDealFormRequest $request)
     {
         $brothersDealForm = BrothersDealForm::create($request->all());
+        
+        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
 
         return redirect()->route('admin.brothers-deal-forms.index');
     }
@@ -59,6 +61,8 @@ class BrothersDealFormController extends Controller
     {
         $brothersDealForm->update($request->all());
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
+        
         return redirect()->route('admin.brothers-deal-forms.index');
     }
 
@@ -76,6 +80,8 @@ class BrothersDealFormController extends Controller
         abort_if(Gate::denies('brothers_deal_form_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $brothersDealForm->delete();
+
+        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return back();
     }

@@ -75,7 +75,10 @@ class SmallBrotherController extends Controller
 
         $smallBrother->skills()->sync($request->input('skills', []));
         $smallBrother->charactaristics()->sync($request->input('charactaristics', []));
+
+        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
         return redirect()->route('admin.small-brothers.index');
+
     }
 
     public function edit(SmallBrother $smallBrother)
@@ -111,6 +114,7 @@ class SmallBrotherController extends Controller
 
         $user->update($request->all());
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));   
 
         return redirect()->route('admin.small-brothers.index');
     }
@@ -129,6 +133,8 @@ class SmallBrotherController extends Controller
         abort_if(Gate::denies('small_brother_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $smallBrother->delete();
+
+        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return back();
     }

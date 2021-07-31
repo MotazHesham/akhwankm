@@ -41,7 +41,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Big Brother
     Route::delete('big-brothers/destroy', 'BigBrotherController@massDestroy')->name('big-brothers.massDestroy');
+    Route::get('big-brothers/brothers', 'BigBrotherController@showBrothers')->name('big-brothers.right_brothers');
     Route::resource('big-brothers', 'BigBrotherController');
+    
 
     // Skills
     Route::delete('skills/destroy', 'SkillsController@massDestroy')->name('skills.massDestroy');

@@ -80,6 +80,8 @@ class UserAlertsController extends Controller
         $userAlert = UserAlert::create($request->all());
         $userAlert->users()->sync($request->input('users', []));
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+
         return redirect()->route('admin.user-alerts.index');
     }
 

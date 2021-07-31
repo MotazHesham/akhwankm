@@ -7,6 +7,7 @@ use App\Http\Requests\MassDestroyBigBrotherRequest;
 use App\Http\Requests\StoreBigBrotherRequest;
 use App\Http\Requests\UpdateBigBrotherRequest;
 use App\Models\BigBrother;
+use App\Models\SmallBrother;
 use App\Models\Characteristic;
 use App\Models\Skill;
 use App\Models\User;
@@ -14,6 +15,7 @@ use App\Models\Role;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+Use Alert;
 
 class BigBrotherController extends Controller
 {
@@ -77,7 +79,8 @@ class BigBrotherController extends Controller
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
         $bigBrother->skills()->sync($request->input('skills', []));
 
-        return redirect()->route('admin.big-brothers.index');
+        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+        return redirect()->route('admin.big-brothers.right_brothers');
     }
 
     public function edit(BigBrother $bigBrother,User $user)
@@ -130,6 +133,8 @@ class BigBrotherController extends Controller
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
         $bigBrother->skills()->sync($request->input('skills', [])); 
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
+
         return redirect()->route('admin.big-brothers.index');
     }
 
@@ -148,6 +153,8 @@ class BigBrotherController extends Controller
 
         $bigBrother->delete();
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
+
         return back();
     }
 
@@ -157,4 +164,12 @@ class BigBrotherController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
-}
+
+    public function showBrothers (){
+
+        $smallBrothers = SmallBrother::with(['user', 'skills', 'big_brother', 'charactaristics'])->get();
+
+        return view('admin.bigBrothers.right', compact('smallBrothers'));
+    }
+    }
+

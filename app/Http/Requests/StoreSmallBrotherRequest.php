@@ -32,7 +32,7 @@ class StoreSmallBrotherRequest extends FormRequest
                 'integer',
             ],
             'roles' => [
-                'required',
+               
                 'array',
             ],
             'identity_number' => [
