@@ -60,7 +60,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Brothers Deal Form
     Route::delete('brothers-deal-forms/destroy', 'BrothersDealFormController@massDestroy')->name('brothers-deal-forms.massDestroy');
-    Route::get('brothers-deal-forms/printForm/{BrothersDealForm}' , 'BrothersDealFormController@printForm')->name('brothers-deal-forms.print');
+    Route::get('brothers-deal-forms/printForm/{brothersDealForm}','BrothersDealFormController@printForm')->name('brothers-deal-forms.print');
     Route::resource('brothers-deal-forms', 'BrothersDealFormController');
    
     // Outing Request

@@ -71,6 +71,7 @@ return [
     'from'                           => 'From',
     'to'                             => 'إلى',
     'reply'                          => 'الرد',
+    'print'                          =>'طباعة',
     'body'                           => 'Body',
     'discard'                        => 'Discard',
     'datatables'                     => [

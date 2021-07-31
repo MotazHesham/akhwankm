@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateBrothersDealFormRequest;
 use App\Models\BigBrother;
 use App\Models\BrothersDealForm;
 use App\Models\SmallBrother;
+use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -95,10 +96,10 @@ class BrothersDealFormController extends Controller
     }
 
     public function printForm(BrothersDealForm $brothersDealForm)
-    {
-       
-      
-        return view('forms.brothersDeal', compact('brothersDealForm'));
+    {       
+        $big_brother=User::findOrFail($brothersDealForm->big_brother_id);
+        $small_brother=User::findOrFail($brothersDealForm->small_brother_id);
+        return view('forms.brothersDeal', compact('brothersDealForm','big_brother','small_brother'));
     }
     
 }

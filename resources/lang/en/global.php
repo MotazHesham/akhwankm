@@ -71,6 +71,7 @@ return [
     'from'                           => 'From',
     'to'                             => 'To',
     'reply'                          => 'Reply',
+    'print'                          =>'print',
     'body'                           => 'Body',
     'discard'                        => 'Discard',
     'datatables'                     => [

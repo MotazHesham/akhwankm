@@ -74,18 +74,18 @@
 
         <table style="padding: 1.5rem;float: right;position: relative;">
 			<tr>
-				<td class="text-right "  ><span >{{$brothersDealForm->day}}</span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> : رقم الهوية &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-				<td class="text-right " ><span ></span> <label class="gry-color strong" style="float:center" >: أناالأخ الأكبر&nbsp;&nbsp;</label></td>
-			    <td class="text-right " ><span ></span> <label class="gry-color strong" style="float:right" >: إنه في يوم &nbsp;&nbsp;</label></td>
+				<td class="text-right "  ><span >{{$big_brother->identity_number}}</span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> : رقم الهوية &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+				<td class="text-right " ><span >{{$big_brother->name}}</span> <label class="gry-color strong" style="float:center" >: أناالأخ الأكبر&nbsp;&nbsp;</label></td>
+			    <td class="text-right " ><span >{{$brothersDealForm->day}}</span> <label class="gry-color strong" style="float:right" >: إنه في يوم &nbsp;&nbsp;</label></td>
 			</tr>
             <tr>
-				<td class="text-right "  ><span >{{$brothersDealForm->day}}</span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> : رقم الهوية &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-				<td class="text-right " ><span ></span> <label class="gry-color strong" style="float:center" >:  تم التعاقد مع  الأخ الأصغر&nbsp;&nbsp;</label></td>
+				<td class="text-right "  ><span >{{$small_brother->identity_number}}</span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> : رقم الهوية &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+				<td class="text-right " ><span ></span>{{$small_brother->name}}<label class="gry-color strong" style="float:center" >:  تم التعاقد مع  الأخ الأصغر&nbsp;&nbsp;</label></td>
 				<td class="text-right " ><span ></span> <label class="gry-color strong" style="float:right" > &nbsp;&nbsp;</label></td>
 			</tr>
             <tr>
-				<td class="text-right "  ><span >{{$brothersDealForm->day}}</span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> :  بناء على الموافقة رقم  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-				<td class="text-right " ><span ></span> <label class="gry-color strong" style="float:center" >:بتاريخ &nbsp;&nbsp;</label></td>
+				<td class="text-right "  ><span >{{$brothersDealForm->approvement_form}}</span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> :  بناء على الموافقة رقم  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+				<td class="text-right " ><span >{{$brothersDealForm->created_at}}</span> <label class="gry-color strong" style="float:center" >:بتاريخ &nbsp;&nbsp;</label></td>
 				<td class="text-right " ><span ></span> <label class="gry-color strong" style="float:right" > &nbsp;&nbsp;</label>
 			</tr>
 
@@ -101,12 +101,12 @@
    
 				<table style="padding: 1.5rem;float: right;position: relative; margin-top:50px;">
 					<tr>
-						<td class="text-right "  ><span ></span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> :  اللجنة التنفيذية  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-						<td class="text-right " ><span ></span> <label class="gry-color strong" style="float:right" >: قسم الخدمة الإجتماعية&nbsp;&nbsp;</label></td>
+						<td class="text-right "  ><span >{{$brothersDealForm->executive_committee}}</span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> :  اللجنة التنفيذية  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+						<td class="text-right " ><span >{{$brothersDealForm->department_of_social_service}}</span> <label class="gry-color strong" style="float:right" >: قسم الخدمة الإجتماعية&nbsp;&nbsp;</label></td>
 					</tr>
 					<tr>
-						<td class="text-right "  ><span ></span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> :   المدير التنفيذي  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-						<td class="text-right " ><span ></span> <label class="gry-color strong" style="float:right" >:    الإخصائي الإجتماعي &nbsp;&nbsp;</label></td>
+						<td class="text-right "  >{{$brothersDealForm->executive_director}}<span ></span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> :   المدير التنفيذي  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+						<td class="text-right " >{{$brothersDealForm->social_worker}}<span ></span> <label class="gry-color strong" style="float:right" >:    الإخصائي الإجتماعي &nbsp;&nbsp;</label></td>
 					</tr>
 					<tr>
 						<td class="text-right "  ><span ></span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> : التوقيع    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>

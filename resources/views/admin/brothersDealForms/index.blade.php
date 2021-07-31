@@ -115,7 +115,7 @@
                                 @endcan
                             
                                 <a class="btn btn-xs btn-info" href="{{ route('admin.brothers-deal-forms.print', $brothersDealForm->id) }}">
-                                    print
+                                    {{ trans('global.print') }}
                                 </a>
                             </td>
 
