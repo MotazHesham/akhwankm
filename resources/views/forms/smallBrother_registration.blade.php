@@ -83,73 +83,18 @@
 
             <h3><pre>                                                                                  :  صفاتي </pre></h3>
 
-            <div style="display: flex; justify-content: center;">
-            <table style="width: 18cm;">
-                <tr>
-                    <td> 	   العنف والشدة &nbsp; o &nbsp;	</td>
-                    <td>	         التواصل &nbsp; o &nbsp;	</td>
-                </tr>
 
-                <tr>
-                    <td>                      القلق &nbsp; o &nbsp;	</td>
-                    <td>	                 الإنصات وحسن الاستماع &nbsp; o	 &nbsp;</td>
-                </tr>
-
-                <tr>
-                    <td> 	  الثقة بالنفس &nbsp; o &nbsp;	</td>
-                    <td>	       ادارة الوقت   &nbsp; o &nbsp;	</td>
-                </tr>
-
-                <tr>
-                    <td> 	 التردد  &nbsp; o &nbsp;	</td>
-                    <td>	    المرونة      &nbsp; o &nbsp;	</td>
-                </tr>
-
-                <tr>
-                    <td> 	الإنطواء   &nbsp; o &nbsp;	</td>
-                    <td>	    العمل الجماعي      &nbsp; o &nbsp;	</td>
-                </tr>
-
-                <tr>
-                    <td> 	التعايش مع الآخرين   &nbsp; o &nbsp;	</td>
-                    <td>	    التفاوض والاقناع      &nbsp; o &nbsp;	</td>
-                </tr>
-
-                <tr>
-                    <td> 	 معرفة الذات   &nbsp; o &nbsp;	</td>
-                    <td>	     التنظيم والترتيب     &nbsp; o &nbsp;	</td>
-                </tr>
-
-                <tr>
-                    <td> 	 تقدير الذات   &nbsp; o &nbsp;	</td>
-                    <td>	       الأفكار السلبية    &nbsp; o &nbsp;	</td>
-                </tr>
-
-                <tr>
-                    <td> 	 تقبل النصيحة  &nbsp; o &nbsp;	</td>
-                    <td>	     التغلب على المخاوف     &nbsp; o &nbsp;	</td>
-                </tr>
-
-                <tr>
-                    <td> 	 الاقدام   &nbsp; o &nbsp;	</td>
-                    <td>	     الإيجابية      &nbsp; o &nbsp;	</td>
-                </tr>
-
-                <tr>
-                    <td> 	الإندفاعية   &nbsp; o &nbsp;	</td>
-                    <td>	     المصداقية     &nbsp; o &nbsp;	</td>
-                </tr>
-
-                <tr>
-                    <td> 	 حل المشكلات  &nbsp; o &nbsp;	</td>
-                    <td>	   تحمل الضغوط       &nbsp; o &nbsp;	</td>
-                </tr>
-
-
-
-            </table>
-
-            </div>
+@foreach ($smallbrothers as $smallbrother)
+<tr>
+    <td>
+        @foreach($smallbrother->charactaristics as $key => $charactaristics)
+        <div style=" direction:RTL; text-align: right">
+            <span  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;({{ $charactaristics->name_ar}})</span>
+        </div>
+        @endforeach
+    </td>
+</tr>
+@endforeach
             <br>
         </div>
     </div>
@@ -176,4 +121,4 @@
     // window.print();
 </script>
 </body>
-</html>
+</html> 

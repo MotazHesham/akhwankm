@@ -177,11 +177,9 @@ class BigBrotherController extends Controller
     public function printinfo(BigBrother $bigBrother)
     {
         $userinfo=User::findOrFail($bigBrother->user_id);
-        // $charactarstics=BigBrother::with('charactarstics')->select('name_ar')->get();
-        $charactarstics=BigBrother::with(['charactarstics' => function ($q) {
-            $q->select('name_ar', 'name_en');
-        }])->get();
-        return view('forms.bigBrother_registration', compact('userinfo','bigBrother','charactarstics'));
+         $bigbrothers=BigBrother::with('charactarstics')->get();
+
+        return view('forms.bigBrother_registration', compact('userinfo','bigBrother','bigbrothers'));
     }
 
 }

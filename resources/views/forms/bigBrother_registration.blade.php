@@ -114,7 +114,19 @@
             <h3><pre>                                                                                  :  صفاتي </pre></h3>
 
 
-            {{-- {{$charactarstics->name_ar}} --}}
+
+
+@foreach ($bigbrothers as $bigbrother)
+<tr>
+    <td>
+        @foreach($bigbrother->charactarstics as $key => $charactarstics)
+        <div style=" direction:RTL; text-align: right">
+            <span  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;({{ $charactarstics->name_ar}})</span>
+        </div>
+        @endforeach
+    </td>
+</tr>
+@endforeach
             <br>
         </div>
     </div>

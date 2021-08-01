@@ -36,6 +36,102 @@ class SkillsTableSeeder extends Seeder
                 'name_en'            => 'successful',
 
             ],
+            [
+                'id'              => 5,
+                'name_ar'              => 'يلعب تنس ',
+                'name_en'            => 'play tennis',
+
+            ],
+            [
+                'id'              => 6,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 7,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 8,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 9,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 10,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 11,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 12,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 13,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 14,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 15,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 16,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 17,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 18,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 19,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
+            [
+                'id'              => 20,
+                'name_ar'              => 'متفوق',
+                'name_en'            => 'successful',
+
+            ],
         ];
 
         Skill::insert($skills);

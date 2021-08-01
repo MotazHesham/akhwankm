@@ -114,7 +114,7 @@ class SmallBrotherController extends Controller
 
         $user->update($request->all());
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));   
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('admin.small-brothers.index');
     }
@@ -150,8 +150,8 @@ class SmallBrotherController extends Controller
     public function printinfo(SmallBrother $smallBrother)
     {
         $userinfo=User::findOrFail($smallBrother->user_id);
-
-        return view('forms.smallBrother_registration', compact('userinfo','smallBrother'));
+        $smallbrothers=SmallBrother::with('charactaristics')->get();
+        return view('forms.smallBrother_registration', compact('userinfo','smallBrother','smallbrothers'));
     }
 
 }
