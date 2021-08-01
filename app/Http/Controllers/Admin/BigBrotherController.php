@@ -172,15 +172,16 @@ class BigBrotherController extends Controller
 
         return view('admin.bigBrothers.right', compact('smallBrothers'));
     }
-    
+
 
     public function printinfo(BigBrother $bigBrother)
     {
         $userinfo=User::findOrFail($bigBrother->user_id);
-
-        return view('forms.bigBrother_registration', compact('userinfo','bigBrother'));
+        // $charactarstics=BigBrother::with('charactarstics')->select('name_ar')->get();
+        $charactarstics=BigBrother::with(['charactarstics' => function ($q) {
+            $q->select('name_ar', 'name_en');
+        }])->get();
+        return view('forms.bigBrother_registration', compact('userinfo','bigBrother','charactarstics'));
     }
 
-  
-    
 }

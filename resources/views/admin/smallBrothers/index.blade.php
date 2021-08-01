@@ -97,7 +97,9 @@
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
-
+                                <a class="btn btn-xs btn-info" href="{{ route('admin.small-brothers.print', $smallBrother->id) }}">
+                                    print
+                                </a>
                                 @can('small_brother_delete')
                                     <form action="{{ route('admin.small-brothers.destroy', $smallBrother->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
@@ -164,7 +166,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>
