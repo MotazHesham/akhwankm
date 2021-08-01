@@ -41,6 +41,7 @@ class BigBrotherController extends Controller
 
     public function store(StoreBigBrotherRequest $request)
     {
+        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -179,5 +180,7 @@ class BigBrotherController extends Controller
 
         return view('forms.bigBrother_registration', compact('userinfo','bigBrother'));
     }
+
+  
     
 }

@@ -61,6 +61,12 @@
                             <button type="submit" class="btn btn-primary px-4">
                                 {{ trans('global.login') }}
                             </button>
+                           
+                        </div>
+                        <div class="col-6">
+                        <a class="btn btn-primary px-4" href="{{ route('big-brothers.register') }}">
+                            {{ trans('global.register') }}
+                        </a>
                         </div>
                         <div class="col-6 text-right">
                             @if(Route::has('password.request'))

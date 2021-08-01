@@ -11,6 +11,9 @@ Route::get('/home', function () {
 
 Auth::routes(['register' => false]);
 
+Route::post('big-brothers/register','RegisterController@big_brother')->name('big-brothers.register');
+Route::get('big-brothers/register' , 'RegisterController@register')->name('big-brothers.register');
+
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
