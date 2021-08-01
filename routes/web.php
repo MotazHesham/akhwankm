@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Small Brother
     Route::delete('small-brothers/destroy', 'SmallBrotherController@massDestroy')->name('small-brothers.massDestroy');
+    Route::get('small-brothers/printinfo/{smallBrother}' , 'SmallBrotherController@printinfo')->name('small-brothers.print');
     Route::resource('small-brothers', 'SmallBrotherController');
 
     // Big Brother

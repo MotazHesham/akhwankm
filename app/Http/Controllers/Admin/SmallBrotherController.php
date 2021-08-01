@@ -21,7 +21,7 @@ class SmallBrotherController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('small_brother_access'), Response::HTTP_FORBIDDEN, '403 Forbidden'); 
+        abort_if(Gate::denies('small_brother_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $smallBrothers = SmallBrother::with(['user', 'skills', 'big_brother', 'charactaristics'])->get();
 
         return view('admin.smallBrothers.index', compact('smallBrothers'));
@@ -42,8 +42,8 @@ class SmallBrotherController extends Controller
     }
 
     public function store(StoreSmallBrotherRequest $request)
-    { 
-        
+    {
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -51,7 +51,7 @@ class SmallBrotherController extends Controller
             'user_type' => 'small_brother',
             'identity_number' => $request->identity_number,
             'identity_date' => $request->identity_date,
-            'dbo' => $request->dbo,  
+            'dbo' => $request->dbo,
             'phone' => $request->phone,
             'gender' => $request->gender,
             'degree' => $request->degree,
@@ -66,7 +66,7 @@ class SmallBrotherController extends Controller
         }
 
 
-        
+
         $smallBrother = SmallBrother::create([
 
             'user_id'=> $user->id,
@@ -94,7 +94,7 @@ class SmallBrotherController extends Controller
         $charactaristics = Characteristic::all()->pluck('name_ar', 'id');
 
         $smallBrother->load('user', 'skills', 'big_brother', 'charactaristics');
-        
+
         $user=User::find($smallBrother->user_id);
 
         $roles = Role::all()->pluck('title', 'id');
@@ -108,7 +108,7 @@ class SmallBrotherController extends Controller
         $smallBrother->update($request->all());
         $smallBrother->skills()->sync($request->input('skills', []));
         $smallBrother->charactaristics()->sync($request->input('charactaristics', []));
-        
+
 
         $user=User::find($smallBrother->user_id);
 
@@ -145,4 +145,13 @@ class SmallBrotherController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+
+    public function printinfo(SmallBrother $smallBrother)
+    {
+        $userinfo=User::findOrFail($smallBrother->user_id);
+
+        return view('forms.smallBrother_registration', compact('userinfo','smallBrother'));
+    }
+
 }
