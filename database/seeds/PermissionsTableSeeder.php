@@ -258,6 +258,14 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 63,
+                'title' => 'outing_managment_access',
+            ],
+            [
+                'id'    => 64,
+                'title' => 'general_setting_access',
+            ],
+            [
+                'id'    => 65,
                 'title' => 'profile_password_edit',
             ],
         ];

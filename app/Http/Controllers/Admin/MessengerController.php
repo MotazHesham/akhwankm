@@ -10,7 +10,6 @@ use App\Models\User;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-Use Alert;
 
 class MessengerController extends Controller
 {
@@ -77,8 +76,6 @@ class MessengerController extends Controller
         $this->checkAccessRights($topic);
 
         $topic->delete();
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return redirect()->route('admin.messenger.index');
     }

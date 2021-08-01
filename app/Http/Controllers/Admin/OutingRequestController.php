@@ -35,16 +35,12 @@ class OutingRequestController extends Controller
 
         $small_brothers = SmallBrother::all()->pluck('temp', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-       
-
         return view('admin.outingRequests.create', compact('outing_types', 'big_brothers', 'small_brothers'));
     }
 
     public function store(StoreOutingRequestRequest $request)
     {
         $outingRequest = OutingRequest::create($request->all());
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
 
         return redirect()->route('admin.outing-requests.index');
     }
@@ -68,8 +64,6 @@ class OutingRequestController extends Controller
     {
         $outingRequest->update($request->all());
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
-
         return redirect()->route('admin.outing-requests.index');
     }
 
@@ -87,8 +81,6 @@ class OutingRequestController extends Controller
         abort_if(Gate::denies('outing_request_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $outingRequest->delete();
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return back();
     }

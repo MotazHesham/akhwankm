@@ -7,12 +7,11 @@ use App\Http\Requests\MassDestroyApprovementFormRequest;
 use App\Http\Requests\StoreApprovementFormRequest;
 use App\Http\Requests\UpdateApprovementFormRequest;
 use App\Models\ApprovementForm;
-use App\Models\BrothersDealForm;
+use App\Models\BigBrother;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-Use Alert;
 
 class ApprovementFormController extends Controller
 {
@@ -20,7 +19,7 @@ class ApprovementFormController extends Controller
     {
         abort_if(Gate::denies('approvement_form_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $approvementForms = ApprovementForm::with(['specialist', 'brothers_deal_form'])->get();
+        $approvementForms = ApprovementForm::with(['specialist', 'big_brother'])->get();
 
         return view('admin.approvementForms.index', compact('approvementForms'));
     }
@@ -29,11 +28,11 @@ class ApprovementFormController extends Controller
     {
         abort_if(Gate::denies('approvement_form_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $specialists = User::all()->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $specialists = User::pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $brothers_deal_forms = BrothersDealForm::all()->pluck('social_worker', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $big_brothers = BigBrother::pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.approvementForms.create', compact('specialists', 'brothers_deal_forms'));
+        return view('admin.approvementForms.create', compact('specialists', 'big_brothers'));
     }
 
     public function store(StoreApprovementFormRequest $request)
@@ -47,22 +46,18 @@ class ApprovementFormController extends Controller
     {
         abort_if(Gate::denies('approvement_form_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $specialists = User::all()->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $specialists = User::pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $brothers_deal_forms = BrothersDealForm::all()->pluck('social_worker', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $big_brothers = BigBrother::pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $approvementForm->load('specialist', 'brothers_deal_form');
+        $approvementForm->load('specialist', 'big_brother');
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
-
-        return view('admin.approvementForms.edit', compact('specialists', 'brothers_deal_forms', 'approvementForm'));
+        return view('admin.approvementForms.edit', compact('specialists', 'big_brothers', 'approvementForm'));
     }
 
     public function update(UpdateApprovementFormRequest $request, ApprovementForm $approvementForm)
     {
         $approvementForm->update($request->all());
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('admin.approvement-forms.index');
     }
@@ -71,7 +66,7 @@ class ApprovementFormController extends Controller
     {
         abort_if(Gate::denies('approvement_form_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $approvementForm->load('specialist', 'brothers_deal_form');
+        $approvementForm->load('specialist', 'big_brother');
 
         return view('admin.approvementForms.show', compact('approvementForm'));
     }
@@ -82,8 +77,6 @@ class ApprovementFormController extends Controller
 
         $approvementForm->delete();
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
-        
         return back();
     }
 

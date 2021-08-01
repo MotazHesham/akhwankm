@@ -9,8 +9,6 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.skills.store") }}" enctype="multipart/form-data">
             @csrf
-            <div class="row" >
-                <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="name_ar">{{ trans('cruds.skill.fields.name_ar') }}</label>
                 <input class="form-control {{ $errors->has('name_ar') ? 'is-invalid' : '' }}" type="text" name="name_ar" id="name_ar" value="{{ old('name_ar', '') }}" required>
@@ -21,9 +19,6 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.skill.fields.name_ar_helper') }}</span>
             </div>
-                </div>
-
-                    <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="name_en">{{ trans('cruds.skill.fields.name_en') }}</label>
                 <input class="form-control {{ $errors->has('name_en') ? 'is-invalid' : '' }}" type="text" name="name_en" id="name_en" value="{{ old('name_en', '') }}" required>
@@ -33,8 +28,6 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.skill.fields.name_en_helper') }}</span>
-            </div>
-                    </div>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

@@ -10,7 +10,6 @@ use App\Models\Permission;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-Use Alert;
 
 class PermissionsController extends Controller
 {
@@ -34,8 +33,6 @@ class PermissionsController extends Controller
     {
         $permission = Permission::create($request->all());
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
-
         return redirect()->route('admin.permissions.index');
     }
 
@@ -49,8 +46,6 @@ class PermissionsController extends Controller
     public function update(UpdatePermissionRequest $request, Permission $permission)
     {
         $permission->update($request->all());
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('admin.permissions.index');
     }
@@ -67,8 +62,6 @@ class PermissionsController extends Controller
         abort_if(Gate::denies('permission_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $permission->delete();
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return back();
     }

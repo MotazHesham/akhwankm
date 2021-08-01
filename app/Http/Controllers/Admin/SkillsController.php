@@ -10,7 +10,6 @@ use App\Models\Skill;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-Use Alert;
 
 class SkillsController extends Controller
 {
@@ -34,8 +33,6 @@ class SkillsController extends Controller
     {
         $skill = Skill::create($request->all());
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
-
         return redirect()->route('admin.skills.index');
     }
 
@@ -49,8 +46,6 @@ class SkillsController extends Controller
     public function update(UpdateSkillRequest $request, Skill $skill)
     {
         $skill->update($request->all());
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('admin.skills.index');
     }
@@ -67,8 +62,6 @@ class SkillsController extends Controller
         abort_if(Gate::denies('skill_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $skill->delete();
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return back();
     }

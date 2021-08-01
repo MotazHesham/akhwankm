@@ -32,9 +32,6 @@
                             {{ trans('cruds.approvementForm.fields.specialist') }}
                         </th>
                         <th>
-                            {{ trans('cruds.approvementForm.fields.brothers_deal_form') }}
-                        </th> 
-                        <th>
                             {{ trans('cruds.approvementForm.fields.reason') }}
                         </th>
                         <th>
@@ -42,6 +39,9 @@
                         </th>
                         <th>
                             {{ trans('cruds.approvementForm.fields.descision') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.approvementForm.fields.big_brother') }}
                         </th>
                         <th>
                             &nbsp;
@@ -64,9 +64,6 @@
                                 {{ $approvementForm->specialist->email ?? '' }}
                             </td>
                             <td>
-                                {{ $approvementForm->brothers_deal_form->social_worker ?? '' }}
-                            </td> 
-                            <td>
                                 {{ $approvementForm->reason ?? '' }}
                             </td>
                             <td>
@@ -74,6 +71,9 @@
                             </td>
                             <td>
                                 {{ $approvementForm->descision ?? '' }}
+                            </td>
+                            <td>
+                                {{ $approvementForm->big_brother->brotherhood_reason ?? '' }}
                             </td>
                             <td>
                                 @can('approvement_form_show')

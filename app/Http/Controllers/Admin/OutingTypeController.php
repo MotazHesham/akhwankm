@@ -10,7 +10,6 @@ use App\Models\OutingType;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-Use Alert;
 
 class OutingTypeController extends Controller
 {
@@ -34,8 +33,6 @@ class OutingTypeController extends Controller
     {
         $outingType = OutingType::create($request->all());
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
-
         return redirect()->route('admin.outing-types.index');
     }
 
@@ -49,8 +46,6 @@ class OutingTypeController extends Controller
     public function update(UpdateOutingTypeRequest $request, OutingType $outingType)
     {
         $outingType->update($request->all());
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('admin.outing-types.index');
     }
@@ -67,8 +62,6 @@ class OutingTypeController extends Controller
         abort_if(Gate::denies('outing_type_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $outingType->delete();
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return back();
     }

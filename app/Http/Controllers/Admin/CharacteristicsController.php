@@ -10,8 +10,6 @@ use App\Models\Characteristic;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-Use Alert;
-
 
 class CharacteristicsController extends Controller
 {
@@ -35,8 +33,6 @@ class CharacteristicsController extends Controller
     {
         $characteristic = Characteristic::create($request->all());
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
-
         return redirect()->route('admin.characteristics.index');
     }
 
@@ -50,8 +46,6 @@ class CharacteristicsController extends Controller
     public function update(UpdateCharacteristicRequest $request, Characteristic $characteristic)
     {
         $characteristic->update($request->all());
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('admin.characteristics.index');
     }
@@ -68,8 +62,6 @@ class CharacteristicsController extends Controller
         abort_if(Gate::denies('characteristic_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $characteristic->delete();
-
-        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return back();
     }

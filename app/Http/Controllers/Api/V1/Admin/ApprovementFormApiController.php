@@ -17,7 +17,7 @@ class ApprovementFormApiController extends Controller
     {
         abort_if(Gate::denies('approvement_form_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new ApprovementFormResource(ApprovementForm::with(['specialist', 'brothers_deal_form'])->get());
+        return new ApprovementFormResource(ApprovementForm::with(['specialist', 'big_brother'])->get());
     }
 
     public function store(StoreApprovementFormRequest $request)
@@ -33,7 +33,7 @@ class ApprovementFormApiController extends Controller
     {
         abort_if(Gate::denies('approvement_form_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new ApprovementFormResource($approvementForm->load(['specialist', 'brothers_deal_form']));
+        return new ApprovementFormResource($approvementForm->load(['specialist', 'big_brother']));
     }
 
     public function update(UpdateApprovementFormRequest $request, ApprovementForm $approvementForm)

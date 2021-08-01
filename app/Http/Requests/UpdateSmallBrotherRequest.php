@@ -16,7 +16,11 @@ class UpdateSmallBrotherRequest extends FormRequest
 
     public function rules()
     {
-        return [ 
+        return [
+            'user_id' => [
+                'required',
+                'integer',
+            ],
             'skills.*' => [
                 'integer',
             ],
