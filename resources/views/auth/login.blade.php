@@ -57,18 +57,17 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-4">
                             <button type="submit" class="btn btn-primary px-4">
                                 {{ trans('global.login') }}
-                            </button>
-                           
+                            </button> 
+                        </div> 
+                        <div class="col-4"> 
+                            <a class="btn btn-success px-4" href="{{ route('big-brothers.register') }}">
+                                {{ trans('global.register') }}
+                            </a>
                         </div>
-                        <div class="col-6">
-                        <a class="btn btn-primary px-4" href="{{ route('big-brothers.register') }}">
-                            {{ trans('global.register') }}
-                        </a>
-                        </div>
-                        <div class="col-6 text-right">
+                        <div class="col-4 text-right">
                             @if(Route::has('password.request'))
                                 <a class="btn btn-link px-0" href="{{ route('password.request') }}">
                                     {{ trans('global.forgot_password') }}

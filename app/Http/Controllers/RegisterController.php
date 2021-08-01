@@ -16,7 +16,7 @@ class RegisterController extends Controller
 
         $skills = Skill::all()->pluck('name_ar', 'id');
 
-        return view('admin.bigBrothers.registration', compact( 'charactarstics', 'skills'));
+        return view('auth.big_brother_register', compact( 'charactarstics', 'skills'));
 
     }
     public function big_brother(StoreBigBrotherRequest $request)

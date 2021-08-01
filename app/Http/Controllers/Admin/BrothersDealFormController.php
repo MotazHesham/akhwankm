@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyBrothersDealFormRequest;
 use App\Http\Requests\StoreBrothersDealFormRequest;
 use App\Http\Requests\UpdateBrothersDealFormRequest;
+use App\Models\ApprovementForm;
 use App\Models\BigBrother;
 use App\Models\BrothersDealForm;
 use App\Models\SmallBrother;
@@ -13,7 +14,6 @@ use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-Use Alert;
 
 class BrothersDealFormController extends Controller
 {
@@ -21,7 +21,7 @@ class BrothersDealFormController extends Controller
     {
         abort_if(Gate::denies('brothers_deal_form_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $brothersDealForms = BrothersDealForm::with(['big_brother', 'small_brother'])->get();
+        $brothersDealForms = BrothersDealForm::with(['big_brother', 'small_brother', 'approvment_form', 'specialist'])->get();
 
         return view('admin.brothersDealForms.index', compact('brothersDealForms'));
     }
@@ -30,18 +30,20 @@ class BrothersDealFormController extends Controller
     {
         abort_if(Gate::denies('brothers_deal_form_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $big_brothers = BigBrother::all()->pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $small_brothers = SmallBrother::all()->pluck('temp', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), ''); 
 
-        return view('admin.brothersDealForms.create', compact('big_brothers', 'small_brothers'));
+        $approvment_forms = ApprovementForm::pluck('approved', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $specialists = User::where('user_type','staff')->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.brothersDealForms.create', compact('big_brothers', 'small_brothers', 'approvment_forms', 'specialists'));
     }
 
     public function store(StoreBrothersDealFormRequest $request)
     {
         $brothersDealForm = BrothersDealForm::create($request->all());
-        
-        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
 
         return redirect()->route('admin.brothers-deal-forms.index');
     }
@@ -50,21 +52,24 @@ class BrothersDealFormController extends Controller
     {
         abort_if(Gate::denies('brothers_deal_form_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $big_brothers = BigBrother::all()->pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $small_brothers = SmallBrother::all()->pluck('temp', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), ''); 
+        
 
-        $brothersDealForm->load('big_brother', 'small_brother');
+        $approvment_forms = ApprovementForm::pluck('approved', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.brothersDealForms.edit', compact('big_brothers', 'small_brothers', 'brothersDealForm'));
+        $specialists = User::where('user_type','staff')->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $brothersDealForm->load('big_brother', 'small_brother', 'approvment_form', 'specialist');
+
+        return view('admin.brothersDealForms.edit', compact('big_brothers', 'small_brothers', 'approvment_forms', 'specialists', 'brothersDealForm'));
     }
 
     public function update(UpdateBrothersDealFormRequest $request, BrothersDealForm $brothersDealForm)
     {
         $brothersDealForm->update($request->all());
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
-        
         return redirect()->route('admin.brothers-deal-forms.index');
     }
 
@@ -72,7 +77,7 @@ class BrothersDealFormController extends Controller
     {
         abort_if(Gate::denies('brothers_deal_form_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $brothersDealForm->load('big_brother', 'small_brother');
+        $brothersDealForm->load('big_brother', 'small_brother', 'approvment_form', 'specialist');
 
         return view('admin.brothersDealForms.show', compact('brothersDealForm'));
     }
@@ -83,8 +88,6 @@ class BrothersDealFormController extends Controller
 
         $brothersDealForm->delete();
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
-
         return back();
     }
 
@@ -94,12 +97,11 @@ class BrothersDealFormController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
-
+    
     public function printForm(BrothersDealForm $brothersDealForm)
     {       
-        $big_brother=User::findOrFail($brothersDealForm->big_brother_id);
-        $small_brother=User::findOrFail($brothersDealForm->small_brother_id);
+        $big_brother=BigBrother::findOrFail($brothersDealForm->big_brother_id);
+        $small_brother=SmallBrother::findOrFail($brothersDealForm->small_brother_id);
         return view('forms.brothersDeal', compact('brothersDealForm','big_brother','small_brother'));
     }
-    
 }

@@ -18,16 +18,9 @@ class UpdateApprovementFormRequest extends FormRequest
     {
         return [
             'approved' => [
-                'nullable',
-                'integer',
-                'min:-2147483648',
-                'max:2147483647',
+                'required', 
             ],
             'specialist_id' => [
-                'required',
-                'integer',
-            ],
-            'brothers_deal_form_id' => [
                 'required',
                 'integer',
             ],
@@ -39,6 +32,10 @@ class UpdateApprovementFormRequest extends FormRequest
             ],
             'descision' => [
                 'required',
+            ],
+            'big_brother_id' => [
+                'required',
+                'integer',
             ],
         ];
     }

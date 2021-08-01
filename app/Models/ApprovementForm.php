@@ -12,6 +12,11 @@ class ApprovementForm extends Model
 
     public $table = 'approvement_forms';
 
+    public const APPROVED_RADIO = [
+        'not_approved' => 'not_approved',
+        'approved' => 'approved',
+    ];
+
     protected $dates = [
         'created_at',
         'updated_at',
@@ -21,10 +26,10 @@ class ApprovementForm extends Model
     protected $fillable = [
         'approved',
         'specialist_id',
-        'brothers_deal_form_id',
         'reason',
         'description',
         'descision',
+        'big_brother_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -35,9 +40,9 @@ class ApprovementForm extends Model
         return $this->belongsTo(User::class, 'specialist_id');
     }
 
-    public function brothers_deal_form()
+    public function big_brother()
     {
-        return $this->belongsTo(BrothersDealForm::class, 'brothers_deal_form_id');
+        return $this->belongsTo(BigBrother::class, 'big_brother_id');
     }
 
     protected function serializeDate(DateTimeInterface $date)

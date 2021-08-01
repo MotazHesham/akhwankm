@@ -29,10 +29,6 @@ class StoreBrothersDealFormRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'social_worker' => [
-                'string',
-                'required',
-            ],
             'executive_director' => [
                 'string',
                 'required',
@@ -45,11 +41,9 @@ class StoreBrothersDealFormRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'approvement_form' => [
+            'specialist_id' => [
                 'required',
                 'integer',
-                'min:-2147483648',
-                'max:2147483647',
             ],
         ];
     }

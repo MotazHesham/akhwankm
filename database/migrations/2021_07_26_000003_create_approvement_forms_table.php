@@ -9,9 +9,8 @@ class CreateApprovementFormsTable extends Migration
     public function up()
     {
         Schema::create('approvement_forms', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('code');
-            $table->integer('approved')->nullable();
+            $table->bigIncrements('id'); 
+            $table->string('approved');
             $table->longText('reason');
             $table->longText('description');
             $table->longText('descision');

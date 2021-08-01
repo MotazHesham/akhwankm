@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html @if(app()->getLocale() == 'ar') dir="rtl" @endif> 
 
 <head>
     <meta charset="UTF-8">
@@ -21,18 +21,23 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" rel="stylesheet" />
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_arrows.min.css" rel="stylesheet" type="text/css" />
-   <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.smartWizard.min.js"></script>
-   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-   <script src="https://www.jqueryscript.net/demo/Creating-A-Modern-Multi-Step-Form-with-jQuery-CSS3/js/jquery.easing.min.js"></script>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" /> 
+    @if(app()->getLocale() == 'ar')
+      <style>
+        .c-sidebar-nav .c-sidebar-nav-dropdown-items{
+          padding-right: 8%; 
+        }
+      </style>
+    @else
+      <style>
+        .c-sidebar-nav .c-sidebar-nav-dropdown-items{
+          padding-left: 8%; 
+        }
+      </style>
+    @endif
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-  <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
     @yield('styles')
 </head>
 
@@ -50,7 +55,7 @@
                 <i class="fas fa-fw fa-bars"></i>
             </button>
 
-            <ul class="c-header-nav ml-auto">
+            <ul class="c-header-nav @if(app()->getLocale() == 'ar') mr-auto @else ml-auto @endif">
                 @if(count(config('panel.available_languages', [])) > 1)
                     <li class="c-header-nav-item dropdown d-md-down-none">
                         <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -93,6 +98,28 @@
                             @endif
                         </div>
                     </li>
+                    @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
+                        @can('profile_password_edit')
+                            <li class="c-header-nav-item dropdown d-md-down-none" style=" background: #EBEDEF; border-radius: 8px 39px 0px 0px; padding: 0px 13px;">
+                                <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    @if(auth()->user()->photo)
+                                        <img src="{{asset(auth()->user()->photo->getUrl('thumb'))}}" alt="" width="40" height="40" style="border-radius: 50px;margin:10px">
+                                    @else 
+                                        <img src="{{asset('user.png')}}" alt="" width="40" height="40" style="border-radius: 50px;margin:10px">
+                                    @endif
+                                    <span class="text-center"> 
+                                        {{auth()->user()->name }}
+                                        <br> 
+                                        <small style="background: #922B21;color:#fff; border-radius: 30px; padding: 1px 11px;">{{auth()->user()->roles->first()->title}}</small> 
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right"> 
+                                    <a class="dropdown-item" href="{{route('profile.password.edit')}}">{{trans('global.change_password')}}</a> 
+                                    <a class="dropdown-item" style="cursor: pointer" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> {{ trans('global.logout') }}</a> 
+                                </div>
+                            </li>
+                        @endcan
+                    @endif
                 </ul>
 
             </ul>

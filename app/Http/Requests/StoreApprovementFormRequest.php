@@ -17,11 +17,10 @@ class StoreApprovementFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'specialist_id' => [
-                'required',
-                'integer',
+            'approved' => [
+                'required', 
             ],
-            'brothers_deal_form_id' => [
+            'specialist_id' => [
                 'required',
                 'integer',
             ],
@@ -33,6 +32,10 @@ class StoreApprovementFormRequest extends FormRequest
             ],
             'descision' => [
                 'required',
+            ],
+            'big_brother_id' => [
+                'required',
+                'integer',
             ],
         ];
     }

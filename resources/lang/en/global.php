@@ -84,6 +84,7 @@ return [
         'delete'        => 'Delete selected',
         'zero_selected' => 'No rows selected',
     ],
+    'print'         => 'Print',
     'billing' => [
         'menu'                        => 'Billing',
         'current_plan'                => 'Your current plan',
@@ -314,6 +315,29 @@ return [
     'team-members'                   => 'Team members',
     'calendar'                       => 'Calendar',
     'messenger'                      => 'Messenger', 
+    'degree' => [ 
+        'Literate without Certificate' => 'Literate without Certificate',
+        'Primary Certificate'          => 'Primary Certificate',
+        'middle school certificate'    => 'middle school certificate',
+        'High School Certificate'      => 'High School Certificate',
+        'Diploma'                      => 'Diploma',
+        'Bachelors Degree'             => 'Bachelors Degree',
+        'Masters Degree'               => 'Masters Degree',
+    ],
+    'gender' => [
+        'male' => 'Male',
+        'female' => 'Female',
+    ],
+    'approvment' => [
+        'not_approved' => 'Not Approved',
+        'approved' => 'Approved',
+    ],
+    'marital_status' => [
+        'Single'   => 'Single',
+        'married'  => 'Married',
+        'divorced' => 'Divorced',
+        'widowed'  => 'Widowed',
+    ],
     'flash' => [
         '404' => 'Not Found !!',
         'error' => 'Something Went Wrong !!',

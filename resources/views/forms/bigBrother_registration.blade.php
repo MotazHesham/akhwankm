@@ -6,13 +6,17 @@
     <title>استمارة تسجيل الراغب في المؤخآة </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 
     <style >
 
+        @page { 
+			size: auto;   /* auto is the initial value */
+			margin: 0;  /* this affects the margin in the printer settings */
+		}
 
 		table{
 			width: 100%;
@@ -56,7 +60,7 @@
 
     <h1 style=" text-align:center" ><b> <ins>  استمارة تسجيل الأخ الأكبر الراغب في المؤخاه</ins></b></h1>
 
-    <h2 style="background-color: #DDD ; text-align:center">  (    ) استمارة رقم</h2>
+    <h2 style="background-color: #DDD ; text-align:center">  ({{$bigBrother->id}}) استمارة رقم</h2>
     <br>
     <br>
 <div style="display: flex; justify-content: center;">

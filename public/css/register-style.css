@@ -11,8 +11,8 @@ body{
 	font-family: 'Ubuntu', sans-serif !important;
 }
 #msform{
-	width: 80%;
-	margin: 50px auto;
+	/* width: 80%;
+	margin: 50px auto;  */
 	text-align: center;
 	position: relative;
 }
@@ -25,7 +25,7 @@ body{
 	box-sizing: border-box;
 	width: 80%;
 	margin: 0 10%;
-	position: absolute;
+	/* position: absolute; */
 }
 #msform fieldset:not(:first-of-type){
 	display: none;
@@ -75,10 +75,10 @@ body{
 }
 #progressbar li {
     list-style-type: none;
-    color: #D2D2D2;
+    /* color: #D2D2D2; */
     text-transform: capitalize;
     font-size: 16px;
-    width: 33.33%;
+    width: 24.33%;
     float: left;
     position: relative;
 }
@@ -92,7 +92,7 @@ body{
     line-height: 50px;
     display: block;
     font-size: 18px;
-    color:#fff ;
+    /* color:#fff ; */
     background: transparent;
     border-radius: 100%;
     margin: 0 auto 5px auto;    
@@ -107,6 +107,10 @@ body{
 	font-family: 'FontAwesome';	
 }
 #progressbar li:nth-child(3):before{
+	content:"\f022" ;
+	font-family: 'FontAwesome';	
+}
+#progressbar li:nth-child(4):before{
 	content:"\f00c" ;
 	font-family: 'FontAwesome';	
 }

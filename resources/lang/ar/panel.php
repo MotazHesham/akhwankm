@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Akhwankm',
+    'site_title' => 'جمعية أخوانكم',
 ];

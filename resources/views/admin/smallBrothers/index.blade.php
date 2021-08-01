@@ -32,7 +32,7 @@
                             {{ trans('cruds.user.fields.name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.user.fields.nationality') }}
+                            {{ trans('cruds.user.fields.identity_number') }}
                         </th>
                         <th>
                             {{ trans('cruds.user.fields.phone') }}
@@ -67,7 +67,7 @@
                                 {{ $smallBrother->user->name ?? '' }}
                             </td>
                             <td>
-                                {{ $smallBrother->user->nationality ?? '' }}
+                                {{ $smallBrother->user->identity_number ?? '' }}
                             </td>
                             <td>
                                 {{ $smallBrother->user->phone ?? '' }}

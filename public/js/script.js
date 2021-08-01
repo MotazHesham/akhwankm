@@ -4,6 +4,7 @@ var current_fs, next_fs, previous_fs;
 var left, opacity, scale; 
 var animating; 
 $(".next").click(function(){
+	
 	if(animating) return false;
 	animating = true;
 	

@@ -22,11 +22,11 @@ class BrothersDealForm extends Model
         'day',
         'department_of_social_service',
         'executive_committee',
-        'social_worker',
         'executive_director',
         'big_brother_id',
         'small_brother_id',
-        'approvement_form',
+        'approvment_form_id',
+        'specialist_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -40,6 +40,16 @@ class BrothersDealForm extends Model
     public function small_brother()
     {
         return $this->belongsTo(SmallBrother::class, 'small_brother_id');
+    }
+
+    public function approvment_form()
+    {
+        return $this->belongsTo(ApprovementForm::class, 'approvment_form_id');
+    }
+
+    public function specialist()
+    {
+        return $this->belongsTo(User::class, 'specialist_id');
     }
 
     protected function serializeDate(DateTimeInterface $date)

@@ -44,8 +44,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('small-brothers', 'SmallBrotherController');
 
     // Big Brother
-    Route::delete('big-brothers/destroy', 'BigBrotherController@massDestroy')->name('big-brothers.massDestroy');
-    Route::get('big-brothers/brothers', 'BigBrotherController@showBrothers')->name('big-brothers.right_brothers');
+    Route::delete('big-brothers/destroy', 'BigBrotherController@massDestroy')->name('big-brothers.massDestroy'); 
     Route::get('big-brothers/printinfo/{bigBrother}' , 'BigBrotherController@printinfo')->name('big-brothers.print');
     Route::resource('big-brothers', 'BigBrotherController');
     
@@ -66,7 +65,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('brothers-deal-forms/destroy', 'BrothersDealFormController@massDestroy')->name('brothers-deal-forms.massDestroy');
     Route::get('brothers-deal-forms/printForm/{brothersDealForm}','BrothersDealFormController@printForm')->name('brothers-deal-forms.print');
     Route::resource('brothers-deal-forms', 'BrothersDealFormController');
-   
+
     // Outing Request
     Route::delete('outing-requests/destroy', 'OutingRequestController@massDestroy')->name('outing-requests.massDestroy');
     Route::resource('outing-requests', 'OutingRequestController');

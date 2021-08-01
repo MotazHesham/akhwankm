@@ -84,6 +84,7 @@ return [
         'delete'        => 'حذف المحدد',
         'zero_selected' => 'لم يتم تحديد صفوف',
     ],
+    'print'         => 'طباعة',
     'billing' => [
         'menu'                        => 'الفوترة',
         'current_plan'                => 'اشتراكك الحالي',
@@ -314,6 +315,29 @@ return [
     'team-members'                   => 'اعضاء الفريق',
     'calendar'                       => 'التقويم',
     'messenger'                      => 'مراسل', 
+    'degree' => [
+        'Literate without Certificate' => 'القراءة والكتابة بدون شهادة',
+        'Primary Certificate'          => 'الشهادة الابتدائية',
+        'middle school certificate'    => 'شهادة المدرسة المتوسطة',
+        'High School Certificate'      => 'شهادة الثانوية العامة',
+        'Diploma'                      => 'شهادة دبلوم',
+        'Bachelors Degree'             => 'درجة باكلريوس',
+        'Masters Degree'               => 'ماجيستير',
+    ],
+    'gender' => [
+        'male' => 'ذكر',
+        'female' => 'أنثي',
+    ],
+    'approvment' => [
+        'not_approved' => 'عدم الموافقة',
+        'approved' => 'موافقة',
+    ],
+    'marital_status' => [
+        'Single'   => 'غير مرتبط',
+        'married'  => 'متزوج',
+        'divorced' => 'مطلق',
+        'widowed'  => 'أرامل',
+    ],
     'flash' => [
         '404' => 'لم يتم العثور علي اي بيانات',
         'error' => 'حدث خطأ حاول فيما بعد !!',

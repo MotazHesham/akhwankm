@@ -76,8 +76,8 @@
                                     </a>
                                 @endcan
 
-                                <a class="btn btn-xs btn-info" href="{{ route('admin.big-brothers.print', $bigBrother->id) }}">
-                                    print
+                                <a class="btn btn-xs btn-success" href="{{ route('admin.big-brothers.print', $bigBrother->id) }}">
+                                    {{ trans('global.print') }}
                                 </a>
 
                                 @can('big_brother_delete')

@@ -66,18 +66,7 @@
                 <span class="help-block">{{ trans('cruds.outingRequest.fields.end_date_helper') }}</span>
             </div>
                 </div>
-        </div>
-
-            <div class="form-group">
-                <label for="reason">{{ trans('cruds.outingRequest.fields.reason') }}</label>
-                <input class="form-control {{ $errors->has('reason') ? 'is-invalid' : '' }}" type="text" name="reason" id="reason" value="{{ old('reason', '') }}">
-                @if($errors->has('reason'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('reason') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.outingRequest.fields.reason_helper') }}</span>
-            </div>
+        </div> 
 
             <div class="form-group">
                 <label class="required" for="big_brother_id">{{ trans('cruds.outingRequest.fields.big_brother') }}</label>

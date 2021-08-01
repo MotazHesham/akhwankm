@@ -66,6 +66,7 @@ class BigBrotherController extends Controller
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $user->id]);
         }
+
         $bigBrother=BigBrother::create ([
             'job'=>$request->job,
             'job_place'=>$request->job_place,
@@ -81,7 +82,7 @@ class BigBrotherController extends Controller
         $bigBrother->skills()->sync($request->input('skills', []));
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
-        return redirect()->route('admin.big-brothers.right_brothers');
+        return redirect()->route('admin.big-brothers.index');
     }
 
     public function edit(BigBrother $bigBrother,User $user)
@@ -99,10 +100,8 @@ class BigBrotherController extends Controller
     }
 
     public function update(UpdateBigBrotherRequest $request, BigBrother $bigBrother)
-    {
-
-
-        $bigBrother=BigBrother::create ([
+    { 
+        $bigBrother->update([
             'job'=>$request->job,
             'job_place'=>$request->job_place,
             'salary'=>$request->salary,
@@ -133,6 +132,17 @@ class BigBrotherController extends Controller
 
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
         $bigBrother->skills()->sync($request->input('skills', []));
+        
+        if ($request->input('cv', false)) {
+            if (!$user->cv || $request->input('cv') !== $user->cv->file_name) {
+                if ($user->cv) {
+                    $user->cv->delete();
+                }
+                $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
+            }
+        } elseif ($user->cv) {
+            $user->cv->delete();
+        }
 
         Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 

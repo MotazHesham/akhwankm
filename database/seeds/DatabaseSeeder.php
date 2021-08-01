@@ -13,8 +13,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
             CharacteristicsTableSeeder::class,
-            SkillsTableSeeder::class,
-
+            SkillsTableSeeder::class, 
         ]);
     }
 }

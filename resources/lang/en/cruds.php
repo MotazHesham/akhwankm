@@ -42,6 +42,11 @@ return [
     'user' => [
         'title'          => 'Users',
         'title_singular' => 'User',
+        'pie' => 'Numbers of users',
+        'user_type' => [
+            'big_brother' => 'Big Brother',
+            'small_brother' => 'Small Brother',
+        ],
         'fields'         => [
             'id'                       => 'ID',
             'id_helper'                => ' ',
@@ -244,6 +249,7 @@ return [
     'brothersDealForm' => [
         'title'          => 'Brothers Deal Form',
         'title_singular' => 'Brothers Deal Form',
+        'latest' => 'Latest 5 Brothers Deal Form',
         'fields'         => [
             'id'                                  => 'ID',
             'id_helper'                           => ' ',
@@ -253,16 +259,16 @@ return [
             'department_of_social_service_helper' => ' ',
             'executive_committee'                 => 'Executive Committee',
             'executive_committee_helper'          => ' ',
-            'social_worker'                       => 'Social Worker',
-            'social_worker_helper'                => ' ',
+            'specialist'                       => 'Specialist',
+            'specialist_helper'                => ' ',
             'executive_director'                  => 'Executive Director',
             'executive_director_helper'           => ' ',
             'big_brother'                         => 'Big Brother',
             'big_brother_helper'                  => ' ',
             'small_brother'                       => 'Small Brother',
             'small_brother_helper'                => ' ',
-            'approvement_form'                    => 'Approvement Form',
-            'approvement_form_helper'             => ' ',
+            'approvment_form'                    => 'Approvement Form',
+            'approvment_form_helper'             => ' ',
             'created_at'                          => 'Created at',
             'created_at_helper'                   => ' ',
             'updated_at'                          => 'Updated at',
@@ -274,6 +280,7 @@ return [
     'outingRequest' => [
         'title'          => 'Outing Request',
         'title_singular' => 'Outing Request',
+        'latest' => 'Latest 5 Outgoing Requests',
         'fields'         => [
             'id'                   => 'ID',
             'id_helper'            => ' ',
@@ -323,14 +330,24 @@ return [
             'updated_at_helper'         => ' ',
             'deleted_at'                => 'Deleted at',
             'deleted_at_helper'         => ' ',
-            'brothers_deal_form'        => 'Brothers Deal Form',
-            'brothers_deal_form_helper' => ' ',
+            'big_brother'        => 'Big Brother',
+            'big_brother_helper' => ' ',
+            'small_brother'        => 'Small Brother',
+            'small_brother_helper' => ' ',
             'reason'                    => 'Reason',
             'reason_helper'             => ' ',
-            'description'               => 'Description',
+            'description'               => 'Specialist testament',
             'description_helper'        => ' ',
-            'descision'                 => 'Descision',
+            'descision'                 => 'The decision of the Supreme Committee of the Assembly',
             'descision_helper'          => ' ',
         ],
+    ],
+    'outingManagment' => [
+        'title'          => 'Outing Managment',
+        'title_singular' => 'Outing Managment',
+    ],
+    'generalSetting' => [
+        'title'          => 'General Settings',
+        'title_singular' => 'General Setting',
     ],
 ];

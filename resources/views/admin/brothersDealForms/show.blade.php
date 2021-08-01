@@ -49,14 +49,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.brothersDealForm.fields.social_worker') }}
-                        </th>
-                        <td>
-                            {{ $brothersDealForm->social_worker }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.brothersDealForm.fields.executive_director') }}
                         </th>
                         <td>
@@ -81,10 +73,18 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.brothersDealForm.fields.approvement_form') }}
+                            {{ trans('cruds.brothersDealForm.fields.approvment_form') }}
                         </th>
                         <td>
-                            {{ $brothersDealForm->approvement_form }}
+                            {{ $brothersDealForm->approvment_form->approved ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.brothersDealForm.fields.specialist') }}
+                        </th>
+                        <td>
+                            {{ $brothersDealForm->specialist->email ?? '' }}
                         </td>
                     </tr>
                 </tbody>

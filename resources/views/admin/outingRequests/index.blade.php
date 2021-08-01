@@ -27,10 +27,7 @@
                         </th>
                         <th>
                             {{ trans('cruds.outingRequest.fields.outing_type') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.outingType.fields.name_en') }}
-                        </th>
+                        </th> 
                         <th>
                             {{ trans('cruds.outingRequest.fields.start_date') }}
                         </th>
@@ -39,28 +36,13 @@
                         </th>
                         <th>
                             {{ trans('cruds.outingRequest.fields.place') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.outingRequest.fields.reason') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.outingRequest.fields.late') }}
-                        </th>
+                        </th> 
                         <th>
                             {{ trans('cruds.outingRequest.fields.status') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.outingRequest.fields.outing_date') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.outingRequest.fields.done_time') }}
-                        </th>
+                        </th> 
                         <th>
                             {{ trans('cruds.outingRequest.fields.big_brother') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.bigBrother.fields.brotherhood_reason') }}
-                        </th>
+                        </th> 
                         <th>
                             {{ trans('cruds.outingRequest.fields.small_brother') }}
                         </th>
@@ -80,10 +62,7 @@
                             </td>
                             <td>
                                 {{ $outingRequest->outing_type->name_ar ?? '' }}
-                            </td>
-                            <td>
-                                {{ $outingRequest->outing_type->name_en ?? '' }}
-                            </td>
+                            </td> 
                             <td>
                                 {{ $outingRequest->start_date ?? '' }}
                             </td>
@@ -92,30 +71,12 @@
                             </td>
                             <td>
                                 {{ $outingRequest->place ?? '' }}
-                            </td>
+                            </td> 
                             <td>
-                                {{ $outingRequest->reason ?? '' }}
-                            </td>
+                                {{ $outingRequest->big_brother->user->email ?? '' }}
+                            </td> 
                             <td>
-                                {{ App\Models\OutingRequest::LATE_RADIO[$outingRequest->late] ?? '' }}
-                            </td>
-                            <td>
-                                {{ App\Models\OutingRequest::STATUS_SELECT[$outingRequest->status] ?? '' }}
-                            </td>
-                            <td>
-                                {{ $outingRequest->outing_date ?? '' }}
-                            </td>
-                            <td>
-                                {{ $outingRequest->done_time ?? '' }}
-                            </td>
-                            <td>
-                                {{ $outingRequest->big_brother->brotherhood_reason ?? '' }}
-                            </td>
-                            <td>
-                                {{ $outingRequest->big_brother->brotherhood_reason ?? '' }}
-                            </td>
-                            <td>
-                                {{ $outingRequest->small_brother->temp ?? '' }}
+                                {{ $outingRequest->small_brother->user->email ?? '' }}
                             </td>
                             <td>
                                 @can('outing_request_show')
@@ -136,8 +97,7 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
                                     </form>
-                                @endcan
-
+                                @endcan 
                             </td>
 
                         </tr>

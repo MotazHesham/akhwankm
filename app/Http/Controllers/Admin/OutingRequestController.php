@@ -31,11 +31,9 @@ class OutingRequestController extends Controller
 
         $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $big_brothers = BigBrother::all()->pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $small_brothers = SmallBrother::all()->pluck('temp', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-       
+        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');  
 
         return view('admin.outingRequests.create', compact('outing_types', 'big_brothers', 'small_brothers'));
     }
@@ -55,9 +53,9 @@ class OutingRequestController extends Controller
 
         $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $big_brothers = BigBrother::all()->pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $small_brothers = SmallBrother::all()->pluck('temp', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), ''); 
 
         $outingRequest->load('outing_type', 'big_brother', 'small_brother');
 
