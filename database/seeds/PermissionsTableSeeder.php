@@ -266,6 +266,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 65,
+                'title' => 'dating_session_create',
+            ],
+            [
+                'id'    => 66,
+                'title' => 'dating_session_edit',
+            ],
+            [
+                'id'    => 67,
+                'title' => 'dating_session_show',
+            ],
+            [
+                'id'    => 68,
+                'title' => 'dating_session_delete',
+            ],
+            [
+                'id'    => 69,
+                'title' => 'dating_session_access',
+            ],
+            [
+                'id'    => 70,
                 'title' => 'profile_password_edit',
             ],
         ];

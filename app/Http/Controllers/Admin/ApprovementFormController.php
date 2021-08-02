@@ -8,6 +8,7 @@ use App\Http\Requests\StoreApprovementFormRequest;
 use App\Http\Requests\UpdateApprovementFormRequest;
 use App\Models\ApprovementForm;
 use App\Models\BigBrother;
+use App\Models\SmallBrother;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
@@ -32,6 +33,7 @@ class ApprovementFormController extends Controller
 
         $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), ''); 
         
+        $specialists = User::where('user_type','staff')->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.approvementForms.create', compact('specialists', 'big_brothers'));
     }
@@ -51,6 +53,7 @@ class ApprovementFormController extends Controller
 
         $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), ''); 
         
+        $specialists = User::where('user_type','staff')->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $approvementForm->load('specialist', 'big_brother');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Characteristic;
 use App\Models\Skill;
+use App\Models\SmallBrother;
 Use Alert;
 
 
@@ -19,6 +20,16 @@ class RegisterController extends Controller
         return view('auth.big_brother_register', compact( 'charactarstics', 'skills'));
 
     }
+
+    public function choose_small_brothers(Request $request){ 
+        global $skills;
+        $skills = $request->skills;
+        $small_brothers = SmallBrother::whereHas('skills',function($query){
+            $query->whereIn('id',$GLOBALS['skills']);
+        })->get()->take(5);
+        return view('auth.partials.choose_small_brothers', compact('small_brothers')); 
+    }
+
     public function big_brother(StoreBigBrotherRequest $request)
     {
         

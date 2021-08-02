@@ -65,6 +65,10 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="skills">{{ trans('cruds.bigBrother.fields.skills') }}</label> 
+            <div style="padding-bottom: 4px">
+                <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+            </div>
             <select class="form-control select2 {{ $errors->has('skills') ? 'is-invalid' : '' }}" name="skills[]" id="skills" multiple>
                 @foreach($skills as $id => $skills)
                     <option value="{{ $id }}" {{ in_array($id, old('skills', [])) ? 'selected' : '' }}>{{ $skills }}</option>
@@ -81,6 +85,10 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="charactarstics">{{ trans('cruds.bigBrother.fields.charactarstics') }}</label> 
+            <div style="padding-bottom: 4px">
+                <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+            </div>
             <select class="form-control select2 {{ $errors->has('charactarstics') ? 'is-invalid' : '' }}" name="charactarstics[]" id="charactarstics" multiple>
                 @foreach($charactarstics as $id => $charactarstics)
                     <option value="{{ $id }}" {{ in_array($id, old('charactarstics', [])) ? 'selected' : '' }}>{{ $charactarstics }}</option>
@@ -112,7 +120,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="cv">{{ trans('cruds.user.fields.cv') }}</label>
-            <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone">
+            <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone" required>
             </div>
             @if($errors->has('cv'))
                 <div class="invalid-feedback">

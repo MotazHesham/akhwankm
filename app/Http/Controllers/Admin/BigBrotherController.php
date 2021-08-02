@@ -40,8 +40,7 @@ class BigBrotherController extends Controller
     }
 
     public function store(StoreBigBrotherRequest $request)
-    {
-        
+    { 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -75,13 +74,17 @@ class BigBrotherController extends Controller
             'family_female'=> $request->family_female,
             'marital_status'=>$request->marital_status,
             'brotherhood_reason'=>$request->brotherhood_reason,
-            'user_id'=>$user->id,
-
+            'user_id'=>$user->id, 
+            'small_brother_id'=>$request->small_brother_id, 
         ]);
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
         $bigBrother->skills()->sync($request->input('skills', []));
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+        if($request->has('form_type') && $request->form_type == 'register'){
+            Alert::success(trans('global.flash.success'), 'تم أرسال طلبك بنجاح للأدارة');
+            return redirect()->route('login');
+        }
         return redirect()->route('admin.big-brothers.index');
     }
 

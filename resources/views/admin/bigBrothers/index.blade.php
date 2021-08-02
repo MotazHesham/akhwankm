@@ -38,6 +38,9 @@
                             {{ trans('cruds.user.fields.address') }}
                         </th>
                         <th>
+                            {{ trans('cruds.bigBrother.fields.small_brother') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -62,6 +65,9 @@
                             </td>
                             <td>
                                 {{ $bigBrother->user->address ?? '' }}
+                            </td>
+                            <td>
+                                {{ $bigBrother->small_brother->user->email ?? '' }}
                             </td>
                             <td>
                                 @can('big_brother_show')

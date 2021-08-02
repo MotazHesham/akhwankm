@@ -190,6 +190,8 @@ return [
             'charactarstics_helper'     => ' ',
             'skills'                    => 'المهارات',
             'skills_helper'             => ' ',
+            'small_brother'                       => ' الأخ الأصغر',
+            'small_brother_helper'                => ' ',
         ],
     ],
     'skill' => [
@@ -351,5 +353,29 @@ return [
     'generalSetting' => [
         'title'          => 'الأعدادات العامة',
         'title_singular' => 'الأعدادات العامة',
+    ],
+    'datingSession' => [
+        'title'          => 'Dating Sessions',
+        'title_singular' => 'Dating Session',
+        'fields'         => [
+            'id'                     => 'ID',
+            'id_helper'              => ' ',
+            'interview_notes'        => 'Interview Notes',
+            'interview_notes_helper' => ' ',
+            'recommendations'        => 'Recommendations',
+            'recommendations_helper' => ' ',
+            'created_at'             => 'Created at',
+            'created_at_helper'      => ' ',
+            'updated_at'             => 'Updated at',
+            'updated_at_helper'      => ' ',
+            'deleted_at'             => 'Deleted at',
+            'deleted_at_helper'      => ' ',
+            'date'                   => 'Date',
+            'date_helper'            => ' ',
+            'specialist'             => 'Specialist',
+            'specialist_helper'      => ' ',
+            'big_brother'            => 'Big Brother',
+            'big_brother_helper'     => ' ',
+        ],
     ],
 ];

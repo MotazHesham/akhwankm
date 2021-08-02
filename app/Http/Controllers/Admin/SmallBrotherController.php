@@ -22,7 +22,7 @@ class SmallBrotherController extends Controller
     public function index()
     {
         abort_if(Gate::denies('small_brother_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $smallBrothers = SmallBrother::with(['user', 'skills', 'big_brother', 'charactaristics'])->get();
+        $smallBrothers = SmallBrother::with(['user', 'skills', 'charactaristics'])->get();
 
         return view('admin.smallBrothers.index', compact('smallBrothers'));
     }
@@ -31,14 +31,12 @@ class SmallBrotherController extends Controller
     {
         abort_if(Gate::denies('small_brother_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $skills = Skill::all()->pluck('name_ar', 'id');
-
-        $big_brothers = BigBrother::all()->pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $skills = Skill::all()->pluck('name_ar', 'id'); 
 
         $charactaristics = Characteristic::all()->pluck('name_ar', 'id');
 
 
-        return view('admin.smallBrothers.create', compact('skills', 'big_brothers', 'charactaristics'));
+        return view('admin.smallBrothers.create', compact('skills', 'charactaristics'));
     }
 
     public function store(StoreSmallBrotherRequest $request)
@@ -89,7 +87,6 @@ class SmallBrotherController extends Controller
 
         $skills = Skill::all()->pluck('name_ar', 'id');
 
-        $big_brothers = BigBrother::all()->pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $charactaristics = Characteristic::all()->pluck('name_ar', 'id');
 
@@ -100,7 +97,7 @@ class SmallBrotherController extends Controller
         $roles = Role::all()->pluck('title', 'id');
         $user->load('roles');
 
-        return view('admin.smallBrothers.edit', compact('users', 'skills', 'big_brothers', 'charactaristics', 'smallBrother','user','roles'));
+        return view('admin.smallBrothers.edit', compact('users', 'skills', 'charactaristics', 'smallBrother','user','roles'));
     }
 
     public function update(UpdateSmallBrotherRequest $request, SmallBrother $smallBrother,User $user)

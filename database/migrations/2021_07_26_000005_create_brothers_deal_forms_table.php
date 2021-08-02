@@ -12,8 +12,7 @@ class CreateBrothersDealFormsTable extends Migration
             $table->bigIncrements('id');
             $table->string('day'); 
             $table->string('department_of_social_service');
-            $table->string('executive_committee');
-            $table->string('social_worker');
+            $table->string('executive_committee'); 
             $table->string('executive_director'); 
             $table->timestamps();
             $table->softDeletes();

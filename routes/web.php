@@ -11,8 +11,12 @@ Route::get('/home', function () {
 
 Auth::routes(['register' => false]);
 
-Route::post('big-brothers/register','RegisterController@big_brother')->name('big-brothers.register');
+Route::post('big-brothers/register','Admin\BigBrotherController@store')->name('big-brothers.register');
 Route::get('big-brothers/register' , 'RegisterController@register')->name('big-brothers.register');
+Route::post('big-brothers/choose_small_brothers' , 'RegisterController@choose_small_brothers')->name('big-brothers.choose_small_brothers');
+
+Route::post('users/media', 'Admin\UsersController@storeMedia')->name('admin.users.storeMedia');
+Route::post('users/ckmedia', 'Admin\UsersController@storeCKEditorImages')->name('admin.users.storeCKEditorImages');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
@@ -26,8 +30,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
-    Route::post('users/media', 'UsersController@storeMedia')->name('users.storeMedia');
-    Route::post('users/ckmedia', 'UsersController@storeCKEditorImages')->name('users.storeCKEditorImages');
     Route::resource('users', 'UsersController');
 
     // Audit Logs

@@ -146,9 +146,9 @@ class HomeController
             'column_class'          => 'col-md-8',
             'entries_number'        => '5',
             'fields'                => [
-                'big_brother'      => 'brotherhood_reason',
-                'small_brother'    => 'temp',
-                'approvement_form' => '',
+                'big_brother'      => 'user.email',
+                'small_brother'    => 'user.email',
+                'approvment_form' => 'id',
                 'created_at'       => '',
             ],
             'translation_key' => 'brothersDealForm',
@@ -183,8 +183,8 @@ class HomeController
                 'end_date'      => '',
                 'place'         => '',
                 'created_at'    => '',
-                'big_brother'   => 'brotherhood_reason',
-                'small_brother' => 'temp',
+                'big_brother'      => 'user.email',
+                'small_brother'    => 'user.email',
             ],
             'translation_key' => 'outingRequest',
         ];

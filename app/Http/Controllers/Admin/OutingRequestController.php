@@ -12,6 +12,7 @@ use App\Models\OutingType;
 use App\Models\SmallBrother;
 use Gate;
 use Illuminate\Http\Request;
+use Alert;
 use Symfony\Component\HttpFoundation\Response;
 
 class OutingRequestController extends Controller
@@ -40,7 +41,10 @@ class OutingRequestController extends Controller
 
     public function store(StoreOutingRequestRequest $request)
     {
-        $outingRequest = OutingRequest::create($request->all());
+        $validated_request = $request->all();
+        $big_brother = BigBrother::find($validated_request['big_brother_id']);
+        $validated_request['small_brother_id'] = $big_brother->small_brother_id;
+        $outingRequest = OutingRequest::create($validated_request);
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
 

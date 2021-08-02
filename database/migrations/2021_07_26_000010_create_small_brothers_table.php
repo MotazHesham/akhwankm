@@ -9,8 +9,7 @@ class CreateSmallBrothersTable extends Migration
     public function up()
     {
         Schema::create('small_brothers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('temp')->nullable();
+            $table->bigIncrements('id'); 
             $table->timestamps();
             $table->softDeletes();
         });

@@ -190,6 +190,8 @@ return [
             'charactarstics_helper'     => ' ',
             'skills'                    => 'Skills',
             'skills_helper'             => ' ',
+            'small_brother'        => 'Small Brother',
+            'small_brother_helper' => ' ',
         ],
     ],
     'skill' => [
@@ -349,5 +351,29 @@ return [
     'generalSetting' => [
         'title'          => 'General Settings',
         'title_singular' => 'General Setting',
+    ],
+    'datingSession' => [
+        'title'          => 'Dating Sessions',
+        'title_singular' => 'Dating Session',
+        'fields'         => [
+            'id'                     => 'ID',
+            'id_helper'              => ' ',
+            'interview_notes'        => 'Interview Notes',
+            'interview_notes_helper' => ' ',
+            'recommendations'        => 'Recommendations',
+            'recommendations_helper' => ' ',
+            'created_at'             => 'Created at',
+            'created_at_helper'      => ' ',
+            'updated_at'             => 'Updated at',
+            'updated_at_helper'      => ' ',
+            'deleted_at'             => 'Deleted at',
+            'deleted_at_helper'      => ' ',
+            'date'                   => 'Date',
+            'date_helper'            => ' ',
+            'specialist'             => 'Specialist',
+            'specialist_helper'      => ' ',
+            'big_brother'            => 'Big Brother',
+            'big_brother_helper'     => ' ',
+        ],
     ],
 ];

@@ -11,7 +11,7 @@ class StoreBigBrotherRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('big_brother_create');
+        return true;
     }
 
     public function rules()

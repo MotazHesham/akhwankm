@@ -26,6 +26,7 @@ class BigBrother extends Model
         'family_male',
         'family_female',
         'brotherhood_reason',
+        'small_brother_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -39,6 +40,11 @@ class BigBrother extends Model
     public function charactarstics()
     {
         return $this->belongsToMany(Characteristic::class);
+    }
+
+    public function small_brother()
+    {
+        return $this->belongsTo(SmallBrother::class,'small_brother_id');
     }
 
     public function skills()

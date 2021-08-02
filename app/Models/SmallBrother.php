@@ -19,9 +19,7 @@ class SmallBrother extends Model
     ];
 
     protected $fillable = [
-        'user_id',
-        'big_brother_id',
-        'temp',
+        'user_id', 
         'created_at',
         'updated_at',
         'deleted_at',
@@ -37,10 +35,6 @@ class SmallBrother extends Model
         return $this->belongsToMany(Skill::class);
     }
 
-    public function big_brother()
-    {
-        return $this->belongsTo(BigBrother::class, 'big_brother_id');
-    }
 
     public function charactaristics()
     {

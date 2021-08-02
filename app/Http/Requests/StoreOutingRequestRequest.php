@@ -48,11 +48,7 @@ class StoreOutingRequestRequest extends FormRequest
             'big_brother_id' => [
                 'required',
                 'integer',
-            ],
-            'small_brother_id' => [
-                'required',
-                'integer',
-            ],
+            ], 
         ];
     }
 }

@@ -39,10 +39,7 @@
                         </th>
                         <th>
                             {{ trans('cruds.smallBrother.fields.skills') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.smallBrother.fields.big_brother') }}
-                        </th>
+                        </th> 
                         <th>
                             {{ trans('cruds.smallBrother.fields.charactaristics') }}
                         </th>
@@ -76,10 +73,7 @@
                                 @foreach($smallBrother->skills as $key => $item)
                                     <span class="badge badge-info">{{ $item->name_ar }}</span>
                                 @endforeach
-                            </td>
-                            <td>
-                                {{ $smallBrother->big_brother->brotherhood_reason ?? '' }}
-                            </td>
+                            </td> 
                             <td>
                                 @foreach($smallBrother->charactaristics as $key => $item)
                                     <span class="badge badge-info">{{ $item->name_ar }}</span>
@@ -97,8 +91,8 @@
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
-                                <a class="btn btn-xs btn-info" href="{{ route('admin.small-brothers.print', $smallBrother->id) }}">
-                                    print
+                                <a class="btn btn-xs btn-success" href="{{ route('admin.small-brothers.print', $smallBrother->id) }}">
+                                    {{ trans('global.print') }}
                                 </a>
                                 @can('small_brother_delete')
                                     <form action="{{ route('admin.small-brothers.destroy', $smallBrother->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
