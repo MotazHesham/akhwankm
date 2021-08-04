@@ -42,7 +42,7 @@
 </head>
 
 <body class="c-app">
-    @include('partials.menu_admin')
+    @include('partials.menu_small_brother')
     <div class="c-wrapper">
         <header class="c-header c-header-fixed px-3">
             <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar" data-class="c-sidebar-show">
@@ -302,7 +302,7 @@
     $(".notifications-menu").on('click', function () {
         if (!$(this).hasClass('open')) {
             $('.notifications-menu .label-warning').hide();
-            $.get('/admin/user-alerts/read');
+            $.get('/user-alerts/read');
         }
     });
 });

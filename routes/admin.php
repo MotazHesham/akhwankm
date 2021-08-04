@@ -18,7 +18,7 @@ Route::post('big-brothers/choose_small_brothers' , 'RegisterController@choose_sm
 Route::post('users/media', 'Admin\UsersController@storeMedia')->name('admin.users.storeMedia');
 Route::post('users/ckmedia', 'Admin\UsersController@storeCKEditorImages')->name('admin.users.storeCKEditorImages');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth','staff']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
@@ -51,6 +51,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('big-brothers', 'BigBrotherController');
     
 
+    // Dating Sessions
+    Route::delete('dating-sessions/destroy', 'DatingSessionsController@massDestroy')->name('dating-sessions.massDestroy');
+    Route::resource('dating-sessions', 'DatingSessionsController');
+    
     // Skills
     Route::delete('skills/destroy', 'SkillsController@massDestroy')->name('skills.massDestroy');
     Route::resource('skills', 'SkillsController');

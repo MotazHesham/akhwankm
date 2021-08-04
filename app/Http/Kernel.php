@@ -25,6 +25,9 @@ class Kernel extends HttpKernel
         'signed'           => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle'         => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
+        'staff' => \App\Http\Middleware\Staff::class,
+        'bigbrother' => \App\Http\Middleware\Bigbrother::class,
+        'smallbrother' => \App\Http\Middleware\Smallbrother::class,
     ];
 
     protected $middlewareGroups = [

@@ -38,12 +38,12 @@ class UsersController extends Controller
                 $crudRoutePart = 'users';
 
                 return view('partials.datatablesActions', compact(
-                'viewGate',
-                'editGate',
-                'deleteGate',
-                'crudRoutePart',
-                'row'
-            ));
+                    'viewGate',
+                    'editGate',
+                    'deleteGate',
+                    'crudRoutePart',
+                    'row'
+                ));
             });
 
             $table->editColumn('id', function ($row) {
@@ -99,7 +99,9 @@ class UsersController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        $user = User::create($request->all());
+        $validated_request = $request->all();
+        $validated_request['user_type'] = 'staff';
+        $user = User::create($validated_request);
         $user->roles()->sync($request->input('roles', []));
         if ($request->input('cv', false)) {
             $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
@@ -108,7 +110,7 @@ class UsersController extends Controller
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $user->id]);
         }
-      
+
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
 
         return redirect()->route('admin.users.index');

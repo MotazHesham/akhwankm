@@ -90,7 +90,7 @@ class SmallBrotherController extends Controller
 
         $charactaristics = Characteristic::all()->pluck('name_ar', 'id');
 
-        $smallBrother->load('user', 'skills', 'big_brother', 'charactaristics');
+        $smallBrother->load('user', 'skills', 'charactaristics');
 
         $user=User::find($smallBrother->user_id);
 
@@ -120,7 +120,7 @@ class SmallBrotherController extends Controller
     {
         abort_if(Gate::denies('small_brother_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $smallBrother->load('user', 'skills', 'big_brother', 'charactaristics');
+        $smallBrother->load('user', 'skills', 'charactaristics');
 
         return view('admin.smallBrothers.show', compact('smallBrother'));
     }
