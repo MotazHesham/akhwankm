@@ -158,6 +158,9 @@ return [
             'charactaristics_helper' => ' ',
             'temp'                   => 'Temp',
             'temp_helper'            => ' ',
+            'brothers'                => 'بيانات الأخ الأكبر',
+            'created_at_b'            =>'تاريخ تقديم الطلب'
+          
         ],
     ],
     'bigBrother' => [
@@ -376,6 +379,9 @@ return [
             'specialist_helper'      => ' ',
             'big_brother'            => 'الأخ الأكبر',
             'big_brother_helper'     => ' ',
+            'small_brother'         => ' الأخ الأصغر',
+            'small_brother_helper'     => ' ',
+                
         ],
     ],
 ];

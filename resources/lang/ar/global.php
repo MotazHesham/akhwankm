@@ -11,6 +11,7 @@ return [
     'delete'                         => 'حذف',
     'cancel'                         => 'إغلاق',
     'clear'                          => 'مسح',
+    'brotherhood'                    =>'طلبات المؤاخاة' ,
     'downloadFile'                   => 'تحميل الملف',
     'edit'                           => 'تعديل',
     'emailVerificationSuccess'       => 'تم التحقق من بريد المستخدم الإلكتروني بنجاح',
@@ -74,6 +75,9 @@ return [
     'print'                          =>'طباعة',
     'body'                           => 'Body',
     'discard'                        => 'Discard',
+    'update_info'                    =>'تحديث بياناتي الشخصية',
+    'outingRequests'                 =>'طلبات الخروج',
+    'datingSessions'                 => ' جلسات التعارف ',
     'datatables'                     => [
         'copy'          => 'نسخ',
         'csv'           => 'CSV',
@@ -383,5 +387,6 @@ return [
             'deleted' => "تم الحذف بنجاح",
             'mass_destroy' => "تم حذف جميع الموظفين بنجاح",
         ],
+      
     ], 
 ];

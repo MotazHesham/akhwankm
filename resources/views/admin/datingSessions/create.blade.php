@@ -68,6 +68,20 @@
                 <span class="help-block">{{ trans('cruds.datingSession.fields.big_brother_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="small_brother_id">{{ trans('cruds.datingSession.fields.small_brother') }}</label>
+                <select class="form-control select2 {{ $errors->has('small_brother') ? 'is-invalid' : '' }}" name="small_brother_id" id="small_brother_id" required>
+                    @foreach($small_brothers as $id => $entry)
+                        <option value="{{ $id }}" {{ old('small_brother_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('small_brother'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('small_brother') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.datingSession.fields.small_brother_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>
@@ -75,7 +89,5 @@
         </form>
     </div>
 </div>
-
-
-
+ 
 @endsection

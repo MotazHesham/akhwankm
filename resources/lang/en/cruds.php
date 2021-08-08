@@ -158,6 +158,8 @@ return [
             'charactaristics_helper' => ' ',
             'temp'                   => 'Temp',
             'temp_helper'            => ' ',
+            'brothers'                       =>'Big Brother data ',
+            'created_at_b'            =>'The date of application'
         ],
     ],
     'bigBrother' => [
@@ -374,6 +376,9 @@ return [
             'specialist_helper'      => ' ',
             'big_brother'            => 'Big Brother',
             'big_brother_helper'     => ' ',
+            'small_brother'         => 'Small Brother ',
+            'small_brother_helper'     => ' ',
+                
         ],
     ],
 ];

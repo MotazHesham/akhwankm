@@ -8,6 +8,7 @@ use App\Http\Requests\StoreDatingSessionRequest;
 use App\Http\Requests\UpdateDatingSessionRequest;
 use App\Models\BigBrother;
 use App\Models\DatingSession;
+use App\Models\SmallBrother;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
@@ -36,7 +37,9 @@ class DatingSessionsController extends Controller
 
         $big_brothers = BigBrother::pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.datingSessions.create', compact('specialists', 'big_brothers'));
+        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');  
+
+        return view('admin.datingSessions.create', compact('specialists', 'big_brothers','small_brothers'));
     }
 
     public function store(StoreDatingSessionRequest $request)

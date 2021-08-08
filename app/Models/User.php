@@ -158,4 +158,6 @@ class User extends Authenticatable implements HasMedia
     {
         return $date->format('Y-m-d H:i:s');
     }
+  
+    
 }

@@ -51,6 +51,11 @@ class DatingSession extends Model
         return $this->belongsTo(BigBrother::class, 'big_brother_id');
     }
 
+    public function small_brother()
+    {
+        return $this->belongsTo(BigBrother::class, 'small_brother_id');
+    }
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');

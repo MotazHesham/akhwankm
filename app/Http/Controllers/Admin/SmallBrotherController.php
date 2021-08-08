@@ -92,12 +92,11 @@ class SmallBrotherController extends Controller
 
         $smallBrother->load('user', 'skills', 'charactaristics');
 
-        $user=User::find($smallBrother->user_id);
 
         $roles = Role::all()->pluck('title', 'id');
-        $user->load('roles');
+    
 
-        return view('admin.smallBrothers.edit', compact('users', 'skills', 'charactaristics', 'smallBrother','user','roles'));
+        return view('admin.smallBrothers.edit', compact('users', 'skills', 'charactaristics', 'smallBrother'));
     }
 
     public function update(UpdateSmallBrotherRequest $request, SmallBrother $smallBrother,User $user)

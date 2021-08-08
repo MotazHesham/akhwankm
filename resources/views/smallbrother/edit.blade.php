@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.smallbrother')
 @section('content')
 
 <div class="card">
@@ -7,7 +7,7 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.small-brothers.update", [$smallBrother->id]) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("smallbrother.update", [$user_id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group">

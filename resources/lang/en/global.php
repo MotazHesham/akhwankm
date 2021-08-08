@@ -11,6 +11,7 @@ return [
     'delete'                         => 'Delete',
     'cancel'                         => 'Cancel',
     'clear'                          => 'Clear',
+    'brotherhood'                    =>' Brotherhood requests' ,
     'downloadFile'                   => 'Download file',
     'edit'                           => 'Edit',
     'emailVerificationSuccess'       => 'User email verified successfully',
@@ -74,6 +75,9 @@ return [
     'print'                          =>'print',
     'body'                           => 'Body',
     'discard'                        => 'Discard',
+    'update_info'                    =>'Update my personal data',
+    'outingRequests'                 => 'Outings Requests',
+    'datingSessions'                 => 'dating sessions ',
     'datatables'                     => [
         'copy'          => 'Copy',
         'csv'           => 'CSV',
@@ -382,6 +386,6 @@ return [
             'updated' => "User Updated Successfully",
             'deleted' => "User Deleted Successfully",
             'mass_destroy' => "All Users Deleted Successfully",
-        ]
+        ],
     ]
 ];
