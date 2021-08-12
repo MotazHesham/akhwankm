@@ -11,7 +11,7 @@ return [
     'delete'                         => 'حذف',
     'cancel'                         => 'إغلاق',
     'clear'                          => 'مسح',
-    'brotherhood'                    =>'طلبات المؤاخاة' ,
+    'brotherhood'                    =>'معلومات المؤاخاة' ,
     'downloadFile'                   => 'تحميل الملف',
     'edit'                           => 'تعديل',
     'emailVerificationSuccess'       => 'تم التحقق من بريد المستخدم الإلكتروني بنجاح',
@@ -77,7 +77,7 @@ return [
     'discard'                        => 'Discard',
     'update_info'                    =>'تحديث بياناتي الشخصية',
     'outingRequests'                 =>'طلبات الخروج',
-    'datingSessions'                 => ' جلسات التعارف ',
+    'Sessions'                 => ' الجلسات  ',
     'datatables'                     => [
         'copy'          => 'نسخ',
         'csv'           => 'CSV',

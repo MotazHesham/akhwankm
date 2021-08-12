@@ -49,7 +49,7 @@ a {
         <i class="fa-fw far fa-clock c-sidebar-nav-icon">
 
         </i>
-        {{ trans('global.datingSessions') }}
+        {{ trans('global.Sessions') }}
     </a>
     </li>
     <li class="c-sidebar-nav-item">

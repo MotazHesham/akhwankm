@@ -35,9 +35,9 @@ class DatingSessionsController extends Controller
 
         $specialists = User::pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $big_brothers = BigBrother::pluck('brotherhood_reason', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $big_brothers = BigBrother::with('user')->get()->pluck('user.name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');  
+        $small_brothers = SmallBrother::with('user')->get()->pluck('user.name', 'id')->prepend(trans('global.pleaseSelect'), ''); 
 
         return view('admin.datingSessions.create', compact('specialists', 'big_brothers','small_brothers'));
     }

@@ -11,7 +11,7 @@ return [
     'delete'                         => 'Delete',
     'cancel'                         => 'Cancel',
     'clear'                          => 'Clear',
-    'brotherhood'                    =>' Brotherhood requests' ,
+    'brotherhood'                    =>' brotherhood information' ,
     'downloadFile'                   => 'Download file',
     'edit'                           => 'Edit',
     'emailVerificationSuccess'       => 'User email verified successfully',
@@ -77,7 +77,7 @@ return [
     'discard'                        => 'Discard',
     'update_info'                    =>'Update my personal data',
     'outingRequests'                 => 'Outings Requests',
-    'datingSessions'                 => 'dating sessions ',
+    'Sessions'                       => ' Sessions ',
     'datatables'                     => [
         'copy'          => 'Copy',
         'csv'           => 'CSV',

@@ -29,6 +29,7 @@ class DatingSession extends Model
         'created_at',
         'updated_at',
         'deleted_at',
+        'small_brother_id',
     ];
 
     public function getDateAttribute($value)

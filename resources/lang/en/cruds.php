@@ -74,7 +74,7 @@ return [
             'cv_helper'                => ' ',
             'identity_number'          => 'Identity Number',
             'identity_number_helper'   => ' ',
-            'identity_date'            => 'Identity Date',
+            'identity_date'            => 'Identity expiration Date',
             'identity_date_helper'     => ' ',
             'dbo'                      => 'Date Of Birth',
             'dbo_helper'               => ' ',
@@ -233,8 +233,8 @@ return [
         ],
     ],
     'outingType' => [
-        'title'          => 'Outing Type',
-        'title_singular' => 'Outing Type',
+        'title'          => 'Activity Type',
+        'title_singular' => 'Activity Type',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
