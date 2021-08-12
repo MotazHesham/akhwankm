@@ -318,8 +318,8 @@ return [
     'courses'                        => 'Courses',
     'team-members'                   => 'Team members',
     'calendar'                       => 'Calendar',
-    'messenger'                      => 'Messenger', 
-    'degree' => [ 
+    'messenger'                      => 'Messenger',
+    'degree' => [
         'Literate without Certificate' => 'Literate without Certificate',
         'Primary Certificate'          => 'Primary Certificate',
         'middle school certificate'    => 'middle school certificate',
@@ -387,5 +387,12 @@ return [
             'deleted' => "User Deleted Successfully",
             'mass_destroy' => "All Users Deleted Successfully",
         ],
-    ]
+    ],
+
+    'personality_analysis'=>"personality analysis",
+    'sessionsAppointments'=>" sessions Appointments" ,
+    'BrothersDealForm'=>"  Brothers Deal Form" ,
+    'BrothersPromiseForm'=>" Brothers Promise Form" ,
+    'smallbrotherinfo'=>"small brother info",
 ];
+

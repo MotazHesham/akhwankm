@@ -12,7 +12,7 @@ class UpdateRequest extends FormRequest
 
     public function rules()
     {
-        return [ 
+        return [
             'skills.*' => [
                 'integer',
             ],
@@ -24,7 +24,7 @@ class UpdateRequest extends FormRequest
                 'integer',
             ],
             'charactaristics' => [
-                'required',
+               
                 'array',
             ],
         ];

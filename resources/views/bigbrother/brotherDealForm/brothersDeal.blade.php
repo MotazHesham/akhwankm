@@ -1,3 +1,6 @@
+@extends('layouts.bigbrother')
+@section('content')
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,8 +8,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>استمارة تعاقد الأخ الأكبر مع الأخ الأصغر  </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
@@ -61,10 +63,14 @@
 }
         </style>
 </head>
-<body>
+<body style="background-color: white">
     <div style="display: flex; justify-content: center;">
     <div  style="width: 21.59cm; height: 27.94cm ;">
 
+
+        <a class="btn btn-success" href="{{ route('bigbrother.brothers-deal-forms.print', $brothersDealForm->id) }}">
+            {{ trans('global.print') }}
+        </a>
         <img src="{{ URL::to('images/2.jpg') }}" style="width:800px;height:100px;">
 
 
@@ -119,40 +125,13 @@
 					</tr>
 				</table>
 
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+
     <img src="{{ URL::to('images/3.jpg') }}" style="width:800px;height:30px;">
 
 
 </div>
 </div>
-<script>
-     window.print();
-</script>
+
 </body>
 </html>
+@endsection

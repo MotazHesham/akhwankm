@@ -9,10 +9,10 @@ use Illuminate\Http\Response;
 
 class UpdateOutingRequestRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return Gate::allows('outing_request_edit');
-    }
+    // public function authorize()
+    // {
+    //     return Gate::allows('outing_request_edit');
+    // }
 
     public function rules()
     {
@@ -48,7 +48,7 @@ class UpdateOutingRequestRequest extends FormRequest
             'big_brother_id' => [
                 'required',
                 'integer',
-            ], 
+            ],
         ];
     }
 }
