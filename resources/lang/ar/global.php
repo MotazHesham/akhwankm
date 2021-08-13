@@ -318,7 +318,7 @@ return [
     'courses'                        => 'الدورات',
     'team-members'                   => 'اعضاء الفريق',
     'calendar'                       => 'التقويم',
-    'messenger'                      => 'مراسل', 
+    'messenger'                      => 'مراسل',
     'degree' => [
         'Literate without Certificate' => 'القراءة والكتابة بدون شهادة',
         'Primary Certificate'          => 'الشهادة الابتدائية',
@@ -387,6 +387,13 @@ return [
             'deleted' => "تم الحذف بنجاح",
             'mass_destroy' => "تم حذف جميع الموظفين بنجاح",
         ],
-      
-    ], 
+
+    ],
+
+        'personality_analysis'=>"اختبار تحليل الشخصية",
+        'sessionsAppointments'=>"مواعيد الجلسات" ,
+        'BrothersDealForm'=>" استمارة التعاقد" ,
+        'BrothersPromiseForm'=>"استمارة التعهد" ,
+        'smallbrotherinfo'=>"بيانات الأخ الأصغر"
+
 ];

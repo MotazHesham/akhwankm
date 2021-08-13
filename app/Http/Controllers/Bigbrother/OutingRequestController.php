@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Bigbrother;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyOutingRequestRequest;
@@ -19,16 +19,15 @@ class OutingRequestController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('outing_request_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $outingRequests = OutingRequest::with(['outing_type', 'big_brother', 'small_brother'])->get();
 
-        return view('admin.outingRequests.index', compact('outingRequests'));
+        return view('Bigbrother.outingRequests.index', compact('outingRequests'))->withoutingRequests(outingRequest::paginate(6));
     }
 
     public function create()
     {
-        abort_if(Gate::denies('outing_request_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
 
         $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -36,7 +35,7 @@ class OutingRequestController extends Controller
 
         $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.outingRequests.create', compact('outing_types', 'big_brothers', 'small_brothers'));
+        return view('Bigbrother.outingRequests.create', compact('outing_types', 'big_brothers', 'small_brothers'));
     }
 
     public function store(StoreOutingRequestRequest $request)
@@ -44,16 +43,18 @@ class OutingRequestController extends Controller
         $validated_request = $request->all();
         $big_brother = BigBrother::find($validated_request['big_brother_id']);
         $validated_request['small_brother_id'] = $big_brother->small_brother_id;
+        // $validated_request['big_brother_id'] = Auth::id();
+        $validated_request['big_brother_id'] = $big_brother->id;
         $outingRequest = OutingRequest::create($validated_request);
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
 
-        return redirect()->route('admin.outing-requests.index');
+        return redirect()->route('bigbrother.outing-requests.index');
     }
 
     public function edit(OutingRequest $outingRequest)
     {
-        abort_if(Gate::denies('outing_request_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
 
         $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -63,7 +64,7 @@ class OutingRequestController extends Controller
 
         $outingRequest->load('outing_type', 'big_brother', 'small_brother');
 
-        return view('admin.outingRequests.edit', compact('outing_types', 'big_brothers', 'small_brothers', 'outingRequest'));
+        return view('Bigbrother.outingRequests.edit', compact('outing_types', 'big_brothers', 'small_brothers', 'outingRequest'));
     }
 
     public function update(UpdateOutingRequestRequest $request, OutingRequest $outingRequest)
@@ -72,21 +73,21 @@ class OutingRequestController extends Controller
 
         Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
-        return redirect()->route('admin.outing-requests.index');
+        return redirect()->route('bigbrother.outing-requests.index');
     }
 
     public function show(OutingRequest $outingRequest)
     {
-        abort_if(Gate::denies('outing_request_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
 
         $outingRequest->load('outing_type', 'big_brother', 'small_brother');
 
-        return view('admin.outingRequests.show', compact('outingRequest'));
+        return view('Bigbrother.outingRequests.show', compact('outingRequest'));
     }
 
     public function destroy(OutingRequest $outingRequest)
     {
-        abort_if(Gate::denies('outing_request_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
 
         $outingRequest->delete();
 
