@@ -2,13 +2,18 @@
 
 @section('styles') 
   <link rel="stylesheet" href={{asset("css/profile-style.css")}}> 
-  
+  <style>
+    .center {
+      padding: 70px 0;
+      text-align: center;
+    }
+    </style>
   @endsection
 
 @section('content')
 <div class="container">
     <div class="main-body">
-    
+      @if(isset($bigBrother) && count($bigBrother) > 0)        
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
@@ -16,6 +21,7 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src={{asset("images/brotherhood.jpg")}}  class="rounded-circle" width="360">
                     <div class="mt-3">
+                  
                         @foreach($bigBrother as $key => $bigBrother)
                       <h4> {{ $bigBrother->user->name ?? '' }}</h4>
                       <p class="text-secondary mb-1"> {{ $bigBrother->job ?? '' }}</p>
@@ -108,4 +114,15 @@
         </div>
     </div>
     @endforeach
+
+    @else 
+    <body>
+      <div class="center">
+        <div class="alert alert-warning">
+         <h4> {{ trans('cruds.smallBrother.no_big_brother') }} </h4>
+      </div>
+      </div>
+  </body>
+
+    @endif
 @endsection

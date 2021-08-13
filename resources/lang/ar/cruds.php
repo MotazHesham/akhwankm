@@ -139,6 +139,7 @@ return [
     'smallBrother' => [
         'title'          => ' الأخ الأصغر',
         'title_singular' => ' الأخ الأصغر',
+        'no_big_brother' =>' لا يوجد تعاقد مع أخ أكبر حتي الأن',
         'fields'         => [
             'id'                     => 'id',
             'id_helper'              => ' ',
@@ -166,6 +167,9 @@ return [
     'bigBrother' => [
         'title'          =>' الأخ الأكبر',
         'title_singular' => ' الأخ الأكبر',
+        'small'          =>  'بيانات الأخ الأصغر',
+        'choose'          =>  'الأخوة المقترحين',
+        'no_brother'          =>  ' لا يوجد أي تعاقدات مؤاخاة حتي الأن ! من فضلك اختر أخ أصغر من قائمة المقترحين ',
         'fields'         => [
             'id'                        => 'id',
             'id_helper'                 => ' ',

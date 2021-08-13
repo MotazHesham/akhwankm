@@ -49,6 +49,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('big-brothers/destroy', 'BigBrotherController@massDestroy')->name('big-brothers.massDestroy'); 
     Route::get('big-brothers/printinfo/{bigBrother}' , 'BigBrotherController@printinfo')->name('big-brothers.print');
     Route::resource('big-brothers', 'BigBrotherController');
+    Route::POST('big-brother/smallbrother' ,'BigBrotherController@chooseSmallbrother')->name('choose.smallbrother');
+   
     
 
     // Dating Sessions

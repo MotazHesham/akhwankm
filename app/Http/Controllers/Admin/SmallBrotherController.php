@@ -121,7 +121,9 @@ class SmallBrotherController extends Controller
 
         $smallBrother->load('user', 'skills', 'charactaristics');
 
-        return view('admin.smallBrothers.show', compact('smallBrother'));
+        $bigBrother=BigBrother::with('user', 'charactarstics', 'skills')->where('small_brother_id',$smallBrother->id)->get();
+
+        return view('admin.smallBrothers.show', compact('smallBrother','bigBrother'));
     }
 
     public function destroy(SmallBrother $smallBrother)

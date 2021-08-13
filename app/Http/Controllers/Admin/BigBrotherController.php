@@ -153,12 +153,17 @@ class BigBrotherController extends Controller
     }
 
     public function show(BigBrother $bigBrother)
-    {
+    { 
         abort_if(Gate::denies('big_brother_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        global $skills;
+    
+         $bigBrother->load('user', 'charactarstics', 'skills','small_brother');
+         $skills = $bigBrother['skills'];
+         $small_brothers = SmallBrother::whereHas('skills',function($query){
+            $query->whereIn('id',$GLOBALS['skills']);
+        })->get()->take(5);
 
-        $bigBrother->load('user', 'charactarstics', 'skills');
-
-        return view('admin.bigBrothers.show', compact('bigBrother'));
+        return view('admin.bigBrothers.show', compact('bigBrother','small_brothers'));
     }
 
     public function destroy(BigBrother $bigBrother)
@@ -166,6 +171,7 @@ class BigBrotherController extends Controller
         abort_if(Gate::denies('big_brother_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $bigBrother->delete();
+
 
         Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
@@ -179,13 +185,6 @@ class BigBrotherController extends Controller
         return response(null, Response::HTTP_NO_CONTENT);
     }
 
-    public function showBrothers (){
-
-        $smallBrothers = SmallBrother::with(['user', 'skills', 'big_brother', 'charactaristics'])->get();
-
-        return view('admin.bigBrothers.right', compact('smallBrothers'));
-    }
-
 
     public function printinfo(BigBrother $bigBrother)
     {
@@ -193,6 +192,22 @@ class BigBrotherController extends Controller
          $bigbrothers=BigBrother::with('charactarstics')->get();
 
         return view('forms.bigBrother_registration', compact('userinfo','bigBrother','bigbrothers'));
+    }
+
+    public function chooseSmallbrother(Request $request ){
+
+        $BigBrother=BigBrother::find($request->big_brother_id);
+        
+        $BigBrother->update([
+       
+            'small_brother_id'=>$request->small_brother_id,
+
+
+        ]);
+        return response()->json([
+            'status' => true,
+
+        ]);
     }
 
 }

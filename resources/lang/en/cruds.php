@@ -139,6 +139,7 @@ return [
     'smallBrother' => [
         'title'          => 'Small Brother',
         'title_singular' => 'Small Brother',
+        'no_big_brother' =>'There is no contract with an big brother yet!',
         'fields'         => [
             'id'                     => 'ID',
             'id_helper'              => ' ',
@@ -165,6 +166,9 @@ return [
     'bigBrother' => [
         'title'          => 'Big Brother',
         'title_singular' => 'Big Brother',
+        'small'          =>  'Small Brother Data',
+        'choose'          =>  'recommendations brothers',
+        'no_brother'          =>  '  There are no fraternity contracts yet! Please choose a small brother from the list of recommendations',
         'fields'         => [
             'id'                        => 'ID',
             'id_helper'                 => ' ',
