@@ -332,6 +332,14 @@ return [
         'male' => 'Male',
         'female' => 'Female',
     ],
+    'outing_status' => [
+        'pending' => 'Pending',
+        'accept'  => 'Accept',
+        'refuse'  => 'Refuse',
+        'outing'  => 'Outing',
+        'done'    => 'Done',
+        'cancel'  => 'Cancel',
+    ],
     'approvment' => [
         'not_approved' => 'Not Approved',
         'approved' => 'Approved',

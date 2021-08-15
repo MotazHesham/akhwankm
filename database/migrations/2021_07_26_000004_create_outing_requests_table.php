@@ -15,7 +15,7 @@ class CreateOutingRequestsTable extends Migration
             $table->string('place');
             $table->string('reason')->nullable();
             $table->string('late')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->default('pending');
             $table->datetime('outing_date')->nullable();
             $table->datetime('done_time')->nullable();
             $table->timestamps();

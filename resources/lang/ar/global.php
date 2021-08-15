@@ -332,6 +332,14 @@ return [
         'male' => 'ذكر',
         'female' => 'أنثي',
     ],
+    'outing_status' => [
+        'pending' => 'قيد الإنتظار',
+        'accept'  => 'تم الموافقة',
+        'refuse'  => 'تم الرفض',
+        'outing'  => 'بالخارج',
+        'done'    => 'تم الإنتهاء',
+        'cancel'  => 'تم الإلغاء',
+    ],
     'approvment' => [
         'not_approved' => 'عدم الموافقة',
         'approved' => 'موافقة',

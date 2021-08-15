@@ -20,16 +20,16 @@ class OutingRequestController extends Controller
     public function index()
     {
 
-        $outingRequests = OutingRequest::with(['outing_type', 'big_brother', 'small_brother'])->get();
+        $outingRequests = OutingRequest::with(['outing_type', 'big_brother', 'small_brother'])->orderBy('created_at','desc')->paginate(6);
 
-        return view('Bigbrother.outingRequests.index', compact('outingRequests'))->withoutingRequests(outingRequest::paginate(6));
+        return view('Bigbrother.outingRequests.index', compact('outingRequests'));
     }
 
     public function create()
     {
+        $name = 'name_' . app()->getLocale();
 
-
-        $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $outing_types = OutingType::all()->pluck($name, 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -43,8 +43,6 @@ class OutingRequestController extends Controller
         $validated_request = $request->all();
         $big_brother = BigBrother::find($validated_request['big_brother_id']);
         $validated_request['small_brother_id'] = $big_brother->small_brother_id;
-        // $validated_request['big_brother_id'] = Auth::id();
-        $validated_request['big_brother_id'] = $big_brother->id;
         $outingRequest = OutingRequest::create($validated_request);
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
@@ -55,7 +53,10 @@ class OutingRequestController extends Controller
     public function edit(OutingRequest $outingRequest)
     {
 
-
+        if($outingRequest->status != 'pending'){
+            Alert::error('لا يمكن التعديل');
+            return back();
+        }
         $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
@@ -88,6 +89,11 @@ class OutingRequestController extends Controller
     public function destroy(OutingRequest $outingRequest)
     {
 
+
+        if($outingRequest->status != 'pending'){
+            Alert::error('لا يمكن الحذف');
+            return back();
+        }
 
         $outingRequest->delete();
 

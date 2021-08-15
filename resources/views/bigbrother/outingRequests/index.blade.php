@@ -16,14 +16,38 @@
 
     <div class="card-body">
         <div class="table-responsive">
-
+            @php
+                $name = 'name_' . app()->getLocale();
+            @endphp
             <div class="container mt-5 mb-3">
                 <div class="row">
             @foreach($outingRequests as $key => $outingRequest)
-
+                @php
+                    $status_page = '';
+                    if($outingRequest->status == 'pending'){
+                        $status_page = 'info';
+                    }elseif($outingRequest->status == 'accept'){
+                        $status_page = 'success';
+                    }elseif($outingRequest->status == 'refuse'){
+                        $status_page = 'danger';
+                    }elseif($outingRequest->status == 'outing'){
+                        $status_page = 'warning';
+                    }elseif($outingRequest->status == 'done'){
+                        $status_page = 'success';
+                    }elseif($outingRequest->status == 'cancel'){
+                        $status_page = 'danger';
+                    }
+                @endphp
             <div class="col-md-4">
                 <div class="card border-danger mb-3" style="max-width: 18rem;">
-                <div class="card-header"> {{ $outingRequest->id ?? '' }}) {{ $outingRequest->outing_type->name_ar ?? '' }} </div>
+                <div class="card-header ">
+                    <div  class="row justify-content-between">
+                    <div class="col">{{ $outingRequest->outing_type->$name ?? '' }} </div>
+                     <div class="col">
+                        <span class="badge badge-{{$status_page}}" style="float: left">{{ $outingRequest->status ? trans('global.outing_status.'.$outingRequest->status) : ''  }}</span>
+                        </div>
+                    </div>
+                     </div>
                 <div class="card-body text-danger">
                   <h5 class="card-title"> {{ $outingRequest->place ?? '' }}</h5>
                   <p class="card-text" style="color: black" > <span style="color: rgb(219, 60, 60)"> {{ trans('cruds.outingRequest.fields.start_date') }} :</span>{{ $outingRequest->start_date ?? '' }} </p>
@@ -45,18 +69,20 @@
             </div>
         </div>
                 @endforeach
-                @if($outingRequests->count())
-                <div class="row">
-                    <div class="col">
-                        {{ $outingRequests->links() }}
-                    </div>
-                </div>
-            @endif
+
             </div>
         </div>
 
         </div>
+
+<div class="row">
+    <div class="col">
+        {{ $outingRequests->links() }}
     </div>
+</div>
+
+    </div>
+
 </div>
 
 

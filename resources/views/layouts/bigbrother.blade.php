@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html @if(app()->getLocale() == 'ar') dir="rtl" @endif> 
+<html @if(app()->getLocale() == 'ar') dir="rtl" @endif>
 
 <head>
     <meta charset="UTF-8">
@@ -21,20 +21,26 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" rel="stylesheet" />
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" /> 
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     @if(app()->getLocale() == 'ar')
       <style>
         .c-sidebar-nav .c-sidebar-nav-dropdown-items{
-          padding-right: 8%; 
+          padding-right: 8%;
         }
       </style>
     @else
       <style>
         .c-sidebar-nav .c-sidebar-nav-dropdown-items{
-          padding-left: 8%; 
+          padding-left: 8%;
         }
       </style>
     @endif
+    <style>
+        .c-sidebar .c-sidebar-nav-dropdown-toggle:hover, .c-sidebar .c-sidebar-nav-link:hover {
+            color: #fff;
+            background: #9a626d;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <script src="{{ asset('js/script.js') }}"></script>
@@ -104,18 +110,18 @@
                                 <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     @if(auth()->user()->photo)
                                         <img src="{{asset(auth()->user()->photo->getUrl('thumb'))}}" alt="" width="40" height="40" style="border-radius: 50px;margin:10px">
-                                    @else 
+                                    @else
                                         <img src="{{asset('user.png')}}" alt="" width="40" height="40" style="border-radius: 50px;margin:10px">
                                     @endif
-                                    <span class="text-center"> 
+                                    <span class="text-center">
                                         {{auth()->user()->name }}
-                                        <br> 
-                                        <small style="background: #922B21;color:#fff; border-radius: 30px; padding: 1px 11px;">{{auth()->user()->roles->first()->title}}</small> 
+                                        <br>
+                                        <small style="background: #922B21;color:#fff; border-radius: 30px; padding: 1px 11px;">{{auth()->user()->roles->first()->title}}</small>
                                     </span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right"> 
-                                    <a class="dropdown-item" href="{{route('profile.password.edit')}}">{{trans('global.change_password')}}</a> 
-                                    <a class="dropdown-item" style="cursor: pointer" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> {{ trans('global.logout') }}</a> 
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="{{route('profile.password.edit')}}">{{trans('global.change_password')}}</a>
+                                    <a class="dropdown-item" style="cursor: pointer" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> {{ trans('global.logout') }}</a>
                                 </div>
                             </li>
                         @endcan
@@ -157,7 +163,7 @@
             </form>
         </div>
     </div>
-    
+
     @include('sweetalert::alert')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
