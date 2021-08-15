@@ -34,6 +34,22 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.user.fields.identity_number') }}
+                        </th>
+                        <td>
+                            {{ $smallBrother->user->identity_number ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.phone') }}
+                        </th>
+                        <td>
+                            {{ $smallBrother->user->phone ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.smallBrother.fields.skills') }}
                         </th>
                         <td>

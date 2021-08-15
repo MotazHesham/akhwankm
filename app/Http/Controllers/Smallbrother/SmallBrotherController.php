@@ -62,14 +62,14 @@ class SmallBrotherController extends Controller
     public function outing($user_id)
     {
        
-        $outingRequests = OutingRequest::Where('small_brother_id',$user_id)->with(['outing_type', 'big_brother', 'small_brother'])->get();
+        $outingRequests = OutingRequest::Where('small_brother_id',$user_id)->orderBy('created_at', 'desc')->with(['outing_type', 'big_brother', 'small_brother'])->paginate(9);
 
         return view('smallbrother.outingRequests', compact('outingRequests'));
     }
     public function DatingSession($user_id)
     {
 
-        $datingSessions = DatingSession::Where('small_brother_id',$user_id)->with(['specialist', 'big_brother'])->get();
+        $datingSessions = DatingSession::Where('small_brother_id',$user_id)->with(['specialist', 'big_brother']);
 
         $users = User::get();
 

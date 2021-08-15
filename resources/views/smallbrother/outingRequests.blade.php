@@ -34,6 +34,12 @@
                     </div>
                 </div>
             </div>
-      @endforeach      
+      @endforeach  
+        </div>   
+      <div class="row">
+        <div class="col">
+            {{ $outingRequests->links() }}
+        </div>
+    </div> 
 @endsection
 
