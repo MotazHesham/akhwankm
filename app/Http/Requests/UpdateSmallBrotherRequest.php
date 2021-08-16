@@ -17,6 +17,37 @@ class UpdateSmallBrotherRequest extends FormRequest
     public function rules()
     {
         return [ 
+            'name' => [
+                'string',
+                'required',
+            ],
+            'email' => [
+                'required',
+                'unique:users,email,' . request()->user_id,
+            ],
+            'identity_number' => [
+                'string',
+                'required',
+            ],
+            'identity_date' => [
+                'required',
+                'date_format:' . config('panel.date_format'),
+            ],
+            'dbo' => [
+                'required',
+                'date_format:' . config('panel.date_format'),
+            ],
+            'phone' => [
+                'string',
+                'nullable',
+            ], 
+            'gender' => [
+                'required',
+            ],
+            'degree' => [
+                'string',
+                'required',
+            ],
             'skills.*' => [
                 'integer',
             ],
@@ -30,6 +61,9 @@ class UpdateSmallBrotherRequest extends FormRequest
             'charactaristics' => [
                 'required',
                 'array',
+            ],
+            'city_id' => [
+                'required', 
             ],
         ];
     }

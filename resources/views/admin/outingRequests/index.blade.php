@@ -73,6 +73,9 @@
                                 {{ $outingRequest->place ?? '' }}
                             </td> 
                             <td>
+                                {{ $outingRequest->status ?? '' }}
+                            </td> 
+                            <td>
                                 {{ $outingRequest->big_brother->user->email ?? '' }}
                             </td> 
                             <td>

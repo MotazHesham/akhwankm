@@ -30,5 +30,13 @@
     @include('sweetalert::alert')
     @yield('scripts')
 </body>
-
+<script>
+    
+    function cities(){
+        var country_id = $('#country_id').val();
+        $.post('{{ route('ajax.cities') }}', {_token:'{{ csrf_token() }}', country_id:country_id}, function(data){ 
+            $('#cities #city_id').html(data)
+        });
+    }
+</script>
 </html>

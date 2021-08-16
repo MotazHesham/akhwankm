@@ -12,6 +12,7 @@ use App\Models\Characteristic;
 use App\Models\Skill;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Country;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,8 +36,9 @@ class BigBrotherController extends Controller
         $charactarstics = Characteristic::all()->pluck('name_ar', 'id');
 
         $skills = Skill::all()->pluck('name_ar', 'id');
+        $countries = Country::get()->pluck('name', 'id');
 
-        return view('admin.bigBrothers.create', compact( 'charactarstics', 'skills'));
+        return view('admin.bigBrothers.create', compact( 'charactarstics', 'skills','countries'));
     }
 
     public function store(StoreBigBrotherRequest $request)
@@ -49,9 +51,8 @@ class BigBrotherController extends Controller
             'identity_number' => $request->identity_number,
             'identity_date' => $request->identity_date,
             'dbo' => $request->dbo,
-            'marital_status' => $request->marital_status,
-            'country' => $request->country,
-            'city' => $request->city,
+            'marital_status' => $request->marital_status, 
+            'city_id' => $request->city_id,
             'phone' => $request->phone,
             'address' => $request->address,
             'gender' => $request->gender,
@@ -97,9 +98,10 @@ class BigBrotherController extends Controller
         $skills = Skill::all()->pluck('name_ar', 'id');
 
         $bigBrother->load('user', 'charactarstics', 'skills');
+        $countries = Country::get()->pluck('name', 'id');
 
 
-        return view('admin.bigBrothers.edit', compact('charactarstics', 'skills', 'bigBrother'));
+        return view('admin.bigBrothers.edit', compact('charactarstics', 'skills', 'bigBrother','countries'));
     }
 
     public function update(UpdateBigBrotherRequest $request, BigBrother $bigBrother)

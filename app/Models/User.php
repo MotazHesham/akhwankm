@@ -74,8 +74,7 @@ class User extends Authenticatable implements HasMedia
         'identity_number',
         'identity_date',
         'dbo',
-        'country',
-        'city',
+        'city_id', 
         'phone',
         'address',
         'gender',
@@ -158,6 +157,7 @@ class User extends Authenticatable implements HasMedia
     {
         return $date->format('Y-m-d H:i:s');
     }
-  
-    
+    public function city(){
+        return $this->belongsTo(City::class);
+    }
 }

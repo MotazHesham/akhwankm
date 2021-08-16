@@ -50,14 +50,9 @@ class StoreUserRequest extends FormRequest
             'marital_status' => [
                 'string',
                 'nullable',
-            ],
-            'country' => [
-                'string',
-                'nullable',
-            ],
-            'city' => [
-                'string',
-                'nullable',
+            ], 
+            'city_id' => [
+                'required', 
             ],
             'phone' => [
                 'string',

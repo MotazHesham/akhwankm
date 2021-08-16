@@ -9,6 +9,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Country;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\Models\Media;
@@ -92,9 +93,10 @@ class UsersController extends Controller
     {
         abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $roles = Role::all()->pluck('title', 'id');
+        $roles = Role::all()->pluck('title', 'id'); 
+        $countries = Country::get()->pluck('name', 'id'); 
 
-        return view('admin.users.create', compact('roles'));
+        return view('admin.users.create', compact('roles','countries'));
     }
 
     public function store(StoreUserRequest $request)
@@ -122,9 +124,10 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
+        $countries = Country::get()->pluck('name', 'id');
         $user->load('roles');
 
-        return view('admin.users.edit', compact('roles', 'user'));
+        return view('admin.users.edit', compact('roles', 'user','countries'));
     }
 
     public function update(UpdateUserRequest $request, User $user)

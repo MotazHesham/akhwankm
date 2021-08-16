@@ -59,6 +59,22 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.user.fields.country_id') }}
+                        </th>
+                        <td>
+                            {{ $bigBrother->user->city->country->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.city_id') }}
+                        </th>
+                        <td>
+                            {{ $bigBrother->user->city->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.bigBrother.fields.family_male') }}
                         </th>
                         <td>

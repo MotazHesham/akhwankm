@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->date('identity_date')->nullable();
             $table->date('dbo')->nullable();
             $table->string('marital_status')->nullable();
-            $table->string('country')->nullable();
-            $table->string('city')->nullable();
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->foreign('city_id', 'city_id_fk_4457450')->references('id')->on('cities')->onDelete('cascade');
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('gender')->nullable();

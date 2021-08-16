@@ -188,6 +188,26 @@
                             </a>
                         </li>
                     @endcan
+                    @can('country_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.countries.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/countries") || request()->is("admin/countries/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-flag c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.country.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('city_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.cities.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/cities") || request()->is("admin/cities/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-globe-africa c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.city.title') }}
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </li>
         @endcan

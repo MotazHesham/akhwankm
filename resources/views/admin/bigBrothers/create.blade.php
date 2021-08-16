@@ -156,30 +156,39 @@
                 </div>
             </div>
 
-            <div class="row"> 
-                <div class="col-md-6"> 
+            
+            <div class="row">
+                <div class="col-md-6">
+                    {{-- country --}}
                     <div class="form-group">
-                        <label for="country">{{ trans('cruds.user.fields.country') }}</label>
-                        <input class="form-control {{ $errors->has('country') ? 'is-invalid' : '' }}" type="text" name="country" id="country" value="{{ old('country', '') }}">
-                        @if($errors->has('country'))
+                        <label class="required" for="country_id">{{ trans('cruds.user.fields.country_id') }}</label>
+                        <select class="form-control select2 {{ $errors->has('country_id') ? 'is-invalid' : '' }}" name="country_id" id="country_id" required onchange="cities()">
+                            @foreach($countries as $id => $name)
+                                <option value="{{ $id }}"  {{ old('country_id','') == $id ? 'selected' : '' }}>{{ $name }}</option>
+                            @endforeach
+                        </select>
+                        @if($errors->has('country_id'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('country') }}
+                                {{ $errors->first('country_id') }}
                             </div>
                         @endif
-                        <span class="help-block">{{ trans('cruds.user.fields.country_helper') }}</span>
-                    </div>
+                        <span class="help-block">{{ trans('cruds.user.fields.country_id_helper') }}</span>
+                    </div> 
                 </div>
-                <div class="col-md-6"> 
-                    <div class="form-group">
-                        <label for="city">{{ trans('cruds.user.fields.city') }}</label>
-                        <input class="form-control {{ $errors->has('city') ? 'is-invalid' : '' }}" type="text" name="city" id="city" value="{{ old('city', '') }}">
-                        @if($errors->has('city'))
+                <div class="col-md-6">
+                    {{-- cities --}}
+                    <div class="form-group" id="cities"> 
+                        <label class="required" for="city_id">{{ trans('cruds.user.fields.city_id') }}</label>
+                        <select class="form-control select2 {{ $errors->has('city_id') ? 'is-invalid' : '' }}" name="city_id" id="city_id" required> 
+                            {{-- ajax call --}}
+                        </select>
+                        @if($errors->has('city_id'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('city') }}
+                                {{ $errors->first('city_id') }}
                             </div>
                         @endif
-                        <span class="help-block">{{ trans('cruds.user.fields.city_helper') }}</span>
-                    </div>
+                        <span class="help-block">{{ trans('cruds.user.fields.city_id_helper') }}</span>
+                    </div> 
                 </div>
             </div>
 
@@ -339,6 +348,9 @@
 </div>
 @endsection
 @section('scripts') 
+<script>
+    cities();
+</script>
 <script>
   Dropzone.options.cvDropzone = {
   url: '{{ route('admin.users.storeMedia') }}',
