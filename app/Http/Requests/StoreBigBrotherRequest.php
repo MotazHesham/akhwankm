@@ -74,22 +74,22 @@ class StoreBigBrotherRequest extends FormRequest
                 'required',
             ],
             'salary' => [
-                'required',
+                'nullable',
             ],
             'family_male' => [
-                'required',
+                'nullable',
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
             ],
             'family_female' => [
-                'required',
+                'nullable',
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
             ],
             'brotherhood_reason' => [
-                'required',
+                'nullable',
             ],
             'charactarstics.*' => [
                 'integer',

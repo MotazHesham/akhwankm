@@ -12,7 +12,7 @@
             <input type="hidden" name="specialist_id" value="{{Auth::id()}}">
 
             <div class="row">
-                <div class="col-md-4"> 
+                <div class="col-md-6"> 
                     <div class="form-group">
                         <label class="required" for="small_brother_id">{{ trans('cruds.brothersDealForm.fields.small_brother') }}</label>
                         <select class="form-control select2 {{ $errors->has('small_brother') ? 'is-invalid' : '' }}" name="small_brother_id" id="small_brother_id" required>
@@ -28,7 +28,7 @@
                         <span class="help-block">{{ trans('cruds.brothersDealForm.fields.small_brother_helper') }}</span>
                     </div>
                 </div>
-                <div class="col-md-4">  
+                <div class="col-md-6">  
                     <div class="form-group">
                         <label class="required" for="big_brother_id">{{ trans('cruds.brothersDealForm.fields.big_brother') }}</label>
                         <select class="form-control select2 {{ $errors->has('big_brother') ? 'is-invalid' : '' }}" name="big_brother_id" id="big_brother_id" required>
@@ -44,26 +44,10 @@
                         <span class="help-block">{{ trans('cruds.brothersDealForm.fields.big_brother_helper') }}</span>
                     </div>
                 </div>
-                <div class="col-md-4"> 
-                    <div class="form-group">
-                        <label for="approvment_form_id">{{ trans('cruds.brothersDealForm.fields.approvment_form') }}</label>
-                        <select class="form-control select2 {{ $errors->has('approvment_form') ? 'is-invalid' : '' }}" name="approvment_form_id" id="approvment_form_id">
-                            @foreach($approvment_forms as $id => $entry)
-                                <option value="{{ $id }}" {{ old('approvment_form_id') == $id ? 'selected' : '' }}>{{ $id }}</option>
-                            @endforeach
-                        </select>
-                        @if($errors->has('approvment_form'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('approvment_form') }}
-                            </div>
-                        @endif
-                        <span class="help-block">{{ trans('cruds.brothersDealForm.fields.approvment_form_helper') }}</span>
-                    </div>
-                </div>
             </div>
             <div class="form-group">
                 <label class="required" for="day">{{ trans('cruds.brothersDealForm.fields.day') }}</label>
-                <input class="form-control {{ $errors->has('day') ? 'is-invalid' : '' }}" type="text" name="day" id="day" value="{{ old('day', '') }}" required>
+                <input class="form-control date {{ $errors->has('day') ? 'is-invalid' : '' }}" type="text" name="day" id="day" value="{{ old('day', '') }}" required>
                 @if($errors->has('day'))
                     <div class="invalid-feedback">
                         {{ $errors->first('day') }}

@@ -89,7 +89,7 @@
 				<td class="text-right " ><span ></span> <label class="gry-color strong" style="float:right" > &nbsp;&nbsp;</label></td>
 			</tr>
             <tr>
-				<td class="text-right "  ><span >{{$brothersDealForm->approvment_form->id ?? ''}}</span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> :  بناء على الموافقة رقم  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+				<td class="text-right "  ><span >{{$approvment_form_id ?? ''}}</span> <label class="gry-color strong selectBoxLabel bold block" style="float:right"> :  بناء على الموافقة رقم  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 				<td class="text-right " ><span >{{$brothersDealForm->created_at}}</span> <label class="gry-color strong" style="float:center" >:بتاريخ &nbsp;&nbsp;</label></td>
 				<td class="text-right " ><span ></span> <label class="gry-color strong" style="float:right" > &nbsp;&nbsp;</label>
 			</tr>

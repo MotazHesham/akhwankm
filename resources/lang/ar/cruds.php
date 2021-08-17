@@ -179,7 +179,7 @@ return [
             'job_helper'                => ' ',
             'job_place'                 => 'مكان العمل',
             'job_place_helper'          => ' ',
-            'salary'                    => 'المرتب',
+            'salary'                    => 'الراتب',
             'salary_helper'             => ' ',
             'family_male'               => ' أفراد الأسرة الذكور',
             'family_male_helper'        => ' ',
@@ -239,8 +239,8 @@ return [
         ],
     ],
     'outingType' => [
-        'title'          => 'نوع النزهة',
-        'title_singular' => 'نوع النزهة',
+        'title'          => 'نوع النشاط',
+        'title_singular' => 'نوع النشاط',
         'fields'         => [
             'id'                => 'id',
             'id_helper'         => ' ',

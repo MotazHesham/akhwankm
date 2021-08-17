@@ -91,4 +91,14 @@ class ApprovementFormController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function printForm(ApprovementForm $approvementForm){
+      
+       
+        $approvementForms = ApprovementForm::findOrFail($approvementForm->id);
+
+        return view('forms.approvementForm',compact('approvementForms'));
+
+
+    }
 }

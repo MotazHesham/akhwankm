@@ -89,6 +89,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Approvement Form
     Route::delete('approvement-forms/destroy', 'ApprovementFormController@massDestroy')->name('approvement-forms.massDestroy');
     Route::resource('approvement-forms', 'ApprovementFormController');
+    Route::get('approvement-forms/printForm/{approvementForm}','ApprovementFormController@printForm')->name('approvement-forms.print');
+
 
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

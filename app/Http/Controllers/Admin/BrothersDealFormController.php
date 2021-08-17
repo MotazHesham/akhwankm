@@ -102,6 +102,7 @@ class BrothersDealFormController extends Controller
     {       
         $big_brother=BigBrother::findOrFail($brothersDealForm->big_brother_id);
         $small_brother=SmallBrother::findOrFail($brothersDealForm->small_brother_id);
-        return view('forms.brothersDeal', compact('brothersDealForm','big_brother','small_brother'));
+        $approvment_form_id=ApprovementForm::where('big_brother_id',$brothersDealForm->big_brother_id)->first()->id;
+        return view('forms.brothersDeal', compact('brothersDealForm','big_brother','small_brother','approvment_form_id'));
     }
 }
