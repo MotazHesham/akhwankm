@@ -91,7 +91,7 @@
                     <div class="card-body">
                       <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">{{ trans('cruds.smallBrother.fields.charactaristics') }}</i> </h6>
                       @foreach($smallbrother->charactaristics as $key => $item)
-                                              
+
                       <small>({{ $item->name_ar }} )</small>
 
                       @endforeach

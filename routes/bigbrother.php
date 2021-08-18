@@ -24,5 +24,13 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
     // small brother info
 
     Route::get('/show/MySmallbrother/{bigBrother}', 'EditMyInfoController@Smallbrotherinfo')->name('brotherhood.show');
+
+
+
 });
 
+
+
+Route::get('/regess', function () {
+    return view('auth\akhwankm_regestration');
+});
