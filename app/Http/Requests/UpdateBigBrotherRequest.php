@@ -17,6 +17,45 @@ class UpdateBigBrotherRequest extends FormRequest
     public function rules()
     {
         return [ 
+            'name' => [
+                'string',
+                'required',
+            ],
+            'email' => [
+                'required',
+                'unique:users,email,' . request()->user_id,
+            ],
+            'identity_number' => [
+                'string',
+                'required',
+            ],
+            'identity_date' => [
+                'required',
+                'date_format:' . config('panel.date_format'),
+            ],
+            'dbo' => [
+                'required',
+                'date_format:' . config('panel.date_format'),
+            ],
+            'phone' => [
+                'string',
+                'nullable',
+            ], 
+            'marital_status' => [
+                'string',
+                'nullable',
+            ], 
+            'address' => [
+                'string',
+                'nullable',
+            ],
+            'gender' => [
+                'required',
+            ],
+            'degree' => [
+                'string',
+                'required',
+            ],
             'job' => [
                 'string',
                 'required',
@@ -54,6 +93,9 @@ class UpdateBigBrotherRequest extends FormRequest
             ],
             'skills' => [
                 'array',
+            ],
+            'city_id' => [
+                'required', 
             ],
         ];
     }

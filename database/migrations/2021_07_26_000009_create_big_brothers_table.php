@@ -12,10 +12,10 @@ class CreateBigBrothersTable extends Migration
             $table->bigIncrements('id');
             $table->string('job');
             $table->string('job_place');
-            $table->decimal('salary', 15, 2);
-            $table->integer('family_male');
-            $table->integer('family_female');
-            $table->longText('brotherhood_reason');
+            $table->decimal('salary', 15, 2)->nullable();
+            $table->integer('family_male')->nullable();
+            $table->integer('family_female')->nullable();;
+            $table->longText('brotherhood_reason')->nullable();;
             $table->timestamps();
             $table->softDeletes();
         });

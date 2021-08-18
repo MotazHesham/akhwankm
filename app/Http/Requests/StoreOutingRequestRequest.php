@@ -49,6 +49,10 @@ class StoreOutingRequestRequest extends FormRequest
                 'required',
                 'integer',
             ],
+            'other' =>[
+                 'nullable'
+
+            ]
         ];
     }
 }

@@ -50,14 +50,6 @@ class StoreSmallBrotherRequest extends FormRequest
                 'string',
                 'nullable',
             ],
-            'country' => [
-                'string',
-                'nullable',
-            ],
-            'city' => [
-                'string',
-                'nullable',
-            ],
             'phone' => [
                 'string',
                 'nullable',

@@ -48,13 +48,8 @@ class UpdateUserRequest extends FormRequest
                 'string',
                 'nullable',
             ],
-            'country' => [
-                'string',
-                'nullable',
-            ],
-            'city' => [
-                'string',
-                'nullable',
+            'city_id' => [
+                'required', 
             ],
             'phone' => [
                 'string',

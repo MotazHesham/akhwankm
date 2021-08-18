@@ -156,30 +156,39 @@
                 </div>
             </div>
 
-            <div class="row"> 
-                <div class="col-md-6"> 
+            
+            <div class="row">
+                <div class="col-md-6">
+                    {{-- country --}}
                     <div class="form-group">
-                        <label for="country">{{ trans('cruds.user.fields.country') }}</label>
-                        <input class="form-control {{ $errors->has('country') ? 'is-invalid' : '' }}" type="text" name="country" id="country" value="{{ old('country', '') }}">
-                        @if($errors->has('country'))
+                        <label class="required" for="country_id">{{ trans('cruds.user.fields.country_id') }}</label>
+                        <select class="form-control select2 {{ $errors->has('country_id') ? 'is-invalid' : '' }}" name="country_id" id="country_id" required onchange="cities()">
+                            @foreach($countries as $id => $name)
+                                <option value="{{ $id }}"  {{ old('country_id','') == $id ? 'selected' : '' }}>{{ $name }}</option>
+                            @endforeach
+                        </select>
+                        @if($errors->has('country_id'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('country') }}
+                                {{ $errors->first('country_id') }}
                             </div>
                         @endif
-                        <span class="help-block">{{ trans('cruds.user.fields.country_helper') }}</span>
-                    </div>
+                        <span class="help-block">{{ trans('cruds.user.fields.country_id_helper') }}</span>
+                    </div> 
                 </div>
-                <div class="col-md-6"> 
-                    <div class="form-group">
-                        <label for="city">{{ trans('cruds.user.fields.city') }}</label>
-                        <input class="form-control {{ $errors->has('city') ? 'is-invalid' : '' }}" type="text" name="city" id="city" value="{{ old('city', '') }}">
-                        @if($errors->has('city'))
+                <div class="col-md-6">
+                    {{-- cities --}}
+                    <div class="form-group" id="cities"> 
+                        <label class="required" for="city_id">{{ trans('cruds.user.fields.city_id') }}</label>
+                        <select class="form-control select2 {{ $errors->has('city_id') ? 'is-invalid' : '' }}" name="city_id" id="city_id" required> 
+                            {{-- ajax call --}}
+                        </select>
+                        @if($errors->has('city_id'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('city') }}
+                                {{ $errors->first('city_id') }}
                             </div>
                         @endif
-                        <span class="help-block">{{ trans('cruds.user.fields.city_helper') }}</span>
-                    </div>
+                        <span class="help-block">{{ trans('cruds.user.fields.city_id_helper') }}</span>
+                    </div> 
                 </div>
             </div>
 
@@ -239,8 +248,8 @@
                 </div>
                 <div class="col-md-4"> 
                     <div class="form-group">
-                        <label class="required" for="salary">{{ trans('cruds.bigBrother.fields.salary') }}</label>
-                        <input class="form-control {{ $errors->has('salary') ? 'is-invalid' : '' }}" type="number" name="salary" id="salary" value="{{ old('salary', '') }}" step="0.01" required>
+                        <label  for="salary">{{ trans('cruds.bigBrother.fields.salary') }}</label>
+                        <input class="form-control {{ $errors->has('salary') ? 'is-invalid' : '' }}" type="number" name="salary" id="salary" value="{{ old('salary', '') }}" step="0.01" >
                         @if($errors->has('salary'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('salary') }}
@@ -255,8 +264,8 @@
                 <div class="col-md-6"> 
 
                     <div class="form-group">
-                        <label class="required" for="family_male">{{ trans('cruds.bigBrother.fields.family_male') }}</label>
-                        <input class="form-control {{ $errors->has('family_male') ? 'is-invalid' : '' }}" type="number" name="family_male" id="family_male" value="{{ old('family_male', '') }}" step="1" required>
+                        <label  for="family_male">{{ trans('cruds.bigBrother.fields.family_male') }}</label>
+                        <input class="form-control {{ $errors->has('family_male') ? 'is-invalid' : '' }}" type="number" name="family_male" id="family_male" value="{{ old('family_male', '') }}" step="1" >
                         @if($errors->has('family_male'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('family_male') }}
@@ -267,8 +276,8 @@
                 </div>
                 <div class="col-md-6"> 
                     <div class="form-group">
-                        <label class="required" for="family_female">{{ trans('cruds.bigBrother.fields.family_female') }}</label>
-                        <input class="form-control {{ $errors->has('family_female') ? 'is-invalid' : '' }}" type="number" name="family_female" id="family_female" value="{{ old('family_female', '') }}" step="1" required>
+                        <label  for="family_female">{{ trans('cruds.bigBrother.fields.family_female') }}</label>
+                        <input class="form-control {{ $errors->has('family_female') ? 'is-invalid' : '' }}" type="number" name="family_female" id="family_female" value="{{ old('family_female', '') }}" step="1" >
                         @if($errors->has('family_female'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('family_female') }}
@@ -280,8 +289,8 @@
             </div>
         
             <div class="form-group">
-                <label class="required" for="brotherhood_reason">{{ trans('cruds.bigBrother.fields.brotherhood_reason') }}</label>
-                <textarea class="form-control {{ $errors->has('brotherhood_reason') ? 'is-invalid' : '' }}" name="brotherhood_reason" id="brotherhood_reason" required>{{ old('brotherhood_reason') }}</textarea>
+                <label  for="brotherhood_reason">{{ trans('cruds.bigBrother.fields.brotherhood_reason') }}</label>
+                <textarea class="form-control {{ $errors->has('brotherhood_reason') ? 'is-invalid' : '' }}" name="brotherhood_reason" id="brotherhood_reason" >{{ old('brotherhood_reason') }}</textarea>
                 @if($errors->has('brotherhood_reason'))
                     <div class="invalid-feedback">
                         {{ $errors->first('brotherhood_reason') }}
@@ -339,6 +348,9 @@
 </div>
 @endsection
 @section('scripts') 
+<script>
+    cities();
+</script>
 <script>
   Dropzone.options.cvDropzone = {
   url: '{{ route('admin.users.storeMedia') }}',

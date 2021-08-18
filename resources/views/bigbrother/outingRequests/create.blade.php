@@ -20,7 +20,7 @@ use App\Models\SmallBrother;
             <div class="col-md-6">
             <div class="form-group">
                 <label class="required" for="outing_type_id">{{ trans('cruds.outingRequest.fields.outing_type') }}</label>
-                <select class="form-control select2 {{ $errors->has('outing_type') ? 'is-invalid' : '' }}" name="outing_type_id" id="outing_type_id" required>
+                <select class="form-control select2 {{ $errors->has('outing_type') ? 'is-invalid' : '' }}" name="outing_type_id" id="outing_type_id" required onchange="checkvalue()">
                     @foreach($outing_types as $id => $entry)
                         <option value="{{ $id }}" {{ old('outing_type_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
@@ -32,6 +32,8 @@ use App\Models\SmallBrother;
                 @endif
                 <span class="help-block">{{ trans('cruds.outingRequest.fields.outing_type_helper') }}</span>
             </div>
+            
+            <input class="form-control"  type="text" name="other" id="other"   placeholder="Type the type of activity" style='display:none;'/>
             </div>
 
                 <div class="col-md-6">
@@ -91,4 +93,23 @@ use App\Models\SmallBrother;
 
 
 
+@endsection
+
+@section('scripts')
+  
+
+ <script>
+function checkvalue()
+{
+    var x = document.getElementById("outing_type_id").value;
+    if(x==2)
+
+    document.getElementById('other').style.display='block';
+
+    else
+
+     document.getElementById('other').style.display='none';
+   
+}
+</script>
 @endsection

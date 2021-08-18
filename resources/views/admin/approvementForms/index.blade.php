@@ -88,6 +88,10 @@
                                     </a>
                                 @endcan
 
+                                <a class="btn btn-xs btn-success" href="{{ route('admin.approvement-forms.print', $approvementForm->id) }}">
+                                    {{ trans('global.print') }}
+                                </a>
+
                                 @can('approvement_form_delete')
                                     <form action="{{ route('admin.approvement-forms.destroy', $approvementForm->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">

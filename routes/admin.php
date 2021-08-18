@@ -1,5 +1,7 @@
 <?php
 
+Route::post('ajax/cities','AjaxController@cities')->name('ajax.cities');
+
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
@@ -50,8 +52,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('big-brothers/printinfo/{bigBrother}' , 'BigBrotherController@printinfo')->name('big-brothers.print');
     Route::resource('big-brothers', 'BigBrotherController');
     Route::POST('big-brother/smallbrother' ,'BigBrotherController@chooseSmallbrother')->name('choose.smallbrother');
-   
-    
+
+    // Countries
+    Route::delete('countries/destroy', 'CountriesController@massDestroy')->name('countries.massDestroy');
+    Route::resource('countries', 'CountriesController');
+
+    // Cities
+    Route::delete('cities/destroy', 'CitiesController@massDestroy')->name('cities.massDestroy');
+    Route::resource('cities', 'CitiesController');
 
     // Dating Sessions
     Route::delete('dating-sessions/destroy', 'DatingSessionsController@massDestroy')->name('dating-sessions.massDestroy');
@@ -81,6 +89,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Approvement Form
     Route::delete('approvement-forms/destroy', 'ApprovementFormController@massDestroy')->name('approvement-forms.massDestroy');
     Route::resource('approvement-forms', 'ApprovementFormController');
+    Route::get('approvement-forms/printForm/{approvementForm}','ApprovementFormController@printForm')->name('approvement-forms.print');
+
 
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

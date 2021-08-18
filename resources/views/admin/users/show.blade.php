@@ -95,18 +95,18 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.country') }}
+                            {{ trans('cruds.user.fields.country_id') }}
                         </th>
                         <td>
-                            {{ $user->country }}
+                            {{ $user->city->country->name ?? '' }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.city') }}
+                            {{ trans('cruds.user.fields.city_id') }}
                         </th>
                         <td>
-                            {{ $user->city }}
+                            {{ $user->city->name ?? '' }}
                         </td>
                     </tr>
                     <tr>
