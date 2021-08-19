@@ -78,6 +78,7 @@ return [
     'update_info'                    =>'Update my personal data',
     'outingRequests'                 => 'Outings Requests',
     'Sessions'                       => ' Sessions ',
+    'others'                      => 'Other',
     'datatables'                     => [
         'copy'          => 'Copy',
         'csv'           => 'CSV',

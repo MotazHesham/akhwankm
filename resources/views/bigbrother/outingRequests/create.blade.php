@@ -24,6 +24,7 @@ use App\Models\SmallBrother;
                     @foreach($outing_types as $id => $entry)
                         <option value="{{ $id }}" {{ old('outing_type_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
+                        <option value="0">{{trans('global.other')}}</option>
                 </select>
                 @if($errors->has('outing_type'))
                     <div class="invalid-feedback">
@@ -33,7 +34,7 @@ use App\Models\SmallBrother;
                 <span class="help-block">{{ trans('cruds.outingRequest.fields.outing_type_helper') }}</span>
             </div>
             
-            <input class="form-control"  type="text" name="other" id="other"   placeholder="Type the type of activity" style='display:none;'/>
+            <input class="form-control"  type="text" name="other" id="other"   placeholder="أكتب نوع النشاط" style='display:none;'/>
             </div>
 
                 <div class="col-md-6">
@@ -96,20 +97,17 @@ use App\Models\SmallBrother;
 @endsection
 
 @section('scripts')
-  
 
- <script>
+
+<script>
 function checkvalue()
 {
     var x = document.getElementById("outing_type_id").value;
-    if(x==2)
-
-    document.getElementById('other').style.display='block';
-
-    else
-
-     document.getElementById('other').style.display='none';
-   
+    if(x==0){
+        document.getElementById('other').style.display='block';
+    }else{
+        document.getElementById('other').style.display='none';
+    } 
 }
 </script>
 @endsection

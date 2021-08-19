@@ -319,6 +319,7 @@ return [
     'team-members'                   => 'اعضاء الفريق',
     'calendar'                       => 'التقويم',
     'messenger'                      => 'مراسل',
+    'other'                      => 'أخري',
     'degree' => [
         'Literate without Certificate' => 'القراءة والكتابة بدون شهادة',
         'Primary Certificate'          => 'الشهادة الابتدائية',
