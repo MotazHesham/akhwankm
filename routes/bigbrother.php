@@ -31,6 +31,12 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
 
 
 
+Route::get('/loginn', function () {
+    return view('auth\akhwankm_login');
+});
+
+
+
 Route::get('/regess', function () {
     return view('auth\akhwankm_regestration');
 });

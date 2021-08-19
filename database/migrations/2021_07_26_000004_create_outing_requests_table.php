@@ -18,8 +18,10 @@ class CreateOutingRequestsTable extends Migration
             $table->string('status')->default('pending');
             $table->datetime('outing_date')->nullable();
             $table->datetime('done_time')->nullable();
+            $table->string('other')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 }

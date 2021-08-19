@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9460240-59e9-46ec-a5db-8a7c9859db9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreOutingRequestRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreOutingRequestRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/global.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/global.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/forms/brothersDeal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/forms/brothersDeal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/menu_big_brother.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu_big_brother.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/bigbrother.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bigbrother.php" afterDir="false" />
-    </list>
+    <list default="true" id="d9460240-59e9-46ec-a5db-8a7c9859db9d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -174,6 +166,7 @@
       <option name="presentableId" value="Default" />
       <updated>1628706945757</updated>
       <workItem from="1628706946978" duration="1547000" />
+      <workItem from="1629319360659" duration="18000" />
     </task>
     <servers />
   </component>

@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
 
-    <title>{{ trans('panel.site_title') }}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://unpkg.com/@coreui/coreui@3.2/dist/css/coreui.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    @yield('styles')
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{{ asset('css/stylee.css') }}">
+
+    <script src='main.js'></script>
+
+    <title>Document</title>
+
+    <style>
+        img.k1 {
+          position: absolute;
+          left:300px;
+          top: 100px;
+        }
+
+        button.k1 {
+          position: absolute;
+          left:167px;
+          top:20px;
+          z-index: 1;
+        }
+
+        button.k2 {
+          position: absolute;
+          left:350px;
+          top:20px;
+            z-index: 2;
+        }
+
+        button.k3 {
+          position: absolute;
+          left:110px;
+          top:20px;
+        }
+
+
+        </style>
 </head>
 
-<body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden login-page">
-    <div class="c-app flex-row align-items-center">
-        <div class="container">
-            @yield("content")
-        </div>
+<body style=" width: 1330px; background-image: url('{{asset('images/5.jpg')}}')">
+
+<div class="row">
+    <div class="col-md-6 ">
+
+        <img  class="k1" src="{{ URL::to('images/9.jpg') }}" style="width:120px;height:120px; padding:0px 0px 0px 0px;">
+        <p style=" font: normal normal bold 30px/56px Cairo; color: #183273; padding:310px 0px 0px 400px;">المنصة الإلكترونية</p>
+        <p style="font: normal normal  30px/56px Cairo;font-size:51px ; color: #000000; padding:0px 0px 0px 185px;">لمشروع المؤاخاه</p>
     </div>
-    @include('sweetalert::alert')
-    @yield('scripts')
+
+    <div class="col-md-6">
+        @yield('content')
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
 </body>
-<script>
-    
-    function cities(){
-        var country_id = $('#country_id').val();
-        $.post('{{ route('ajax.cities') }}', {_token:'{{ csrf_token() }}', country_id:country_id}, function(data){ 
-            $('#cities #city_id').html(data)
-        });
-    }
-</script>
 </html>

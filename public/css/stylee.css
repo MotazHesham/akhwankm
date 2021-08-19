@@ -6484,6 +6484,10 @@
     -webkit-box-shadow: none !important;
     box-shadow: none !important; }
 
+    .w-10 {
+        width: 10% !important; }
+
+
   .w-25 {
     width: 25% !important; }
 
@@ -8227,7 +8231,7 @@
     box-shadow: none;
     border-radius: 0;
     border: none;
-    border-bottom: 1px solid #b689b0;
+    border-bottom: 1px solid #BEBEBE;
     padding-left: 30px;
     padding-right: 0;
     letter-spacing: 1px;
