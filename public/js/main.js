@@ -1,11 +1,21 @@
-(function($) {
+$(document).ready(function () {
+  window._token = $('meta[name="csrf-token"]').attr('content')
 
-	"use strict";
+  moment.updateLocale('en', {
+    week: {dow: 1} // Monday is the first day of the week
+  })
 
-
-<<<<<<< HEAD
-})(jQuery);
-=======
+  $('.date').datetimepicker({
+    format: 'DD/MM/YYYY',
+    locale: 'en',
+    icons: {
+      up: 'fas fa-chevron-up',
+      down: 'fas fa-chevron-down',
+      previous: 'fas fa-chevron-left',
+      next: 'fas fa-chevron-right'
+    }
+  })
+  
   $('.datetime').datetimepicker({
     format: 'DD/MM/YYYY HH:mm:ss',
     locale: 'en',
@@ -63,4 +73,3 @@
 
 });
 
->>>>>>> 1e8dae9b682d24d1ec0d4f6c3504de7760f1d0b3
