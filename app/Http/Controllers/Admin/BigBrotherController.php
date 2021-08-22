@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyBigBrotherRequest;
+use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\StoreBigBrotherRequest;
 use App\Http\Requests\UpdateBigBrotherRequest;
 use App\Models\BigBrother;
@@ -20,6 +21,8 @@ Use Alert;
 
 class BigBrotherController extends Controller
 {
+    use MediaUploadingTrait;
+
     public function index()
     {
         abort_if(Gate::denies('big_brother_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -42,7 +45,7 @@ class BigBrotherController extends Controller
     }
 
     public function store(StoreBigBrotherRequest $request)
-    { 
+    {
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -51,7 +54,7 @@ class BigBrotherController extends Controller
             'identity_number' => $request->identity_number,
             'identity_date' => $request->identity_date,
             'dbo' => $request->dbo,
-            'marital_status' => $request->marital_status, 
+            'marital_status' => $request->marital_status,
             'city_id' => $request->city_id,
             'phone' => $request->phone,
             'address' => $request->address,
@@ -75,8 +78,8 @@ class BigBrotherController extends Controller
             'family_female'=> $request->family_female,
             'marital_status'=>$request->marital_status,
             'brotherhood_reason'=>$request->brotherhood_reason,
-            'user_id'=>$user->id, 
-            'small_brother_id'=>$request->small_brother_id, 
+            'user_id'=>$user->id,
+            'small_brother_id'=>$request->small_brother_id,
         ]);
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
         $bigBrother->skills()->sync($request->input('skills', []));
@@ -105,7 +108,7 @@ class BigBrotherController extends Controller
     }
 
     public function update(UpdateBigBrotherRequest $request, BigBrother $bigBrother)
-    { 
+    {
         $bigBrother->update([
             'job'=>$request->job,
             'job_place'=>$request->job_place,
@@ -137,7 +140,7 @@ class BigBrotherController extends Controller
 
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
         $bigBrother->skills()->sync($request->input('skills', []));
-        
+
         if ($request->input('cv', false)) {
             if (!$user->cv || $request->input('cv') !== $user->cv->file_name) {
                 if ($user->cv) {
@@ -155,13 +158,16 @@ class BigBrotherController extends Controller
     }
 
     public function show(BigBrother $bigBrother)
-    { 
+    {
         abort_if(Gate::denies('big_brother_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         global $skills;
-    
-         $bigBrother->load('user', 'charactarstics', 'skills','small_brother');
-         $skills = $bigBrother['skills'];
-         $small_brothers = SmallBrother::whereHas('skills',function($query){
+
+        $bigBrother->load('user', 'charactarstics', 'skills','small_brother');
+        $skills = $bigBrother['skills'];
+
+        $selected_small_brothers = BigBrother::where('small_brother_id','!=',null)->get()->pluck('small_brother_id');
+        $small_brothers = SmallBrother::whereNotIn('id',$selected_small_brothers)->whereHas('skills',function($query){
             $query->whereIn('id',$GLOBALS['skills']);
         })->get()->take(5);
 
@@ -199,9 +205,9 @@ class BigBrotherController extends Controller
     public function chooseSmallbrother(Request $request ){
 
         $BigBrother=BigBrother::find($request->big_brother_id);
-        
+
         $BigBrother->update([
-       
+
             'small_brother_id'=>$request->small_brother_id,
 
 

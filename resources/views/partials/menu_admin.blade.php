@@ -97,16 +97,7 @@
                 </a>
             </li>
         @endcan
-        @can('dating_session_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.dating-sessions.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/dating-sessions") || request()->is("admin/dating-sessions/*") ? "c-active" : "" }}">
-                    <i class="fa-fw far fa-clock c-sidebar-nav-icon">
 
-                    </i>
-                    {{ trans('cruds.datingSession.title') }}
-                </a>
-            </li>
-        @endcan
         @can('approvement_form_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.approvement-forms.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/approvement-forms") || request()->is("admin/approvement-forms/*") ? "c-active" : "" }}">
@@ -117,6 +108,16 @@
                 </a>
             </li>
         @endcan
+        @can('dating_session_access')
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.dating-sessions.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/dating-sessions") || request()->is("admin/dating-sessions/*") ? "c-active" : "" }}">
+                <i class="fa-fw far fa-clock c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.datingSession.title') }}
+            </a>
+        </li>
+    @endcan
         @can('brothers_deal_form_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.brothers-deal-forms.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/brothers-deal-forms") || request()->is("admin/brothers-deal-forms/*") ? "c-active" : "" }}">
