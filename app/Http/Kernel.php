@@ -28,6 +28,7 @@ class Kernel extends HttpKernel
         'staff' => \App\Http\Middleware\Staff::class,
         'bigbrother' => \App\Http\Middleware\Bigbrother::class,
         'smallbrother' => \App\Http\Middleware\Smallbrother::class,
+        'specialist'   =>  \App\Http\Middleware\specialist::class,
     ];
 
     protected $middlewareGroups = [

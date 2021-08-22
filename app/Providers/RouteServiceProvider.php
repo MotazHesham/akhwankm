@@ -49,6 +49,9 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapsmallbrotherRoutes();
 
         $this->mapbigbrotherRoutes();
+          
+        $this->mapspecialistRoutes(); 
+
 
         //
     }
@@ -78,6 +81,13 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/bigbrother.php'));
+    }
+
+    protected function mapspecialistRoutes() 
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/specialist.php'));
     }
 
     /**

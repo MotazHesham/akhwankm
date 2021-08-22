@@ -46,5 +46,8 @@ class LoginController extends Controller
         }elseif($user->user_type == 'smallbrother'){
             return redirect()->route('smallbrother.home') ;
         }
+        elseif($user->user_type == 'specialist'){
+            return redirect()->route('specialist.home') ;
+        }
     }
 }

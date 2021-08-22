@@ -35,10 +35,7 @@ class StoreDatingSessionRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'small_brother_id' => [
-                 'required',
-                'integer',
-            ],
+
            
         ];
     }

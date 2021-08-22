@@ -27,7 +27,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.bigBrother.fields.user') }}
+                            {{ trans('cruds.user.fields.email') }}
                         </th>
                         <td>
                             {{ $bigBrother->user->email ?? '' }}

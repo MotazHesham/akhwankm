@@ -169,6 +169,7 @@ return [
         'small'          =>  'Small Brother Data',
         'choose'          =>  'recommendations brothers',
         'no_brother'          =>  '  There are no fraternity contracts yet! Please choose a small brother from the list of recommendations',
+        'no_suitable'  =>   ' There is no Small brother suitable for this brother skills yet ',  
         'fields'         => [
             'id'                        => 'ID',
             'id_helper'                 => ' ',
