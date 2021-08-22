@@ -30,9 +30,9 @@ class BrothersDealFormController extends Controller
     {
         abort_if(Gate::denies('brothers_deal_form_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id','small_brother_id')->prepend(trans('global.pleaseSelect'), '');
 
-        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), ''); 
+        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $approvment_forms = ApprovementForm::pluck('approved', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -43,8 +43,18 @@ class BrothersDealFormController extends Controller
 
     public function store(StoreBrothersDealFormRequest $request)
     {
-        $brothersDealForm = BrothersDealForm::create($request->all());
-
+        $smallbrother_id=BIgBrother::findOrfail($request->big_brother_id)->first();
+        $small_brother=$smallbrother_id->small_brother_id;
+        $brothersDealForm = BrothersDealForm::create(
+       [
+        'big_brother_id' => $request->big_brother_id ,
+        'day' => $request->day ,
+       'department_of_social_service' => $request->department_of_social_service ,
+       'executive_committee' => $request->executive_committee ,
+       'executive_director' => $request->executive_director ,
+       'small_brother_id' => $smallbrother_id->small_brother_id ,
+       'specialist_id'=> $request->specialist_id ,
+]);
         return redirect()->route('admin.brothers-deal-forms.index');
     }
 
@@ -54,8 +64,8 @@ class BrothersDealFormController extends Controller
 
         $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), ''); 
-        
+        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
+
 
         $approvment_forms = ApprovementForm::pluck('approved', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -97,9 +107,9 @@ class BrothersDealFormController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
-    
+
     public function printForm(BrothersDealForm $brothersDealForm)
-    {       
+    {
         $big_brother=BigBrother::findOrFail($brothersDealForm->big_brother_id);
         $small_brother=SmallBrother::findOrFail($brothersDealForm->small_brother_id);
         $approvment_form_id=ApprovementForm::where('big_brother_id',$brothersDealForm->big_brother_id)->first()->id;

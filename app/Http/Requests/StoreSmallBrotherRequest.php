@@ -11,7 +11,7 @@ class StoreSmallBrotherRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('small_brother_create');
+        return true;
     }
 
     public function rules()
@@ -31,7 +31,7 @@ class StoreSmallBrotherRequest extends FormRequest
             'roles.*' => [
                 'integer',
             ],
-            'roles' => [ 
+            'roles' => [
                 'array',
             ],
             'identity_number' => [
@@ -65,7 +65,7 @@ class StoreSmallBrotherRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'user_id' => [ 
+            'user_id' => [
                 'integer',
             ],
             'skills.*' => [

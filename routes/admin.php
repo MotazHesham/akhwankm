@@ -13,8 +13,15 @@ Route::get('/home', function () {
 
 Auth::routes(['register' => false]);
 
-Route::post('big-brothers/register','Admin\BigBrotherController@store')->name('big-brothers.register');
+Route::post('big-brothers/register','RegisterController@big_brother')->name('big-brothers.registerStore');
+Route::post('small-brothers/register','RegisterController@small_brother')->name('small-brothers.registerStore');
+
 Route::get('big-brothers/register' , 'RegisterController@register')->name('big-brothers.register');
+Route::get('small-brothers/register' , 'RegisterController@register2')->name('small-brothers.register');
+
+Route::post('big-brothers/register/media', 'RegisterController@storeMedia')->name('big-brothers.storeMedia');
+Route::post('big-brothers/register/ckmedia', 'RegisterController@storeCKEditorImages')->name('big-brothers.storeCKEditorImages');
+
 Route::post('big-brothers/choose_small_brothers' , 'RegisterController@choose_small_brothers')->name('big-brothers.choose_small_brothers');
 
 Route::post('users/media', 'Admin\UsersController@storeMedia')->name('admin.users.storeMedia');
@@ -48,7 +55,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('small-brothers', 'SmallBrotherController');
 
     // Big Brother
-    Route::delete('big-brothers/destroy', 'BigBrotherController@massDestroy')->name('big-brothers.massDestroy'); 
+    Route::delete('big-brothers/destroy', 'BigBrotherController@massDestroy')->name('big-brothers.massDestroy');
     Route::get('big-brothers/printinfo/{bigBrother}' , 'BigBrotherController@printinfo')->name('big-brothers.print');
     Route::resource('big-brothers', 'BigBrotherController');
     Route::POST('big-brother/smallbrother' ,'BigBrotherController@chooseSmallbrother')->name('choose.smallbrother');
@@ -64,7 +71,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Dating Sessions
     Route::delete('dating-sessions/destroy', 'DatingSessionsController@massDestroy')->name('dating-sessions.massDestroy');
     Route::resource('dating-sessions', 'DatingSessionsController');
-    
+
     // Skills
     Route::delete('skills/destroy', 'SkillsController@massDestroy')->name('skills.massDestroy');
     Route::resource('skills', 'SkillsController');

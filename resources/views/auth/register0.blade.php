@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('styles')  
+@section('styles')
 <style type="text/css">
     #personal_information,
     #company_information{
@@ -18,9 +18,11 @@
 
                 <div class="card-body form_holder">
                     <form method="POST" action="{{route('big-brothers.register')}}" enctype="multipart/form-data" id="msform">
-                        @csrf  
+                        @csrf
                         <fieldset id="account_information" class="">
                             <legend>Account information</legend>
+
+                            
                             <div class="form-group">
                                 <label for="username" class="col-lg-4 control-label">Username</label>
                                 <div class="col-lg-8">
@@ -41,7 +43,7 @@
                             </div>
                             <p><a class="btn btn-primary next">next</a></p>
                         </fieldset>
-        
+
                         <fieldset id="company_information" class="">
                             <legend>Account information</legend>
                             <div class="form-group">
@@ -58,7 +60,7 @@
                             </div>
                             <p><a class="btn btn-primary next">next</a></p>
                         </fieldset>
-        
+
                         <fieldset id="personal_information" class="">
                             <legend>Personal information</legend>
                             <div class="form-group">
@@ -75,7 +77,7 @@
                             </div>
                             <p><a class="btn btn-primary" id="previous" >Previous</a></p>
                             <p><input class="btn btn-success" type="submit" value="submit"></p>
-                        </fieldset> 
+                        </fieldset>
                     </form>
                 </div>
             </div>
@@ -84,7 +86,7 @@
 </div>
 @endsection
 
-@section('scripts') 
+@section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js"></script>
@@ -134,7 +136,7 @@ $(".next").click(function(){
                 required: true,
                 minlength: 3,
             },
-            
+
         },
         messages: {
             username: {
@@ -163,7 +165,7 @@ $(".next").click(function(){
             current_fs = $('#company_information');
             next_fs = $('#personal_information');
         }
-        
+
         next_fs.show();
         current_fs.hide();
     }

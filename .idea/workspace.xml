@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9460240-59e9-46ec-a5db-8a7c9859db9d" name="Default Changelist" comment="" />
+    <list default="true" id="d9460240-59e9-46ec-a5db-8a7c9859db9d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BigBrotherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BigBrotherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrothersDealFormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrothersDealFormController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Traits/MediaUploadingTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Traits/MediaUploadingTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreBrothersDealFormRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreBrothersDealFormRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/stylee.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/stylee.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/brothersDealForms/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/brothersDealForms/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/cities/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cities/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/countries/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/countries/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register0.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register0.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/menu_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu_admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -167,6 +184,9 @@
       <updated>1628706945757</updated>
       <workItem from="1628706946978" duration="1547000" />
       <workItem from="1629319360659" duration="18000" />
+      <workItem from="1629579862782" duration="77000" />
+      <workItem from="1629580372889" duration="603000" />
+      <workItem from="1629594289931" duration="570000" />
     </task>
     <servers />
   </component>

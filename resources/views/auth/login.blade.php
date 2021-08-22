@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="form-group " >
-                <button style="border-radius:20px; width: 150px; height: 15; background-color: #183273; font-family: cairo" type="submit" class=" form-control  k3  px-3">تسجيل الدخول</button>
+                <button style=" color: rgb(255, 255, 255); border-radius:20px; width: 150px; height: 15; background-color: #183273; font-family: cairo" type="submit" class=" form-control  k3  px-3">تسجيل الدخول</button>
             </div>
         </form>
     <br>
@@ -56,7 +56,7 @@
             <p class="mb-0" style="color: #BEBEBE; font-family: cairo"></p>
         </div>
         <div class=" ">
-            <a href="#" style="color: #183273; font-family: cairo"> سجل معنا</a>
+            <a href="{{ route('big-brothers.register') }}" style="color: #183273; font-family: cairo"> سجل معنا</a>
         </div>
     <div class=" ">
         <p class="mb-0" style="color: #BEBEBE; font-family: cairo">ليس لديك حساب ؟</p>
