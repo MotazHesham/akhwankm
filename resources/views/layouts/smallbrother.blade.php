@@ -97,29 +97,25 @@
                                 </div>
                             @endif
                         </div>
-                    </li>
-                    @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
-                        @can('profile_password_edit')
-                            <li class="c-header-nav-item dropdown d-md-down-none" style=" background: #EBEDEF; border-radius: 8px 39px 0px 0px; padding: 0px 13px;">
-                                <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                    @if(auth()->user()->photo)
-                                        <img src="{{asset(auth()->user()->photo->getUrl('thumb'))}}" alt="" width="40" height="40" style="border-radius: 50px;margin:10px">
-                                    @else 
-                                        <img src="{{asset('user.png')}}" alt="" width="40" height="40" style="border-radius: 50px;margin:10px">
-                                    @endif
-                                    <span class="text-center"> 
-                                        {{auth()->user()->name }}
-                                        <br> 
-                                        <small style="background: #922B21;color:#fff; border-radius: 30px; padding: 1px 11px;">{{auth()->user()->roles->first()->title}}</small> 
-                                    </span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right"> 
-                                    <a class="dropdown-item" href="{{route('profile.password.edit')}}">{{trans('global.change_password')}}</a> 
-                                    <a class="dropdown-item" style="cursor: pointer" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> {{ trans('global.logout') }}</a> 
-                                </div>
-                            </li>
-                        @endcan
-                    @endif
+                    </li> 
+                    <li class="c-header-nav-item dropdown d-md-down-none" style=" background: #EBEDEF; border-radius: 8px 39px 0px 0px; padding: 0px 13px;">
+                        <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            @if(auth()->user()->image)
+                                <img src="{{asset(auth()->user()->image->getUrl('thumb'))}}" alt="" width="40" height="40" style="border-radius: 50px;margin:10px">
+                            @else 
+                                <img src="{{asset('user.png')}}" alt="" width="40" height="40" style="border-radius: 50px;margin:10px">
+                            @endif
+                            <span class="text-center"> 
+                                {{auth()->user()->name }} 
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right"> 
+                            <a class="dropdown-item" href="{{route('smallbrother.edit-info')}}">
+                              {{ trans('global.update_info') }}
+                            </a> 
+                            <a class="dropdown-item" style="cursor: pointer" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"> {{ trans('global.logout') }}</a> 
+                        </div>
+                    </li> 
                 </ul>
 
             </ul>

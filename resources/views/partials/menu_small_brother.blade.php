@@ -1,14 +1,9 @@
-<?php
-use App\Models\SmallBrother;
+@php
+    $general_settings = \App\Models\GeneralSettings::select('small_brother_color')->first();
+@endphp
 
-$user_id = Smallbrother::where('user_id', Auth::id())->first()->id;
-?>
-
-<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show" style="background: rgb(122, 58, 122);
-
-a {
- color: lightgreen;
-};">
+<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show"
+    style="background: {{ $general_settings->small_brother_color ?? '' }}">
 
     <div class="c-sidebar-brand d-md-down-none">
         <a class="c-sidebar-brand-full h4" href="#">
@@ -26,7 +21,7 @@ a {
             </a>
         </li>
         <li class="c-sidebar-nav-item">
-            <a href="{{ route('smallbrother.brotherhood.show', $user_id) }}" class="c-sidebar-nav-link">
+            <a href="{{ route('smallbrother.brotherhood.show') }}" class="c-sidebar-nav-link">
                 <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
 
                 </i>
@@ -35,7 +30,7 @@ a {
         </li>
 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route('smallbrother.outingRequest', $user_id) }}" class="c-sidebar-nav-link">
+            <a href="{{ route('smallbrother.outingRequest') }}" class="c-sidebar-nav-link">
                 <i class="fa-fw far fa-grin c-sidebar-nav-icon">
 
                 </i>
@@ -52,14 +47,6 @@ a {
             </a>
         </li>
         
-        <li class="c-sidebar-nav-item">
-            <a href="{{ route('smallbrother.edit', $user_id) }}" class="c-sidebar-nav-link">
-                <i class="c-sidebar-nav-icon 	fas fa-edit">
-
-                </i>
-                {{ trans('global.update_info') }}
-            </a>
-        </li>
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

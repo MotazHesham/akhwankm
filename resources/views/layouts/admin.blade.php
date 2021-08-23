@@ -182,6 +182,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    <script type="text/javascript">
+
+        // Enable pusher logging - don't include this in production
+        // Pusher.logToConsole = true;
+    
+        var pusher = new Pusher('8981e60c0bc6e643d4cc', {
+            cluster: 'eu'
+        });
+    
+        // var channel = pusher.subscribe('my-channel');
+        // channel.bind('my-event', function(data) {
+        //     alert(JSON.stringify(data));
+        // });
+    </script>
     <script>
       
       function cities(){

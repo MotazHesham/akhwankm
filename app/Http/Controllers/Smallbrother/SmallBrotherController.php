@@ -20,56 +20,81 @@ use Alert;
 
 
 class SmallBrotherController extends Controller
-{
-    //
-    public function MyBrother ($user_id){
+{ 
 
-        $bigBrother = BigBrother::Where('small_brother_id',$user_id)->with(['user', 'skills','charactarstics'])->first();
+    public function MyBrother (){
+
+        $smallbrother = SmallBrother::where('user_id',Auth::id())->first();  
+
+        $bigBrother = BigBrother::Where('small_brother_id',$smallbrother->id)->with(['user', 'skills','charactarstics'])->first();
     
-          
+        
         return view('smallbrother.MyBrother', compact('bigBrother'));
     }
 
-    public function edit($user_id)
+    public function edit()
     {
     
+        $smallBrother = SmallBrother::where('user_id',Auth::id())->first();  
+
         $skills = Skill::all()->pluck('name_ar', 'id');
 
-        $charactaristics = Characteristic::all()->pluck('name_ar', 'id');
-      
-        $smallBrother=SmallBrother::find($user_id);
+        $charactaristics = Characteristic::all()->pluck('name_ar', 'id');  
 
-        $user_id=Smallbrother::where('user_id',Auth::id())->first()->id;
-   
-        return view('smallBrother.edit', compact( 'skills', 'charactaristics', 'smallBrother','user_id'));
+        return view('smallBrother.edit', compact( 'skills', 'charactaristics', 'smallBrother' ));
     }
-    public function update(UpdateRequest $request,User $user,$user_id)
+    
+    public function update(UpdateRequest $request)
     {
-        $smallBrother=SmallBrother::find($user_id);
+        $smallBrother = SmallBrother::where('user_id',Auth::id())->first();  
+        
         $smallBrother->update($request->all());
         $smallBrother->skills()->sync($request->input('skills', []));
         $smallBrother->charactaristics()->sync($request->input('charactaristics', []));
 
 
-        $user=User::find($smallBrother->user_id);
+        $user = Auth::user();
 
+        if ($request->input('cv', false)) {
+            if (!$user->cv || $request->input('cv') !== $user->cv->file_name) {
+                if ($user->cv) {
+                    $user->cv->delete();
+                }
+                $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
+            }
+        } elseif ($user->cv) {
+            $user->cv->delete();
+        }
+        
+
+        if ($request->input('image', false)) {
+            if (!$user->image || $request->input('image') !== $user->image->file_name) {
+                if ($user->image) {
+                    $user->image->delete();
+                }
+                $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+            }
+        } elseif ($user->image) {
+            $user->image->delete();
+        }
         $user->update($request->all());
 
         Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('smallbrother.home');
     }
-    public function outing($user_id)
+    public function outing()
     {
-       
-        $outingRequests = OutingRequest::Where('small_brother_id',$user_id)->orderBy('created_at', 'desc')->with(['outing_type', 'big_brother', 'small_brother'])->paginate(9);
+        
+        $smallBrother = SmallBrother::where('user_id',Auth::id())->first();  
+        $outingRequests = OutingRequest::Where('small_brother_id',$smallBrother->id)->orderBy('created_at', 'desc')->with(['outing_type', 'big_brother', 'small_brother'])->paginate(9);
 
         return view('smallbrother.outingRequests', compact('outingRequests'));
     }
-    public function DatingSession($user_id)
+    public function DatingSession()
     {
 
-        $datingSessions = DatingSession::Where('small_brother_id',$user_id)->with(['specialist', 'big_brother']);
+        $datingSessions = DatingSession::Where('small_brother_id',$smallBrother->id)->with(['specialist', 'big_brother']);
 
         $users = User::get();
 

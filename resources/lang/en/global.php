@@ -67,6 +67,7 @@ return [
     'change_password_success'        => 'Password changed successfully',
     'delete_account_success'         => 'Account deleted successfully',
     'saved'                          => 'Saved.',
+    'chatting'                          => 'Chatting',
     'profile_information'            => 'Profile information',
     'all_messages'                   => 'All Messages',
     'new_message'                    => 'New message',

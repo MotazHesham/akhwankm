@@ -29,6 +29,13 @@ Route::post('users/ckmedia', 'Admin\UsersController@storeCKEditorImages')->name(
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth','staff']], function () {
     Route::get('/', 'HomeController@index')->name('home');
+
+    // Chatting 
+    Route::get('/chatting','ConversationsController@index')->name('chatting.index');
+    Route::post('/chatting/show','ConversationsController@show')->name('chatting.show');
+    Route::post('/chatting/send','ConversationsController@send')->name('chatting.send');
+    Route::post('/chatting/refresh_contacts','ConversationsController@index')->name('chatting.refresh_contacts');
+
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');

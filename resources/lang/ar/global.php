@@ -67,6 +67,7 @@ return [
     'change_password_success'        => 'تم تغير كلمة المرور بنجاح',
     'delete_account_success'         => 'تم حذف الحساب بنجاح',
     'saved'                          => 'Saved.',
+    'chatting'                          => 'المحادثات',
     'profile_information'            => 'Profile information',
     'all_messages'                   => 'جميع الرسائل',
     'new_message'                    => 'رسالة جديدة',

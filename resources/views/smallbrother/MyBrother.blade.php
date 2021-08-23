@@ -12,24 +12,33 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="main-body">
-            @if ($bigBrother)
+
+    @if (!$bigBrother)
+        <div class="alert alert-warning">
+            <h2>
+                لم يتم المأخاة بعد
+            </h2>
+        </div>
+    @else
+        <div class="container">
+            <div class="main-body">
                 <div class="row gutters-sm">
                     <div class="col-md-4 mb-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                  @if($bigBrother->user->image)
-                                      <img src="{{asset($bigBrother->user->image->getUrl())}}" class="rounded-circle" width="250" height="200" alt="" style="border-radius: 50px;margin:10px">
-                                  @else
-                                      <img src="{{asset('user.png')}}" class="rounded-circle" width="250" height="200" alt="" style="border-radius: 50px;margin:10px">
-                                  @endif 
+                                    @if ($bigBrother->user->image)
+                                        <img src="{{ asset($bigBrother->user->image->getUrl()) }}" class="rounded-circle"
+                                            width="250" height="200" alt="" style="border-radius: 50px;margin:10px">
+                                    @else
+                                        <img src="{{ asset('user.png') }}" class="rounded-circle" width="250" height="200"
+                                            alt="" style="border-radius: 50px;margin:10px">
+                                    @endif
                                     <div class="mt-3">
 
-                                            <h4> {{ $bigBrother->user->name ?? '' }}</h4>
-                                            <p class="text-dark mb-1"> {{ $bigBrother->job ?? '' }}</p>
-                                            <p class="text-muted font-size-sm">{{ $bigBrother->job_place ?? '' }} </p>
+                                        <h4> {{ $bigBrother->user->name ?? '' }}</h4>
+                                        <p class="text-dark mb-1"> {{ $bigBrother->job ?? '' }}</p>
+                                        <p class="text-muted font-size-sm">{{ $bigBrother->job_place ?? '' }} </p>
                                     </div>
 
                                 </div>
@@ -82,9 +91,9 @@
                             </div>
                         </div>
 
-                    @php
-                        $name = 'name_' . app()->getLocale();
-                    @endphp
+                        @php
+                            $name = 'name_' . app()->getLocale();
+                        @endphp
 
                         <div class="row gutters-sm">
                             <div class="col-sm-6 mb-3">
@@ -94,7 +103,7 @@
                                                 {{ trans('cruds.smallBrother.fields.skills') }}</i></h6>
                                         @foreach ($bigBrother->skills as $key => $item)
 
-                                        <span class="badge badge-info"> {{ $item->$name }} </span>
+                                            <span class="badge badge-info"> {{ $item->$name }} </span>
 
                                         @endforeach
 
@@ -109,7 +118,7 @@
                                         </h6>
                                         @foreach ($bigBrother->charactarstics as $key => $item)
 
-                                      <span class="badge badge-info"> {{ $item->$name }} </span>
+                                            <span class="badge badge-info"> {{ $item->$name }} </span>
 
                                         @endforeach
                                     </div>
@@ -122,18 +131,7 @@
                     </div>
                 </div>
 
-        </div>
-    </div> 
-
-@else
-
-    <body>
-        <div class="center">
-            <div class="alert alert-warning">
-                <h4> {{ trans('cruds.smallBrother.no_big_brother') }} </h4>
             </div>
         </div>
-    </body>
-
     @endif
 @endsection

@@ -29,6 +29,14 @@ $general_settings = \App\Models\GeneralSettings::select('specialist_color')->fir
             </a>
         </li>
         <li class="c-sidebar-nav-item">
+            <a href="{{ route('specialist.outing-requests.index') }}" class="c-sidebar-nav-link ">
+                <i class="fa-fw fas fa-calendar-alt c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.outingRequest.title') }}
+            </a>
+        </li> 
+        <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">

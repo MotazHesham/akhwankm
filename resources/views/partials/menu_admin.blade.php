@@ -21,6 +21,14 @@
                 {{ trans('global.dashboard') }}
             </a>
         </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route('admin.chatting.index') }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fab fa-fw fa-facebook-messenger">
+                    
+                </i>
+                {{ trans('global.chatting') }}
+            </a>
+        </li>
         @can('user_management_access')
             <li
                 class="c-sidebar-nav-dropdown {{ request()->is('admin/permissions*') ? 'c-show' : '' }} {{ request()->is('admin/roles*') ? 'c-show' : '' }} {{ request()->is('admin/users*') ? 'c-show' : '' }} {{ request()->is('admin/audit-logs*') ? 'c-show' : '' }} {{ request()->is('admin/small-brothers*') ? 'c-show' : '' }} {{ request()->is('admin/big-brothers*') ? 'c-show' : '' }}">

@@ -82,8 +82,16 @@ class EditMyInfoController extends Controller
             $user->cv->delete();
         }
 
+
         if ($request->input('image', false)) {
-            $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+            if (!$user->image || $request->input('image') !== $user->image->file_name) {
+                if ($user->image) {
+                    $user->image->delete();
+                }
+                $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+            }
+        } elseif ($user->image) {
+            $user->image->delete();
         }
 
         Alert::success(trans('global.flash.success'), trans('global.flash.updated'));

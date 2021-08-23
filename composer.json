@@ -21,6 +21,7 @@
         "realrashid/sweet-alert": "^4.0",
         "yajra/laravel-datatables-oracle": "^9.9",
         "laraveldaily/laravel-charts": "^0.1.14",
+        "pusher/pusher-php-server": "^4.0",
         "spatie/laravel-medialibrary": "^7.19",
         "laravel/sanctum": "^2.8"
     },
@@ -49,7 +50,8 @@
         "classmap": [
             "database/seeds",
             "database/factories"
-        ]
+        ],
+        "files": ["app/Http/Helpers.php"]
     },
     "autoload-dev": {
         "psr-4": {
