@@ -18,7 +18,7 @@ class UpdateOutingRequestRequest extends FormRequest
     {
         return [
             'outing_type_id' => [
-                'required',
+                'nullable',
                 'integer',
             ],
             'start_date' => [

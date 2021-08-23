@@ -61,10 +61,7 @@ class UpdateSmallBrotherRequest extends FormRequest
             'charactaristics' => [
                 'required',
                 'array',
-            ],
-            'city_id' => [
-                'required', 
-            ],
+            ], 
         ];
     }
 }

@@ -59,6 +59,10 @@ class SmallBrotherController extends Controller
             $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
         }
 
+        if ($request->input('image', false)) {
+            $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+        }
+
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $user->id]);
         }
@@ -108,6 +112,29 @@ class SmallBrotherController extends Controller
 
         $user=User::find($smallBrother->user_id);
 
+        
+        if ($request->input('cv', false)) {
+            if (!$user->cv || $request->input('cv') !== $user->cv->file_name) {
+                if ($user->cv) {
+                    $user->cv->delete();
+                }
+                $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
+            }
+        } elseif ($user->cv) {
+            $user->cv->delete();
+        }
+
+        if ($request->input('image', false)) {
+            if (!$user->image || $request->input('image') !== $user->image->file_name) {
+                if ($user->image) {
+                    $user->image->delete();
+                }
+                $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+            }
+        } elseif ($user->image) {
+            $user->image->delete();
+        }
+        
         $user->update($request->all());
 
         Alert::success(trans('global.flash.success'), trans('global.flash.updated'));

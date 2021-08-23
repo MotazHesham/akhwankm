@@ -36,15 +36,7 @@ class UpdateBrothersDealFormRequest extends FormRequest
             'big_brother_id' => [
                 'required',
                 'integer',
-            ],
-            'small_brother_id' => [
-                'required',
-                'integer',
-            ],
-            'specialist_id' => [
-                'required',
-                'integer',
-            ],
+            ], 
         ];
     }
 }

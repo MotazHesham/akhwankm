@@ -30,7 +30,9 @@ class OutingRequestController extends Controller
     {
         abort_if(Gate::denies('outing_request_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $name = 'name_' . app()->getLocale();
+
+        $outing_types = OutingType::all()->pluck($name, 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -43,7 +45,14 @@ class OutingRequestController extends Controller
     {
         $validated_request = $request->all();
         $big_brother = BigBrother::find($validated_request['big_brother_id']);
-        $validated_request['small_brother_id'] = $big_brother->small_brother_id;
+        
+        if($big_brother->small_brother_id != null){
+            $validated_request['small_brother_id'] = $big_brother->small_brother_id;
+        }else{
+            Alert::error('لم يتم الأضافة','لا يتم المأخاة للأخ الأكبر بعد');
+            return redirect()->route('admin.outing-requests.index');
+        }
+
         $outingRequest = OutingRequest::create($validated_request);
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
@@ -55,7 +64,9 @@ class OutingRequestController extends Controller
     {
         abort_if(Gate::denies('outing_request_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $name = 'name_' . app()->getLocale(); 
+
+        $outing_types = OutingType::all()->pluck($name, 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 

@@ -57,7 +57,6 @@
                 </div>
             </div>
             
-            <input type="hidden" name="specialist_id" value="{{Auth::id()}}" id="">
 
             <div class="form-group">
                 <label class="required" for="description">{{ trans('cruds.approvementForm.fields.description') }}</label>

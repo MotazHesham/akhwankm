@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             RoleUserTableSeeder::class,
             CharacteristicsTableSeeder::class,
             SkillsTableSeeder::class, 
+            GeneralSettingsSeeder::class, 
         ]);
     }
 }

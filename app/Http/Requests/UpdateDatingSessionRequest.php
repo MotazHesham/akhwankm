@@ -26,11 +26,7 @@ class UpdateDatingSessionRequest extends FormRequest
             ],
             'recommendations' => [
                 'required',
-            ],
-            'specialist_id' => [
-                'required',
-                'integer',
-            ],
+            ], 
             'big_brother_id' => [
                 'required',
                 'integer',

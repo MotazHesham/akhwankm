@@ -20,30 +20,39 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BrothersDealFormController extends Controller
 {
-    public function index($user_id)
+    public function index()
     {
-        $user_id=BigBrother::where('user_id',Auth::id())->first()->id;
-        $brothersDealForms = BrothersDealForm::with(['big_brother', 'small_brother', 'approvment_form', 'specialist'])
-        ->where('big_brother_id',$user_id)->get();
+        $bigbrother = BigBrother::where('user_id',Auth::id())->first();
 
-        return view('bigbrother.brotherDealForm.index', compact('brothersDealForms'));
+        $brothersDealForm = BrothersDealForm::with(['big_brother', 'small_brother', 'approvment_form', 'specialist'])
+                                                ->orderBy('created_at','desc')
+                                                ->where('big_brother_id',$bigbrother->id)->first();
+
+        return view('bigbrother.brotherDealForm.index', compact('brothersDealForm'));
 
 
     }
 
-    public function view(BrothersDealForm $brothersDealForm)
+    public function view()
     {
-        $big_brother=BigBrother::findOrFail($brothersDealForm->big_brother_id);
-        $small_brother=SmallBrother::findOrFail($brothersDealForm->small_brother_id);
+        $big_brother = BigBrother::where('user_id',Auth::id())->first();
+        $brothersDealForm = BrothersDealForm::with(['big_brother', 'small_brother', 'approvment_form', 'specialist'])
+                                                ->orderBy('created_at','desc')
+                                                ->where('big_brother_id',$big_brother->id)->first();
+        $small_brother = SmallBrother::find($big_brother->small_brother_id);
 
         return view('bigbrother.brotherDealForm.brothersDeal', compact('brothersDealForm','big_brother','small_brother'));
     }
 
 
-    public function printForm(BrothersDealForm $brothersDealForm)
-    {
-        $big_brother=BigBrother::findOrFail($brothersDealForm->big_brother_id);
-        $small_brother=SmallBrother::findOrFail($brothersDealForm->small_brother_id);
+    public function printForm()
+    {        
+        
+        $big_brother = BigBrother::where('user_id',Auth::id())->first();
+        $brothersDealForm = BrothersDealForm::with(['big_brother', 'small_brother', 'approvment_form', 'specialist'])
+                                                ->orderBy('created_at','desc')
+                                                ->where('big_brother_id',$big_brother->id)->first();
+        $small_brother = SmallBrother::find($big_brother->small_brother_id);
 
         return view('forms.brothersDeal', compact('brothersDealForm','big_brother','small_brother'));
     }

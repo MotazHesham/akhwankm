@@ -132,16 +132,29 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.degree_helper') }}</span>
             </div>
-            <div class="form-group">
-                <label for="cv">{{ trans('cruds.user.fields.cv') }}</label>
-                <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone">
-                </div>
-                @if($errors->has('cv'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('cv') }}
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="cv">{{ trans('cruds.user.fields.cv') }}</label>
+                    <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone">
                     </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
+                    @if($errors->has('cv'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('cv') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="image">{{ trans('cruds.user.fields.image') }}</label>
+                    <div class="needsclick dropzone {{ $errors->has('image') ? 'is-invalid' : '' }}" id="image-dropzone">
+                    </div>
+                    @if($errors->has('image'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('image') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.user.fields.image_helper') }}</span>
+                </div> 
             </div>
             <div class="form-group">
                 <label class="required" for="skills">{{ trans('cruds.smallBrother.fields.skills') }}</label>
@@ -215,16 +228,7 @@
         $('form').find('input[name="cv"]').remove()
         this.options.maxFiles = this.options.maxFiles + 1
       }
-    },
-    init: function () {
-@if(isset($user) && $user->cv)
-      var file = {!! json_encode($user->cv) !!}
-          this.options.addedfile.call(this, file)
-      file.previewElement.classList.add('dz-complete')
-      $('form').append('<input type="hidden" name="cv" value="' + file.file_name + '">')
-      this.options.maxFiles = this.options.maxFiles - 1
-@endif
-    },
+    }, 
      error: function (file, response) {
          if ($.type(response) === 'string') {
              var message = response //dropzone sends it's own error messages in string
@@ -242,5 +246,49 @@
          return _results
      }
 }
+</script>
+<script>
+    Dropzone.options.imageDropzone = {
+        url: '{{ route('admin.users.storeMedia') }}',
+        maxFilesize: 2, // MB
+        acceptedFiles: '.jpeg,.jpg,.png,.gif',
+        maxFiles: 1,
+        addRemoveLinks: true,
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        params: {
+            size: 2,
+            width: 4096,
+            height: 4096
+        },
+        success: function (file, response) {
+            $('form').find('input[name="image"]').remove()
+            $('form').append('<input type="hidden" name="image" value="' + response.name + '">')
+        },
+        removedfile: function (file) {
+            file.previewElement.remove()
+            if (file.status !== 'error') {
+                $('form').find('input[name="image"]').remove()
+                this.options.maxFiles = this.options.maxFiles + 1
+            }
+        }, 
+        error: function (file, response) {
+            if ($.type(response) === 'string') {
+                var message = response //dropzone sends it's own error messages in string
+            } else {
+                var message = response.errors.file
+            }
+            file.previewElement.classList.add('dz-error')
+            _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
+            _results = []
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                node = _ref[_i]
+                _results.push(node.textContent = message)
+            }
+
+            return _results
+        }
+    }
 </script>
 @endsection

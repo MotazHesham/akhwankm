@@ -43,6 +43,12 @@ class OutingRequestController extends Controller
         $validated_request = $request->all();
         $big_brother = BigBrother::find($validated_request['big_brother_id']);
         $validated_request['small_brother_id'] = $big_brother->small_brother_id;
+        if($big_brother->small_brother_id != null){
+            $validated_request['small_brother_id'] = $big_brother->small_brother_id;
+        }else{
+            Alert::error('لم يتم الأضافة','لا يتم المأخاة  بعد');
+            return redirect()->route('bigbrother.outing-requests.index');
+        }
         $outingRequest = OutingRequest::create($validated_request);
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
@@ -57,15 +63,11 @@ class OutingRequestController extends Controller
             Alert::error('لا يمكن التعديل');
             return back();
         }
-        $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $outing_types = OutingType::all()->pluck('name_ar', 'id')->prepend(trans('global.pleaseSelect'), ''); 
 
         $outingRequest->load('outing_type', 'big_brother', 'small_brother');
 
-        return view('Bigbrother.outingRequests.edit', compact('outing_types', 'big_brothers', 'small_brothers', 'outingRequest'));
+        return view('Bigbrother.outingRequests.edit', compact('outing_types', 'outingRequest'));
     }
 
     public function update(UpdateOutingRequestRequest $request, OutingRequest $outingRequest)

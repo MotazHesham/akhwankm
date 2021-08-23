@@ -26,7 +26,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.smallBrother.fields.user') }}
+                            {{ trans('cruds.user.fields.email') }}
                         </th>
                         <td>
                             {{ $smallBrother->user->email ?? '' }}
@@ -34,12 +34,45 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.user.fields.name') }}
+                        </th>
+                        <td>
+                            {{ $smallBrother->user->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.user.fields.identity_number') }}
                         </th>
                         <td>
-                            {{ $smallBrother->user->identity_number ?? '' }}
+                            {{ $smallBrother->user->identity_number }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.identity_date') }}
+                        </th>
+                        <td>
+                            {{ $smallBrother->user->identity_date }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.dbo') }}
+                        </th>
+                        <td>
+                            {{ $smallBrother->user->dbo }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.degree') }}
+                        </th>
+                        <td>
+                            {{ App\Models\User::DEGREE_RADIO[$smallBrother->user->degree] ?? '' }}
+                        </td>
+                    </tr> 
                     <tr>
                         <th>
                             {{ trans('cruds.user.fields.phone') }}
@@ -50,11 +83,38 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.user.fields.image') }}
+                        </th>
+                        <td>
+                            @if($smallBrother->user && $smallBrother->user->image)
+                                <a href="{{ asset($smallBrother->user->image->getUrl()) }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ asset($smallBrother->user->image->getUrl('thumb')) }}">
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.cv') }}
+                        </th>
+                        <td>
+                            @if($smallBrother->user->cv)
+                                <a href="{{ $smallBrother->user->cv->getUrl() }}" target="_blank">
+                                    {{ trans('global.view_file') }}
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
+                    @php
+                        $name = 'name_' . app()->getLocale();
+                    @endphp
+                    <tr>
+                        <th>
                             {{ trans('cruds.smallBrother.fields.skills') }}
                         </th>
                         <td>
                             @foreach($smallBrother->skills as $key => $skills)
-                                <span class="label label-info">{{ $skills->name_ar }}</span>
+                                <span class="badge badge-info">{{ $skills->$name }}</span>
                             @endforeach
                         </td>
                     </tr>
@@ -64,7 +124,7 @@
                         </th>
                         <td>
                             @foreach($smallBrother->charactaristics as $key => $charactaristics)
-                                <span class="label label-info">{{ $charactaristics->name_ar }}</span>
+                                <span class="badge badge-info">{{ $charactaristics->$name }}</span>
                             @endforeach
                         </td>
                     </tr>
@@ -154,7 +214,7 @@
                         </th>
                         <td>
                             @foreach($bigBrother->charactarstics as $key => $charactarstics)
-                                <span class="label label-info">{{ $charactarstics->name_ar }}</span>
+                                <span class="badge badge-info">{{ $charactarstics->$name }}</span>
                             @endforeach
                         </td>
                     </tr>
@@ -164,7 +224,7 @@
                         </th>
                         <td>
                             @foreach($bigBrother->skills as $key => $skills)
-                                <span class="label label-info">{{ $skills->name_ar }}</span>
+                                <span class="badge badge-info">{{ $skills->$name }}</span>
                             @endforeach
                         </td>
                     </tr>

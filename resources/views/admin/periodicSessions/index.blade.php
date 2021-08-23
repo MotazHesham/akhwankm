@@ -1,40 +1,38 @@
-@can('user_alert_create')
+@extends('layouts.admin')
+@section('content')
+@can('periodic_session_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.user-alerts.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.userAlert.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.periodic-sessions.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.periodicSession.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
-
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.userAlert.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.periodicSession.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-userUserAlerts">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-PeriodicSession">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.userAlert.fields.id') }}
+                            {{ trans('cruds.periodicSession.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.userAlert.fields.alert_text') }}
+                            {{ trans('cruds.periodicSession.fields.date') }}
                         </th>
                         <th>
-                            {{ trans('cruds.userAlert.fields.alert_link') }}
+                            {{ trans('cruds.periodicSession.fields.bigbrother') }}
                         </th>
                         <th>
-                            {{ trans('cruds.userAlert.fields.user') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.userAlert.fields.created_at') }}
+                            {{ trans('cruds.periodicSession.fields.smallbrother') }}
                         </th>
                         <th>
                             &nbsp;
@@ -42,38 +40,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($userAlerts as $key => $userAlert)
-                        <tr data-entry-id="{{ $userAlert->id }}">
+                    @foreach($periodicSessions as $key => $periodicSession)
+                        <tr data-entry-id="{{ $periodicSession->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $userAlert->id ?? '' }}
+                                {{ $periodicSession->id ?? '' }}
                             </td>
                             <td>
-                                {{ $userAlert->alert_text ?? '' }}
+                                {{ $periodicSession->date ?? '' }}
                             </td>
                             <td>
-                                {{ $userAlert->alert_link ?? '' }}
+                                {{ $periodicSession->big_brother->user->email ?? '' }}
                             </td>
                             <td>
-                                @foreach($userAlert->users as $key => $item)
-                                    <span class="badge badge-info">{{ $item->name }}</span>
-                                @endforeach
+                                {{ $periodicSession->small_brother->user->email ?? '' }}
                             </td>
-                            <td>
-                                {{ $userAlert->created_at ?? '' }}
-                            </td>
-                            <td>
-                                @can('user_alert_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.user-alerts.show', $userAlert->id) }}">
-                                        {{ trans('global.view') }}
+                            <td> 
+
+                                @can('periodic_session_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.periodic-sessions.edit', $periodicSession->id) }}">
+                                        {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-
-                                @can('user_alert_delete')
-                                    <form action="{{ route('admin.user-alerts.destroy', $userAlert->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('periodic_session_delete')
+                                    <form action="{{ route('admin.periodic-sessions.destroy', $periodicSession->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -90,16 +83,19 @@
     </div>
 </div>
 
+
+
+@endsection
 @section('scripts')
 @parent
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('user_alert_delete')
+@can('periodic_session_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.user-alerts.massDestroy') }}",
+    url: "{{ route('admin.periodic-sessions.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -128,9 +124,9 @@
   $.extend(true, $.fn.dataTable.defaults, {
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
-    pageLength: 100,
+    pageLength: 25,
   });
-  let table = $('.datatable-userUserAlerts:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-PeriodicSession:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();

@@ -13,6 +13,8 @@ class AddRelationshipFieldsToDatingSessionsTable extends Migration
             $table->foreign('specialist_id', 'specialist_fk_4512808')->references('id')->on('users');
             $table->unsignedBigInteger('big_brother_id');
             $table->foreign('big_brother_id', 'big_brother_fk_4512809')->references('id')->on('big_brothers');
+            $table->unsignedBigInteger('small_brother_id')->nullable();
+            $table->foreign('small_brother_id', 'small_brother_fk_4450351')->references('id')->on('small_brothers'); 
         });
     }
 }

@@ -48,6 +48,7 @@ class User extends Authenticatable implements HasMedia
 
     protected $appends = [
         'cv',
+        'image',
     ];
 
     protected $hidden = [
@@ -128,9 +129,29 @@ class User extends Authenticatable implements HasMedia
         return $this->belongsToMany(Role::class);
     }
 
+    
+    public function bigbrothers()
+    {
+        return $this->hasManys(User::class, 'specialist_id');
+    } 
+
     public function getCvAttribute()
     {
         return $this->getMedia('cv')->last();
+    }
+
+    
+    public function getImageAttribute()
+    {
+        $file = $this->getMedia('image')->last();
+
+        if ($file) {
+            $file->url              = $file->getUrl();
+            $file->thumbnail        = $file->getUrl('thumb');
+            $file->preview          = $file->getUrl('preview'); 
+        }
+
+        return $file;
     }
 
     public function getIdentityDateAttribute($value)

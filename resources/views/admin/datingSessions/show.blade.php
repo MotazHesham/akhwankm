@@ -60,7 +60,15 @@
                             {{ trans('cruds.datingSession.fields.big_brother') }}
                         </th>
                         <td>
-                            {{ $datingSession->big_brother->brotherhood_reason ?? '' }}
+                            {{ $datingSession->big_brother->user->email ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.datingSession.fields.small_brother') }}
+                        </th>
+                        <td>
+                            {{ $datingSession->small_brother->user->email ?? '' }}
                         </td>
                     </tr>
                 </tbody>

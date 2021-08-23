@@ -66,6 +66,10 @@ class BigBrotherController extends Controller
             $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('cv'))))->toMediaCollection('cv');
         }
 
+        if ($request->input('image', false)) {
+            $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+        }
+        
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $user->id]);
         }
@@ -99,12 +103,12 @@ class BigBrotherController extends Controller
         $charactarstics = Characteristic::all()->pluck('name_ar', 'id');
 
         $skills = Skill::all()->pluck('name_ar', 'id');
-
+        $specialists = User::where('user_type','specialist')->get()->pluck('email','id')->prepend(trans('global.pleaseSelect'), '');
         $bigBrother->load('user', 'charactarstics', 'skills');
         $countries = Country::get()->pluck('name', 'id');
 
 
-        return view('admin.bigBrothers.edit', compact('charactarstics', 'skills', 'bigBrother','countries'));
+        return view('admin.bigBrothers.edit', compact('charactarstics', 'skills', 'bigBrother','countries','specialists'));
     }
 
     public function update(UpdateBigBrotherRequest $request, BigBrother $bigBrother)
@@ -116,8 +120,8 @@ class BigBrotherController extends Controller
             'family_male'=>$request->family_male,
             'family_female'=> $request->family_female,
             'marital_status'=>$request->marital_status,
-            'brotherhood_reason'=>$request->brotherhood_reason,
-
+            'brotherhood_reason'=>$request->brotherhood_reason, 
+            'specialist_id'=>$request->specialist_id, 
         ]);
 
         $user = User::find($bigBrother->user_id);
@@ -131,7 +135,7 @@ class BigBrotherController extends Controller
             'dbo' => $request->dbo,
             'marital_status' => $request->marital_status,
             'country' => $request->country,
-            'city' => $request->city,
+            'city_id' => $request->city_id,
             'phone' => $request->phone,
             'address' => $request->address,
             'gender' => $request->gender,
@@ -139,8 +143,8 @@ class BigBrotherController extends Controller
         ]);
 
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
-        $bigBrother->skills()->sync($request->input('skills', []));
-
+        $bigBrother->skills()->sync($request->input('skills', [])); 
+        
         if ($request->input('cv', false)) {
             if (!$user->cv || $request->input('cv') !== $user->cv->file_name) {
                 if ($user->cv) {
@@ -152,6 +156,16 @@ class BigBrotherController extends Controller
             $user->cv->delete();
         }
 
+        if ($request->input('image', false)) {
+            if (!$user->image || $request->input('image') !== $user->image->file_name) {
+                if ($user->image) {
+                    $user->image->delete();
+                }
+                $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+            }
+        } elseif ($user->image) {
+            $user->image->delete();
+        }
         Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('admin.big-brothers.index');

@@ -13,6 +13,7 @@ use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Alert;
 
 class ApprovementFormController extends Controller
 {
@@ -31,17 +32,26 @@ class ApprovementFormController extends Controller
 
         $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), ''); 
-        
-        $specialists = User::where('user_type','staff')->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');  
 
-        return view('admin.approvementForms.create', compact('specialists', 'big_brothers'));
+        return view('admin.approvementForms.create', compact('big_brothers'));
     }
 
     public function store(StoreApprovementFormRequest $request)
     {
-        $approvementForm = ApprovementForm::create($request->all());
+        $validated_request = $request->all();
+        $bigBrother = BigBrother::findOrFail($validated_request['big_brother_id']);
 
+        if($bigBrother->specialist_id != null){
+            $validated_request['specialist_id'] = $bigBrother->specialist_id;
+        }else{
+            Alert::error('لم يتم الأضافة','برجاء أضافة مشرف للأخ الأكبر');
+            return redirect()->route('admin.approvement-forms.index');
+        }
+
+        $approvementForm = ApprovementForm::create($validated_request);
+
+        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
         return redirect()->route('admin.approvement-forms.index');
     }
 
@@ -53,7 +63,7 @@ class ApprovementFormController extends Controller
 
         $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), ''); 
         
-        $specialists = User::where('user_type','staff')->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $specialists = User::where('user_type','specialist')->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $approvementForm->load('specialist', 'big_brother');
 
@@ -64,6 +74,7 @@ class ApprovementFormController extends Controller
     {
         $approvementForm->update($request->all());
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
         return redirect()->route('admin.approvement-forms.index');
     }
 
@@ -82,6 +93,7 @@ class ApprovementFormController extends Controller
 
         $approvementForm->delete();
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
         return back();
     }
 
@@ -92,9 +104,7 @@ class ApprovementFormController extends Controller
         return response(null, Response::HTTP_NO_CONTENT);
     }
 
-    public function printForm(ApprovementForm $approvementForm){
-      
-       
+    public function printForm(ApprovementForm $approvementForm){ 
         $approvementForms = ApprovementForm::findOrFail($approvementForm->id);
 
         return view('forms.approvementForm',compact('approvementForms'));

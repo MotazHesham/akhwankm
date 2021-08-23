@@ -26,10 +26,10 @@ class DatingSession extends Model
         'recommendations',
         'specialist_id',
         'big_brother_id',
+        'small_brother_id',
         'created_at',
         'updated_at',
         'deleted_at',
-        'small_brother_id',
     ];
 
     public function getDateAttribute($value)
@@ -54,7 +54,7 @@ class DatingSession extends Model
 
     public function small_brother()
     {
-        return $this->belongsTo(BigBrother::class, 'small_brother_id');
+        return $this->belongsTo(SmallBrother::class, 'small_brother_id');
     }
 
     protected function serializeDate(DateTimeInterface $date)

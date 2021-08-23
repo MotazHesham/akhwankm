@@ -60,7 +60,7 @@
                             {{ trans('cruds.brothersDealForm.fields.big_brother') }}
                         </th>
                         <td>
-                            {{ $brothersDealForm->big_brother->brotherhood_reason ?? '' }}
+                            {{ $brothersDealForm->big_brother->user->email ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -68,7 +68,7 @@
                             {{ trans('cruds.brothersDealForm.fields.small_brother') }}
                         </th>
                         <td>
-                            {{ $brothersDealForm->small_brother->temp ?? '' }}
+                            {{ $brothersDealForm->small_brother->user->email ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -76,7 +76,7 @@
                             {{ trans('cruds.brothersDealForm.fields.approvment_form') }}
                         </th>
                         <td>
-                            {{ $brothersDealForm->approvment_form->approved ?? '' }}
+                            {{ $brothersDealForm->approvment_form->id ?? '' }}
                         </td>
                     </tr>
                     <tr>

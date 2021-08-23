@@ -18,7 +18,7 @@ class StoreOutingRequestRequest extends FormRequest
     {
         return [
             'outing_type_id' => [
-                'required',
+                'nullable',
                 'integer',
             ],
             'start_date' => [
@@ -50,8 +50,7 @@ class StoreOutingRequestRequest extends FormRequest
                 'integer',
             ],
             'other' =>[
-                 'nullable'
-
+                'nullable' 
             ]
         ];
     }

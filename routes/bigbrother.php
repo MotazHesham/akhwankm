@@ -1,17 +1,18 @@
 <?php
 
 Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'Bigbrother', 'middleware' => ['auth','bigbrother']], function () {
+
     Route::get('/', 'HomeController@index')->name('home');
 
-//Brothers Deal Form
-    Route::get('brothers-deal-forms/printForm/{brothersDealForm}','BrothersDealFormController@printForm')->name('brothers-deal-forms.print');
-    Route::get('brothers-deal-forms/view/{brothersDealForm}','BrothersDealFormController@view')->name('brothers-deal-forms.view');
+    //Brothers Deal Form
+    Route::get('brothers-deal-forms/printForm','BrothersDealFormController@printForm')->name('brothers-deal-forms.print');
+    Route::get('brothers-deal-forms/view','BrothersDealFormController@view')->name('brothers-deal-forms.view');
 
-    Route::get('brothers-deal-forms-index/{user_id}', 'BrothersDealFormController@index')->name('BDFI');
-    Route::get('brothers-deal-forms-show/{brothersDealForm}', 'BrothersDealFormController@show')->name('BDFShow');
-//Promise Form
-    Route::get('brothers-promise-forms-view/{bigBrother}', 'BrothersPromiseFormController@view')->name('BrothersPromiseForm.view');
-    Route::get('brothers-promise-forms-printForm/{bigBrother}', 'BrothersPromiseFormController@printForm')->name('BrothersPromiseForm.printForm');
+    Route::get('brothers-deal-forms-index', 'BrothersDealFormController@index')->name('BDFI');
+    Route::get('brothers-deal-forms-show', 'BrothersDealFormController@show')->name('BDFShow');
+    //Promise Form
+    Route::get('brothers-promise-forms-view', 'BrothersPromiseFormController@view')->name('BrothersPromiseForm.view');
+    Route::get('brothers-promise-forms-printForm', 'BrothersPromiseFormController@printForm')->name('BrothersPromiseForm.printForm');
 
 
     // Outing Request
@@ -19,24 +20,12 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
     Route::resource('outing-requests', 'OutingRequestController');
 
     //my information
-    Route::resource('big-brothers', 'EditMyInfoController');
+    Route::get('my-info', 'EditMyInfoController@edit')->name('edit-info');
+    Route::post('my-info', 'EditMyInfoController@update')->name('update-info');
 
-    // small brother info
+    // small brother info 
+    Route::get('/show/MySmallbrother', 'EditMyInfoController@Smallbrotherinfo')->name('brotherhood.show'); 
 
-    Route::get('/show/MySmallbrother/{bigBrother}', 'EditMyInfoController@Smallbrotherinfo')->name('brotherhood.show');
-
-
-
-});
-
-
-
-Route::get('/loginn', function () {
-    return view('auth\akhwankm_login');
-});
-
-
-
-Route::get('/regess', function () {
-    return view('auth\akhwankm_regestration');
-});
+    // calender 
+    Route::get('calender','HomeController@calender')->name('calender');
+});  

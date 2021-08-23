@@ -13,7 +13,7 @@
                     {{ trans('cruds.user.fields.name') }}
                 </th>
 
-               
+
                 <th>
                     {{ trans('cruds.smallBrother.fields.skills') }}
                 </th>
@@ -27,11 +27,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($small_brothers as $key => $smallBrother)
+            @foreach ($small_brothers as $key => $smallBrother)
                 <tr data-entry-id="{{ $smallBrother->id }}">
                     <td>
-                        <input type="radio" name="small_brother_id" id="small_brother_id" value="{{$smallBrother->id}}" style="width: 20px" >
-              
+                        <button type="button" class="btn btn-success" onclick="choosebrother({{ $smallBrother->id }})">
+                            اختر
+                        </button>
                     </td>
                     <td>
                         {{ $smallBrother->id ?? '' }}
@@ -42,17 +43,17 @@
                     </td>
 
                     <td>
-                        @foreach($smallBrother->skills as $key => $item)
+                        @foreach ($smallBrother->skills as $key => $item)
                             <span class="badge badge-info">{{ $item->name_ar }}</span>
                         @endforeach
                     </td>
 
                     <td>
-                        @foreach($smallBrother->charactaristics as $key => $item)
+                        @foreach ($smallBrother->charactaristics as $key => $item)
                             <span class="badge badge-info">{{ $item->name_ar }}</span>
                         @endforeach
                     </td>
-              
+
                     <td>
                         {{ $smallBrother->user->dbo ?? '' }}
                     </td>
@@ -60,4 +61,3 @@
             @endforeach
         </tbody>
     </table>
-    

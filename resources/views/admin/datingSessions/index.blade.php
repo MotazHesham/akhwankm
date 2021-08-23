@@ -27,13 +27,7 @@
                         </th>
                         <th>
                             {{ trans('cruds.datingSession.fields.date') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.datingSession.fields.interview_notes') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.datingSession.fields.recommendations') }}
-                        </th>
+                        </th> 
                         <th>
                             {{ trans('cruds.datingSession.fields.specialist') }}
                         </th>
@@ -56,18 +50,12 @@
                             </td>
                             <td>
                                 {{ $datingSession->date ?? '' }}
-                            </td>
-                            <td>
-                                {{ $datingSession->interview_notes ?? '' }}
-                            </td>
-                            <td>
-                                {{ $datingSession->recommendations ?? '' }}
-                            </td>
+                            </td> 
                             <td>
                                 {{ $datingSession->specialist->email ?? '' }}
                             </td>
                             <td>
-                                {{ $datingSession->big_brother->brotherhood_reason ?? '' }}
+                                {{ $datingSession->big_brother->user->email ?? '' }}
                             </td>
                             <td>
                                 @can('dating_session_show')

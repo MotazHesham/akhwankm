@@ -9,6 +9,8 @@ use App\Models\SmallBrother;
 use App\Models\Characteristic;
 use App\Models\Skill;
 use App\Models\User;
+use App\Models\Country;
+use App\Models\City;
 use App\Models\Role;
 use Gate;
 use Illuminate\Http\Request;
@@ -19,24 +21,25 @@ Use Auth;
 class EditMyInfoController extends Controller
 {
 
-    public function edit($user_id)
+    public function edit()
     {
-
-
         $charactarstics = Characteristic::all()->pluck('name_ar', 'id');
 
         $skills = Skill::all()->pluck('name_ar', 'id');
 
-        $bigBrother=BigBrother::find($user_id);
+        $bigBrother = BigBrother::where('user_id',Auth::id())->first(); 
+        $country_id = Auth::user()->city->country->id ?? '';
+        $countries = Country::get()->pluck('name', 'id');
+        $cities = City::where('country_id',$country_id)->get()->pluck('name', 'id');
 
-        $user_id=BigBrother::where('user_id',Auth::id())->first()->id;
-
-
-        return view('bigbrother.editMyInfo', compact('charactarstics', 'skills', 'bigBrother','user_id'));
+        return view('bigbrother.editMyInfo', compact('charactarstics', 'skills', 'bigBrother','countries','cities','country_id'));
     }
 
-    public function update(UpdateRequest $request, BigBrother $bigBrother  )
+    public function update(UpdateRequest $request)
     {
+        $bigBrother = BigBrother::where('user_id',Auth::id())->first(); 
+        $user = Auth::user();
+
         $bigBrother->update([
             'job'=>$request->job,
             'job_place'=>$request->job_place,
@@ -48,7 +51,6 @@ class EditMyInfoController extends Controller
 
         ]);
 
-        $user = User::find($bigBrother->user_id);
 
         $user->update([
             'name' => $request->name,
@@ -80,17 +82,22 @@ class EditMyInfoController extends Controller
             $user->cv->delete();
         }
 
+        if ($request->input('image', false)) {
+            $user->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+        }
 
         Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('bigbrother.home');
     }
 
-public function Smallbrotherinfo(BigBrother $bigBrother)
-{
-    $smallbrother = SmallBrother::Where('id',$bigBrother->small_brother_id)->with(['user', 'skills','charactaristics'])->get();
-
-
+    public function Smallbrotherinfo()
+    {
+        $bigBrother = BigBrother::where('user_id',Auth::id())->first(); 
+        $smallbrother = SmallBrother::find($bigBrother->small_brother_id);
+        if($smallbrother){ 
+            $smallbrother->load(['user', 'skills','charactaristics']); 
+        }
         return view('bigbrother.mysmallbrother', compact('smallbrother','bigBrother'));
-}
+    }
 }

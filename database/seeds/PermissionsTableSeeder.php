@@ -370,8 +370,48 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 91,
-                'title' => 'profile_password_edit',
+                'title' => 'periodic_session_create',
             ],
+            [
+                'id'    => 92,
+                'title' => 'periodic_session_edit',
+            ],
+            [
+                'id'    => 93,
+                'title' => 'periodic_session_show',
+            ],
+            [
+                'id'    => 94,
+                'title' => 'periodic_session_delete',
+            ],
+            [
+                'id'    => 95,
+                'title' => 'periodic_session_access',
+            ],
+            [
+                'id'    => 96,
+                'title' => 'specialist_create',
+            ],
+            [
+                'id'    => 97,
+                'title' => 'specialist_edit',
+            ],
+            [
+                'id'    => 98,
+                'title' => 'specialist_show',
+            ],
+            [
+                'id'    => 99,
+                'title' => 'specialist_delete',
+            ],
+            [
+                'id'    => 100,
+                'title' => 'specialist_access',
+            ],
+            [
+                'id'    => 101,
+                'title' => 'profile_password_edit',
+            ], 
         ];
 
         Permission::insert($permissions);

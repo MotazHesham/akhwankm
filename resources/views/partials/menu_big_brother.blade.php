@@ -1,11 +1,8 @@
-<?php
-use App\Models\BigBrother;
-use App\Models\SmallBrother;
+@php
+    $general_settings = \App\Models\GeneralSettings::select('big_brother_color')->first();
+@endphp
 
- $user_id=BigBrother::where('user_id',Auth::id())->first()->id;
-?>
-
-<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show" style="background: rgb(143, 43, 43)">
+<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show" style="background: {{ $general_settings->big_brother_color }}">
 
     <div class="c-sidebar-brand d-md-down-none">
         <a class="c-sidebar-brand-full h4" href="#">
@@ -15,35 +12,34 @@ use App\Models\SmallBrother;
 
     <ul class="c-sidebar-nav">
         <li class="c-sidebar-nav-item">
-            <a href="{{ route("bigbrother.home") }}" class="c-sidebar-nav-link">
+            <a href="{{ route('bigbrother.home') }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt">
 
                 </i>
                 {{ trans('global.dashboard') }}
             </a>
         </li>
-
+        {{-- 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route("bigbrother.home") }}" class="c-sidebar-nav-link">
+            <a href="{{ route('bigbrother.home') }}" class="c-sidebar-nav-link">
                 <i class="fa-fw fas fa-user c-sidebar-nav-icon">
 
                 </i>
                 {{ trans('global.personality_analysis') }}
             </a>
-        </li>
-
+        </li> --}} 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route("bigbrother.home") }}" class="c-sidebar-nav-link">
-                <i class="fa-fw far fa-clock c-sidebar-nav-icon">
+            <a href="{{ route('bigbrother.calender') }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fa-fw fas fa-calendar">
 
                 </i>
-                {{ trans('global.sessionsAppointments') }}
+                {{ trans('global.systemCalendar') }}
             </a>
         </li>
 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route('bigbrother.brothers-deal-forms.view', $user_id) }}" class="c-sidebar-nav-link">
-                 <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
+            <a href="{{ route('bigbrother.brothers-deal-forms.view') }}" class="c-sidebar-nav-link">
+                <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
 
                 </i>
                 {{ trans('global.BrothersDealForm') }}
@@ -51,7 +47,7 @@ use App\Models\SmallBrother;
         </li>
 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route('bigbrother.BrothersPromiseForm.view', $user_id) }}" class="c-sidebar-nav-link">
+            <a href="{{ route('bigbrother.BrothersPromiseForm.view') }}" class="c-sidebar-nav-link">
                 <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
 
                 </i>
@@ -60,42 +56,26 @@ use App\Models\SmallBrother;
         </li>
 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route("bigbrother.outing-requests.index") }}" class="c-sidebar-nav-link ">
+            <a href="{{ route('bigbrother.outing-requests.index') }}" class="c-sidebar-nav-link ">
                 <i class="fa-fw fas fa-calendar-alt c-sidebar-nav-icon">
 
                 </i>
                 {{ trans('cruds.outingRequest.title') }}
             </a>
-        </li>
+        </li> 
+        
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route('bigbrother.brotherhood.show') }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon  fas fa-user">
+
+                </i>
+                {{ trans('global.smallbrotherinfo') }}
+            </a>
+        </li> 
 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route('bigbrother.big-brothers.edit', $user_id) }}"class="c-sidebar-nav-link">
-            <i class="c-sidebar-nav-icon 	fas fa-edit">
-
-            </i>
-            {{ trans('global.update_info') }}
-        </a>
-    </li>
-
-
-    <li class="c-sidebar-nav-item">
-        <a href="{{ route('bigbrother.brotherhood.show', $user_id) }}"class="c-sidebar-nav-link">
-        <i class="c-sidebar-nav-icon 	fas fa-edit">
-
-        </i>
-        {{ trans('global.smallbrotherinfo') }}
-    </a>
-</li>
-
-
-
-
-
-
-
-
-        <li class="c-sidebar-nav-item">
-            <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+            <a href="#" class="c-sidebar-nav-link"
+                onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">
 
                 </i>

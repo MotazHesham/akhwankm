@@ -38,15 +38,7 @@
                         <td>
                             {{ $user->email }}
                         </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.user.fields.email_verified_at') }}
-                        </th>
-                        <td>
-                            {{ $user->email_verified_at }}
-                        </td>
-                    </tr>
+                    </tr> 
                     <tr>
                         <th>
                             {{ trans('cruds.user.fields.roles') }}
@@ -65,6 +57,18 @@
                             @if($user->cv)
                                 <a href="{{ $user->cv->getUrl() }}" target="_blank">
                                     {{ trans('global.view_file') }}
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.image') }}
+                        </th>
+                        <td>
+                            @if($user && $user->image)
+                                <a href="{{ asset($user->image->getUrl()) }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ asset($user->image->getUrl('thumb')) }}">
                                 </a>
                             @endif
                         </td>
@@ -158,24 +162,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="card">
-    <div class="card-header">
-        {{ trans('global.relatedData') }}
-    </div>
-    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="#user_user_alerts" role="tab" data-toggle="tab">
-                {{ trans('cruds.userAlert.title') }}
-            </a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane" role="tabpanel" id="user_user_alerts">
-            @includeIf('admin.users.relationships.userUserAlerts', ['userAlerts' => $user->userUserAlerts])
-        </div>
-    </div>
-</div>
+</div> 
 
 @endsection

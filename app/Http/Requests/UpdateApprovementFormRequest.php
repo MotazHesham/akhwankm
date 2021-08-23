@@ -19,11 +19,7 @@ class UpdateApprovementFormRequest extends FormRequest
         return [
             'approved' => [
                 'required', 
-            ],
-            'specialist_id' => [
-                'required',
-                'integer',
-            ],
+            ], 
             'reason' => [
                 'required',
             ],

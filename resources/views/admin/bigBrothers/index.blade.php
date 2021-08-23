@@ -33,10 +33,7 @@
                         </th>
                         <th>
                             {{ trans('cruds.user.fields.phone') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.user.fields.address') }}
-                        </th>
+                        </th> 
                         <th>
                             {{ trans('cruds.bigBrother.fields.small_brother') }}
                         </th>
@@ -62,10 +59,7 @@
                             </td>
                             <td>
                                 {{ $bigBrother->user->phone ?? '' }}
-                            </td>
-                            <td>
-                                {{ $bigBrother->user->address ?? '' }}
-                            </td>
+                            </td> 
                             <td>
                                 {{ $bigBrother->small_brother->user->email ?? '' }}
                             </td>

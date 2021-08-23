@@ -27,6 +27,7 @@ class BigBrother extends Model
         'family_female',
         'brotherhood_reason',
         'small_brother_id',
+        'specialist_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -35,6 +36,11 @@ class BigBrother extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    
+    public function specialist()
+    {
+        return $this->belongsTo(User::class, 'specialist_id');
     }
 
     public function charactarstics()

@@ -7,8 +7,7 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("bigbrother.big-brothers.update", [$bigBrother->id]) }}" enctype="multipart/form-data">
-            @method('PUT')
+        <form method="POST" action="{{ route("bigbrother.update-info") }}" enctype="multipart/form-data">
             @csrf
 
             <div class="row">
@@ -93,16 +92,30 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="required" for="cv">{{ trans('cruds.user.fields.cv') }}</label>
-                <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone" required>
-                </div>
-                @if($errors->has('cv'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('cv') }}
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label class="required" for="cv">{{ trans('cruds.user.fields.cv') }}</label>
+                    <div class="needsclick dropzone {{ $errors->has('cv') ? 'is-invalid' : '' }}" id="cv-dropzone" required>
                     </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
+                    @if($errors->has('cv'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('cv') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
+                </div>
+    
+                <div class="form-group col-md-6">
+                    <label for="image">{{ trans('cruds.user.fields.image') }}</label>
+                    <div class="needsclick dropzone {{ $errors->has('image') ? 'is-invalid' : '' }}" id="image-dropzone">
+                    </div>
+                    @if($errors->has('image'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('image') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.user.fields.image_helper') }}</span>
+                </div> 
             </div>
 
             <div class="row">
@@ -161,30 +174,41 @@
 
 
 
-            <div class="row">
+            
+            <div class="row"> 
                 <div class="col-md-6">
+                    {{-- country --}}
                     <div class="form-group">
-                        <label for="country">{{ trans('cruds.user.fields.country') }}</label>
-                        <input class="form-control {{ $errors->has('country') ? 'is-invalid' : '' }}" type="text" name="country" id="country" value="{{ old('country', $bigBrother->country) }}">
-                        @if($errors->has('country'))
+                        <label class="required" for="country_id">{{ trans('cruds.user.fields.country_id') }}</label>
+                        <select class="form-control select2 {{ $errors->has('country_id') ? 'is-invalid' : '' }}" name="country_id" id="country_id" required onchange="cities()">
+                            @foreach($countries as $id => $name)
+                                <option value="{{ $id }}"  {{ old('country_id', $country_id) == $id ? 'selected' : '' }}>{{ $name }}</option>
+                            @endforeach
+                        </select>
+                        @if($errors->has('country_id'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('country') }}
+                                {{ $errors->first('country_id') }}
                             </div>
                         @endif
-                        <span class="help-block">{{ trans('cruds.user.fields.country_helper') }}</span>
-                    </div>
+                        <span class="help-block">{{ trans('cruds.user.fields.country_id_helper') }}</span>
+                    </div> 
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="city">{{ trans('cruds.user.fields.city') }}</label>
-                        <input class="form-control {{ $errors->has('city') ? 'is-invalid' : '' }}" type="text" name="city" id="city" value="{{ old('city', $bigBrother->city) }}">
-                        @if($errors->has('city'))
+                    {{-- cities --}}
+                    <div class="form-group" id="cities"> 
+                        <label class="required" for="city_id">{{ trans('cruds.user.fields.city_id') }}</label>
+                        <select class="form-control select2 {{ $errors->has('city_id') ? 'is-invalid' : '' }}" name="city_id" id="city_id" required> 
+                            @foreach($cities as $id => $name)
+                                <option value="{{ $id }}"  {{ old('city_id',$bigBrother->user->city_id) == $id ? 'selected' : '' }}>{{ $name }}</option>
+                            @endforeach
+                        </select>
+                        @if($errors->has('city_id'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('city') }}
+                                {{ $errors->first('city_id') }}
                             </div>
                         @endif
-                        <span class="help-block">{{ trans('cruds.user.fields.city_helper') }}</span>
-                    </div>
+                        <span class="help-block">{{ trans('cruds.user.fields.city_id_helper') }}</span>
+                    </div> 
                 </div>
             </div>
 
@@ -340,7 +364,7 @@
 
 @endsection
 
-@section('scripts')
+@section('scripts') 
 <script>
     Dropzone.options.cvDropzone = {
     url: '{{ route('admin.users.storeMedia') }}',
@@ -390,5 +414,59 @@
          return _results
      }
 }
+</script>
+<script>
+    Dropzone.options.imageDropzone = {
+        url: '{{ route('admin.users.storeMedia') }}',
+        maxFilesize: 2, // MB
+        acceptedFiles: '.jpeg,.jpg,.png,.gif',
+        maxFiles: 1,
+        addRemoveLinks: true,
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        params: {
+            size: 2,
+            width: 4096,
+            height: 4096
+        },
+        success: function (file, response) {
+            $('form').find('input[name="image"]').remove()
+            $('form').append('<input type="hidden" name="image" value="' + response.name + '">')
+        },
+        removedfile: function (file) {
+            file.previewElement.remove()
+            if (file.status !== 'error') {
+                $('form').find('input[name="image"]').remove()
+                this.options.maxFiles = this.options.maxFiles + 1
+            }
+        },
+        init: function () {
+        @if(isset($bigBrother->user) && $bigBrother->user->image)
+            var file = {!! json_encode($bigBrother->user->image) !!}
+                this.options.addedfile.call(this, file)
+            this.options.thumbnail.call(this, file, file.preview)
+            file.previewElement.classList.add('dz-complete')
+            $('form').append('<input type="hidden" name="image" value="' + file.file_name + '">')
+            this.options.maxFiles = this.options.maxFiles - 1
+        @endif
+        },
+        error: function (file, response) {
+            if ($.type(response) === 'string') {
+                var message = response //dropzone sends it's own error messages in string
+            } else {
+                var message = response.errors.file
+            }
+            file.previewElement.classList.add('dz-error')
+            _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
+            _results = []
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                node = _ref[_i]
+                _results.push(node.textContent = message)
+            }
+
+            return _results
+        }
+    }
 </script>
 @endsection
