@@ -11,7 +11,7 @@ class StoreDatingSessionRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('dating_session_create');
+        return true;
     }
 
     public function rules()

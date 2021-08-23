@@ -2,8 +2,8 @@
     <form method="POST" action="{{ route('specialist.brothers-deal-forms.store') }}" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="specialist_id" value="{{ Auth::id() }}">
-        <input type="hidden" name="big_brother_id" value="{{ Auth::id() }}">
-        <input type="hidden" name="small_brother_id" value="{{ Auth::id() }}">
+        <input type="hidden" name="big_brother_id" value="{{ $bigBrother->id }}">
+        <input type="hidden" name="small_brother_id" value="{{ $bigBrother->small_brother_id }}">
         <div class="row">
             <div class="col-md-6">
 
@@ -66,6 +66,7 @@
                         {{ trans('global.save') }}
                     </button>
                 </div>
+            </div>
+        </div>  
     </form>
-</div>
-</div>
+</div> 

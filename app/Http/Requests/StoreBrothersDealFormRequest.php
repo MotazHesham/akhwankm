@@ -11,7 +11,7 @@ class StoreBrothersDealFormRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('brothers_deal_form_create');
+        return true;
     }
 
     public function rules()

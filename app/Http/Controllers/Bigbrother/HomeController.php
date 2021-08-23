@@ -20,7 +20,7 @@ class HomeController
             'field'      => '',
             'prefix'     => '',
             'suffix'     => '',
-            'route'      => 'admin.periodic-sessions.edit',
+            'route'      => 'bigbrother.home',
         ],
         [
             'model'      => '\App\Models\DatingSession',
@@ -28,7 +28,7 @@ class HomeController
             'field'      => '',
             'prefix'     => '',
             'suffix'     => '',
-            'route'      => 'admin.dating-sessions.edit',
+            'route'      => 'bigbrother.home',
         ],
     ];
 

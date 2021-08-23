@@ -24,7 +24,7 @@ class SmallBrotherController extends Controller
     //
     public function MyBrother ($user_id){
 
-        $bigBrother = BigBrother::Where('small_brother_id',$user_id)->with(['user', 'skills','charactarstics'])->get();
+        $bigBrother = BigBrother::Where('small_brother_id',$user_id)->with(['user', 'skills','charactarstics'])->first();
     
           
         return view('smallbrother.MyBrother', compact('bigBrother'));

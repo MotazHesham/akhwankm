@@ -8,5 +8,7 @@ Route::group(['prefix' => 'smallbrother', 'as' => 'smallbrother.', 'namespace' =
     Route::get('/outings/{user_id}', 'SmallBrotherController@outing')->name('outingRequest'); 
     Route::get('/datingSession/{user_id}', 'SmallBrotherController@datingSession')->name('datingSession'); 
     
+    // calender 
+    Route::get('calender','HomeController@calender')->name('calender');
     
 }); 

@@ -72,6 +72,7 @@ return [
     'new_message'                    => 'رسالة جديدة',
     'messages'                       => 'رسائل',
     'inbox'                          => 'الوارد',
+    'showmore'                          => 'أظهار المزيد',
     'outbox'                         => 'الصادر',
     'subject'                        => 'العنوان',
     'recipients'                     => 'المستلمون',

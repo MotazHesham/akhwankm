@@ -2,7 +2,7 @@
     $general_settings = \App\Models\GeneralSettings::select('big_brother_color')->first();
 @endphp
 
-<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show" style="background: {{ $general_settings->big_brother_color }}">
+<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show" style="background: {{ $general_settings->big_brother_color ?? '' }}">
 
     <div class="c-sidebar-brand d-md-down-none">
         <a class="c-sidebar-brand-full h4" href="#">

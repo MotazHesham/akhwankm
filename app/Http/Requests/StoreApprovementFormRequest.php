@@ -11,7 +11,7 @@ class StoreApprovementFormRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('approvement_form_create');
+        return true;
     }
 
     public function rules()

@@ -72,6 +72,7 @@ return [
     'new_message'                    => 'New message',
     'messages'                       => 'Messages',
     'inbox'                          => 'Inbox',
+    'showmore'                          => 'Shpw More',
     'outbox'                         => 'Outbox',
     'subject'                        => 'Subject',
     'recipients'                     => 'Recipients',

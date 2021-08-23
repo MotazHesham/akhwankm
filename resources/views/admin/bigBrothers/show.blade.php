@@ -71,7 +71,15 @@
                                         {{ trans('cruds.user.fields.degree') }}
                                     </th>
                                     <td>
-                                        {{ App\Models\User::DEGREE_RADIO[$bigBrother->user->degree] ?? '' }}
+                                        {{ trans('global.degree.'.$bigBrother->user->degree ?? '')  }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.user.fields.marital_status') }}
+                                    </th>
+                                    <td>
+                                        {{ trans('global.marital_status.'.$bigBrother->user->marital_status ?? '')  }}
                                     </td>
                                 </tr>
                                 <tr>

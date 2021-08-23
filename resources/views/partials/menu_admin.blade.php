@@ -1,10 +1,10 @@
 @php
-$general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
+    $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
 @endphp
 
 
 <div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show"
-    style="background: {{ $general_settings->admin_color }}">
+    style="background: {{ $general_settings->admin_color ?? ''}}">
 
     <div class="c-sidebar-brand d-md-down-none">
         <a class="c-sidebar-brand-full h4" href="#">
