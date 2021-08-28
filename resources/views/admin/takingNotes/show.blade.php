@@ -52,7 +52,7 @@
                             {{ trans('cruds.takingNote.fields.small_brother_name') }}
                         </th>
                         <td>
-                            {{ $takingNote->small_brother_name->temp ?? '' }}
+                            {{ $takingNote->small_brother_name->user->name ?? '' }}
                         </td>
                     </tr>
                     <tr>

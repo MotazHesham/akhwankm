@@ -49,7 +49,7 @@ class TakingNotesController extends Controller
     {
         abort_if(Gate::denies('taking_note_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $specialist_names = User::pluck('user_type', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $specialist_names = User::where('user_type','specialist')->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $small_brother_names = SmallBrother::with('user')->get()->pluck('user.name', 'id')->prepend(trans('global.pleaseSelect'), '');
 

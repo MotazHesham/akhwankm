@@ -15,7 +15,7 @@
                 <select class="form-control {{ $errors->has('day') ? 'is-invalid' : '' }}" name="day" id="day" required>
                     <option value disabled {{ old('day', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                     @foreach(App\Models\TakingNote::DAY_SELECT as $key => $label)
-                        <option value="{{ $key }}" {{ old('day', $takingNote->day) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                        <option value="{{ $key }}" {{ old('day', $takingNote->day) === (string) $key ? 'selected' : '' }}>{{ trans('global.day.'.$label) }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('day'))
