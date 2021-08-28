@@ -172,7 +172,7 @@ return [
         'chart_bar'          =>  'Big Brother Forms',
         'choose'          =>  'recommendations brothers',
         'no_brother'          =>  '  There are no fraternity contracts yet! Please choose a small brother from the list of recommendations',
-        'no_suitable'  =>   ' There is no Small brother suitable for this brother skills yet ',  
+        'no_suitable'  =>   ' There is no Small brother suitable for this brother skills yet ',
         'fields'         => [
             'id'                        => 'ID',
             'id_helper'                 => ' ',
@@ -388,7 +388,7 @@ return [
             'big_brother_helper'     => ' ',
             'small_brother'         => 'Small Brother ',
             'small_brother_helper'     => ' ',
-                
+
         ],
     ],
     'country' => [
@@ -462,9 +462,9 @@ return [
             'specialist_color'                 => 'Specialist',
             'specialist_color_helper'          => ' ',
             'logo'                  => 'Logo',
-            'logo_helper'           => ' ', 
+            'logo_helper'           => ' ',
             'terms'                  => 'Terms and Conditions',
-            'terms_helper'           => ' ', 
+            'terms_helper'           => ' ',
             'created_at'            => 'Created at',
             'created_at_helper'     => ' ',
             'updated_at'            => 'Updated at',
@@ -473,6 +473,36 @@ return [
     ],
     'specialist'    => [
         'title'          => 'Specialists',
-        'title_singular' => 'Specialist', 
+        'title_singular' => 'Specialist',
     ],
+
+    'takingNote' => [
+        'title'          => 'Taking Notes',
+        'title_singular' => 'Taking Note',
+        'fields'         => [
+            'id'                               => 'ID',
+            'id_helper'                        => ' ',
+            'day'                              => 'Day',
+            'day_helper'                       => ' ',
+            'specialist_name'                  => 'Specialist Name',
+            'specialist_name_helper'           => ' ',
+            'time'                             => 'Time',
+            'time_helper'                      => ' ',
+            'small_brother_name'               => 'Small Brother Name',
+            'small_brother_name_helper'        => ' ',
+            'behavioral_change'                => 'Behavioral Change',
+            'behavioral_change_helper'         => ' ',
+            'psychologists_opinions'           => 'Psychologists Opinions',
+            'psychologists_opinions_helper'    => ' ',
+            'social_specialist_opinion'        => 'Social Specialist Opinion',
+            'social_specialist_opinion_helper' => ' ',
+            'created_at'                       => 'Created at',
+            'created_at_helper'                => ' ',
+            'updated_at'                       => 'Updated at',
+            'updated_at_helper'                => ' ',
+            'deleted_at'                       => 'Deleted at',
+            'deleted_at_helper'                => ' ',
+        ],
+    ],
+    
 ];

@@ -373,6 +373,16 @@ return [
         'divorced' => 'Divorced',
         'widowed'  => 'Widowed',
     ],
+    'day' => [
+        'Saturday' => "Saturday",
+        'Sunday' => "Sunday",
+        'Monday' => "Monday",
+        'Tuesday' => "Tuesday",
+        'Wednesday' => "Wednesday",
+        'Thursday' => "Thursday",
+        'Friday' => " Friday",
+    ],
+
     'flash' => [
         '404' => 'Not Found !!',
         'error' => 'Something Went Wrong !!',
@@ -418,6 +428,8 @@ return [
             'deleted' => "User Deleted Successfully",
             'mass_destroy' => "All Users Deleted Successfully",
         ],
+
+
     ],
 
     'personality_analysis'=>"personality analysis",

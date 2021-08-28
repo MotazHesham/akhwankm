@@ -121,7 +121,7 @@ return [
         ],
     ],
     'userAlert' => [
-        'title'          => ' تنبيهات المستخدم', 
+        'title'          => ' تنبيهات المستخدم',
         'title_singular' => ' تنبيه المستخدم',
         'fields'         => [
             'id'                => 'المعرف',
@@ -162,7 +162,7 @@ return [
             'temp'                   => 'Temp',
             'temp_helper'            => ' ',
             'brothers'                => 'بيانات الأخ الأكبر',
-            'created_at_b'            =>'تاريخ تقديم الطلب' 
+            'created_at_b'            =>'تاريخ تقديم الطلب'
         ],
     ],
     'bigBrother' => [
@@ -390,7 +390,7 @@ return [
             'big_brother_helper'     => ' ',
             'small_brother'         => ' الأخ الأصغر',
             'small_brother_helper'     => ' ',
-                
+
         ],
     ],
     'country' => [
@@ -464,9 +464,9 @@ return [
             'specialist_color'                 => 'الأخصائي',
             'specialist_color_helper'          => ' ',
             'logo'                  => 'لوجو الموقع',
-            'logo_helper'           => ' ', 
+            'logo_helper'           => ' ',
             'terms'                  => 'الشروط و الأحكام',
-            'terms_helper'           => ' ', 
+            'terms_helper'           => ' ',
             'created_at'            => 'Created at',
             'created_at_helper'     => ' ',
             'updated_at'            => 'Updated at',
@@ -475,6 +475,36 @@ return [
     ],
     'specialist'    => [
         'title'          => 'الأخصائيين',
-        'title_singular' => 'أخصائي', 
+        'title_singular' => 'أخصائي',
     ],
+
+    'takingNote' => [
+        'title'          => 'تدوين ملاحظات',
+        'title_singular' =>  ' ملاحظة',
+        'fields'         => [
+            'id'                               => 'ID',
+            'id_helper'                        => ' ',
+            'day'                              => 'اليوم',
+            'day_helper'                       => ' ',
+            'specialist_name'                  => 'اسم الإخصائي',
+            'specialist_name_helper'           => ' ',
+            'time'                             => 'الوقت',
+            'time_helper'                      => ' ',
+            'small_brother_name'               => 'اسم الأخ الاأصغر',
+            'small_brother_name_helper'        => ' ',
+            'behavioral_change'                => ' التغير في السلوكيات ',
+            'behavioral_change_helper'         => ' ',
+            'psychologists_opinions'           => ' مرئيات الأخصائي النفسي ',
+            'psychologists_opinions_helper'    => ' ',
+            'social_specialist_opinion'        => 'مرئيات الأخصائي الإجتماعي ',
+            'social_specialist_opinion_helper' => ' ',
+            'created_at'                       => 'Created at',
+            'created_at_helper'                => ' ',
+            'updated_at'                       => 'Updated at',
+            'updated_at_helper'                => ' ',
+            'deleted_at'                       => 'Deleted at',
+            'deleted_at_helper'                => ' ',
+        ],
+    ],
+
 ];

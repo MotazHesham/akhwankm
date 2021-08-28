@@ -19,7 +19,7 @@
                 {{ trans('global.dashboard') }}
             </a>
         </li>
-        {{-- 
+        {{--
         <li class="c-sidebar-nav-item">
             <a href="{{ route('bigbrother.home') }}" class="c-sidebar-nav-link">
                 <i class="fa-fw fas fa-user c-sidebar-nav-icon">
@@ -27,7 +27,7 @@
                 </i>
                 {{ trans('global.personality_analysis') }}
             </a>
-        </li> --}} 
+        </li> --}}
         <li class="c-sidebar-nav-item">
             <a href="{{ route('bigbrother.calender') }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fa-fw fas fa-calendar">
@@ -62,8 +62,8 @@
                 </i>
                 {{ trans('cruds.outingRequest.title') }}
             </a>
-        </li> 
-        
+        </li>
+
         <li class="c-sidebar-nav-item">
             <a href="{{ route('bigbrother.brotherhood.show') }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon  fas fa-user">
@@ -71,8 +71,15 @@
                 </i>
                 {{ trans('global.smallbrotherinfo') }}
             </a>
-        </li> 
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("bigbrother.taking-notes.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/taking-notes") || request()->is("admin/taking-notes/*") ? "c-active" : "" }}">
+                <i class="fa-fw fas fa-book-open c-sidebar-nav-icon">
 
+                </i>
+                {{ trans('cruds.takingNote.title') }}
+            </a>
+        </li>
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

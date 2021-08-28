@@ -30,7 +30,7 @@ Route::post('users/ckmedia', 'Admin\UsersController@storeCKEditorImages')->name(
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth','staff']], function () {
     Route::get('/', 'HomeController@index')->name('home');
 
-    // Chatting 
+    // Chatting
     Route::get('/chatting','ConversationsController@index')->name('chatting.index');
     Route::post('/chatting/show','ConversationsController@show')->name('chatting.show');
     Route::post('/chatting/send','ConversationsController@send')->name('chatting.send');
@@ -82,7 +82,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Dating Sessions
     Route::delete('dating-sessions/destroy', 'DatingSessionsController@massDestroy')->name('dating-sessions.massDestroy');
     Route::resource('dating-sessions', 'DatingSessionsController');
-    
+
     // Periodic Sessions
     Route::delete('periodic-sessions/destroy', 'PeriodicSessionsController@massDestroy')->name('periodic-sessions.massDestroy');
     Route::resource('periodic-sessions', 'PeriodicSessionsController');
@@ -111,8 +111,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Approvement Form
     Route::delete('approvement-forms/destroy', 'ApprovementFormController@massDestroy')->name('approvement-forms.massDestroy');
     Route::resource('approvement-forms', 'ApprovementFormController');
-    Route::get('approvement-forms/printForm/{approvementForm}','ApprovementFormController@printForm')->name('approvement-forms.print'); 
+    Route::get('approvement-forms/printForm/{approvementForm}','ApprovementFormController@printForm')->name('approvement-forms.print');
 
+    // Taking Notes
+    Route::delete('taking-notes/destroy', 'TakingNotesController@massDestroy')->name('taking-notes.massDestroy');
+    Route::resource('taking-notes', 'TakingNotesController');
+    
     // General Settings
     Route::post('general-settings/media', 'GeneralSettingsController@storeMedia')->name('general-settings.storeMedia');
     Route::post('general-settings/ckmedia', 'GeneralSettingsController@storeCKEditorImages')->name('general-settings.storeCKEditorImages');
