@@ -14,5 +14,9 @@ Route::group(['prefix' => 'smallbrother', 'as' => 'smallbrother.', 'namespace' =
 
     // calender 
     Route::get('calender','HomeController@calender')->name('calender');
+
+    // Inequality
+    Route::delete('inequalities/destroy', 'InequalityController@massDestroy')->name('inequalities.massDestroy');
+    Route::resource('inequalities', 'InequalityController');
     
 }); 

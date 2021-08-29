@@ -37,6 +37,14 @@ $general_settings = \App\Models\GeneralSettings::select('specialist_color')->fir
             </a>
         </li> 
         <li class="c-sidebar-nav-item">
+            <a href="{{ route("specialist.inequalities.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/inequalities") || request()->is("admin/inequalities/*") ? "c-active" : "" }}">
+                <i class="fa-fw fas fa-not-equal c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.inequality.title') }}
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">

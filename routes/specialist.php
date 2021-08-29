@@ -19,5 +19,11 @@ Route::group(['prefix' => 'specialist', 'as' => 'specialist.', 'namespace' => 'S
     Route::post('/brotherhood/store', 'BrotherhoodController@store')->name('choose_smallbrother'); 
 
     // deal_form
-    Route::post('/brothers-deal-forms/store', 'BrotherDealControllers@store')->name('brothers-deal-forms.store');  
+    Route::post('/brothers-deal-forms/store', 'BrotherDealControllers@store')->name('brothers-deal-forms.store'); 
+    
+   // Inequality
+    Route::delete('inequalities/destroy', 'InequalityController@massDestroy')->name('inequalities.massDestroy');
+    Route::resource('inequalities', 'InequalityController');
+    Route::get('inequalities/print/{id}', 'InequalityController@print_form')->name('inequalities.print');
+       
 }); 

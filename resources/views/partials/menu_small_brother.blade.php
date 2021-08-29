@@ -46,6 +46,14 @@
                 {{ trans('global.systemCalendar') }}
             </a>
         </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("smallbrother.inequalities.create") }}" class="c-sidebar-nav-link {{ request()->is("admin/inequalities") || request()->is("admin/inequalities/*") ? "c-active" : "" }}">
+                <i class="fa-fw fas fa-not-equal c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.inequality.title') }}
+            </a>
+        </li>
         
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"

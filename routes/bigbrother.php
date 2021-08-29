@@ -28,4 +28,8 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
 
     // calender 
     Route::get('calender','HomeController@calender')->name('calender');
+
+    // Inequality
+     Route::delete('inequalities/destroy', 'InequalityController@massDestroy')->name('inequalities.massDestroy');
+     Route::resource('inequalities', 'InequalityController');
 });  

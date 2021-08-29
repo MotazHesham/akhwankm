@@ -475,4 +475,31 @@ return [
         'title'          => 'Specialists',
         'title_singular' => 'Specialist', 
     ],
+    'inequality' => [
+        'title'          => 'Inequality Form',
+        'title_singular' => 'Inequality Form',
+        'fields'         => [
+            'id'                   => 'ID',
+            'id_helper'            => ' ',
+            'specialist'           => 'Specialist',
+            'specialist_helper'    => ' ',
+            'big_brother'          => 'Big Brother',
+            'big_brother_helper'   => ' ',
+            'small_brother'        => 'Small Brother',
+            'small_brother_helper' => ' ',
+            'reasons'              => 'Reasons',
+            'reasons_helper'       => ' ',
+            'date'                 => 'Date',
+            'date_helper'          => ' ',
+            'created_at'           => 'Created at',
+            'created_at_helper'    => ' ',
+            'updated_at'           => 'Updated at',
+            'updated_at_helper'    => ' ',
+            'deleted_at'           => 'Deleted at',
+            'deleted_at_helper'    => ' ',
+            'applicant'            => ' applicant',
+        ],
+    ],
+
+
 ];

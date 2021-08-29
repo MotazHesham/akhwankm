@@ -412,6 +412,26 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 101,
                 'title' => 'profile_password_edit',
             ], 
+            [
+                'id'    => 102,
+                'title' => 'inequality_access',
+            ], 
+            [
+                'id'    => 103,
+                'title' => 'inequality_show',
+        ],
+              [
+               'id'    => 104,
+              'title' => 'inequality_edit',
+            ],
+            [
+                'id'    => 105,
+                'title' => 'inequality_delete',
+        ],
+        [
+                'id'    => 106,
+                'title' => 'inequality_create',
+        ],
         ];
 
         Permission::insert($permissions);

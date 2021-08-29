@@ -239,6 +239,16 @@
                             </a>
                         </li>
                     @endcan
+                            @can('inequality_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.inequalities.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/inequalities") || request()->is("admin/inequalities/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-not-equal c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.inequality.title') }}
+                </a>
+            </li>
+        @endcan
                     @can('characteristic_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route('admin.characteristics.index') }}"
@@ -310,6 +320,7 @@
                 </li>
             @endcan
         @endif
+
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
