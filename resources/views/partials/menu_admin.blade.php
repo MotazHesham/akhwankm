@@ -24,7 +24,7 @@
         <li class="c-sidebar-nav-item">
             <a href="{{ route('admin.chatting.index') }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fab fa-fw fa-facebook-messenger">
-                    
+
                 </i>
                 {{ trans('global.chatting') }}
             </a>
@@ -152,6 +152,16 @@
                 </a>
             </li>
         @endcan
+        @can('taking_note_access')
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.taking-notes.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/taking-notes") || request()->is("admin/taking-notes/*") ? "c-active" : "" }}">
+                <i class="fa-fw fas fa-book-open c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.takingNote.title') }}
+            </a>
+        </li>
+    @endcan
         @can('periodic_session_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.periodic-sessions.index') }}"

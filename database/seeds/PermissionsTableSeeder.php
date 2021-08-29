@@ -432,6 +432,27 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 106,
                 'title' => 'inequality_create',
         ],
+        
+            [
+                'id'    => 107,
+                'title' => 'taking_note_create',
+            ],
+            [
+                'id'    => 108,
+                'title' => 'taking_note_edit',
+            ],
+            [
+                'id'    => 109,
+                'title' => 'taking_note_show',
+            ],
+            [
+                'id'    => 110,
+                'title' => 'taking_note_delete',
+            ],
+            [
+                'id'    => 111,
+                'title' => 'taking_note_access',
+            ],
         ];
 
         Permission::insert($permissions);

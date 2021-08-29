@@ -14,6 +14,8 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
     Route::get('brothers-promise-forms-view', 'BrothersPromiseFormController@view')->name('BrothersPromiseForm.view');
     Route::get('brothers-promise-forms-printForm', 'BrothersPromiseFormController@printForm')->name('BrothersPromiseForm.printForm');
 
+   //taking-notes
+   Route::get('taking-notes', 'TakingNotesController@index')->name('taking-notes.index');
 
     // Outing Request
     Route::delete('outing-requests/destroy', 'OutingRequestController@massDestroy')->name('outing-requests.massDestroy');
@@ -23,10 +25,10 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
     Route::get('my-info', 'EditMyInfoController@edit')->name('edit-info');
     Route::post('my-info', 'EditMyInfoController@update')->name('update-info');
 
-    // small brother info 
-    Route::get('/show/MySmallbrother', 'EditMyInfoController@Smallbrotherinfo')->name('brotherhood.show'); 
+    // small brother info
+    Route::get('/show/MySmallbrother', 'EditMyInfoController@Smallbrotherinfo')->name('brotherhood.show');
 
-    // calender 
+    // calender
     Route::get('calender','HomeController@calender')->name('calender');
 
     // Inequality

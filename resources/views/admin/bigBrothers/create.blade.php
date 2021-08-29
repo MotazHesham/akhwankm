@@ -2,14 +2,14 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.smallBrother.title_singular') }}
-    </div> 
+        {{ trans('global.create') }} {{ trans('cruds.bigBrother.title_singular') }}
+    </div>
     <div class="card-body">
         <form method="POST" action="{{ route("admin.big-brothers.store") }}" enctype="multipart/form-data" id="regForm">
-            @csrf 
+            @csrf
 
-            <div class="row"> 
-                <div class="col-md-6"> 
+            <div class="row">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label class="required" for="name">{{ trans('cruds.user.fields.name') }}</label>
                         <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
@@ -21,7 +21,7 @@
                         <span class="help-block">{{ trans('cruds.user.fields.name_helper') }}</span>
                     </div>
                 </div>
-                <div class="col-md-6"> 
+                <div class="col-md-6">
                     <div class="form-group">
                         <label class="required" for="email">{{ trans('cruds.user.fields.email') }}</label>
                         <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" id="email" value="{{ old('email') }}" required>
@@ -35,8 +35,8 @@
                 </div>
             </div>
 
-            <div class="row"> 
-                <div class="col-md-6"> 
+            <div class="row">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>
                         <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password" required>
@@ -46,9 +46,9 @@
                             </div>
                         @endif
                         <span class="help-block">{{ trans('cruds.user.fields.password_helper') }}</span>
-                    </div> 
-                </div> 
-                <div class="col-md-6"> 
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label class="required" for="identity_number">{{ trans('cruds.user.fields.identity_number') }}</label>
                         <input class="form-control {{ $errors->has('identity_number') ? 'is-invalid' : '' }}" type="text" name="identity_number" id="identity_number" value="{{ old('identity_number', '') }}" required>
@@ -61,9 +61,9 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="row"> 
-                <div class="col-md-6"> 
+
+            <div class="row">
+                <div class="col-md-6">
 
                     <div class="form-group">
                         <label class="required" for="identity_date">{{ trans('cruds.user.fields.identity_date') }}</label>
@@ -76,7 +76,7 @@
                         <span class="help-block">{{ trans('cruds.user.fields.identity_date_helper') }}</span>
                     </div>
                 </div>
-                <div class="col-md-6"> 
+                <div class="col-md-6">
                     <div class="form-group">
                         <label class="required" for="dbo">{{ trans('cruds.user.fields.dbo') }}</label>
                         <input class="form-control date {{ $errors->has('dbo') ? 'is-invalid' : '' }}" type="text" name="dbo" id="dbo" value="{{ old('dbo') }}" required>
@@ -102,7 +102,7 @@
                     @endif
                     <span class="help-block">{{ trans('cruds.user.fields.cv_helper') }}</span>
                 </div>
-                
+
                 <div class="form-group col-md-6">
                     <label for="image">{{ trans('cruds.user.fields.image') }}</label>
                     <div class="needsclick dropzone {{ $errors->has('image') ? 'is-invalid' : '' }}" id="image-dropzone">
@@ -113,12 +113,12 @@
                         </div>
                     @endif
                     <span class="help-block">{{ trans('cruds.user.fields.image_helper') }}</span>
-                </div> 
-                    
+                </div>
+
             </div>
-            
-            <div class="row"> 
-                <div class="col-md-4"> 
+
+            <div class="row">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label>{{ trans('cruds.user.fields.marital_status') }}</label>
                         @foreach(App\Models\User::MARITAL_STATUS_RADIO as $key => $label)
@@ -135,7 +135,7 @@
                         <span class="help-block">{{ trans('cruds.user.fields.marital_status_helper') }}</span>
                     </div>
                 </div>
-                <div class="col-md-4">  
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="required">{{ trans('cruds.user.fields.gender') }}</label>
                         @foreach(App\Models\User::GENDER_RADIO as $key => $label)
@@ -150,9 +150,9 @@
                             </div>
                         @endif
                         <span class="help-block">{{ trans('cruds.user.fields.gender_helper') }}</span>
-                    </div> 
+                    </div>
                 </div>
-                <div class="col-md-4">  
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="required">{{ trans('cruds.user.fields.degree') }}</label>
                         @foreach(App\Models\User::DEGREE_RADIO as $key => $label)
@@ -171,7 +171,7 @@
                 </div>
             </div>
 
-            
+
             <div class="row">
                 <div class="col-md-6">
                     {{-- country --}}
@@ -188,13 +188,13 @@
                             </div>
                         @endif
                         <span class="help-block">{{ trans('cruds.user.fields.country_id_helper') }}</span>
-                    </div> 
+                    </div>
                 </div>
                 <div class="col-md-6">
                     {{-- cities --}}
-                    <div class="form-group" id="cities"> 
+                    <div class="form-group" id="cities">
                         <label class="required" for="city_id">{{ trans('cruds.user.fields.city_id') }}</label>
-                        <select class="form-control select2 {{ $errors->has('city_id') ? 'is-invalid' : '' }}" name="city_id" id="city_id" required> 
+                        <select class="form-control select2 {{ $errors->has('city_id') ? 'is-invalid' : '' }}" name="city_id" id="city_id" required>
                             {{-- ajax call --}}
                         </select>
                         @if($errors->has('city_id'))
@@ -203,13 +203,13 @@
                             </div>
                         @endif
                         <span class="help-block">{{ trans('cruds.user.fields.city_id_helper') }}</span>
-                    </div> 
+                    </div>
                 </div>
             </div>
 
-            
-            <div class="row"> 
-                <div class="col-md-6"> 
+
+            <div class="row">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="phone">{{ trans('cruds.user.fields.phone') }}</label>
                         <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="text" name="phone" id="phone" value="{{ old('phone', '') }}">
@@ -222,7 +222,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-6"> 
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="address">{{ trans('cruds.user.fields.address') }}</label>
                         <input class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" type="text" name="address" id="address" value="{{ old('address', '') }}">
@@ -235,9 +235,9 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="row"> 
-                <div class="col-md-4"> 
+
+            <div class="row">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="required" for="job">{{ trans('cruds.bigBrother.fields.job') }}</label>
                         <input class="form-control {{ $errors->has('job') ? 'is-invalid' : '' }}" type="text" name="job" id="job" value="{{ old('job', '') }}" required>
@@ -249,7 +249,7 @@
                         <span class="help-block">{{ trans('cruds.bigBrother.fields.job_helper') }}</span>
                     </div>
                 </div>
-                <div class="col-md-4"> 
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="required" for="job_place">{{ trans('cruds.bigBrother.fields.job_place') }}</label>
                         <input class="form-control {{ $errors->has('job_place') ? 'is-invalid' : '' }}" type="text" name="job_place" id="job_place" value="{{ old('job_place', '') }}" required>
@@ -261,7 +261,7 @@
                         <span class="help-block">{{ trans('cruds.bigBrother.fields.job_place_helper') }}</span>
                     </div>
                 </div>
-                <div class="col-md-4"> 
+                <div class="col-md-4">
                     <div class="form-group">
                         <label  for="salary">{{ trans('cruds.bigBrother.fields.salary') }}</label>
                         <input class="form-control {{ $errors->has('salary') ? 'is-invalid' : '' }}" type="number" name="salary" id="salary" value="{{ old('salary', '') }}" step="0.01" >
@@ -275,8 +275,8 @@
                 </div>
             </div>
 
-            <div class="row"> 
-                <div class="col-md-6"> 
+            <div class="row">
+                <div class="col-md-6">
 
                     <div class="form-group">
                         <label  for="family_male">{{ trans('cruds.bigBrother.fields.family_male') }}</label>
@@ -289,7 +289,7 @@
                         <span class="help-block">{{ trans('cruds.bigBrother.fields.family_male_helper') }}</span>
                     </div>
                 </div>
-                <div class="col-md-6"> 
+                <div class="col-md-6">
                     <div class="form-group">
                         <label  for="family_female">{{ trans('cruds.bigBrother.fields.family_female') }}</label>
                         <input class="form-control {{ $errors->has('family_female') ? 'is-invalid' : '' }}" type="number" name="family_female" id="family_female" value="{{ old('family_female', '') }}" step="1" >
@@ -302,7 +302,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="form-group">
                 <label  for="brotherhood_reason">{{ trans('cruds.bigBrother.fields.brotherhood_reason') }}</label>
                 <textarea class="form-control {{ $errors->has('brotherhood_reason') ? 'is-invalid' : '' }}" name="brotherhood_reason" id="brotherhood_reason" >{{ old('brotherhood_reason') }}</textarea>
@@ -359,10 +359,10 @@
             </div>
 
         </form>
-    </div> 
+    </div>
 </div>
 @endsection
-@section('scripts') 
+@section('scripts')
 <script>
     cities();
 </script>
@@ -441,7 +441,7 @@
                 $('form').find('input[name="image"]').remove()
                 this.options.maxFiles = this.options.maxFiles + 1
             }
-        }, 
+        },
         error: function (file, response) {
             if ($.type(response) === 'string') {
                 var message = response //dropzone sends it's own error messages in string
