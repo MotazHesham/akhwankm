@@ -35,11 +35,13 @@
                         @if($message)
                             <span class="user-meta-time" 
                                     style="font-size:10px;
-                                            @if(!$viewed) color:orange @endif
+                                            @if(!$viewed) color:orange; @endif
                                             @if(app()->getLocale() == 'ar') left:11px @else right:0 @endif" >
                                             {{calculate_diff_date($message->created_at)}}
                             </span> 
                         @endif
+                        <br>
+                        <span class="badge badge-info text-white">{{ trans('global.user_type.'.$user->user_type) }}</span>
                     </div>
                     <span class="preview" @if(!$viewed) style="color:orange" @endif>{{$message->message ?? 'New Contact'}}</span>
                 </div>

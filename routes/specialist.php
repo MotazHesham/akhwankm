@@ -2,6 +2,13 @@
 
 Route::group(['prefix' => 'specialist', 'as' => 'specialist.', 'namespace' => 'Specialist', 'middleware' => ['auth','specialist']], function () {
     Route::get('/', 'HomeController@index')->name('home'); 
+    
+    // Chatting
+    Route::get('/chatting','ConversationsController@index')->name('chatting.index');
+    Route::post('/chatting/show','ConversationsController@show')->name('chatting.show');
+    Route::post('/chatting/send','ConversationsController@send')->name('chatting.send');
+    Route::post('/chatting/refresh_contacts','ConversationsController@index')->name('chatting.refresh_contacts');
+
     Route::get('/allBrother', 'SpecialistController@allBrothers')->name('brothers'); 
     Route::get('/brother/details/{big_brother_id}', 'SpecialistController@brother_detials')->name('brother_details'); 
     Route::get('/brotherhood_process/{big_brother_id}', 'SpecialistController@brotherhood')->name('process'); 

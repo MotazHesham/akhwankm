@@ -21,6 +21,14 @@
             </a>
         </li>
         <li class="c-sidebar-nav-item">
+            <a href="{{ route('smallbrother.chatting.index') }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fab fa-fw fa-facebook-messenger">
+
+                </i>
+                {{ trans('global.chatting') }}
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
             <a href="{{ route('smallbrother.brotherhood.show') }}" class="c-sidebar-nav-link">
                 <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
 

@@ -21,6 +21,14 @@ $general_settings = \App\Models\GeneralSettings::select('specialist_color')->fir
             </a>
         </li>
         <li class="c-sidebar-nav-item">
+            <a href="{{ route('specialist.chatting.index') }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fab fa-fw fa-facebook-messenger">
+
+                </i>
+                {{ trans('global.chatting') }}
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
             <a href="{{ route('specialist.brothers') }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-handshake">
 

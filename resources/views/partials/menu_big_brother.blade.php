@@ -29,6 +29,14 @@
             </a>
         </li> --}}
         <li class="c-sidebar-nav-item">
+            <a href="{{ route('bigbrother.chatting.index') }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fab fa-fw fa-facebook-messenger">
+
+                </i>
+                {{ trans('global.chatting') }}
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
             <a href="{{ route('bigbrother.calender') }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fa-fw fas fa-calendar">
 
