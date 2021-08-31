@@ -175,7 +175,7 @@
                                           تمت التوصية
                                           <i class="far fa-check-circle"></i>
                                       </h4>
-                                      <a href="" class="btn btn-info">طباعة الأستمارة</a>
+                                      <a href="{{route('specialist.approvement-forms.print',$approvementForm)}}" class="btn btn-info">طباعة الأستمارة</a>
                                   </div>
                               @else
                                   @include('specialist.steps.approvement')

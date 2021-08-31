@@ -64,5 +64,13 @@ class SpecialistController extends Controller
         return redirect()->route('specialist.brother_details',$request->big_brother_id);   
     }
 
+    public function printApprovementForm(ApprovementForm $approvementForm){ 
+       
+        $approvementForms = ApprovementForm::findOrFail($approvementForm->id);
+
+        return view('forms.approvementForm',compact('approvementForms'));
+
+
+    }
 
 }

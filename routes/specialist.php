@@ -6,6 +6,7 @@ Route::group(['prefix' => 'specialist', 'as' => 'specialist.', 'namespace' => 'S
     Route::get('/brother/details/{big_brother_id}', 'SpecialistController@brother_detials')->name('brother_details'); 
     Route::get('/brotherhood_process/{big_brother_id}', 'SpecialistController@brotherhood')->name('process'); 
     Route::post('/approve/store', 'SpecialistController@approvement')->name('approvement-forms.store'); 
+    Route::get('approvement-forms/printForm/{approvementForm}','SpecialistController@printApprovementForm')->name('approvement-forms.print');
 
     // dating_session
     Route::get('/session/{id}', 'DatingSessionController@create')->name('session');  
