@@ -111,6 +111,12 @@ return [
         'payment_date' => 'Payment Date',
         'amount'       => 'Amount',
     ],
+    'user_type' => [
+        'staff' => 'Managers',
+        'specialist' => 'Specialist',
+        'big_brother' => 'Big Brother',
+        'small_brother' => 'Small Brother'
+    ],
     'table'                                => 'Table',
     'back'                                 => 'Back',
     'refresh'                              => 'Refresh',

@@ -4,6 +4,13 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
 
     Route::get('/', 'HomeController@index')->name('home');
 
+
+    // Chatting
+    Route::get('/chatting','ConversationsController@index')->name('chatting.index');
+    Route::post('/chatting/show','ConversationsController@show')->name('chatting.show');
+    Route::post('/chatting/send','ConversationsController@send')->name('chatting.send');
+    Route::post('/chatting/refresh_contacts','ConversationsController@index')->name('chatting.refresh_contacts');
+    
     //Brothers Deal Form
     Route::get('brothers-deal-forms/printForm','BrothersDealFormController@printForm')->name('brothers-deal-forms.print');
     Route::get('brothers-deal-forms/view','BrothersDealFormController@view')->name('brothers-deal-forms.view');

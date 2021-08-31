@@ -110,6 +110,12 @@ return [
         'payment_date' => 'تاريخ الدفع',
         'amount'       => 'القيمه',
     ],
+    'user_type' => [
+        'staff' => 'أدارة',
+        'specialist' => 'أخصائي',
+        'big_brother' => 'أخ أكبر',
+        'small_brother' => 'أخ أصغر'
+    ],
     'table'                                => 'جدول',
     'back'                                 => 'رجوع',
     'refresh'                              => 'تحديث',

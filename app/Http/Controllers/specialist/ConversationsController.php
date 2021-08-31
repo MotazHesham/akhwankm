@@ -1,20 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Specialist;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Conversation;
 use App\Models\Message;
+use App\Models\BigBrother;
+use App\Models\SmallBrother;
 use Auth;
 use App\Events\ChattingMessages;
 
 class ConversationsController extends Controller
 {
     public function index(Request $request)
-    {
-        $users = User::whereIn('user_type',['staff','specialist'])->where('id','!=',Auth::id())->get();
+    { 
+        $bigBrothers_ids = BigBrother::where('specialist_id',Auth::id())->get()->pluck('id');
+        $users = User::where('user_type','small_brother')->orWhere('id',$bigBrothers_ids)->where('id','!=',Auth::id())->get();
 
         foreach($users as $user){
             Global $user_id;
@@ -43,7 +46,7 @@ class ConversationsController extends Controller
         if($request->ajax()){
             return view('partials.contacts',compact('conversations')); 
         }
-        return view('admin.chatting',compact('conversations')); 
+        return view('specialist.chatting',compact('conversations')); 
     }
 
     public function send(Request $request)

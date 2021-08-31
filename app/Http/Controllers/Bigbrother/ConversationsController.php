@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Bigbrother;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\BigBrother;
+use App\Models\SmallBrother;
 use App\Models\Conversation;
 use App\Models\Message;
 use Auth;
@@ -13,25 +15,44 @@ use App\Events\ChattingMessages;
 class ConversationsController extends Controller
 {
     public function index(Request $request)
-    {
-        $users = User::whereIn('user_type',['staff','specialist'])->where('id','!=',Auth::id())->get();
+    { 
+        $bigbrother = BigBrother::where('user_id',Auth::id())->first(); 
 
-        foreach($users as $user){
-            Global $user_id;
-            $user_id = $user->id;
+        Global $small_brother_id, $specialist_id;
+        $specialist_id = $bigbrother->specialist_id;
+
+        $small_brother = SmallBrother::find($bigbrother->small_brother_id);
+        if($small_brother){
+            // add small brother to conversation
+            $small_brother_id = $small_brother->user_id;
             $conversation = Conversation::where(function($query) {
-                                            $query->where('sender_id',$GLOBALS['user_id'])
+                                            $query->where('sender_id',$GLOBALS['small_brother_id'])
                                                 ->where('receiver_id',Auth::id());
                                         })->orWhere(function($query) {
                                             $query->where('sender_id',Auth::id())
-                                                ->where('receiver_id',$GLOBALS['user_id']);
+                                                ->where('receiver_id',$GLOBALS['small_brother_id']);
                                         })->first();
             if(!$conversation){
                 $conversation = Conversation::create([
                     'sender_id' => Auth::id(),
-                    'receiver_id' => $GLOBALS['user_id']
+                    'receiver_id' => $GLOBALS['small_brother_id']
                 ]);
             }
+        }
+
+        // add specialist to conversation
+        $conversation2 = Conversation::where(function($query) {
+                                        $query->where('sender_id',$GLOBALS['specialist_id'])
+                                            ->where('receiver_id',Auth::id());
+                                    })->orWhere(function($query) {
+                                        $query->where('sender_id',Auth::id())
+                                            ->where('receiver_id',$GLOBALS['specialist_id']);
+                                    })->first();
+        if(!$conversation2){
+            $conversation2 = Conversation::create([
+                'sender_id' => Auth::id(),
+                'receiver_id' => $GLOBALS['specialist_id']
+            ]);
         }
 
         $conversations = Conversation::with(['receiver','sender','messages'])
@@ -43,7 +64,7 @@ class ConversationsController extends Controller
         if($request->ajax()){
             return view('partials.contacts',compact('conversations')); 
         }
-        return view('admin.chatting',compact('conversations')); 
+        return view('bigbrother.chatting',compact('conversations')); 
     }
 
     public function send(Request $request)
