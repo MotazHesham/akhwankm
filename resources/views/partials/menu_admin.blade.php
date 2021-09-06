@@ -301,6 +301,16 @@
                             {{ trans('cruds.generalSettings.title') }}
                         </a>
                     </li>
+                    @can('challengetype_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.challengetypes.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/challengetypes") || request()->is("admin/challengetypes/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-keyboard c-sidebar-nav-icon">
+            
+                            </i>
+                            {{ trans('cruds.challengetype.title') }}
+                        </a>
+                    </li>
+                @endcan
                 </ul>
             </li>
         @endcan

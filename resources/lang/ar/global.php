@@ -85,6 +85,7 @@ return [
     'discard'                        => 'Discard',
     'update_info'                    =>'تحديث بياناتي الشخصية',
     'outingRequests'                 =>'طلبات الخروج',
+    'evalute'                        => 'تقيم',
     'Sessions'                 => ' الجلسات  ',
     'datatables'                     => [
         'copy'          => 'نسخ',

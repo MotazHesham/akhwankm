@@ -52,6 +52,14 @@ $general_settings = \App\Models\GeneralSettings::select('specialist_color')->fir
                 {{ trans('cruds.inequality.title') }}
             </a>
         </li>
+                   <li class="c-sidebar-nav-item">
+                <a href="{{ route("specialist.follow-ups.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/follow-ups") || request()->is("admin/follow-ups/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-th-list c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.followUp.title') }}
+                </a>
+            </li>
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

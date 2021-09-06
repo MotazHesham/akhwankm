@@ -23,7 +23,7 @@ class InequalityController extends Controller
     public function index()
     {
        
-        $inequalities = Inequality::with(['specialist', 'big_brother', 'small_brother'])->get();
+        $inequalities = Inequality::where('specialist_id',Auth::id())->with(['specialist', 'big_brother', 'small_brother'])->get();
 
         return view('specialist.inequalities.index', compact('inequalities'));
     }

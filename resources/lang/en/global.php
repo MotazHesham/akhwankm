@@ -85,6 +85,7 @@ return [
     'discard'                        => 'Discard',
     'update_info'                    =>'Update my personal data',
     'outingRequests'                 => 'Outings Requests',
+    'evalute'                        => 'Evalute',
     'Sessions'                       => ' Sessions ',
     'others'                      => 'Other',
     'datatables'                     => [

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CharacteristicsTableSeeder::class,
             SkillsTableSeeder::class, 
             GeneralSettingsSeeder::class, 
+            ChallengeTableSeeder::class,
         ]);
     }
 }

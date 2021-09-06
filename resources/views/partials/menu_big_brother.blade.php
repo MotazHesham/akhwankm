@@ -97,6 +97,14 @@
             </a>
         </li>
         <li class="c-sidebar-nav-item">
+            <a href="{{ route("bigbrother.challenges.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/challenges") || request()->is("admin/challenges/*") ? "c-active" : "" }}">
+                <i class="fa-fw fas fa-chalkboard-teacher c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.challenge.title') }}
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">

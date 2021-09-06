@@ -531,4 +531,79 @@ return [
             'applicant'            => 'مقدم الطلب'
         ],
     ],
+
+    'followUp' => [
+        'title'          => 'المتابعة ',
+        'title_singular' => ' المتابعة',
+        'deal' =>[
+             'good' => 'جيدة',
+             'need discussion'=>'تحتاج إلي المناقشة'
+                ],
+        'academic_level'=>[
+            'good' => 'جيدة',
+            'need discussion'=>'تحتاج إلي المناقشة'
+               ],
+        'fields'         => [
+            'id'                    => 'ID',
+            'id_helper'             => ' ',
+            'big_brother'           => 'الأخ الأكبر ',
+            'big_brother_helper'    => ' ',
+            'small_brother'         =>'الأخ الأصغر ',
+            'small_brother_helper'  => ' ',
+            'deal'                  => 'طريقة التعامل',
+            'deal_helper'           => ' ',
+            'specialist'            => 'الأخصائي',
+            'specialist_helper'     => ' ',
+            'notes'                 => 'الملاحظات',
+            'notes_helper'          => ' ',
+            'date'                  => 'التاريخ',
+            'date_helper'           => ' ',
+            'created_at'            => 'Created at',
+            'created_at_helper'     => ' ',
+            'updated_at'            => 'Updated at',
+            'updated_at_helper'     => ' ',
+            'deleted_at'            => 'Deleted at',
+            'deleted_at_helper'     => ' ',
+            'academic_level'        => ' المستوي الدراسي التقريبي لليتم ',
+            'academic_level_helper' => ' ',
+        ],
+    ],
+        'challenge' => [
+            'title'          => 'التحديات',
+            'title_singular' => 'التحديات',
+            'challenge'      =>'ما التحديات التي يواجهها الأخ الأصغر',
+            'fields'         => [
+                'id'                => 'ID',
+                'id_helper'         => ' ',
+                'created_at'        => 'Created at',
+                'created_at_helper' => ' ',
+                'updated_at'        => 'Updated at',
+                'updated_at_helper' => ' ',
+                'deleted_at'        => 'Deleted at',
+                'deleted_at_helper' => ' ',
+                'challenge'          => 'التحديات',
+                'challeng_helper'   => ' ',
+                'small_brother'  => 'الأخ الأصغر',
+                'evalute'        =>    'تقييمك'
+            ],
+        ],
+        'challengetype' => [
+            'title'          => 'التحديات ',
+            'title_singular' => ' نوع التحدي',
+            'fields'         => [
+                'id'                => 'ID',
+                'id_helper'         => ' ',
+                'name_ar'           => 'الأسم باللغة العربية',
+                'name_ar_helper'    => ' ',
+                'name_en'           => 'الأسم باللغة الانجليزية',
+                'name_en_helper'    => ' ',
+                'created_at'        => 'Created at',
+                'created_at_helper' => ' ',
+                'updated_at'        => 'Updated at',
+                'updated_at_helper' => ' ',
+                'deleted_at'        => 'Deleted at',
+                'deleted_at_helper' => ' ',
+            ],
+        ],
+ 
 ];

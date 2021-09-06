@@ -41,4 +41,8 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
     // Inequality
      Route::delete('inequalities/destroy', 'InequalityController@massDestroy')->name('inequalities.massDestroy');
      Route::resource('inequalities', 'InequalityController');
+   
+   // Challenges
+   Route::delete('challenges/destroy', 'ChallengesController@massDestroy')->name('challenges.massDestroy');
+   Route::resource('challenges', 'ChallengesController'); 
 });  

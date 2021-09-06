@@ -453,6 +453,27 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 111,
                 'title' => 'taking_note_access',
             ],
+            [
+                'id'    => 112,
+                'title' => 'challengetype_access',
+            ],
+            [
+                'id'    => 113,
+                'title' => 'challenge_create',
+            ],
+            [
+                'id'    => 114,
+                'title' => 'challenge_edit',
+            ],
+            [
+                'id'    => 115,
+                'title' => 'challenge_show',
+            ],
+            [
+                'id'    => 116,
+                'title' => 'challenge_delete',
+            ],
+            
         ];
 
         Permission::insert($permissions);

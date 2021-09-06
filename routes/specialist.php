@@ -33,5 +33,22 @@ Route::group(['prefix' => 'specialist', 'as' => 'specialist.', 'namespace' => 'S
     Route::delete('inequalities/destroy', 'InequalityController@massDestroy')->name('inequalities.massDestroy');
     Route::resource('inequalities', 'InequalityController');
     Route::get('inequalities/print/{id}', 'InequalityController@print_form')->name('inequalities.print');
+
+
+    // Follow Up
+    Route::delete('follow-ups/destroy', 'FollowUpController@massDestroy')->name('follow-ups.massDestroy');
+    Route::get('follow-ups/index', 'FollowUpController@index')->name('follow-ups.index'); 
+    Route::get('follow-ups/create/{id}', 'FollowUpController@create')->name('follow-ups.create'); 
+    Route::post('follow-ups/store', 'FollowUpController@store')->name('follow-ups.store'); 
+    Route::get('follow-ups/edit/{id}', 'FollowUpController@edit')->name('follow-ups.edit');
+    Route::Put('follow-ups/update', 'FollowUpController@update')->name('follow-ups.update');
+   
+   // Challengetype
+    Route::delete('challengetypes/destroy', 'ChallengetypeController@massDestroy')->name('challengetypes.massDestroy');
+    Route::resource('challengetypes', 'ChallengetypeController');
+   
+   // Challenges
+   Route::delete('challenges/destroy', 'ChallengesController@massDestroy')->name('challenges.massDestroy');
+   Route::resource('challenges', 'ChallengesController'); 
        
 }); 
