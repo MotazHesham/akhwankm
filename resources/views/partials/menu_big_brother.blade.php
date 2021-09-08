@@ -104,7 +104,17 @@
                 {{ trans('cruds.challenge.title') }}
             </a>
         </li>
+        
+
         <li class="c-sidebar-nav-item">
+            <a href="{{ route('bigbrother.reportings.create') }}" class="c-sidebar-nav-link" >
+                <i class="fa-fw fas fa-chalkboard-teacher c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.reporting.title') }}
+            </a>
+        </li>
+                <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">

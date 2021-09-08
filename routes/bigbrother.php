@@ -45,4 +45,8 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
    // Challenges
    Route::delete('challenges/destroy', 'ChallengesController@massDestroy')->name('challenges.massDestroy');
    Route::resource('challenges', 'ChallengesController'); 
+
+    // Reporting
+    Route::delete('reportings/destroy', 'ReportingController@massDestroy')->name('reportings.massDestroy');
+    Route::resource('reportings', 'ReportingController');
 });  

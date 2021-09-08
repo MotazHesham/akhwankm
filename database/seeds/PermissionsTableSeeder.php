@@ -473,6 +473,46 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 116,
                 'title' => 'challenge_delete',
             ],
+            [
+                'id'    => 117,
+                'title' => 'report_type_create',
+            ],
+            [
+                'id'    => 118,
+                'title' => 'report_type_edit',
+            ],
+            [
+                'id'    => 119,
+                'title' => 'report_type_show',
+            ],
+            [
+                'id'    => 120,
+                'title' => 'report_type_delete',
+            ],
+            [
+                'id'    => 121,
+                'title' => 'report_type_access',
+            ],
+            [
+                'id'    => 122,
+                'title' => 'reporting_create',
+            ],
+            [
+                'id'    => 123,
+                'title' => 'reporting_edit',
+            ],
+            [
+                'id'    => 124,
+                'title' => 'reporting_show',
+            ],
+            [
+                'id'    => 125,
+                'title' => 'reporting_delete',
+            ],
+            [
+                'id'    => 126,
+                'title' => 'reporting_access',
+            ],
             
         ];
 
