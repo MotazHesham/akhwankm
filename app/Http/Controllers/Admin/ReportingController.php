@@ -11,6 +11,7 @@ use App\Models\Reporting;
 use App\Models\ReportType;
 use App\Models\User;
 use Gate;
+use Alert;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -44,6 +45,8 @@ class ReportingController extends Controller
     {
         $reporting = Reporting::create($request->all());
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+
         return redirect()->route('admin.reportings.index');
     }
 
@@ -66,6 +69,8 @@ class ReportingController extends Controller
     {
         $reporting->update($request->all());
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
+
         return redirect()->route('admin.reportings.index');
     }
 
@@ -83,6 +88,9 @@ class ReportingController extends Controller
         abort_if(Gate::denies('reporting_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $reporting->delete();
+
+        
+        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return back();
     }

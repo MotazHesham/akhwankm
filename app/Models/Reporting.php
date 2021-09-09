@@ -24,8 +24,6 @@ class Reporting extends Model
         'report_type_id',
         'big_brother_id',
         'date',
-        'day',
-        'time',
         'number_of_repeat_offences',
         'violation_summary',
         'violation_justifications',
@@ -48,14 +46,13 @@ class Reporting extends Model
 
     public function getDateAttribute($value)
     {
-        return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
+        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
     }
 
     public function setDateAttribute($value)
     {
-        $this->attributes['date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
+        $this->attributes['date'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
     }
-
     public function specialist()
     {
         return $this->belongsTo(User::class, 'specialist_id');

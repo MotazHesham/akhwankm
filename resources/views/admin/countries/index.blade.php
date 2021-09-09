@@ -29,9 +29,6 @@
                             {{ trans('cruds.country.fields.name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.country.fields.short_code') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -47,9 +44,6 @@
                             </td>
                             <td>
                                 {{ $country->name ?? '' }}
-                            </td>
-                            <td>
-                                {{ $country->short_code ?? '' }}
                             </td>
                             <td>
                                 @can('country_show')

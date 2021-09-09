@@ -182,17 +182,6 @@
                 {{ trans('global.systemCalendar') }}
             </a>
         </li>
-        @can('brothers_deal_form_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route('admin.brothers-deal-forms.index') }}"
-                    class="c-sidebar-nav-link {{ request()->is('admin/brothers-deal-forms') || request()->is('admin/brothers-deal-forms/*') ? 'c-active' : '' }}">
-                    <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
-
-                    </i>
-                    {{ trans('cruds.brothersDealForm.title') }}
-                </a>
-            </li>
-        @endcan
         @can('outing_managment_access')
             <li
                 class="c-sidebar-nav-dropdown {{ request()->is('admin/outing-types*') ? 'c-show' : '' }} {{ request()->is('admin/outing-requests*') ? 'c-show' : '' }}">

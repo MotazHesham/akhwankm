@@ -3,13 +3,15 @@
 return [
     'actions'                        => 'العمليات',
     'add'                            => 'اضافة',
+    'report_reply'                   =>'تم حفظ مبرراتك بنجاح وسيقوم الاخصائي بمراجعتها',
+    'add_challenge_again'            =>  'تم اضافة تحديات لهذا الأخ سابقا يمكنك تعديلها ',
     'allRightsReserved'              => 'كافة الحقوق محفوظة',
     'brothers'                       => 'طلبات المؤاخاة',
     'step1'                          =>'التوصية',
     'step2'                          =>'جلسة التعارف',
-    'step3'                          =>'اختيار الأخ الأصغر',
+    'step3'                          =>'اختيار الأخ الأصغر / الأخت الصغرى',
     'step4'                          =>'التعاقد',
-    'smallbrother'                   =>'بيانات الأخ الأصغر',
+    'smallbrother'                   =>'بيانات  الأخ الأصغر / الأخت الصغرى',
     'areYouSure'                     => 'هل أنت متأكد؟',
     'clickHereToVerify'              => 'اضغط هنا للتحقق',
     'create'                         => 'إضافة',
@@ -114,8 +116,8 @@ return [
     'user_type' => [
         'staff' => 'أدارة',
         'specialist' => 'أخصائي',
-        'big_brother' => 'أخ أكبر',
-        'small_brother' => 'أخ أصغر'
+        'big_brother' => 'الأخ الأكبر / الأخت الكبرى',
+        'small_brother' => 'الأخ الأصغر / الأخت الصغرى '
     ],
     'table'                                => 'جدول',
     'back'                                 => 'رجوع',
@@ -341,8 +343,9 @@ return [
         'middle school certificate'    => 'شهادة المدرسة المتوسطة',
         'High School Certificate'      => 'شهادة الثانوية العامة',
         'Diploma'                      => 'شهادة دبلوم',
-        'Bachelors Degree'             => 'درجة باكلريوس',
-        'Masters Degree'               => 'ماجيستير',
+        'Bachelors Degree'             => 'درجة بكالوريس',
+        'Masters Degree'               => 'درجةالماجيستير',
+        'PHD Degree'                   => 'درجة الدكتوراه'
     ],
     'months' => [
         'january'=>'يناير',
@@ -375,10 +378,10 @@ return [
         'approved' => 'موافقة',
     ],
     'marital_status' => [
-        'Single'   => 'غير مرتبط',
+        'Single'   => ' أعزب',
         'married'  => 'متزوج',
         'divorced' => 'مطلق',
-        'widowed'  => 'أرامل',
+        'widowed'  => 'أرمل',
     ],
 
 
@@ -445,6 +448,6 @@ return [
         'sessionsAppointments'=>"مواعيد الجلسات" ,
         'BrothersDealForm'=>" استمارة التعاقد" ,
         'BrothersPromiseForm'=>"استمارة التعهد" ,
-        'smallbrotherinfo'=>"بيانات الأخ الأصغر"
+        'smallbrotherinfo'=>'بيانات الأخ الأصغر / الأخت الصغرى' ,
 
 ];

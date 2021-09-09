@@ -39,33 +39,13 @@
             </div>
             <div class="form-group">
                 <label class="required" for="date">{{ trans('cruds.reporting.fields.date') }}</label>
-                <input class="form-control date {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date') }}" required>
-                @if($errors->has('date'))
+                <input class="form-control datetime {{ $errors->has('datetime') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('datetime') }}" required>
+                @if($errors->has('datetime'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('date') }}
+                        {{ $errors->first('datetime') }}
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.reporting.fields.date_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required" for="day">{{ trans('cruds.reporting.fields.day') }}</label>
-                <input class="form-control {{ $errors->has('day') ? 'is-invalid' : '' }}" type="text" name="day" id="day" value="{{ old('day', '') }}" required>
-                @if($errors->has('day'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('day') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.reporting.fields.day_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required" for="time">{{ trans('cruds.reporting.fields.time') }}</label>
-                <input class="form-control timepicker {{ $errors->has('time') ? 'is-invalid' : '' }}" type="text" name="time" id="time" value="{{ old('time') }}" required>
-                @if($errors->has('time'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('time') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.reporting.fields.time_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="number_of_repeat_offences">{{ trans('cruds.reporting.fields.number_of_repeat_offences') }}</label>

@@ -40,33 +40,13 @@
             </div>
             <div class="form-group">
                 <label class="required" for="date">{{ trans('cruds.reporting.fields.date') }}</label>
-                <input class="form-control date {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date', $reporting->date) }}" required>
+                <input class="form-control datetime {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date', $reporting->date) }}" required>
                 @if($errors->has('date'))
                     <div class="invalid-feedback">
                         {{ $errors->first('date') }}
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.reporting.fields.date_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required" for="day">{{ trans('cruds.reporting.fields.day') }}</label>
-                <input class="form-control {{ $errors->has('day') ? 'is-invalid' : '' }}" type="text" name="day" id="day" value="{{ old('day', $reporting->day) }}" required>
-                @if($errors->has('day'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('day') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.reporting.fields.day_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required" for="time">{{ trans('cruds.reporting.fields.time') }}</label>
-                <input class="form-control timepicker {{ $errors->has('time') ? 'is-invalid' : '' }}" type="text" name="time" id="time" value="{{ old('time', $reporting->time) }}" required>
-                @if($errors->has('time'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('time') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.reporting.fields.time_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="number_of_repeat_offences">{{ trans('cruds.reporting.fields.number_of_repeat_offences') }}</label>
@@ -89,16 +69,6 @@
                 <span class="help-block">{{ trans('cruds.reporting.fields.violation_summary_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="violation_justifications">{{ trans('cruds.reporting.fields.violation_justifications') }}</label>
-                <textarea class="form-control {{ $errors->has('violation_justifications') ? 'is-invalid' : '' }}" name="violation_justifications" id="violation_justifications" required>{{ old('violation_justifications', $reporting->violation_justifications) }}</textarea>
-                @if($errors->has('violation_justifications'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('violation_justifications') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.reporting.fields.violation_justifications_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label class="required" for="specialist_id">{{ trans('cruds.reporting.fields.specialist') }}</label>
                 <select class="form-control select2 {{ $errors->has('specialist') ? 'is-invalid' : '' }}" name="specialist_id" id="specialist_id" required>
                     @foreach($specialists as $id => $entry)
@@ -111,16 +81,6 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.reporting.fields.specialist_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required" for="committees_decision">{{ trans('cruds.reporting.fields.committees_decision') }}</label>
-                <textarea class="form-control {{ $errors->has('committees_decision') ? 'is-invalid' : '' }}" name="committees_decision" id="committees_decision" required>{{ old('committees_decision', $reporting->committees_decision) }}</textarea>
-                @if($errors->has('committees_decision'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('committees_decision') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.reporting.fields.committees_decision_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

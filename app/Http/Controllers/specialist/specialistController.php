@@ -37,7 +37,7 @@ class SpecialistController extends Controller
 
         $datingSessions = DatingSession::where('big_brother_id',$bigBrother->id)->orderBy('created_at','desc')->get();
 
-        $brotherDealForm = BrothersDealForm::where('big_brother_id',$bigBrother->id)->first(); 
+       // $brotherDealForm = BrothersDealForm::where('big_brother_id',$bigBrother->id)->first(); 
 
         $skills = $bigBrother['skills'];
         
@@ -45,7 +45,7 @@ class SpecialistController extends Controller
         $small_brothers = SmallBrother::whereNotIn('id',$selected_small_brothers)->whereHas('skills',function($query){
                                                                                                     $query->whereIn('id',$GLOBALS['skills']);
                                                                                                 })->get()->take(5); 
-        return view ('specialist.BrotherDetails',compact('bigBrother','approvementForm','datingSessions','small_brothers','brotherDealForm','small_brothers2'));
+        return view ('specialist.BrotherDetails',compact('bigBrother','approvementForm','datingSessions','small_brothers','small_brothers2'));
 
     }
     public function brotherhood($big_brother_id){

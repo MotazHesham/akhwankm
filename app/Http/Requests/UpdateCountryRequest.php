@@ -21,10 +21,6 @@ class UpdateCountryRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'short_code' => [
-                'string',
-                'required',
-            ],
         ];
     }
 }

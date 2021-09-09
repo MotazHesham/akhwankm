@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 @section('content')
-
+   
+  @php 
+$name='name_' . app()->getLocale();
+   @endphp
 <div class="card">
     <div class="card-header">
         {{ trans('global.show') }} {{ trans('cruds.reporting.title') }}
@@ -28,7 +31,7 @@
                             {{ trans('cruds.reporting.fields.report_type') }}
                         </th>
                         <td>
-                            {{ $reporting->report_type->name_ar ?? '' }}
+                            {{ $reporting->report_type->$name ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -45,22 +48,6 @@
                         </th>
                         <td>
                             {{ $reporting->date }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.reporting.fields.day') }}
-                        </th>
-                        <td>
-                            {{ $reporting->day }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.reporting.fields.time') }}
-                        </th>
-                        <td>
-                            {{ $reporting->time }}
                         </td>
                     </tr>
                     <tr>

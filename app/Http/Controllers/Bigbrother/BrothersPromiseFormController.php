@@ -23,11 +23,8 @@ class BrothersPromiseFormController extends Controller
         $userinfo = Auth::user();
 
         $bigBrother = BigBrother::where('user_id',$userinfo->id)->first();
-        $brothersDealForm = BrothersDealForm::with(['big_brother', 'small_brother', 'approvment_form', 'specialist'])
-                                                ->orderBy('created_at','desc')
-                                                ->where('big_brother_id',$bigBrother->id)->first();
 
-        return view('bigbrother.BrothersPromiseForm',compact('userinfo','bigBrother','brothersDealForm'));
+        return view('bigbrother.BrothersPromiseForm',compact('userinfo','bigBrother'));
     }
 
     public function printForm ()

@@ -31,14 +31,6 @@
                             {{ $country->name }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.country.fields.short_code') }}
-                        </th>
-                        <td>
-                            {{ $country->short_code }}
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

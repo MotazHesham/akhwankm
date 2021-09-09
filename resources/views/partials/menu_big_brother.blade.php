@@ -46,15 +46,6 @@
         </li>
 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route('bigbrother.brothers-deal-forms.view') }}" class="c-sidebar-nav-link">
-                <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
-
-                </i>
-                {{ trans('global.BrothersDealForm') }}
-            </a>
-        </li>
-
-        <li class="c-sidebar-nav-item">
             <a href="{{ route('bigbrother.BrothersPromiseForm.view') }}" class="c-sidebar-nav-link">
                 <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
 

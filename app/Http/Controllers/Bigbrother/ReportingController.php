@@ -12,19 +12,13 @@ use App\Models\ReportType;
 use App\Models\User;
 use Gate;
 use Auth;
+use Alert;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ReportingController extends Controller
 {
-    public function index()
-    {
-        abort_if(Gate::denies('reporting_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $reportings = Reporting::with(['report_type', 'big_brother', 'specialist'])->get();
-
-        return view('admin.reportings.index', compact('reportings'));
-    }
 
     public function create()
     {
@@ -41,7 +35,9 @@ class ReportingController extends Controller
     {
         $reporting->update($request->all());
 
-        return redirect()->route('admin.reportings.index');
+        Alert::success(trans('global.flash.success'), trans('global.report_reply'));
+
+        return redirect()->route('bigbrother.reportings.create');
     }
 
     public function show(Reporting $reporting)

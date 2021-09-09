@@ -13,6 +13,7 @@ use App\Models\Challenge;
 use App\Models\User;
 use Gate;
 use Auth;
+use Alert;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -43,10 +44,11 @@ class FollowUpController extends Controller
         return redirect()->route('specialist.follow-ups.index');
     }
 
-    public function edit(FollowUp $followUp)
+    public function edit($followUp)
     {
 
-
+        $followUp = FollowUp::findOrfail($followUp)->first();
+        
         $small_brothers = SmallBrother::with('user')->get()->pluck('user.name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $specialists = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
@@ -60,7 +62,7 @@ class FollowUpController extends Controller
     {
         $followUp->update($request->all());
 
-        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('specialist.follow-ups.index');
     }

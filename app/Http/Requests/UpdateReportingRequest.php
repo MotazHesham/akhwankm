@@ -27,15 +27,7 @@ class UpdateReportingRequest extends FormRequest
             ],
             'date' => [
                 'required',
-                'date_format:' . config('panel.date_format'),
-            ],
-            'day' => [
-                'string',
-                'required',
-            ],
-            'time' => [
-                'required',
-                'date_format:' . config('panel.time_format'),
+                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
             ],
             'number_of_repeat_offences' => [
                 'required',

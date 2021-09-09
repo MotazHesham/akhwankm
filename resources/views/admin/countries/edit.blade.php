@@ -21,16 +21,6 @@
                 <span class="help-block">{{ trans('cruds.country.fields.name_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="short_code">{{ trans('cruds.country.fields.short_code') }}</label>
-                <input class="form-control {{ $errors->has('short_code') ? 'is-invalid' : '' }}" type="text" name="short_code" id="short_code" value="{{ old('short_code', $country->short_code) }}" required>
-                @if($errors->has('short_code'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('short_code') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.country.fields.short_code_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

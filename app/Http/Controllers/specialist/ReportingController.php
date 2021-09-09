@@ -12,6 +12,7 @@ use App\Models\ReportType;
 use App\Models\User;
 use Gate;
 use Auth;
+use Alert;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -45,6 +46,8 @@ class ReportingController extends Controller
     {
         $reporting->update($request->all());
 
+       Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
+       
         return redirect()->route('specialist.reportings.index');
     }
 

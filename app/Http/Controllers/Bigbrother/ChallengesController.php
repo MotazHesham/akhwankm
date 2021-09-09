@@ -55,7 +55,7 @@ class ChallengesController extends Controller
         
         else
 
-        Alert::error('تم اضافة تحديات لهذا الأخ سابقا يمكنك تعديلها');
+        Alert::error(trans('global.add_challenge_again'));
 
         return redirect()->route('bigbrother.challenges.index');
     }
@@ -76,6 +76,8 @@ class ChallengesController extends Controller
     {
         $challenge->update($request->all());
         $challenge->challengs()->sync($request->input('challengs', []));
+
+        Alert::success(trans('global.flash.success'), trans('global.updated'));
 
         return redirect()->route('bigbrother.challenges.index');
     }

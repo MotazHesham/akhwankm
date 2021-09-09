@@ -8,6 +8,7 @@ use App\Http\Requests\StoreReportTypeRequest;
 use App\Http\Requests\UpdateReportTypeRequest;
 use App\Models\ReportType;
 use Gate;
+use Alert;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -33,6 +34,8 @@ class ReportTypeController extends Controller
     {
         $reportType = ReportType::create($request->all());
 
+        Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+
         return redirect()->route('admin.report-types.index');
     }
 
@@ -46,6 +49,8 @@ class ReportTypeController extends Controller
     public function update(UpdateReportTypeRequest $request, ReportType $reportType)
     {
         $reportType->update($request->all());
+
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('admin.report-types.index');
     }
@@ -62,6 +67,9 @@ class ReportTypeController extends Controller
         abort_if(Gate::denies('report_type_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $reportType->delete();
+
+        
+        Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
 
         return back();
     }

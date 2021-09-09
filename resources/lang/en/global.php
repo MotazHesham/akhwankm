@@ -3,6 +3,8 @@
 return [
     'actions'                        => 'Actions',
     'add'                            => 'Add',
+    'add_challenge_again'            => 'Challenges have been added to this brother previously, you can edit them',
+     'report_reply'                  => 'Your justifications have been successfully saved and the specialist will review them',
     'allRightsReserved'              => 'All rights reserved.',
     'brothers'                      =>  'Brotherhood requests',
     'step1'                          =>'approvement',

@@ -505,7 +505,7 @@ return [
         ],
     ],
     'inequality' => [
-        'title'          => 'Inequality Form',
+        'title'          => 'Inequality ',
         'title_singular' => 'Inequality Form',
         'fields'         => [
             'id'                   => 'ID',

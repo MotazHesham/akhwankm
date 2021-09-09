@@ -6,98 +6,77 @@
         {{ trans('cruds.reporting.title_singular') }} {{ trans('global.list') }}
     </div>
 
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Reporting">
-                <thead>
-                    <tr>
-                        <th width="10">
-
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.id') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.report_type') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reportType.fields.name_en') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.big_brother') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.date') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.day') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.time') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.number_of_repeat_offences') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.violation_summary') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.violation_justifications') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.specialist') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.committees_decision') }}
-                        </th>
-                        <th>
-                            &nbsp;
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($reportings as $key => $reporting)
-                        <tr data-entry-id="{{ $reporting->id }}">
-                            <td>
-
-                            </td>
-                            <td>
-                                {{ $reporting->id ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->report_type->name_ar ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->report_type->name_en ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->big_brother->job ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->date ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->day ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->time ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->number_of_repeat_offences ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->violation_summary ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->violation_justifications ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->specialist->name ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->committees_decision ?? '' }}
-                            </td>
-                            <td>
+    <div class="card">
+        <div class="card-header">
+            {{ trans('cruds.reporting.title_singular') }} {{ trans('global.list') }}
+        </div>
+    
+        @php 
+    
+       $name='name_' . app()->getLocale();
+    @endphp
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class=" table table-bordered table-striped table-hover datatable datatable-Reporting">
+                    <thead>
+                        <tr>
+                            <th width="10">
+    
+                            </th>
+                            <th>
+                                {{ trans('cruds.reporting.fields.id') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.reporting.fields.report_type') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.reporting.fields.big_brother') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.reporting.fields.number_of_repeat_offences') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.reporting.fields.violation_summary') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.reporting.fields.violation_justifications') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.reporting.fields.committees_decision') }}
+                            </th>
+                            <th>
+                                &nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($reportings as $key => $reporting)
+                            <tr data-entry-id="{{ $reporting->id }}">
+                                <td>
+    
+                                </td>
+                                <td>
+                                    {{ $reporting->id ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $reporting->report_type->$name ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $reporting->big_brother->job ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $reporting->number_of_repeat_offences ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $reporting->violation_summary ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $reporting->violation_justifications ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $reporting->committees_decision ?? '' }}
+                                </td>
+                                <td>    
                      
                                     <a class="btn btn-xs btn-primary" href="{{ route('specialist.reportings.show', $reporting->id) }}">
                                         {{ trans('global.view') }}
@@ -117,8 +96,6 @@
         </div>
     </div>
 </div>
-
-
 
 @endsection
 @section('scripts')

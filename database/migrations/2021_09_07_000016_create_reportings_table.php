@@ -10,9 +10,7 @@ class CreateReportingsTable extends Migration
     {
         Schema::create('reportings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('date');
-            $table->string('day');
-            $table->time('time');
+            $table->datetime('date');
             $table->integer('number_of_repeat_offences');
             $table->longText('violation_summary');
             $table->longText('violation_justifications')->nullable();

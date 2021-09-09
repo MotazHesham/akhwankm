@@ -3,7 +3,7 @@
 @if (!$brotherhood->small_brother_id)
 <div class="alert alert-warning">
     <h2>
-        لم يتم التعاقد بعد
+        لم تتم الموأخاه بعد
     </h2>
 </div>
 @else
