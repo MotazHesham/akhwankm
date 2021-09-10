@@ -97,6 +97,14 @@
             </a>
         </li>
         <li class="c-sidebar-nav-item">
+            <a href="{{ route("bigbrother.big-brother-ratings.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/big-brother-ratings") || request()->is("admin/big-brother-ratings/*") ? "c-active" : "" }}">
+                <i class="fa-fw far fa-star c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.bigBrotherRating.title') }}
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
             <a href="{{ route("bigbrother.challenges.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/challenges") || request()->is("admin/challenges/*") ? "c-active" : "" }}">
                 <i class="fa-fw fas fa-chalkboard-teacher c-sidebar-nav-icon">
 
@@ -113,6 +121,10 @@
                 {{ trans('global.logout') }}
             </a>
         </li>
+
+
+
+
     </ul>
 
 </div>

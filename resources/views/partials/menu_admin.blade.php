@@ -1,10 +1,10 @@
 @php
-    $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
+$general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
 @endphp
 
 
 <div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show"
-    style="background: {{ $general_settings->admin_color ?? ''}}">
+    style="background: {{ $general_settings->admin_color ?? '' }}">
 
     <div class="c-sidebar-brand d-md-down-none">
         <a class="c-sidebar-brand-full h4" href="#">
@@ -153,15 +153,16 @@
             </li>
         @endcan
         @can('taking_note_access')
-        <li class="c-sidebar-nav-item">
-            <a href="{{ route("admin.taking-notes.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/taking-notes") || request()->is("admin/taking-notes/*") ? "c-active" : "" }}">
-                <i class="fa-fw fas fa-book-open c-sidebar-nav-icon">
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route('admin.taking-notes.index') }}"
+                    class="c-sidebar-nav-link {{ request()->is('admin/taking-notes') || request()->is('admin/taking-notes/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-book-open c-sidebar-nav-icon">
 
-                </i>
-                {{ trans('cruds.takingNote.title') }}
-            </a>
-        </li>
-    @endcan
+                    </i>
+                    {{ trans('cruds.takingNote.title') }}
+                </a>
+            </li>
+        @endcan
         @can('periodic_session_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.periodic-sessions.index') }}"
@@ -228,6 +229,53 @@
                 </ul>
             </li>
         @endcan
+        {{-- //////////////////// --}}
+        <li class="c-sidebar-nav-dropdown">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fas fa-award c-sidebar-nav-icon">
+
+                </i>
+
+                {{ trans('cruds.bigBrotherRating.title') }}
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route('admin.managers-rattings.index') }}"
+                            class="c-sidebar-nav-link {{ request()->is('admin/managers-rattings') || request()->is('admin/managers-rattings/*') ? 'c-active' : '' }}">
+                            <i class="fa-fw far fa-star c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.managersRatting.title') }}
+                        </a>
+                    </li>
+
+                <li class="c-sidebar-nav-item">
+                    <a href="{{ route('admin.big-brother-ratings.index') }}"
+                        class="c-sidebar-nav-link {{ request()->is('admin/big-brother-ratings') || request()->is('admin/big-brother-ratings/*') ? 'c-active' : '' }}">
+                        <i class="fa-fw far fa-star c-sidebar-nav-icon">
+
+                        </i>
+                        {{ trans('cruds.bigBrotherRating.title1') }}
+                    </a>
+                </li>
+                <li class="c-sidebar-nav-item">
+                    <a href="{{ route('admin.small-brother-ratings.index') }}"
+                        class="c-sidebar-nav-link {{ request()->is('admin/big-brother-ratings') || request()->is('admin/big-brother-ratings/*') ? 'c-active' : '' }}">
+                        <i class="fa-fw far fa-star c-sidebar-nav-icon">
+
+                        </i>
+                        {{ trans('cruds.smallBrotherRating.title1') }}
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+
+
+        {{-- //////////////////// --}}
+
+
         @can('general_setting_access')
             <li
                 class="c-sidebar-nav-dropdown {{ request()->is('admin/skills*') ? 'c-show' : '' }} {{ request()->is('admin/characteristics*') ? 'c-show' : '' }} {{ request()->is('admin/countries/*') ? 'c-show' : '' }} {{ request()->is('admin/cities/*') ? 'c-show' : '' }}">
@@ -249,16 +297,17 @@
                             </a>
                         </li>
                     @endcan
-                            @can('inequality_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.inequalities.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/inequalities") || request()->is("admin/inequalities/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-not-equal c-sidebar-nav-icon">
+                    @can('inequality_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route('admin.inequalities.index') }}"
+                                class="c-sidebar-nav-link {{ request()->is('admin/inequalities') || request()->is('admin/inequalities/*') ? 'c-active' : '' }}">
+                                <i class="fa-fw fas fa-not-equal c-sidebar-nav-icon">
 
-                    </i>
-                    {{ trans('cruds.inequality.title') }}
-                </a>
-            </li>
-        @endcan
+                                </i>
+                                {{ trans('cruds.inequality.title') }}
+                            </a>
+                        </li>
+                    @endcan
                     @can('characteristic_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route('admin.characteristics.index') }}"
@@ -302,15 +351,16 @@
                         </a>
                     </li>
                     @can('challengetype_access')
-                    <li class="c-sidebar-nav-item">
-                        <a href="{{ route("admin.challengetypes.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/challengetypes") || request()->is("admin/challengetypes/*") ? "c-active" : "" }}">
-                            <i class="fa-fw fas fa-keyboard c-sidebar-nav-icon">
-            
-                            </i>
-                            {{ trans('cruds.challengetype.title') }}
-                        </a>
-                    </li>
-                @endcan
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route('admin.challengetypes.index') }}"
+                                class="c-sidebar-nav-link {{ request()->is('admin/challengetypes') || request()->is('admin/challengetypes/*') ? 'c-active' : '' }}">
+                                <i class="fa-fw fas fa-keyboard c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.challengetype.title') }}
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </li>
         @endcan

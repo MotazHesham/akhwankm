@@ -13,6 +13,7 @@ use App\Models\Challenge;
 use App\Models\User;
 use Gate;
 use Auth;
+use Alert;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -20,7 +21,7 @@ class FollowUpController extends Controller
 {
     public function index()
     {
-   
+
         $challenges = Challenge::where('specialist_id',Auth::id())->with(['challengs', 'small_brother'])->get();
 
         return view('specialist.followUps.index', compact('challenges'));
@@ -28,7 +29,7 @@ class FollowUpController extends Controller
 
     public function create($id)
     {
-           
+
         $small_brother = SmallBrother::findOrfail($id);
 
         return view('specialist.followUps.create', compact( 'small_brother'));

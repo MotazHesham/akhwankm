@@ -116,11 +116,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Taking Notes
     Route::delete('taking-notes/destroy', 'TakingNotesController@massDestroy')->name('taking-notes.massDestroy');
     Route::resource('taking-notes', 'TakingNotesController');
-    
+
     // General Settings
     Route::post('general-settings/media', 'GeneralSettingsController@storeMedia')->name('general-settings.storeMedia');
     Route::post('general-settings/ckmedia', 'GeneralSettingsController@storeCKEditorImages')->name('general-settings.storeCKEditorImages');
     Route::resource('general-settings', 'GeneralSettingsController', ['except' => ['create', 'store', 'show', 'destroy']]);
+
+    //Ratting
+    Route::get('bigbrother-ratting', 'RattingController@index')->name('big-brother-ratings.index');
+    Route::get('smallbrother-ratting', 'RattingController@index1')->name('small-brother-ratings.index');
+
+
+// Managers Ratting
+Route::delete('managers-rattings/destroy', 'ManagersRattingController@massDestroy')->name('managers-rattings.massDestroy');
+Route::resource('managers-rattings', 'ManagersRattingController');
 
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
@@ -148,5 +157,5 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
 
     }
-    
+
 });

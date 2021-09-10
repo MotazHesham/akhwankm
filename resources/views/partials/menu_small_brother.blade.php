@@ -62,7 +62,14 @@
                 {{ trans('cruds.inequality.title') }}
             </a>
         </li>
-        
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("smallbrother.small-brother-ratings.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/small-brother-ratings") || request()->is("admin/small-brother-ratings/*") ? "c-active" : "" }}">
+                <i class="fa-fw far fa-star c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.smallBrotherRating.title') }}
+            </a>
+        </li>
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

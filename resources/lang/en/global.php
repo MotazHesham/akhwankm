@@ -389,7 +389,41 @@ return [
         'Thursday' => "Thursday",
         'Friday' => " Friday",
     ],
-
+    'evaluation_procedures_provided_by_specialist' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'Good' => 'Good',
+    ],
+    'the_quality_of_communication_with_specialist' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'Good' => 'Good',
+    ],
+    'evaluation_of_required_interviews_with_specialist' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'Good' => 'Good',
+    ],
+    'satisfaction_with_the_acceptance_of_the_smaller_brother' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'Good' => 'Good',
+    ],
+    'quality_of_offered_programs' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'Good' => 'Good',
+    ],
+    'evaluate_study_of_challenges_and_find_helpful_solutions' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'Good' => 'Good',
+    ],
+    'assessment_of_the_interaction_of_the_smaller_brother' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'Good' => 'Good',
+    ],
     'flash' => [
         '404' => 'Not Found !!',
         'error' => 'Something Went Wrong !!',

@@ -411,11 +411,11 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id'    => 101,
                 'title' => 'profile_password_edit',
-            ], 
+            ],
             [
                 'id'    => 102,
                 'title' => 'inequality_access',
-            ], 
+            ],
             [
                 'id'    => 103,
                 'title' => 'inequality_show',
@@ -432,7 +432,7 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 106,
                 'title' => 'inequality_create',
         ],
-        
+
             [
                 'id'    => 107,
                 'title' => 'taking_note_create',
@@ -472,6 +472,66 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id'    => 116,
                 'title' => 'challenge_delete',
+            ],
+            [
+                'id'    => 117,
+                'title' => 'big_brother_rating_create',
+            ],
+            [
+                'id'    => 118,
+                'title' => 'big_brother_rating_edit',
+            ],
+            [
+                'id'    => 119,
+                'title' => 'big_brother_rating_show',
+            ],
+            [
+                'id'    => 120,
+                'title' => 'big_brother_rating_delete',
+            ],
+            [
+                'id'    => 121,
+                'title' => 'big_brother_rating_access',
+            ],
+            [
+                'id'    => 122,
+                'title' => 'small_brother_rating_create',
+            ],
+            [
+                'id'    => 123,
+                'title' => 'small_brother_rating_edit',
+            ],
+            [
+                'id'    => 124,
+                'title' => 'small_brother_rating_show',
+            ],
+            [
+                'id'    => 125,
+                'title' => 'small_brother_rating_delete',
+            ],
+            [
+                'id'    => 126,
+                'title' => 'small_brother_rating_access',
+            ],
+            [
+                'id'    => 127,
+                'title' => 'managers_ratting_create',
+            ],
+            [
+                'id'    => 128,
+                'title' => 'managers_ratting_edit',
+            ],
+            [
+                'id'    => 129,
+                'title' => 'managers_ratting_show',
+            ],
+            [
+                'id'    => 130,
+                'title' => 'managers_ratting_delete',
+            ],
+            [
+                'id'    => 131,
+                'title' => 'managers_ratting_access',
             ],
             
         ];

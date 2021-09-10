@@ -66,7 +66,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="behavioral_change">{{ trans('cruds.takingNote.fields.behavioral_change') }}</label>
-                <input class="form-control {{ $errors->has('behavioral_change') ? 'is-invalid' : '' }}" type="text" name="behavioral_change" id="behavioral_change" value="{{ old('behavioral_change', '') }}" required>
+                <textarea class="form-control {{ $errors->has('behavioral_change') ? 'is-invalid' : '' }}" name="behavioral_change" id="behavioral_change" required>{{ old('behavioral_change', '') }}</textarea>
                 @if($errors->has('behavioral_change'))
                     <div class="invalid-feedback">
                         {{ $errors->first('behavioral_change') }}
@@ -76,7 +76,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="psychologists_opinions">{{ trans('cruds.takingNote.fields.psychologists_opinions') }}</label>
-                <input class="form-control {{ $errors->has('psychologists_opinions') ? 'is-invalid' : '' }}" type="text" name="psychologists_opinions" id="psychologists_opinions" value="{{ old('psychologists_opinions', '') }}" required>
+                <textarea class="form-control {{ $errors->has('psychologists_opinions') ? 'is-invalid' : '' }}" name="psychologists_opinions" id="psychologists_opinions" required>{{ old('psychologists_opinions', '') }}</textarea>
                 @if($errors->has('psychologists_opinions'))
                     <div class="invalid-feedback">
                         {{ $errors->first('psychologists_opinions') }}
@@ -86,7 +86,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="social_specialist_opinion">{{ trans('cruds.takingNote.fields.social_specialist_opinion') }}</label>
-                <input class="form-control {{ $errors->has('social_specialist_opinion') ? 'is-invalid' : '' }}" type="text" name="social_specialist_opinion" id="social_specialist_opinion" value="{{ old('social_specialist_opinion', '') }}" required>
+                <textarea class="form-control {{ $errors->has('social_specialist_opinion') ? 'is-invalid' : '' }}" name="social_specialist_opinion" id="social_specialist_opinion" required>{{ old('social_specialist_opinion', '') }}</textarea>
                 @if($errors->has('social_specialist_opinion'))
                     <div class="invalid-feedback">
                         {{ $errors->first('social_specialist_opinion') }}
