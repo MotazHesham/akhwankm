@@ -148,19 +148,10 @@
                                 </button>
                             </li>
                             <li class="nav-item">
-                                <button class="nav-link btn @if ($bigBrother->small_brother_id != null) btn-success  @elseif($brotherDealForm) btn-dark  @else btn-light disabled @endif" style="border:0;border-radius:0" id="5"
+                                <button class="nav-link btn @if ($bigBrother->small_brother_id != null) btn-success   @else btn-light disabled @endif" style="border:0;border-radius:0" id="5"
                                     onclick="steps('smallbrother')">
                                     {{ trans('global.smallbrother') }}
                                     @if ($bigBrother->small_brother_id != null)
-                                        <i class="far fa-check-circle"></i>
-                                    @endif
-                                </button>
-                            </li>
-                            <li class="nav-item">
-                                <button class="nav-link btn @if ($brotherDealForm) btn-success @elseif($bigBrother->small_brother_id != null) btn-dark @else btn-light disabled @endif" style="border:0;border-radius:0" id="4"
-                                    onclick="steps('step4')">
-                                    {{ trans('global.step4') }}
-                                    @if ($brotherDealForm)
                                         <i class="far fa-check-circle"></i>
                                     @endif
                                 </button>
@@ -216,19 +207,6 @@
                               </div> 
                             @endif
                           </div>
-                          <div id="step4" style="display:none">
-                              @if ($brotherDealForm)
-                                  <div class="text-center" style="margin-top: 20%">
-                                      <h4>
-                                          تم التعاقد
-                                          <i class="far fa-check-circle"></i>
-                                      </h4>
-                                      <a href="" class="btn btn-info">طباعة الأستمارة</a>
-                                  </div>
-                              @else
-                                @include('specialist.steps.deal')
-                              @endif
-                          </div>
                           <div id="smallbrother" class="text-center" style="display:none">
                               @include('specialist.steps.smallbrother')
                           </div>
@@ -256,12 +234,7 @@
         @elseif($bigBrother->small_brother_id==null)
         
             steps('step3');
-        
-        @elseif (!$brotherDealForm)
-        
-            steps('step4');
-        
-        
+          
         @else
             steps('smallbrother');
         

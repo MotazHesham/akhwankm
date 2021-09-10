@@ -50,5 +50,7 @@ Route::group(['prefix' => 'bigbrother', 'as' => 'bigbrother.', 'namespace' => 'B
    Route::delete('big-brother-ratings/destroy', 'BigBrotherRatingController@massDestroy')->name('big-brother-ratings.massDestroy');
    Route::resource('big-brother-ratings', 'BigBrotherRatingController');
 
-   
+  // Reporting
+    Route::delete('reportings/destroy', 'ReportingController@massDestroy')->name('reportings.massDestroy');
+    Route::resource('reportings', 'ReportingController');
 });

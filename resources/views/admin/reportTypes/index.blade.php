@@ -1,32 +1,35 @@
 @extends('layouts.admin')
 @section('content')
-@can('country_create')
+@can('report_type_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.countries.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.country.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.report-types.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.reportType.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.country.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.reportType.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Country">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-ReportType">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.country.fields.id') }}
+                            {{ trans('cruds.reportType.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.country.fields.name') }}
+                            {{ trans('cruds.reportType.fields.name_ar') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.reportType.fields.name_en') }}
                         </th>
                         <th>
                             &nbsp;
@@ -34,32 +37,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($countries as $key => $country)
-                        <tr data-entry-id="{{ $country->id }}">
+                    @foreach($reportTypes as $key => $reportType)
+                        <tr data-entry-id="{{ $reportType->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $country->id ?? '' }}
+                                {{ $reportType->id ?? '' }}
                             </td>
                             <td>
-                                {{ $country->name ?? '' }}
+                                {{ $reportType->name_ar ?? '' }}
                             </td>
                             <td>
-                                @can('country_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.countries.show', $country->id) }}">
+                                {{ $reportType->name_en ?? '' }}
+                            </td>
+                            <td>
+                                @can('report_type_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.report-types.show', $reportType->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('country_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.countries.edit', $country->id) }}">
+                                @can('report_type_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.report-types.edit', $reportType->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('country_delete')
-                                    <form action="{{ route('admin.countries.destroy', $country->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('report_type_delete')
+                                    <form action="{{ route('admin.report-types.destroy', $reportType->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -84,11 +90,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('country_delete')
+@can('report_type_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.countries.massDestroy') }}",
+    url: "{{ route('admin.report-types.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -117,9 +123,9 @@
   $.extend(true, $.fn.dataTable.defaults, {
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
-    pageLength: 25,
+    pageLength: 100,
   });
-  let table = $('.datatable-Country:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-ReportType:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();

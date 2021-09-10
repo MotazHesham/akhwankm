@@ -141,9 +141,18 @@ Route::resource('managers-rattings', 'ManagersRattingController');
     Route::delete('messenger/{topic}', 'MessengerController@destroyTopic')->name('messenger.destroyTopic');
     Route::post('messenger/{topic}/reply', 'MessengerController@replyToTopic')->name('messenger.reply');
     Route::get('messenger/{topic}/reply', 'MessengerController@showReply')->name('messenger.showReply');
-    // Inequality
+   // Inequality
     Route::delete('inequalities/destroy', 'InequalityController@massDestroy')->name('inequalities.massDestroy');
     Route::resource('inequalities', 'InequalityController');
+
+    // Reporting
+   Route::delete('reportings/destroy', 'ReportingController@massDestroy')->name('reportings.massDestroy');
+   Route::resource('reportings', 'ReportingController');
+
+     // Report Type
+    Route::delete('report-types/destroy', 'ReportTypeController@massDestroy')->name('report-types.massDestroy');
+    Route::resource('report-types', 'ReportTypeController');
+               
     // Challengetype
     Route::delete('challengetypes/destroy', 'ChallengetypeController@massDestroy')->name('challengetypes.massDestroy');
     Route::resource('challengetypes', 'ChallengetypeController');

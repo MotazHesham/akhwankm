@@ -3,13 +3,13 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.country.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.reportType.title') }}
     </div>
 
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.countries.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.report-types.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -17,24 +17,32 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.country.fields.id') }}
+                            {{ trans('cruds.reportType.fields.id') }}
                         </th>
                         <td>
-                            {{ $country->id }}
+                            {{ $reportType->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.country.fields.name') }}
+                            {{ trans('cruds.reportType.fields.name_ar') }}
                         </th>
                         <td>
-                            {{ $country->name }}
+                            {{ $reportType->name_ar }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.reportType.fields.name_en') }}
+                        </th>
+                        <td>
+                            {{ $reportType->name_en }}
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.countries.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.report-types.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>

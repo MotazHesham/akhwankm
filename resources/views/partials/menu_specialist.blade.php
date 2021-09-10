@@ -45,11 +45,20 @@ $general_settings = \App\Models\GeneralSettings::select('specialist_color')->fir
             </a>
         </li> 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route("specialist.inequalities.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/inequalities") || request()->is("admin/inequalities/*") ? "c-active" : "" }}">
+            <a href="{{ route("specialist.inequalities.index") }}" class="c-sidebar-nav-link" >
                 <i class="fa-fw fas fa-not-equal c-sidebar-nav-icon">
 
                 </i>
+                
                 {{ trans('cruds.inequality.title') }}
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("specialist.reportings.index") }}" class="c-sidebar-nav-link ">
+                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.reporting.title') }}
             </a>
         </li>
                    <li class="c-sidebar-nav-item">

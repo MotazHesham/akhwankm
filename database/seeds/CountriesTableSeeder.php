@@ -11,7 +11,6 @@ class CountriesTableSeeder extends Seeder
             [
                 'id'         => 1,
                 'name'       => 'المملكة العربية السعودية',
-                'short_code' => 'sa',
             ],
         ];
 

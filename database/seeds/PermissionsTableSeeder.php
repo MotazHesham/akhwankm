@@ -532,8 +532,45 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id'    => 131,
                 'title' => 'managers_ratting_access',
+                'title' => 'report_type_create',
             ],
-            
+            [
+                'id'    => 132,
+                'title' => 'report_type_edit',
+            ],
+            [
+                'id'    => 133,
+                'title' => 'report_type_show',
+            ],
+            [
+                'id'    => 134,
+                'title' => 'report_type_delete',
+            ],
+            [
+                'id'    => 135,
+                'title' => 'report_type_access',
+            ],
+            [
+                'id'    => 136,
+                'title' => 'reporting_create',
+            ],
+            [
+                'id'    => 137,
+                'title' => 'reporting_edit',
+            ],
+            [
+                'id'    => 138,
+                'title' => 'reporting_show',
+            ],
+            [
+                'id'    => 139,
+                'title' => 'reporting_delete',
+            ],
+            [
+                'id'    => 140,
+                'title' => 'reporting_access',
+            ],
+
         ];
 
         Permission::insert($permissions);

@@ -6,11 +6,11 @@ use \DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Country extends Model
+class ReportType extends Model
 {
     use SoftDeletes;
 
-    public $table = 'countries';
+    public $table = 'report_types';
 
     protected $dates = [
         'created_at',
@@ -19,7 +19,8 @@ class Country extends Model
     ];
 
     protected $fillable = [
-        'name',
+        'name_ar',
+        'name_en',
         'created_at',
         'updated_at',
         'deleted_at',

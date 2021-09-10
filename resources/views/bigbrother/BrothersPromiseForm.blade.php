@@ -1,10 +1,10 @@
 @extends('layouts.bigbrother')
 @section('content')
 
-    @if (!$brothersDealForm)
+    @if ($bigBrother->small_brother_id==null)
         <div class="alert alert-warning">
             <h2>
-                لم يتم التعاقد بعد
+                لم يتم الموأخاه بعد
             </h2>
         </div>
     @else

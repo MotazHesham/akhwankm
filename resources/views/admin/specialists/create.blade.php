@@ -149,7 +149,7 @@
                     @foreach(App\Models\User::GENDER_RADIO as $key => $label)
                         <div class="form-check {{ $errors->has('gender') ? 'is-invalid' : '' }}">
                             <input class="form-check-input" type="radio" id="gender_{{ $key }}" name="gender" value="{{ $key }}" {{ old('gender', '') === (string) $key ? 'checked' : '' }} required>
-                            <label class="form-check-label" for="gender_{{ $key }}">{{ $label }}</label>
+                            <label class="form-check-label" for="gender_{{ $key }}">{{ trans('global.gender.'.$label) }}</label>
                         </div>
                     @endforeach
                     @if($errors->has('gender'))
@@ -164,7 +164,7 @@
                     @foreach(App\Models\User::MARITAL_STATUS_RADIO as $key => $label)
                         <div class="form-check {{ $errors->has('marital_status') ? 'is-invalid' : '' }}">
                             <input class="form-check-input" type="radio" id="marital_status_{{ $key }}" name="marital_status" value="{{ $key }}" {{ old('marital_status', '') === (string) $key ? 'checked' : '' }}>
-                            <label class="form-check-label" for="marital_status_{{ $key }}">{{ $label }}</label>
+                            <label class="form-check-label" for="marital_status_{{ $key }}">{{ trans('global.marital_status.'.$label) }}</label>
                         </div>
                     @endforeach
                     @if($errors->has('marital_status'))
@@ -179,7 +179,7 @@
                     @foreach(App\Models\User::DEGREE_RADIO as $key => $label)
                         <div class="form-check {{ $errors->has('degree') ? 'is-invalid' : '' }}">
                             <input class="form-check-input" type="radio" id="degree_{{ $key }}" name="degree" value="{{ $key }}" {{ old('degree', '') === (string) $key ? 'checked' : '' }} required>
-                            <label class="form-check-label" for="degree_{{ $key }}">{{ $label }}</label>
+                            <label class="form-check-label" for="degree_{{ $key }}">{{ trans('global.degree.'.$label) }}</label>
                         </div>
                     @endforeach
                     @if($errors->has('degree'))

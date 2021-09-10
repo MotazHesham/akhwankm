@@ -183,17 +183,6 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
                 {{ trans('global.systemCalendar') }}
             </a>
         </li>
-        @can('brothers_deal_form_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route('admin.brothers-deal-forms.index') }}"
-                    class="c-sidebar-nav-link {{ request()->is('admin/brothers-deal-forms') || request()->is('admin/brothers-deal-forms/*') ? 'c-active' : '' }}">
-                    <i class="fa-fw fas fa-handshake c-sidebar-nav-icon">
-
-                    </i>
-                    {{ trans('cruds.brothersDealForm.title') }}
-                </a>
-            </li>
-        @endcan
         @can('outing_managment_access')
             <li
                 class="c-sidebar-nav-dropdown {{ request()->is('admin/outing-types*') ? 'c-show' : '' }} {{ request()->is('admin/outing-requests*') ? 'c-show' : '' }}">
@@ -364,6 +353,38 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
                 </ul>
             </li>
         @endcan
+        @can('reporting_management_access')
+        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/report-types*") ? "c-show" : "" }} {{ request()->is("admin/reportings*") ? "c-show" : "" }}">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.reportingManagement.title') }}
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                @can('report_type_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.report-types.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/report-types") || request()->is("admin/report-types/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.reportType.title') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('reporting_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.reportings.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/reportings") || request()->is("admin/reportings/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.reporting.title') }}
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcan
         @php($unread = \App\Models\QaTopic::unreadCount())
         <li class="c-sidebar-nav-item">
             <a href="{{ route('admin.messenger.index') }}"

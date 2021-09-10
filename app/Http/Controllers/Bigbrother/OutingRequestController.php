@@ -13,6 +13,7 @@ use App\Models\SmallBrother;
 use Gate;
 use Illuminate\Http\Request;
 use Alert;
+use Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class OutingRequestController extends Controller
@@ -20,7 +21,10 @@ class OutingRequestController extends Controller
     public function index()
     {
 
-        $outingRequests = OutingRequest::with(['outing_type', 'big_brother', 'small_brother'])->orderBy('created_at','desc')->paginate(6);
+
+        $bigBrother = BigBrother::where('user_id',Auth::id())->first();
+
+        $outingRequests = OutingRequest::where('big_brother_id',$bigBrother->id)->with(['outing_type', 'big_brother', 'small_brother'])->orderBy('created_at','desc')->paginate(6);
 
         return view('Bigbrother.outingRequests.index', compact('outingRequests'));
     }

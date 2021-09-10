@@ -21,10 +21,6 @@ class StoreCountryRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'short_code' => [
-                'string',
-                'required',
-            ],
         ];
     }
 }

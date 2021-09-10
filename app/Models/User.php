@@ -41,7 +41,9 @@ class User extends Authenticatable implements HasMedia
         'High School Certificate'      => 'High School Certificate',
         'Diploma'                      => 'Diploma',
         'Bachelors Degree'             => 'Bachelors Degree',
-        'Masters Degree'               => 'Masters Degree',
+        'Masters Degree'               => 'Masters Degree', 
+        'PHD Degree'                   =>  'PHD Degree'    ,
+
     ];
 
     public $table = 'users';
