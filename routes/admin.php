@@ -122,14 +122,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('general-settings/ckmedia', 'GeneralSettingsController@storeCKEditorImages')->name('general-settings.storeCKEditorImages');
     Route::resource('general-settings', 'GeneralSettingsController', ['except' => ['create', 'store', 'show', 'destroy']]);
 
+    // Managers Ratting
+    Route::delete('managers-rattings/destroy', 'ManagersRattingController@massDestroy')->name('managers-rattings.massDestroy');
+    Route::resource('managers-rattings', 'ManagersRattingController');
+
     //Ratting
     Route::get('bigbrother-ratting', 'RattingController@index')->name('big-brother-ratings.index');
     Route::get('smallbrother-ratting', 'RattingController@index1')->name('small-brother-ratings.index');
 
-
-// Managers Ratting
-Route::delete('managers-rattings/destroy', 'ManagersRattingController@massDestroy')->name('managers-rattings.massDestroy');
-Route::resource('managers-rattings', 'ManagersRattingController');
 
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
@@ -152,7 +152,7 @@ Route::resource('managers-rattings', 'ManagersRattingController');
      // Report Type
     Route::delete('report-types/destroy', 'ReportTypeController@massDestroy')->name('report-types.massDestroy');
     Route::resource('report-types', 'ReportTypeController');
-               
+
     // Challengetype
     Route::delete('challengetypes/destroy', 'ChallengetypeController@massDestroy')->name('challengetypes.massDestroy');
     Route::resource('challengetypes', 'ChallengetypeController');

@@ -36,8 +36,9 @@ class SmallBrotherRatingController extends Controller
 
     public function edit(SmallBrotherRating $smallBrotherRating)
     {
+        $small_brother= Auth::user();
 
-        return view('smallbrother.smallBrotherRatings.edit', compact('smallBrotherRating'));
+        return view('smallbrother.smallBrotherRatings.edit', compact('smallBrotherRating','small_brother'));
     }
 
     public function update(UpdateSmallBrotherRatingRequest $request, SmallBrotherRating $smallBrotherRating)

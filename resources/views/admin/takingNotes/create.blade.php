@@ -40,16 +40,8 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.takingNote.fields.specialist_name_helper') }}</span>
             </div>
-            <div class="form-group">
-                <label class="required" for="time">{{ trans('cruds.takingNote.fields.time') }}</label>
-                <input class="form-control timepicker {{ $errors->has('time') ? 'is-invalid' : '' }}" type="text" name="time" id="time" value="{{ old('time') }}" required>
-                @if($errors->has('time'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('time') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.takingNote.fields.time_helper') }}</span>
-            </div>
+
+           
             <div class="form-group">
                 <label class="required" for="small_brother_name_id">{{ trans('cruds.takingNote.fields.small_brother_name') }}</label>
                 <select class="form-control select2 {{ $errors->has('small_brother_name') ? 'is-invalid' : '' }}" name="small_brother_name_id" id="small_brother_name_id" required>

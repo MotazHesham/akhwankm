@@ -11,7 +11,6 @@ class CreateTakingNotesTable extends Migration
         Schema::create('taking_notes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('day');
-            $table->time('time');
             $table->string('behavioral_change');
             $table->string('psychologists_opinions');
             $table->string('social_specialist_opinion');

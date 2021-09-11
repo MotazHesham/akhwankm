@@ -416,6 +416,8 @@ return [
         'very good'  => 'very good',
         'Good' => 'Good',
     ],
+
+
     'evaluate_study_of_challenges_and_find_helpful_solutions' => [
         'excellent'   => 'excellent',
         'very good'  => 'very good',
@@ -426,6 +428,93 @@ return [
         'very good'  => 'very good',
         'Good' => 'Good',
     ],
+
+
+    'suitability_of_program_and_its_help_in_developing_your_skills' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'good' => 'good',
+    ],
+    'how_much_do_you_accept_the_big_brother_sister' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'good' => 'good',
+    ],
+
+    'big_brother_big_sister_reacts_to_my_needs' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'good' => 'good',
+    ],
+    'sticks_to_his_appointments' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'good' => 'good',
+    ],
+    'good_to_listen_to_my_discussions' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'good' => 'good',
+    ],
+    'would_you_like_to_continue_with_big_brother' => [
+        'yes'   => 'yes',
+        'no'  => 'no',
+    ],
+    'ease_of_registering' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'good' => 'good',
+    ],
+    'extent_of_benefit_from_the_program' => [
+        'excellent'   => 'excellent',
+        'very good'  => 'very good',
+        'good' => 'good',
+    ],
+////////////////////////////////////////////////////////////////////
+'evaluation_of_fraternity_procedures' => [
+    'excellent'   => 'excellent',
+    'very good'  => 'very good',
+    'good' => 'good',
+],
+'evaluation_of_interviews_with_the_specialist' => [
+    'excellent'   => 'excellent',
+    'very good'  => 'very good',
+    'good' => 'good',
+],
+
+'the_convenience_of_choosing_a_bigbrother' => [
+    'excellent'   => 'excellent',
+    'very good'  => 'very good',
+    'good' => 'good',
+],
+'the_quality_of_the_training_program' => [
+    'excellent'   => 'excellent',
+    'very good'  => 'very good',
+    'good' => 'good',
+],
+'evaluate_the_study_of_challenges_and_find_solutions_to_help' => [
+    'excellent'   => 'excellent',
+    'very good'  => 'very good',
+    'good' => 'good',
+],
+'desire_to_continue_the_relationship_between_brothers' => [
+    'excellent'   => 'excellent',
+    'very good'  => 'very good',
+    'good' => 'good',
+],
+'interaction_of_the_small_brother' => [
+    'excellent'   => 'excellent',
+    'very good'  => 'very good',
+    'good' => 'good',
+],
+'how_well_the_brotherhood_work_team_dealt_and_interacted' => [
+    'excellent'   => 'excellent',
+    'very good'  => 'very good',
+    'good' => 'good',
+],
+
+
+
     'flash' => [
         '404' => 'Not Found !!',
         'error' => 'Something Went Wrong !!',

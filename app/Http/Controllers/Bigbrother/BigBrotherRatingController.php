@@ -43,11 +43,12 @@ class BigBrotherRatingController extends Controller
     public function edit(BigBrotherRating $bigBrotherRating)
     {
 
-        $big_brothers = BigBrother::pluck('id')->prepend(trans('global.pleaseSelect'), '');
+        $big_brothers = BigBrother::where('user_id',Auth::id())->first();
 
+        $big_brother= Auth::user();
         $bigBrotherRating->load('big_brother');
 
-        return view('bigbrother.bigBrotherRatings.edit', compact('big_brothers', 'bigBrotherRating'));
+        return view('bigbrother.bigBrotherRatings.edit', compact('big_brothers', 'bigBrotherRating','big_brother'));
     }
 
     public function update(UpdateBigBrotherRatingRequest $request, BigBrotherRating $bigBrotherRating)

@@ -63,30 +63,30 @@
                                 {{ $bigBrotherRating->name ?? '' }}
                             </td>
                             <td>
-                                {{ App\Models\BigBrotherRating::EVALUATION_PROCEDURES_PROVIDED_BY_SPECIALIST_RADIO[$bigBrotherRating->evaluation_procedures_provided_by_specialist] ?? '' }}
+                                {{ trans('global.evaluation_procedures_provided_by_specialist.'.$bigBrotherRating->evaluation_procedures_provided_by_specialist ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\BigBrotherRating::THE_QUALITY_OF_COMMUNICATION_WITH_SPECIALIST_RADIO[$bigBrotherRating->the_quality_of_communication_with_specialist] ?? '' }}
+                                {{ trans('global.the_quality_of_communication_with_specialist.'.$bigBrotherRating->the_quality_of_communication_with_specialist ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\BigBrotherRating::EVALUATION_OF_REQUIRED_INTERVIEWS_WITH_SPECIALIST_RADIO[$bigBrotherRating->evaluation_of_required_interviews_with_specialist] ?? '' }}
+                                {{ trans('global.evaluation_of_required_interviews_with_specialist.'.$bigBrotherRating->evaluation_of_required_interviews_with_specialist ?? '' )}}
                             </td>
                             <td>
-                                {{ $bigBrotherRating->number_of_interviews ?? '' }}
+                                {{$bigBrotherRating->number_of_interviews ?? '' }}
                             </td>
                             <td>
-                                {{ App\Models\BigBrotherRating::SATISFACTION_WITH_THE_ACCEPTANCE_OF_THE_SMALLER_BROTHER_RADIO[$bigBrotherRating->satisfaction_with_the_acceptance_of_the_smaller_brother] ?? '' }}
+                                {{ trans('global.satisfaction_with_the_acceptance_of_the_smaller_brother.'.$bigBrotherRating->satisfaction_with_the_acceptance_of_the_smaller_brother ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\BigBrotherRating::QUALITY_OF_OFFERED_PROGRAMS_RADIO[$bigBrotherRating->quality_of_offered_programs] ?? '' }}
+                                {{ trans('global.quality_of_offered_programs.'.$bigBrotherRating->quality_of_offered_programs ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\BigBrotherRating::EVALUATE_STUDY_OF_CHALLENGES_AND_FIND_HELPFUL_SOLUTIONS_RADIO[$bigBrotherRating->evaluate_study_of_challenges_and_find_helpful_solutions] ?? '' }}
+                                {{ trans('global.evaluate_study_of_challenges_and_find_helpful_solutions.'.$bigBrotherRating->evaluate_study_of_challenges_and_find_helpful_solutions ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\BigBrotherRating::ASSESSMENT_OF_THE_INTERACTION_OF_THE_SMALLER_BROTHER_RADIO[$bigBrotherRating->assessment_of_the_interaction_of_the_smaller_brother] ?? '' }}
+                                {{ trans('global.assessment_of_the_interaction_of_the_smaller_brother.'.$bigBrotherRating->assessment_of_the_interaction_of_the_smaller_brother ?? '') }}
                             </td>
-                        
+
 
 
                         </tr>

@@ -18,7 +18,7 @@
                             </div>
                         </div>
                             <div class="card-body text-danger">
-                                <h5 class="card-title"> {{ $takingNote->day ?? '' }}</h5>
+                                <h5 class="card-title"> {{ trans('global.day.'.$takingNote->day ?? '' )}}</h5>
                                 <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                                         {{ trans('cruds.takingNote.fields.behavioral_change')  }}
                                         :</span>{{  $takingNote->behavioral_change ?? '' }} </p>

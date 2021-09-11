@@ -420,16 +420,106 @@ return [
         'very good'  => 'جيد جدا',
         'Good' => 'جيد',
     ],
+
     'evaluate_study_of_challenges_and_find_helpful_solutions' => [
         'excellent'   => 'ممتاز',
         'very good'  => 'جيد جدا',
         'Good' => 'جيد',
     ],
+
     'assessment_of_the_interaction_of_the_smaller_brother' => [
         'excellent'   => 'ممتاز',
         'very good'  => 'جيد جدا',
         'Good' => 'جيد',
     ],
+
+
+
+
+
+    'suitability_of_program_and_its_help_in_developing_your_skills' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'how_much_do_you_accept_the_big_brother_sister' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+
+    'big_brother_big_sister_reacts_to_my_needs' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'sticks_to_his_appointments' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'good_to_listen_to_my_discussions' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'would_you_like_to_continue_with_big_brother' => [
+        'yes'   => 'نعم',
+        'no'  => ' لا',
+    ],
+    'ease_of_registering' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'extent_of_benefit_from_the_program' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+
+    'evaluation_of_fraternity_procedures' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'evaluation_of_interviews_with_the_specialist' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+
+    'the_convenience_of_choosing_a_bigbrother' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'the_quality_of_the_training_program' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'evaluate_the_study_of_challenges_and_find_solutions_to_help' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'desire_to_continue_the_relationship_between_brothers' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'interaction_of_the_small_brother' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+    'how_well_the_brotherhood_work_team_dealt_and_interacted' => [
+        'excellent'   => 'ممتاز',
+        'very good'  => 'جيد جدا',
+        'good' => 'جيد',
+    ],
+
 
     'flash' => [
         '404' => 'لم يتم العثور علي اي بيانات',

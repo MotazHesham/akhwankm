@@ -31,19 +31,19 @@
                             <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                                     {{ trans('cruds.bigBrotherRating.fields.evaluation_procedures_provided_by_specialist') }}
                                     :</span>
-                                {{ App\Models\BigBrotherRating::EVALUATION_PROCEDURES_PROVIDED_BY_SPECIALIST_RADIO[$bigBrotherRating->evaluation_procedures_provided_by_specialist] ?? '' }}
+                                {{ trans('global.evaluation_procedures_provided_by_specialist.'.$bigBrotherRating->evaluation_procedures_provided_by_specialist ?? '') }}
                             </p>
 
                             <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                                     {{ trans('cruds.bigBrotherRating.fields.the_quality_of_communication_with_specialist') }}
                                     :
-                                </span>{{ App\Models\BigBrotherRating::THE_QUALITY_OF_COMMUNICATION_WITH_SPECIALIST_RADIO[$bigBrotherRating->the_quality_of_communication_with_specialist] ?? '' }}
+                                </span>{{ trans('global.the_quality_of_communication_with_specialist.'.$bigBrotherRating->the_quality_of_communication_with_specialist ?? '' )}}
                             </p>
 
                             <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                                     {{ trans('cruds.bigBrotherRating.fields.evaluation_of_required_interviews_with_specialist') }}
                                     :
-                                </span>{{ App\Models\BigBrotherRating::EVALUATION_OF_REQUIRED_INTERVIEWS_WITH_SPECIALIST_RADIO[$bigBrotherRating->evaluation_of_required_interviews_with_specialist] ?? '' }}
+                                </span>{{ trans('global.evaluation_of_required_interviews_with_specialist.'.$bigBrotherRating->evaluation_of_required_interviews_with_specialist ?? '' )}}
                             </p>
 
                             <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
@@ -53,25 +53,25 @@
                             <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                                     {{ trans('cruds.bigBrotherRating.fields.satisfaction_with_the_acceptance_of_the_smaller_brother') }}
                                     :
-                                </span>{{ App\Models\BigBrotherRating::SATISFACTION_WITH_THE_ACCEPTANCE_OF_THE_SMALLER_BROTHER_RADIO[$bigBrotherRating->satisfaction_with_the_acceptance_of_the_smaller_brother] ?? '' }}
+                                </span>{{ trans('global.satisfaction_with_the_acceptance_of_the_smaller_brother.'.$bigBrotherRating->satisfaction_with_the_acceptance_of_the_smaller_brother ?? '') }}
                             </p>
 
                             <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                                     {{ trans('cruds.bigBrotherRating.fields.quality_of_offered_programs') }}
                                     :
-                                </span>{{ App\Models\BigBrotherRating::QUALITY_OF_OFFERED_PROGRAMS_RADIO[$bigBrotherRating->quality_of_offered_programs] ?? '' }}
+                                </span>{{ trans('global.quality_of_offered_programs.'.$bigBrotherRating->quality_of_offered_programs ?? '' )}}
                             </p>
 
                             <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                                     {{ trans('cruds.bigBrotherRating.fields.evaluate_study_of_challenges_and_find_helpful_solutions') }}
                                     :
-                                </span>{{ App\Models\BigBrotherRating::EVALUATE_STUDY_OF_CHALLENGES_AND_FIND_HELPFUL_SOLUTIONS_RADIO[$bigBrotherRating->evaluate_study_of_challenges_and_find_helpful_solutions] ?? '' }}
+                                </span>{{ trans('global.evaluate_study_of_challenges_and_find_helpful_solutions.'.$bigBrotherRating->evaluate_study_of_challenges_and_find_helpful_solutions ?? '') }}
                             </p>
 
                             <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                                     {{ trans('cruds.bigBrotherRating.fields.assessment_of_the_interaction_of_the_smaller_brother') }}
                                     :
-                                </span>{{ App\Models\BigBrotherRating::ASSESSMENT_OF_THE_INTERACTION_OF_THE_SMALLER_BROTHER_RADIO[$bigBrotherRating->assessment_of_the_interaction_of_the_smaller_brother] ?? '' }}
+                                </span>{{ trans('global.assessment_of_the_interaction_of_the_smaller_brother.'.$bigBrotherRating->assessment_of_the_interaction_of_the_smaller_brother ?? '' )}}
                             </p>
 
                             <br>

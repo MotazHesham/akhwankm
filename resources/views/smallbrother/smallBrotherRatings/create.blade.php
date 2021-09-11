@@ -16,7 +16,7 @@
                 @foreach(App\Models\SmallBrotherRating::SUITABILITY_OF_PROGRAM_AND_ITS_HELP_IN_DEVELOPING_YOUR_SKILLS_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('suitability_of_program_and_its_help_in_developing_your_skills') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="suitability_of_program_and_its_help_in_developing_your_skills_{{ $key }}" name="suitability_of_program_and_its_help_in_developing_your_skills" value="{{ $key }}" {{ old('suitability_of_program_and_its_help_in_developing_your_skills', '') === (string) $key ? 'checked' : '' }} required>
-                        <label class="form-check-label" for="suitability_of_program_and_its_help_in_developing_your_skills_{{ $key }}">{{ $label }}</label>
+                        <label class="form-check-label" for="suitability_of_program_and_its_help_in_developing_your_skills_{{ $key }}">{{ trans('global.suitability_of_program_and_its_help_in_developing_your_skills.'.$label) }}</label>
                     </div>
                 @endforeach
                 @if($errors->has('suitability_of_program_and_its_help_in_developing_your_skills'))
@@ -31,7 +31,7 @@
                 @foreach(App\Models\SmallBrotherRating::HOW_MUCH_DO_YOU_ACCEPT_THE_BIG_BROTHER_SISTER_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('how_much_do_you_accept_the_big_brother_sister') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="how_much_do_you_accept_the_big_brother_sister_{{ $key }}" name="how_much_do_you_accept_the_big_brother_sister" value="{{ $key }}" {{ old('how_much_do_you_accept_the_big_brother_sister', '') === (string) $key ? 'checked' : '' }} required>
-                        <label class="form-check-label" for="how_much_do_you_accept_the_big_brother_sister_{{ $key }}">{{ $label }}</label>
+                        <label class="form-check-label" for="how_much_do_you_accept_the_big_brother_sister_{{ $key }}">{{ trans('global.how_much_do_you_accept_the_big_brother_sister.'.$label) }}</label>
                     </div>
                 @endforeach
                 @if($errors->has('how_much_do_you_accept_the_big_brother_sister'))
@@ -46,7 +46,7 @@
                 @foreach(App\Models\SmallBrotherRating::BIG_BROTHER_BIG_SISTER_REACTS_TO_MY_NEEDS_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('big_brother_big_sister_reacts_to_my_needs') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="big_brother_big_sister_reacts_to_my_needs_{{ $key }}" name="big_brother_big_sister_reacts_to_my_needs" value="{{ $key }}" {{ old('big_brother_big_sister_reacts_to_my_needs', '') === (string) $key ? 'checked' : '' }} required>
-                        <label class="form-check-label" for="big_brother_big_sister_reacts_to_my_needs_{{ $key }}">{{ $label }}</label>
+                        <label class="form-check-label" for="big_brother_big_sister_reacts_to_my_needs_{{ $key }}">{{ trans('global.big_brother_big_sister_reacts_to_my_needs.'.$label) }}</label>
                     </div>
                 @endforeach
                 @if($errors->has('big_brother_big_sister_reacts_to_my_needs'))
@@ -61,7 +61,7 @@
                 @foreach(App\Models\SmallBrotherRating::STICKS_TO_HIS_APPOINTMENTS_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('sticks_to_his_appointments') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="sticks_to_his_appointments_{{ $key }}" name="sticks_to_his_appointments" value="{{ $key }}" {{ old('sticks_to_his_appointments', '') === (string) $key ? 'checked' : '' }} required>
-                        <label class="form-check-label" for="sticks_to_his_appointments_{{ $key }}">{{ $label }}</label>
+                        <label class="form-check-label" for="sticks_to_his_appointments_{{ $key }}">{{ trans('global.sticks_to_his_appointments.'.$label) }}</label>
                     </div>
                 @endforeach
                 @if($errors->has('sticks_to_his_appointments'))
@@ -76,7 +76,7 @@
                 @foreach(App\Models\SmallBrotherRating::GOOD_TO_LISTEN_TO_MY_DISCUSSIONS_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('good_to_listen_to_my_discussions') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="good_to_listen_to_my_discussions_{{ $key }}" name="good_to_listen_to_my_discussions" value="{{ $key }}" {{ old('good_to_listen_to_my_discussions', '') === (string) $key ? 'checked' : '' }} required>
-                        <label class="form-check-label" for="good_to_listen_to_my_discussions_{{ $key }}">{{ $label }}</label>
+                        <label class="form-check-label" for="good_to_listen_to_my_discussions_{{ $key }}">{{ trans('global.good_to_listen_to_my_discussions.'.$label) }}</label>
                     </div>
                 @endforeach
                 @if($errors->has('good_to_listen_to_my_discussions'))
@@ -91,7 +91,7 @@
                 @foreach(App\Models\SmallBrotherRating::WOULD_YOU_LIKE_TO_CONTINUE_WITH_BIG_BROTHER_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('would_you_like_to_continue_with_big_brother') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="would_you_like_to_continue_with_big_brother_{{ $key }}" name="would_you_like_to_continue_with_big_brother" value="{{ $key }}" {{ old('would_you_like_to_continue_with_big_brother', '') === (string) $key ? 'checked' : '' }} required>
-                        <label class="form-check-label" for="would_you_like_to_continue_with_big_brother_{{ $key }}">{{ $label }}</label>
+                        <label class="form-check-label" for="would_you_like_to_continue_with_big_brother_{{ $key }}">{{ trans('global.would_you_like_to_continue_with_big_brother.'.$label) }}</label>
                     </div>
                 @endforeach
                 @if($errors->has('would_you_like_to_continue_with_big_brother'))
@@ -106,7 +106,7 @@
                 @foreach(App\Models\SmallBrotherRating::EASE_OF_REGISTERING_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('ease_of_registering') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="ease_of_registering_{{ $key }}" name="ease_of_registering" value="{{ $key }}" {{ old('ease_of_registering', '') === (string) $key ? 'checked' : '' }} required>
-                        <label class="form-check-label" for="ease_of_registering_{{ $key }}">{{ $label }}</label>
+                        <label class="form-check-label" for="ease_of_registering_{{ $key }}">{{ trans('global.ease_of_registering.'.$label) }}</label>
                     </div>
                 @endforeach
                 @if($errors->has('ease_of_registering'))
@@ -121,7 +121,7 @@
                 @foreach(App\Models\SmallBrotherRating::EXTENT_OF_BENEFIT_FROM_THE_PROGRAM_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('extent_of_benefit_from_the_program') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="extent_of_benefit_from_the_program_{{ $key }}" name="extent_of_benefit_from_the_program" value="{{ $key }}" {{ old('extent_of_benefit_from_the_program', '') === (string) $key ? 'checked' : '' }} required>
-                        <label class="form-check-label" for="extent_of_benefit_from_the_program_{{ $key }}">{{ $label }}</label>
+                        <label class="form-check-label" for="extent_of_benefit_from_the_program_{{ $key }}">{{ trans('global.extent_of_benefit_from_the_program.'.$label) }}</label>
                     </div>
                 @endforeach
                 @if($errors->has('extent_of_benefit_from_the_program'))

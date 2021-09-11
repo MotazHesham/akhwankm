@@ -16,7 +16,6 @@ class ManagersRattingController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('managers_ratting_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $managersRattings = ManagersRatting::with(['brotherhood_specialist'])->get();
 
@@ -27,7 +26,7 @@ class ManagersRattingController extends Controller
     {
         abort_if(Gate::denies('managers_ratting_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $brotherhood_specialists = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $brotherhood_specialists = User::where('user_type','specialist')->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.managersRattings.create', compact('brotherhood_specialists'));
     }
@@ -43,7 +42,7 @@ class ManagersRattingController extends Controller
     {
         abort_if(Gate::denies('managers_ratting_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $brotherhood_specialists = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $brotherhood_specialists = User::where('user_type','specialist')->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $managersRatting->load('brotherhood_specialist');
 

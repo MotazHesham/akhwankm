@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9460240-59e9-46ec-a5db-8a7c9859db9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/specialist/FollowUpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/specialist/FollowUpController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_26_000024_add_relationship_fields_to_small_brothers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_07_26_000024_add_relationship_fields_to_small_brothers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PermissionsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PermissionsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/cruds.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/cruds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/TakingNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TakingNote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_27_000005_create_taking_notes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_27_000005_create_taking_notes_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ar/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/global.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/cruds.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/cruds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/global.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Ratting/bigbrotherratting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Ratting/bigbrotherratting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Ratting/smallbrotherratting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Ratting/smallbrotherratting.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/takingNotes/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/takingNotes/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/menu_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu_admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/menu_big_brother.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu_big_brother.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/menu_small_brother.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu_small_brother.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/bigbrother.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bigbrother.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/smallbrother.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/smallbrother.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +146,13 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/psy/psysh" />
       <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
     </include_path>
   </component>
   <component name="ProjectId" id="1waqFnPoO98LyROdlpgCsqWUweV" />
@@ -188,6 +188,7 @@
       <workItem from="1629594289931" duration="570000" />
       <workItem from="1631223951644" duration="59000" />
       <workItem from="1631233836846" duration="9000" />
+      <workItem from="1631312089987" duration="140000" />
     </task>
     <servers />
   </component>

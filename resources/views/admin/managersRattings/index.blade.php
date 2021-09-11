@@ -34,9 +34,7 @@
                         <th>
                             {{ trans('cruds.managersRatting.fields.brotherhood_specialist') }}
                         </th>
-                        <th>
-                            {{ trans('cruds.user.fields.user_type') }}
-                        </th>
+
                         <th>
                             {{ trans('cruds.managersRatting.fields.evaluation_of_fraternity_procedures') }}
                         </th>
@@ -90,35 +88,33 @@
                             <td>
                                 {{ $managersRatting->brotherhood_specialist->name ?? '' }}
                             </td>
+
                             <td>
-                                {{ $managersRatting->brotherhood_specialist->user_type ?? '' }}
+                                {{ trans('global.evaluation_of_fraternity_procedures.'.$managersRatting->evaluation_of_fraternity_procedures ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\ManagersRatting::EVALUATION_OF_FRATERNITY_PROCEDURES_RADIO[$managersRatting->evaluation_of_fraternity_procedures] ?? '' }}
-                            </td>
-                            <td>
-                                {{ App\Models\ManagersRatting::EVALUATION_OF_INTERVIEWS_WITH_THE_SPECIALIST_RADIO[$managersRatting->evaluation_of_interviews_with_the_specialist] ?? '' }}
+                                {{ trans('global.evaluation_of_interviews_with_the_specialist.'.$managersRatting->evaluation_of_interviews_with_the_specialist ?? '' )}}
                             </td>
                             <td>
                                 {{ $managersRatting->number_of_interviews ?? '' }}
                             </td>
                             <td>
-                                {{ App\Models\ManagersRatting::THE_CONVENIENCE_OF_CHOOSING_A_BIGBROTHER_RADIO[$managersRatting->the_convenience_of_choosing_a_bigbrother] ?? '' }}
+                                {{ trans('global.the_convenience_of_choosing_a_bigbrother.'.$managersRatting->the_convenience_of_choosing_a_bigbrother ?? '') }}
                             </td>
                             <td>
-                                {{ App\Models\ManagersRatting::THE_QUALITY_OF_THE_TRAINING_PROGRAM_RADIO[$managersRatting->the_quality_of_the_training_program] ?? '' }}
+                                {{ trans('global.the_quality_of_the_training_program.'.$managersRatting->the_quality_of_the_training_program ?? '') }}
                             </td>
                             <td>
-                                {{ App\Models\ManagersRatting::EVALUATE_THE_STUDY_OF_CHALLENGES_AND_FIND_SOLUTIONS_TO_HELP_RADIO[$managersRatting->evaluate_the_study_of_challenges_and_find_solutions_to_help] ?? '' }}
+                                {{ trans('global.evaluate_the_study_of_challenges_and_find_solutions_to_help.'.$managersRatting->evaluate_the_study_of_challenges_and_find_solutions_to_help ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\ManagersRatting::DESIRE_TO_CONTINUE_THE_RELATIONSHIP_BETWEEN_BROTHERS_RADIO[$managersRatting->desire_to_continue_the_relationship_between_brothers] ?? '' }}
+                                {{ trans('global.desire_to_continue_the_relationship_between_brothers.'.$managersRatting->desire_to_continue_the_relationship_between_brothers ?? '') }}
                             </td>
                             <td>
-                                {{ App\Models\ManagersRatting::INTERACTION_OF_THE_SMALL_BROTHER_RADIO[$managersRatting->interaction_of_the_small_brother] ?? '' }}
+                                {{ trans('global.interaction_of_the_small_brother.'.$managersRatting->interaction_of_the_small_brother ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\ManagersRatting::HOW_WELL_THE_BROTHERHOOD_WORK_TEAM_DEALT_AND_INTERACTED_RADIO[$managersRatting->how_well_the_brotherhood_work_team_dealt_and_interacted] ?? '' }}
+                                {{ trans('global.how_well_the_brotherhood_work_team_dealt_and_interacted.'.$managersRatting->how_well_the_brotherhood_work_team_dealt_and_interacted ?? '' )}}
                             </td>
                             <td>
                                 {{ $managersRatting->general_notes ?? '' }}
@@ -202,7 +198,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

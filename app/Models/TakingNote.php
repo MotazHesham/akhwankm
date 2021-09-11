@@ -31,7 +31,6 @@ class TakingNote extends Model
     protected $fillable = [
         'day',
         'specialist_name_id',
-        'time',
         'small_brother_name_id',
         'behavioral_change',
         'psychologists_opinions',

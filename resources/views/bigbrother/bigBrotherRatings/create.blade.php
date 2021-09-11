@@ -35,7 +35,7 @@
                     <div class="form-check {{ $errors->has('the_quality_of_communication_with_specialist') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="the_quality_of_communication_with_specialist_{{ $key }}" name="the_quality_of_communication_with_specialist" value="{{ $key }}" {{ old('the_quality_of_communication_with_specialist', '') === (string) $key ? 'checked' : '' }} required>
                         <label class="form-check-label" for="the_quality_of_communication_with_specialist_{{ $key }}">{{ trans('global.the_quality_of_communication_with_specialist.'.$label) }}</label>
-                    </div>
+                    </div> 
                 @endforeach
                 @if($errors->has('the_quality_of_communication_with_specialist'))
                     <div class="invalid-feedback">

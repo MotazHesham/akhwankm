@@ -11,7 +11,7 @@ class UpdateBigBrotherRatingRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('big_brother_rating_edit');
+        return true;
     }
 
     public function rules()

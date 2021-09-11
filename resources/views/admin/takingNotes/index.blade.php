@@ -37,9 +37,7 @@
                         <th>
                             {{ trans('cruds.takingNote.fields.small_brother_name') }}
                         </th>
-                        <th>
-                            {{ trans('cruds.takingNote.fields.time') }}
-                        </th>
+                        
                         <th>
                             {{ trans('cruds.takingNote.fields.behavioral_change') }}
                         </th>
@@ -75,9 +73,7 @@
                                 {{ $takingNote->small_brother_name->user->name ?? '' }}
                             </td>
 
-                            <td>
-                                {{ $takingNote->time ?? '' }}
-                            </td>
+
                             <td>
                                 {{ $takingNote->behavioral_change ?? '' }}
                             </td>

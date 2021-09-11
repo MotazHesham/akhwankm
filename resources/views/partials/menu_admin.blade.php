@@ -228,6 +228,7 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
                 {{ trans('cruds.bigBrotherRating.title') }}
             </a>
             <ul class="c-sidebar-nav-dropdown-items">
+
                     <li class="c-sidebar-nav-item">
                         <a href="{{ route('admin.managers-rattings.index') }}"
                             class="c-sidebar-nav-link {{ request()->is('admin/managers-rattings') || request()->is('admin/managers-rattings/*') ? 'c-active' : '' }}">
@@ -237,6 +238,7 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
                             {{ trans('cruds.managersRatting.title') }}
                         </a>
                     </li>
+                    
 
                 <li class="c-sidebar-nav-item">
                     <a href="{{ route('admin.big-brother-ratings.index') }}"

@@ -62,49 +62,31 @@
                                 {{ $smallBrotherRating->name ?? '' }}
                             </td>
                             <td>
-                                {{ App\Models\SmallBrotherRating::SUITABILITY_OF_PROGRAM_AND_ITS_HELP_IN_DEVELOPING_YOUR_SKILLS_RADIO[$smallBrotherRating->suitability_of_program_and_its_help_in_developing_your_skills] ?? '' }}
+                                {{ trans('global.suitability_of_program_and_its_help_in_developing_your_skills.'.$smallBrotherRating->suitability_of_program_and_its_help_in_developing_your_skills ?? '') }}
                             </td>
                             <td>
-                                {{ App\Models\SmallBrotherRating::HOW_MUCH_DO_YOU_ACCEPT_THE_BIG_BROTHER_SISTER_RADIO[$smallBrotherRating->how_much_do_you_accept_the_big_brother_sister] ?? '' }}
+                                {{ trans('global.how_much_do_you_accept_the_big_brother_sister.'.$smallBrotherRating->how_much_do_you_accept_the_big_brother_sister ?? '' ) }}
                             </td>
                             <td>
-                                {{ App\Models\SmallBrotherRating::BIG_BROTHER_BIG_SISTER_REACTS_TO_MY_NEEDS_RADIO[$smallBrotherRating->big_brother_big_sister_reacts_to_my_needs] ?? '' }}
+                                {{ trans('global.big_brother_big_sister_reacts_to_my_needs.'.$smallBrotherRating->big_brother_big_sister_reacts_to_my_needs ?? '' ) }}
                             </td>
                             <td>
-                                {{ App\Models\SmallBrotherRating::STICKS_TO_HIS_APPOINTMENTS_RADIO[$smallBrotherRating->sticks_to_his_appointments] ?? '' }}
+                                {{ trans('global.sticks_to_his_appointments.'.$smallBrotherRating->sticks_to_his_appointments ?? '') }}
                             </td>
                             <td>
-                                {{ App\Models\SmallBrotherRating::GOOD_TO_LISTEN_TO_MY_DISCUSSIONS_RADIO[$smallBrotherRating->good_to_listen_to_my_discussions] ?? '' }}
+                                {{ trans('global.good_to_listen_to_my_discussions.'.$smallBrotherRating->good_to_listen_to_my_discussions ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\SmallBrotherRating::WOULD_YOU_LIKE_TO_CONTINUE_WITH_BIG_BROTHER_RADIO[$smallBrotherRating->would_you_like_to_continue_with_big_brother] ?? '' }}
+                                {{ trans('global.would_you_like_to_continue_with_big_brother.'.$smallBrotherRating->would_you_like_to_continue_with_big_brother ?? '' )}}
                             </td>
                             <td>
-                                {{ App\Models\SmallBrotherRating::EASE_OF_REGISTERING_RADIO[$smallBrotherRating->ease_of_registering] ?? '' }}
+                                {{ trans('global.ease_of_registering.'.$smallBrotherRating->ease_of_registering ?? '' ) }}
                             </td>
                             <td>
-                                {{ App\Models\SmallBrotherRating::EXTENT_OF_BENEFIT_FROM_THE_PROGRAM_RADIO[$smallBrotherRating->extent_of_benefit_from_the_program] ?? '' }}
+                                {{ trans('global.extent_of_benefit_from_the_program.'.$smallBrotherRating->extent_of_benefit_from_the_program ?? '' ) }}
                             </td>
                             <td>
-                                @can('small_brother_rating_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.small-brother-ratings.show', $smallBrotherRating->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
 
-                                @can('small_brother_rating_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.small-brother-ratings.edit', $smallBrotherRating->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
-
-                                @can('small_brother_rating_delete')
-                                    <form action="{{ route('admin.small-brother-ratings.destroy', $smallBrotherRating->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                                @endcan
 
                             </td>
 

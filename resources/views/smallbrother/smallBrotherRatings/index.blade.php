@@ -30,53 +30,53 @@
 
                         <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                             {{ trans('cruds.smallBrotherRating.fields.suitability_of_program_and_its_help_in_developing_your_skills') }} :</span>
-                            {{ App\Models\SmallBrotherRating::SUITABILITY_OF_PROGRAM_AND_ITS_HELP_IN_DEVELOPING_YOUR_SKILLS_RADIO[$smallBrotherRating->suitability_of_program_and_its_help_in_developing_your_skills] ?? '' }}
+                            {{  trans('global.suitability_of_program_and_its_help_in_developing_your_skills.'.$smallBrotherRating->suitability_of_program_and_its_help_in_developing_your_skills ?? '' )}}
                         </p>
 
                         <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                             {{ trans('cruds.smallBrotherRating.fields.how_much_do_you_accept_the_big_brother_sister') }}
                                 :</span>
-                                {{ App\Models\SmallBrotherRating::HOW_MUCH_DO_YOU_ACCEPT_THE_BIG_BROTHER_SISTER_RADIO[$smallBrotherRating->how_much_do_you_accept_the_big_brother_sister] ?? '' }}
+                                {{ trans('global.how_much_do_you_accept_the_big_brother_sister.'.$smallBrotherRating->how_much_do_you_accept_the_big_brother_sister ?? '' )}}
                         </p>
 
                         <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                             {{ trans('cruds.smallBrotherRating.fields.big_brother_big_sister_reacts_to_my_needs') }}
                                 :
                             </span>
-                            {{ App\Models\SmallBrotherRating::BIG_BROTHER_BIG_SISTER_REACTS_TO_MY_NEEDS_RADIO[$smallBrotherRating->big_brother_big_sister_reacts_to_my_needs] ?? '' }}
+                            {{ trans('global.big_brother_big_sister_reacts_to_my_needs.'.$smallBrotherRating->big_brother_big_sister_reacts_to_my_needs ?? '' )}}
                         </p>
 
                         <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                             {{ trans('cruds.smallBrotherRating.fields.sticks_to_his_appointments') }}
                                 : </span>
-                                {{ App\Models\SmallBrotherRating::STICKS_TO_HIS_APPOINTMENTS_RADIO[$smallBrotherRating->sticks_to_his_appointments] ?? '' }}
+                                {{ trans('global.sticks_to_his_appointments.'.$smallBrotherRating->sticks_to_his_appointments ?? '' )}}
 
                         <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                             {{ trans('cruds.smallBrotherRating.fields.good_to_listen_to_my_discussions') }}
                                 :
                             </span>
-                            {{ App\Models\SmallBrotherRating::GOOD_TO_LISTEN_TO_MY_DISCUSSIONS_RADIO[$smallBrotherRating->good_to_listen_to_my_discussions] ?? '' }}
+                            {{ trans('global.good_to_listen_to_my_discussions.'.$smallBrotherRating->good_to_listen_to_my_discussions ?? '' )}}
                         </p>
 
                         <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                             {{ trans('cruds.smallBrotherRating.fields.would_you_like_to_continue_with_big_brother') }}
                                 :
                             </span>
-                            {{ App\Models\SmallBrotherRating::WOULD_YOU_LIKE_TO_CONTINUE_WITH_BIG_BROTHER_RADIO[$smallBrotherRating->would_you_like_to_continue_with_big_brother] ?? '' }}
+                            {{ trans('global.would_you_like_to_continue_with_big_brother.'.$smallBrotherRating->would_you_like_to_continue_with_big_brother ?? '' )}}
                         </p>
 
                         <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                             {{ trans('cruds.smallBrotherRating.fields.ease_of_registering') }}
                                 :
                             </span>
-                            {{ App\Models\SmallBrotherRating::EASE_OF_REGISTERING_RADIO[$smallBrotherRating->ease_of_registering] ?? '' }}
+                            {{ trans('global.ease_of_registering.'.$smallBrotherRating->ease_of_registering ?? '') }}
                         </p>
 
                         <p class="card-text" style="color: black"> <span style="color: rgb(219, 60, 60)">
                             {{ trans('cruds.smallBrotherRating.fields.extent_of_benefit_from_the_program') }}
                                 :
                             </span>
-                            {{ App\Models\SmallBrotherRating::EXTENT_OF_BENEFIT_FROM_THE_PROGRAM_RADIO[$smallBrotherRating->extent_of_benefit_from_the_program] ?? '' }}
+                            {{ trans('global.extent_of_benefit_from_the_program.'.$smallBrotherRating->extent_of_benefit_from_the_program ?? '') }}
                         </p>
 
                         <br>
