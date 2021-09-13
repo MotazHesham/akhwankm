@@ -1,18 +1,18 @@
 @extends('layouts.bigbrother')
 @section('content')
    
-  @if(isset($reporting))
+  @if(isset($reportings)&& count($reportings)>0)
 <div class="card">
     <div class="card-header">
      {{ trans('cruds.reporting.title_singular') }}
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("bigbrother.reportings.update", [$reporting->id]) }}" enctype="multipart/form-data">
             <div class="container mt-5 mb-3">
                 @php
                 $name = 'name_' . app()->getLocale();
             @endphp
+              @foreach ($reportings as $key => $reporting)
         
                     <div class="card border-danger    mb-3">
                         <div class="card-header ">
@@ -29,30 +29,31 @@
                                   <br>
                                   {{ trans('cruds.reporting.fields.violation_summary') }}:
                                   <span >{{ $reporting->violation_summary ?? '' }}</span>
+                                     
                                   
-                            </div>
-                    </div>
-            @method('PUT')
-            @csrf
-            <div class="form-group">
-                <label class="required" for="violation_justifications">{{ trans('cruds.reporting.fields.violation_justifications') }}</label>
-                <textarea class="form-control {{ $errors->has('violation_justifications') ? 'is-invalid' : '' }}" name="violation_justifications" id="violation_justifications" required>{{ old('violation_justifications', $reporting->violation_justifications) }}</textarea>
-                @if($errors->has('violation_justifications'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('violation_justifications') }}
-                    </div>
-    @endif
-    <span class="help-block">{{ trans('cruds.reporting.fields.violation_justifications_helper') }}</span>
+                                    @if($reporting->violation_justifications != null)
+                                <br>
+                                    {{ trans('cruds.reporting.fields.violation_justifications') }} :
+                                    <span >{{ $reporting->violation_justifications ?? '' }}</span>
+                                    @else
+                                    <div style="padding:30px;">
+                                  <a class="btn btn-xs btn-primary" href="{{ route("bigbrother.reportings.edit", [$reporting->id]) }}">
+                                    {{ trans('cruds.reporting.fields.violation_justifications') }}
+                                </a>
+                                
+                                  </div>
+                                  @endif
+                                </div>
+                                
+                              
 </div>
-      
-<div class="form-group">
-    <button class="btn btn-danger" type="submit">
-        {{ trans('global.save') }}
-    </button>
+ @endforeach
+<div class="row">
+    <div class="col">
+        {{ $reportings->links() }}
+    </div>
 </div>
-</form>
-</div>
-</div>
+
 @endif
 
 

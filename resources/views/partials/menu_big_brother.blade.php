@@ -106,7 +106,7 @@
         
 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route('bigbrother.reportings.create') }}" class="c-sidebar-nav-link" >
+            <a href="{{ route('bigbrother.reportings.index') }}" class="c-sidebar-nav-link" >
                 <i class="fa-fw fas fa-chalkboard-teacher c-sidebar-nav-icon">
 
                 </i>

@@ -71,6 +71,17 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
                             </a>
                         </li>
                     @endcan
+                    @can('specialist_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route('admin.specialists.index') }}"
+                                class="c-sidebar-nav-link {{ request()->is('admin/specialists') || request()->is('admin/specialists/*') ? 'c-active' : '' }}">
+                                <i class="fa-fw fas fa-user-tag c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.specialist.title') }}
+                            </a>
+                        </li>
+                    @endcan
                     @can('small_brother_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route('admin.small-brothers.index') }}"
@@ -93,17 +104,7 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
                             </a>
                         </li>
                     @endcan
-                    @can('specialist_access')
-                        <li class="c-sidebar-nav-item">
-                            <a href="{{ route('admin.specialists.index') }}"
-                                class="c-sidebar-nav-link {{ request()->is('admin/specialists') || request()->is('admin/specialists/*') ? 'c-active' : '' }}">
-                                <i class="fa-fw fas fa-user-tag c-sidebar-nav-icon">
-
-                                </i>
-                                {{ trans('cruds.specialist.title') }}
-                            </a>
-                        </li>
-                    @endcan
+                    
                     @can('audit_log_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route('admin.audit-logs.index') }}"

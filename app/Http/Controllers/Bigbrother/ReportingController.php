@@ -20,48 +20,31 @@ class ReportingController extends Controller
 {
 
 
-    public function create()
+    public function index()
     {
 
       $bigbrother = BigBrother::where('user_id',Auth::id())->first();
 
-        $reporting = Reporting::where('big_brother_id', $bigbrother->id)->with('report_type')->first();
-       
-        return view('bigbrother.reporting.create',compact('reporting'));
+     $reportings = Reporting::where('big_brother_id', $bigbrother->id)->with('report_type')->orderBy('created_at','desc')->paginate(5);
+
+     return view('bigbrother.reporting.index',compact('reportings'));
     }
 
+    
+    public function edit(Reporting $reporting)
+    {
+      
 
+        return view('bigbrother.reporting.edit',compact('reporting'));
+    }
+ 
     public function update(UpdateReport_brother $request, Reporting $reporting)
     {
         $reporting->update($request->all());
 
         Alert::success(trans('global.flash.success'), trans('global.report_reply'));
 
-        return redirect()->route('bigbrother.reportings.create');
+        return redirect()->route('bigbrother.reportings.index');
     }
 
-    public function show(Reporting $reporting)
-    {
-        abort_if(Gate::denies('reporting_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $reporting->load('report_type', 'big_brother', 'specialist');
-
-        return view('admin.reportings.show', compact('reporting'));
-    }
-
-    public function destroy(Reporting $reporting)
-    {
-        abort_if(Gate::denies('reporting_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $reporting->delete();
-
-        return back();
-    }
-
-    public function massDestroy(MassDestroyReportingRequest $request)
-    {
-        Reporting::whereIn('id', request('ids'))->delete();
-
-        return response(null, Response::HTTP_NO_CONTENT);
-    }
 }
