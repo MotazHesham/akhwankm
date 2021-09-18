@@ -10,6 +10,7 @@ use App\Models\Characteristic;
 use App\Models\Skill;
 use App\Models\Country;
 use App\Models\SmallBrother;
+use App\Models\UserAlert;
 use App\Models\BigBrother;
 use App\Http\Requests\StoreBigBrotherRequest;
 Use Alert;
@@ -87,6 +88,14 @@ class RegisterController extends Controller
         ]);
         $bigBrother->charactarstics()->sync($request->input('charactarstics', []));
         $bigBrother->skills()->sync($request->input('skills', []));
+
+        $userAlert = UserAlert::create([
+            'alert_text' => 'طلب مؤاخاة جديد من '. $user->name,
+            'alert_link' => route('admin.big-brothers.index'),
+            'type' => 'system',
+        ]);
+        
+        $userAlert->users()->sync(User::where('user_type','staff')->get()->pluck('id'));
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
         return redirect()->route('login');

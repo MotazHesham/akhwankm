@@ -55,13 +55,13 @@
                                 {{ $inequality->id ?? '' }}
                             </td>
                             <td>
-                                {{ $inequality->specialist->name ?? '' }}
+                                {{ $inequality->specialist->email ?? '' }}
                             </td>
                             <td>
-                                {{ $inequality->big_brother->brotherhood_reason ?? '' }}
+                                {{ $inequality->big_brother->user->email ?? '' }}
                             </td>
                             <td>
-                                {{ $inequality->small_brother->temp ?? '' }}
+                                {{ $inequality->small_brother->user->email ?? '' }}
                             </td>
                             <td>
                                 {{ $inequality->reasons ?? '' }}

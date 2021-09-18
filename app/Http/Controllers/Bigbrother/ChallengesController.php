@@ -77,7 +77,7 @@ class ChallengesController extends Controller
         $challenge->update($request->all());
         $challenge->challengs()->sync($request->input('challengs', []));
 
-        Alert::success(trans('global.flash.success'), trans('global.updated'));
+        Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
 
         return redirect()->route('bigbrother.challenges.index');
     }

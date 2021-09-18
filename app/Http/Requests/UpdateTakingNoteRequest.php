@@ -19,11 +19,7 @@ class UpdateTakingNoteRequest extends FormRequest
         return [
             'day' => [
                 'required',
-            ],
-            'time' => [
-                'required',
-                'date_format:' . config('panel.time_format'),
-            ],
+            ], 
             'small_brother_name_id' => [
                 'required',
                 'integer',

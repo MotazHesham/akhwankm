@@ -62,7 +62,7 @@
         </style>
 </head>
 
-<body style=" width: 1330px; background-image: url('{{asset('images/5.jpg')}}')">
+<body style=" width: 1330px; background-image: url('{{asset('images/5.jpg')}}');background-size:cover">
 
 <div class="row">
     <div class="col-md-6 ">

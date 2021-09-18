@@ -62,7 +62,7 @@
                                 {{ $takingNote->id ?? '' }}
                             </td>
                             <td>
-                                {{ App\Models\TakingNote::DAY_SELECT[$takingNote->day] ?? '' }}
+                                {{ trans('global.day.' . $takingNote->day) }}
                             </td>
                             <td>
                                 {{ $takingNote->specialist_name->name ?? '' }}

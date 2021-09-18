@@ -28,7 +28,7 @@
                             {{ trans('cruds.inequality.fields.specialist') }}
                         </th>
                         <td>
-                            {{ $inequality->specialist->name ?? '' }}
+                            {{ $inequality->specialist->email ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -36,7 +36,7 @@
                             {{ trans('cruds.inequality.fields.big_brother') }}
                         </th>
                         <td>
-                            {{ $inequality->big_brother->brotherhood_reason ?? '' }}
+                            {{ $inequality->big_brother->user->email ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -44,7 +44,7 @@
                             {{ trans('cruds.inequality.fields.small_brother') }}
                         </th>
                         <td>
-                            {{ $inequality->small_brother->temp ?? '' }}
+                            {{ $inequality->small_brother->user->email ?? '' }}
                         </td>
                     </tr>
                     <tr>

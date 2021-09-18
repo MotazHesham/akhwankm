@@ -29,7 +29,7 @@ class InequalityController extends Controller
     {
         abort_if(Gate::denies('inequality_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $specialists = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $specialists = User::where('user_type','specialist')->get()->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -49,7 +49,7 @@ class InequalityController extends Controller
     {
         abort_if(Gate::denies('inequality_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $specialists = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $specialists = User::where('user_type','specialist')->get()->pluck('email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $big_brothers = BigBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 

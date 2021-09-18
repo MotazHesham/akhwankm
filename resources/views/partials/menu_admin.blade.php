@@ -104,7 +104,7 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
                             </a>
                         </li>
                     @endcan
-                    
+
                     @can('audit_log_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route('admin.audit-logs.index') }}"
@@ -230,6 +230,7 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
             </a>
             <ul class="c-sidebar-nav-dropdown-items">
 
+                @can('managers_ratting_access')
                     <li class="c-sidebar-nav-item">
                         <a href="{{ route('admin.managers-rattings.index') }}"
                             class="c-sidebar-nav-link {{ request()->is('admin/managers-rattings') || request()->is('admin/managers-rattings/*') ? 'c-active' : '' }}">
@@ -238,27 +239,30 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
                             </i>
                             {{ trans('cruds.managersRatting.title') }}
                         </a>
+                    </li> 
+                @endcan
+                @can('big_brother_rating_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route('admin.big-brother-ratings.index') }}"
+                            class="c-sidebar-nav-link {{ request()->is('admin/big-brother-ratings') || request()->is('admin/big-brother-ratings/*') ? 'c-active' : '' }}">
+                            <i class="fa-fw far fa-star c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.bigBrotherRating.title1') }}
+                        </a>
                     </li>
-                    
+                @endcan
+                @can('small_brother_rating_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route('admin.small-brother-ratings.index') }}"
+                            class="c-sidebar-nav-link {{ request()->is('admin/big-brother-ratings') || request()->is('admin/big-brother-ratings/*') ? 'c-active' : '' }}">
+                            <i class="fa-fw far fa-star c-sidebar-nav-icon">
 
-                <li class="c-sidebar-nav-item">
-                    <a href="{{ route('admin.big-brother-ratings.index') }}"
-                        class="c-sidebar-nav-link {{ request()->is('admin/big-brother-ratings') || request()->is('admin/big-brother-ratings/*') ? 'c-active' : '' }}">
-                        <i class="fa-fw far fa-star c-sidebar-nav-icon">
-
-                        </i>
-                        {{ trans('cruds.bigBrotherRating.title1') }}
-                    </a>
-                </li>
-                <li class="c-sidebar-nav-item">
-                    <a href="{{ route('admin.small-brother-ratings.index') }}"
-                        class="c-sidebar-nav-link {{ request()->is('admin/big-brother-ratings') || request()->is('admin/big-brother-ratings/*') ? 'c-active' : '' }}">
-                        <i class="fa-fw far fa-star c-sidebar-nav-icon">
-
-                        </i>
-                        {{ trans('cruds.smallBrotherRating.title1') }}
-                    </a>
-                </li>
+                            </i>
+                            {{ trans('cruds.smallBrotherRating.title1') }}
+                        </a>
+                    </li>
+                @endcan
 
 
             </ul>
@@ -268,6 +272,17 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
         {{-- //////////////////// --}}
 
 
+        @can('inequality_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route('admin.inequalities.index') }}"
+                    class="c-sidebar-nav-link {{ request()->is('admin/inequalities') || request()->is('admin/inequalities/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-not-equal c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.inequality.title') }}
+                </a>
+            </li>
+        @endcan
         @can('general_setting_access')
             <li
                 class="c-sidebar-nav-dropdown {{ request()->is('admin/skills*') ? 'c-show' : '' }} {{ request()->is('admin/characteristics*') ? 'c-show' : '' }} {{ request()->is('admin/countries/*') ? 'c-show' : '' }} {{ request()->is('admin/cities/*') ? 'c-show' : '' }}">
@@ -286,17 +301,6 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
 
                                 </i>
                                 {{ trans('cruds.skill.title') }}
-                            </a>
-                        </li>
-                    @endcan
-                    @can('inequality_access')
-                        <li class="c-sidebar-nav-item">
-                            <a href="{{ route('admin.inequalities.index') }}"
-                                class="c-sidebar-nav-link {{ request()->is('admin/inequalities') || request()->is('admin/inequalities/*') ? 'c-active' : '' }}">
-                                <i class="fa-fw fas fa-not-equal c-sidebar-nav-icon">
-
-                                </i>
-                                {{ trans('cruds.inequality.title') }}
                             </a>
                         </li>
                     @endcan
@@ -357,37 +361,40 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
             </li>
         @endcan
         @can('reporting_management_access')
-        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/report-types*") ? "c-show" : "" }} {{ request()->is("admin/reportings*") ? "c-show" : "" }}">
-            <a class="c-sidebar-nav-dropdown-toggle" href="#">
-                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+            <li
+                class="c-sidebar-nav-dropdown {{ request()->is('admin/report-types*') ? 'c-show' : '' }} {{ request()->is('admin/reportings*') ? 'c-show' : '' }}">
+                <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
-                </i>
-                {{ trans('cruds.reportingManagement.title') }}
-            </a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                @can('report_type_access')
-                    <li class="c-sidebar-nav-item">
-                        <a href="{{ route("admin.report-types.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/report-types") || request()->is("admin/report-types/*") ? "c-active" : "" }}">
-                            <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    </i>
+                    {{ trans('cruds.reportingManagement.title') }}
+                </a>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @can('report_type_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route('admin.report-types.index') }}"
+                                class="c-sidebar-nav-link {{ request()->is('admin/report-types') || request()->is('admin/report-types/*') ? 'c-active' : '' }}">
+                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
-                            </i>
-                            {{ trans('cruds.reportType.title') }}
-                        </a>
-                    </li>
-                @endcan
-                @can('reporting_access')
-                    <li class="c-sidebar-nav-item">
-                        <a href="{{ route("admin.reportings.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/reportings") || request()->is("admin/reportings/*") ? "c-active" : "" }}">
-                            <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                                </i>
+                                {{ trans('cruds.reportType.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('reporting_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route('admin.reportings.index') }}"
+                                class="c-sidebar-nav-link {{ request()->is('admin/reportings') || request()->is('admin/reportings/*') ? 'c-active' : '' }}">
+                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
 
-                            </i>
-                            {{ trans('cruds.reporting.title') }}
-                        </a>
-                    </li>
-                @endcan
-            </ul>
-        </li>
-    @endcan
+                                </i>
+                                {{ trans('cruds.reporting.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
+            </li>
+        @endcan
         @php($unread = \App\Models\QaTopic::unreadCount())
         <li class="c-sidebar-nav-item">
             <a href="{{ route('admin.messenger.index') }}"

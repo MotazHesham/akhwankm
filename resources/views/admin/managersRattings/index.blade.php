@@ -33,38 +33,7 @@
                         </th>
                         <th>
                             {{ trans('cruds.managersRatting.fields.brotherhood_specialist') }}
-                        </th>
-
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.evaluation_of_fraternity_procedures') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.evaluation_of_interviews_with_the_specialist') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.number_of_interviews') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.the_convenience_of_choosing_a_bigbrother') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.the_quality_of_the_training_program') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.evaluate_the_study_of_challenges_and_find_solutions_to_help') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.desire_to_continue_the_relationship_between_brothers') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.interaction_of_the_small_brother') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.how_well_the_brotherhood_work_team_dealt_and_interacted') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.managersRatting.fields.general_notes') }}
-                        </th>
+                        </th> 
                         <th>
                             &nbsp;
                         </th>
@@ -87,37 +56,6 @@
                             </td>
                             <td>
                                 {{ $managersRatting->brotherhood_specialist->name ?? '' }}
-                            </td>
-
-                            <td>
-                                {{ trans('global.evaluation_of_fraternity_procedures.'.$managersRatting->evaluation_of_fraternity_procedures ?? '' )}}
-                            </td>
-                            <td>
-                                {{ trans('global.evaluation_of_interviews_with_the_specialist.'.$managersRatting->evaluation_of_interviews_with_the_specialist ?? '' )}}
-                            </td>
-                            <td>
-                                {{ $managersRatting->number_of_interviews ?? '' }}
-                            </td>
-                            <td>
-                                {{ trans('global.the_convenience_of_choosing_a_bigbrother.'.$managersRatting->the_convenience_of_choosing_a_bigbrother ?? '') }}
-                            </td>
-                            <td>
-                                {{ trans('global.the_quality_of_the_training_program.'.$managersRatting->the_quality_of_the_training_program ?? '') }}
-                            </td>
-                            <td>
-                                {{ trans('global.evaluate_the_study_of_challenges_and_find_solutions_to_help.'.$managersRatting->evaluate_the_study_of_challenges_and_find_solutions_to_help ?? '' )}}
-                            </td>
-                            <td>
-                                {{ trans('global.desire_to_continue_the_relationship_between_brothers.'.$managersRatting->desire_to_continue_the_relationship_between_brothers ?? '') }}
-                            </td>
-                            <td>
-                                {{ trans('global.interaction_of_the_small_brother.'.$managersRatting->interaction_of_the_small_brother ?? '' )}}
-                            </td>
-                            <td>
-                                {{ trans('global.how_well_the_brotherhood_work_team_dealt_and_interacted.'.$managersRatting->how_well_the_brotherhood_work_team_dealt_and_interacted ?? '' )}}
-                            </td>
-                            <td>
-                                {{ $managersRatting->general_notes ?? '' }}
                             </td>
                             <td>
                                 @can('managers_ratting_show')

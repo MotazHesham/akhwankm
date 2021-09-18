@@ -7,570 +7,570 @@ class PermissionsTableSeeder extends Seeder
 {
     public function run()
     {
+        $i = 1;
+
         $permissions = [
             [
-                'id'    => 1,
+                'id' => $i++,
                 'title' => 'user_management_access',
             ],
             [
-                'id'    => 2,
-                'title' => 'permission_create',
-            ],
-            [
-                'id'    => 3,
+                'id' => $i++,
                 'title' => 'permission_edit',
             ],
             [
-                'id'    => 4,
+                'id' => $i++,
                 'title' => 'permission_show',
             ],
             [
-                'id'    => 5,
+                'id' => $i++,
                 'title' => 'permission_delete',
             ],
             [
-                'id'    => 6,
+                'id' => $i++,
                 'title' => 'permission_access',
             ],
             [
-                'id'    => 7,
+                'id' => $i++,
                 'title' => 'role_create',
             ],
             [
-                'id'    => 8,
+                'id' => $i++,
                 'title' => 'role_edit',
             ],
             [
-                'id'    => 9,
+                'id' => $i++,
                 'title' => 'role_show',
             ],
             [
-                'id'    => 10,
+                'id' => $i++,
                 'title' => 'role_delete',
             ],
             [
-                'id'    => 11,
+                'id' => $i++,
                 'title' => 'role_access',
             ],
             [
-                'id'    => 12,
+                'id' => $i++,
                 'title' => 'user_create',
             ],
             [
-                'id'    => 13,
+                'id' => $i++,
                 'title' => 'user_edit',
             ],
             [
-                'id'    => 14,
+                'id' => $i++,
                 'title' => 'user_show',
             ],
             [
-                'id'    => 15,
+                'id' => $i++,
                 'title' => 'user_delete',
             ],
             [
-                'id'    => 16,
+                'id' => $i++,
                 'title' => 'user_access',
             ],
             [
-                'id'    => 17,
+                'id' => $i++,
                 'title' => 'audit_log_show',
             ],
             [
-                'id'    => 18,
+                'id' => $i++,
                 'title' => 'audit_log_access',
             ],
             [
-                'id'    => 19,
+                'id' => $i++,
                 'title' => 'user_alert_create',
             ],
             [
-                'id'    => 20,
+                'id' => $i++,
                 'title' => 'user_alert_show',
             ],
             [
-                'id'    => 21,
+                'id' => $i++,
                 'title' => 'user_alert_delete',
             ],
             [
-                'id'    => 22,
+                'id' => $i++,
                 'title' => 'user_alert_access',
             ],
             [
-                'id'    => 23,
+                'id' => $i++,
                 'title' => 'small_brother_create',
             ],
             [
-                'id'    => 24,
+                'id' => $i++,
                 'title' => 'small_brother_edit',
             ],
             [
-                'id'    => 25,
+                'id' => $i++,
                 'title' => 'small_brother_show',
             ],
             [
-                'id'    => 26,
+                'id' => $i++,
                 'title' => 'small_brother_delete',
             ],
             [
-                'id'    => 27,
+                'id' => $i++,
                 'title' => 'small_brother_access',
             ],
             [
-                'id'    => 28,
+                'id' => $i++,
                 'title' => 'big_brother_create',
             ],
             [
-                'id'    => 29,
+                'id' => $i++,
                 'title' => 'big_brother_edit',
             ],
             [
-                'id'    => 30,
+                'id' => $i++,
                 'title' => 'big_brother_show',
             ],
             [
-                'id'    => 31,
+                'id' => $i++,
                 'title' => 'big_brother_delete',
             ],
             [
-                'id'    => 32,
+                'id' => $i++,
                 'title' => 'big_brother_access',
             ],
             [
-                'id'    => 33,
+                'id' => $i++,
                 'title' => 'skill_create',
             ],
             [
-                'id'    => 34,
+                'id' => $i++,
                 'title' => 'skill_edit',
             ],
             [
-                'id'    => 35,
+                'id' => $i++,
                 'title' => 'skill_show',
             ],
             [
-                'id'    => 36,
+                'id' => $i++,
                 'title' => 'skill_delete',
             ],
             [
-                'id'    => 37,
+                'id' => $i++,
                 'title' => 'skill_access',
             ],
             [
-                'id'    => 38,
+                'id' => $i++,
                 'title' => 'characteristic_create',
             ],
             [
-                'id'    => 39,
+                'id' => $i++,
                 'title' => 'characteristic_edit',
             ],
             [
-                'id'    => 40,
+                'id' => $i++,
                 'title' => 'characteristic_show',
             ],
             [
-                'id'    => 41,
+                'id' => $i++,
                 'title' => 'characteristic_delete',
             ],
             [
-                'id'    => 42,
+                'id' => $i++,
                 'title' => 'characteristic_access',
             ],
             [
-                'id'    => 43,
+                'id' => $i++,
                 'title' => 'outing_type_create',
             ],
             [
-                'id'    => 44,
+                'id' => $i++,
                 'title' => 'outing_type_edit',
             ],
             [
-                'id'    => 45,
+                'id' => $i++,
                 'title' => 'outing_type_show',
             ],
             [
-                'id'    => 46,
+                'id' => $i++,
                 'title' => 'outing_type_delete',
             ],
             [
-                'id'    => 47,
+                'id' => $i++,
                 'title' => 'outing_type_access',
             ],
             [
-                'id'    => 48,
+                'id' => $i++,
                 'title' => 'brothers_deal_form_create',
             ],
             [
-                'id'    => 49,
+                'id' => $i++,
                 'title' => 'brothers_deal_form_edit',
             ],
             [
-                'id'    => 50,
+                'id' => $i++,
                 'title' => 'brothers_deal_form_show',
             ],
             [
-                'id'    => 51,
+                'id' => $i++,
                 'title' => 'brothers_deal_form_delete',
             ],
             [
-                'id'    => 52,
+                'id' => $i++,
                 'title' => 'brothers_deal_form_access',
             ],
             [
-                'id'    => 53,
+                'id' => $i++,
                 'title' => 'outing_request_create',
             ],
             [
-                'id'    => 54,
+                'id' => $i++,
                 'title' => 'outing_request_edit',
             ],
             [
-                'id'    => 55,
+                'id' => $i++,
                 'title' => 'outing_request_show',
             ],
             [
-                'id'    => 56,
+                'id' => $i++,
                 'title' => 'outing_request_delete',
             ],
             [
-                'id'    => 57,
+                'id' => $i++,
                 'title' => 'outing_request_access',
             ],
             [
-                'id'    => 58,
+                'id' => $i++,
                 'title' => 'approvement_form_create',
             ],
             [
-                'id'    => 59,
+                'id' => $i++,
                 'title' => 'approvement_form_edit',
             ],
             [
-                'id'    => 60,
+                'id' => $i++,
                 'title' => 'approvement_form_show',
             ],
             [
-                'id'    => 61,
+                'id' => $i++,
                 'title' => 'approvement_form_delete',
             ],
             [
-                'id'    => 62,
+                'id' => $i++,
                 'title' => 'approvement_form_access',
             ],
             [
-                'id'    => 63,
+                'id' => $i++,
                 'title' => 'outing_managment_access',
             ],
             [
-                'id'    => 64,
+                'id' => $i++,
                 'title' => 'general_setting_access',
             ],
             [
-                'id'    => 65,
+                'id' => $i++,
                 'title' => 'dating_session_create',
             ],
             [
-                'id'    => 66,
+                'id' => $i++,
                 'title' => 'dating_session_edit',
             ],
             [
-                'id'    => 67,
+                'id' => $i++,
                 'title' => 'dating_session_show',
             ],
             [
-                'id'    => 68,
+                'id' => $i++,
                 'title' => 'dating_session_delete',
             ],
             [
-                'id'    => 69,
+                'id' => $i++,
                 'title' => 'dating_session_access',
             ],
             [
-                'id'    => 70,
+                'id' => $i++,
                 'title' => 'reporting_management_access',
             ],
             [
-                'id'    => 71,
+                'id' => $i++,
                 'title' => 'report_type_create',
             ],
             [
-                'id'    => 72,
+                'id' => $i++,
                 'title' => 'report_type_edit',
             ],
             [
-                'id'    => 73,
+                'id' => $i++,
                 'title' => 'report_type_show',
             ],
             [
-                'id'    => 74,
+                'id' => $i++,
                 'title' => 'report_type_delete',
             ],
             [
-                'id'    => 75,
+                'id' => $i++,
                 'title' => 'report_type_access',
             ],
             [
-                'id'    => 76,
+                'id' => $i++,
                 'title' => 'report_create',
             ],
             [
-                'id'    => 77,
+                'id' => $i++,
                 'title' => 'report_edit',
             ],
             [
-                'id'    => 78,
+                'id' => $i++,
                 'title' => 'report_show',
             ],
             [
-                'id'    => 79,
+                'id' => $i++,
                 'title' => 'report_delete',
             ],
             [
-                'id'    => 80,
+                'id' => $i++,
                 'title' => 'report_access',
             ],
             [
-                'id'    => 81,
+                'id' => $i++,
                 'title' => 'country_create',
             ],
             [
-                'id'    => 82,
+                'id' => $i++,
                 'title' => 'country_edit',
             ],
             [
-                'id'    => 83,
+                'id' => $i++,
                 'title' => 'country_show',
             ],
             [
-                'id'    => 84,
+                'id' => $i++,
                 'title' => 'country_delete',
             ],
             [
-                'id'    => 85,
+                'id' => $i++,
                 'title' => 'country_access',
             ],
             [
-                'id'    => 86,
+                'id' => $i++,
                 'title' => 'city_create',
             ],
             [
-                'id'    => 87,
+                'id' => $i++,
                 'title' => 'city_edit',
             ],
             [
-                'id'    => 88,
+                'id' => $i++,
                 'title' => 'city_show',
             ],
             [
-                'id'    => 89,
+                'id' => $i++,
                 'title' => 'city_delete',
             ],
             [
-                'id'    => 90,
+                'id' => $i++,
                 'title' => 'city_access',
             ],
             [
-                'id'    => 91,
+                'id' => $i++,
                 'title' => 'periodic_session_create',
             ],
             [
-                'id'    => 92,
+                'id' => $i++,
                 'title' => 'periodic_session_edit',
             ],
             [
-                'id'    => 93,
+                'id' => $i++,
                 'title' => 'periodic_session_show',
             ],
             [
-                'id'    => 94,
+                'id' => $i++,
                 'title' => 'periodic_session_delete',
             ],
             [
-                'id'    => 95,
+                'id' => $i++,
                 'title' => 'periodic_session_access',
             ],
             [
-                'id'    => 96,
+                'id' => $i++,
                 'title' => 'specialist_create',
             ],
             [
-                'id'    => 97,
+                'id' => $i++,
                 'title' => 'specialist_edit',
             ],
             [
-                'id'    => 98,
+                'id' => $i++,
                 'title' => 'specialist_show',
             ],
             [
-                'id'    => 99,
+                'id' => $i++,
                 'title' => 'specialist_delete',
             ],
             [
-                'id'    => 100,
+                'id' => $i++,
                 'title' => 'specialist_access',
             ],
             [
-                'id'    => 101,
+                'id' => $i++,
                 'title' => 'profile_password_edit',
             ],
             [
-                'id'    => 102,
+                'id' => $i++,
                 'title' => 'inequality_access',
             ],
             [
-                'id'    => 103,
+                'id' => $i++,
                 'title' => 'inequality_show',
-        ],
-              [
-               'id'    => 104,
-              'title' => 'inequality_edit',
             ],
             [
-                'id'    => 105,
+                'id' => $i++,
+                'title' => 'inequality_edit',
+            ],
+            [
+                'id' => $i++,
                 'title' => 'inequality_delete',
-        ],
-        [
-                'id'    => 106,
+            ],
+            [
+                'id' => $i++,
                 'title' => 'inequality_create',
-        ],
+            ],
 
             [
-                'id'    => 107,
+                'id' => $i++,
                 'title' => 'taking_note_create',
             ],
             [
-                'id'    => 108,
+                'id' => $i++,
                 'title' => 'taking_note_edit',
             ],
             [
-                'id'    => 109,
+                'id' => $i++,
                 'title' => 'taking_note_show',
             ],
             [
-                'id'    => 110,
+                'id' => $i++,
                 'title' => 'taking_note_delete',
             ],
             [
-                'id'    => 111,
+                'id' => $i++,
                 'title' => 'taking_note_access',
             ],
             [
-                'id'    => 112,
+                'id' => $i++,
                 'title' => 'challengetype_access',
             ],
             [
-                'id'    => 113,
+                'id' => $i++,
                 'title' => 'challenge_create',
             ],
             [
-                'id'    => 114,
+                'id' => $i++,
                 'title' => 'challenge_edit',
             ],
             [
-                'id'    => 115,
+                'id' => $i++,
                 'title' => 'challenge_show',
             ],
             [
-                'id'    => 116,
+                'id' => $i++,
                 'title' => 'challenge_delete',
             ],
             [
-                'id'    => 117,
+                'id' => $i++,
                 'title' => 'big_brother_rating_create',
             ],
             [
-                'id'    => 118,
+                'id' => $i++,
                 'title' => 'big_brother_rating_edit',
             ],
             [
-                'id'    => 119,
+                'id' => $i++,
                 'title' => 'big_brother_rating_show',
             ],
             [
-                'id'    => 120,
+                'id' => $i++,
                 'title' => 'big_brother_rating_delete',
             ],
             [
-                'id'    => 121,
+                'id' => $i++,
                 'title' => 'big_brother_rating_access',
             ],
             [
-                'id'    => 122,
+                'id' => $i++,
                 'title' => 'small_brother_rating_create',
             ],
             [
-                'id'    => 123,
+                'id' => $i++,
                 'title' => 'small_brother_rating_edit',
             ],
             [
-                'id'    => 124,
+                'id' => $i++,
                 'title' => 'small_brother_rating_show',
             ],
             [
-                'id'    => 125,
+                'id' => $i++,
                 'title' => 'small_brother_rating_delete',
             ],
             [
-                'id'    => 126,
+                'id' => $i++,
                 'title' => 'small_brother_rating_access',
             ],
             [
-                'id'    => 127,
+                'id' => $i++,
                 'title' => 'managers_ratting_create',
             ],
             [
-                'id'    => 128,
+                'id' => $i++,
                 'title' => 'managers_ratting_edit',
             ],
             [
-                'id'    => 129,
+                'id' => $i++,
                 'title' => 'managers_ratting_show',
             ],
             [
-                'id'    => 130,
+                'id' => $i++,
                 'title' => 'managers_ratting_delete',
             ],
             [
-                'id'    => 131,
+                'id' => $i++,
                 'title' => 'managers_ratting_access',
+            ],
+            [
+                'id' => $i++,
                 'title' => 'report_type_create',
             ],
             [
-                'id'    => 132,
+                'id' => $i++,
                 'title' => 'report_type_edit',
             ],
             [
-                'id'    => 133,
+                'id' => $i++,
                 'title' => 'report_type_show',
             ],
             [
-                'id'    => 134,
+                'id' => $i++,
                 'title' => 'report_type_delete',
             ],
             [
-                'id'    => 135,
+                'id' => $i++,
                 'title' => 'report_type_access',
             ],
             [
-                'id'    => 136,
+                'id' => $i++,
                 'title' => 'reporting_create',
             ],
             [
-                'id'    => 137,
+                'id' => $i++,
                 'title' => 'reporting_edit',
             ],
             [
-                'id'    => 138,
+                'id' => $i++,
                 'title' => 'reporting_show',
             ],
             [
-                'id'    => 139,
+                'id' => $i++,
                 'title' => 'reporting_delete',
             ],
             [
-                'id'    => 140,
+                'id' => $i++,
                 'title' => 'reporting_access',
             ],
-
         ];
 
         Permission::insert($permissions);

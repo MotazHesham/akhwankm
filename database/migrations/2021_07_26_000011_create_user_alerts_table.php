@@ -11,6 +11,7 @@ class CreateUserAlertsTable extends Migration
         Schema::create('user_alerts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('alert_text');
+            $table->string('type')->default('manual');
             $table->string('alert_link')->nullable();
             $table->timestamps();
         });
