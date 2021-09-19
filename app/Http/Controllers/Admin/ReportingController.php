@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateReportingRequest;
 use App\Models\BigBrother;
 use App\Models\Reporting;
 use App\Models\ReportType;
+use App\Models\UserAlert;
 use App\Models\User;
 use Gate;
 use Alert;
@@ -46,6 +47,17 @@ class ReportingController extends Controller
         $reporting = Reporting::create($request->all());
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+
+        $userAlert = UserAlert::create([
+            'alert_text' => 'تم  أضافة  شكوي يرجي الاطلاع عليها وتسجيل مبرراتك ',
+            'alert_link' => route('bigbrother.reportings.index'),
+            'type' => 'system',
+        ]);
+
+        $user_id=Bigbrother::where('id',$request->big_brother_id)->first()->user_id;
+
+
+        $userAlert->users()->sync([$user_id ?? 0]);
 
         return redirect()->route('admin.reportings.index');
     }

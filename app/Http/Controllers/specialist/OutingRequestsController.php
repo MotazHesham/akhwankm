@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\OutingRequest;
 use App\Models\BigBrother;
+use App\Models\UserAlert;
+use App\Models\User;
 use Auth;
 use Alert;
 
@@ -31,6 +33,17 @@ class OutingRequestsController extends Controller
 
         $outingRequest->status = $status;
         $outingRequest->save();
+
+        $userAlert = UserAlert::create([
+            'alert_text' => trans('global.outing_status.' .$status).' طلب الخروج ',
+            'alert_link' => route('bigbrother.outing-requests.index'),
+            'type' => 'system',
+        ]);
+
+        $user_id=Bigbrother::where('id',$outingRequest->big_brother_id)->first()->user_id;
+
+      
+        $userAlert->users()->sync([$user_id ?? 0]);
         
         Alert::success('تم التعديل بنجاح');
         return redirect()->route('specialist.outing-requests.index');

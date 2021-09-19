@@ -7,7 +7,9 @@ use App\Http\Requests\MassDestroyTakingNoteRequest;
 use App\Http\Requests\StoreTakingNoteRequest;
 use App\Http\Requests\UpdateTakingNoteRequest;
 use App\Models\SmallBrother;
+use App\Models\BigBrother;
 use App\Models\TakingNote;
+use App\Models\UserAlert;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
@@ -41,6 +43,17 @@ class TakingNotesController extends Controller
         $takingNote = TakingNote::create($request->all());
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+
+        $userAlert = UserAlert::create([
+            'alert_text' => 'تم إضافة ملاحظة جديدة    ',
+            'alert_link' => route('bigbrother.taking-notes.index'),
+            'type' => 'system',
+        ]);
+
+        $user_id=Bigbrother::where('small_brother_id',$request->small_brother_name_id)->first()->user_id;
+     
+    
+        $userAlert->users()->sync([$user_id ?? 0]);
 
         return redirect()->route('admin.taking-notes.index');
     }

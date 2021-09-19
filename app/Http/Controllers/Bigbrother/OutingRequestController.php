@@ -10,6 +10,8 @@ use App\Models\BigBrother;
 use App\Models\OutingRequest;
 use App\Models\OutingType;
 use App\Models\SmallBrother;
+use App\Models\UserAlert;
+use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Alert;
@@ -56,6 +58,18 @@ class OutingRequestController extends Controller
         $outingRequest = OutingRequest::create($validated_request);
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+
+        
+        $userAlert = UserAlert::create([
+            'alert_text' => 'طلب خروج جديد  ',
+            'alert_link' => route('specialist.outing-requests.index'),
+            'type' => 'system',
+        ]);
+
+        $user_id=Bigbrother::where('id',$request->big_brother_id)->first()->specialist_id;
+
+   
+        $userAlert->users()->sync([$user_id ?? 0]);
 
         return redirect()->route('bigbrother.outing-requests.index');
     }

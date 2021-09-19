@@ -9,6 +9,8 @@ use App\Http\Requests\UpdatePeriodicSessionRequest;
 use App\Models\BigBrother;
 use App\Models\PeriodicSession;
 use App\Models\SmallBrother;
+use App\Models\UserAlert;
+use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,6 +51,17 @@ class PeriodicSessionsController extends Controller
         $periodicSession = PeriodicSession::create($validated_request);
 
         Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+           
+        $userAlert = UserAlert::create([
+            'alert_text' => 'تم تحديد موعد جلسة جديد    ',
+            'alert_link' => route('bigbrother.calender'),
+            'type' => 'system',
+        ]);
+
+        $user_id=Bigbrother::where('id',$request->big_brother_id)->first()->user_id;
+  
+        $userAlert->users()->sync([$user_id ?? 0]);
+        
         return redirect()->route('admin.periodic-sessions.index');
     }
 
