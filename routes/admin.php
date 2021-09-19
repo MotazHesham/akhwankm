@@ -57,7 +57,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // User Alerts
     Route::delete('user-alerts/destroy', 'UserAlertsController@massDestroy')->name('user-alerts.massDestroy');
-    Route::get('user-alerts/read', 'UserAlertsController@read');
+    Route::get('user-alerts/read', 'UserAlertsController@read')->name('notification.seen');
     Route::resource('user-alerts', 'UserAlertsController', ['except' => ['edit', 'update']]);
 
     // Small Brother

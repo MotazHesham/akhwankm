@@ -10,6 +10,7 @@ use App\Models\SmallBrother;
 use App\Http\Requests\StoreDatingSessionRequest;
 use App\Models\Skill;
 use App\Models\User;
+use App\Models\UserAlert;
 use Alert;
 
 class BrotherhoodController extends Controller
@@ -28,6 +29,14 @@ class BrotherhoodController extends Controller
 
         ]);
             
+        $userAlert = UserAlert::create([
+            'alert_text' => 'تمت المؤاخاة مع الأخ الأصغر',
+            'alert_link' => route('bigbrother.brotherhood.show'),
+            'type' => 'system',
+        ]);
+        
+        $userAlert->users()->sync([$BigBrother->user->id ?? 0]);
+
         Alert::success(trans('global.flash.success'),'تم تسجيل معلومات المأخاه بنجاح');
     
             return redirect()->route('specialist.brother_details',$request->big_brother_id);  
