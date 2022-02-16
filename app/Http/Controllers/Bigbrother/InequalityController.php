@@ -26,7 +26,7 @@ class InequalityController extends Controller
         $brotherhood = BigBrother::where('user_id',Auth::id())->first();
  
 
-        return view('bigbrother.inequality', compact('brotherhood'));
+        return view('bigbrother.Inequality', compact('brotherhood'));
     }
 
     public function store(StoreInequalityRequest $request)

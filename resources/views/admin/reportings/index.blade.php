@@ -38,15 +38,7 @@
                         <th>
                             {{ trans('cruds.reporting.fields.number_of_repeat_offences') }}
                         </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.violation_summary') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.violation_justifications') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.reporting.fields.committees_decision') }}
-                        </th>
+               
                         <th>
                             &nbsp;
                         </th>
@@ -65,20 +57,12 @@
                                 {{ $reporting->report_type->$name ?? '' }}
                             </td>
                             <td>
-                                {{ $reporting->big_brother->job ?? '' }}
+                                {{ $reporting->big_brother->user->name ?? '' }}
                             </td>
                             <td>
                                 {{ $reporting->number_of_repeat_offences ?? '' }}
                             </td>
-                            <td>
-                                {{ $reporting->violation_summary ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->violation_justifications ?? '' }}
-                            </td>
-                            <td>
-                                {{ $reporting->committees_decision ?? '' }}
-                            </td>
+                      
                             <td>
                                 @can('reporting_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.reportings.show', $reporting->id) }}">

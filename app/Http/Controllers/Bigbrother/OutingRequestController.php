@@ -28,7 +28,7 @@ class OutingRequestController extends Controller
 
         $outingRequests = OutingRequest::where('big_brother_id',$bigBrother->id)->with(['outing_type', 'big_brother', 'small_brother'])->orderBy('created_at','desc')->paginate(6);
 
-        return view('Bigbrother.outingRequests.index', compact('outingRequests'));
+        return view('bigbrother.outingRequests.index', compact('outingRequests'));
     }
 
     public function create()
@@ -41,7 +41,7 @@ class OutingRequestController extends Controller
 
         $small_brothers = SmallBrother::with('user')->get()->pluck('user.email', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('Bigbrother.outingRequests.create', compact('outing_types', 'big_brothers', 'small_brothers'));
+        return view('bigbrother.outingRequests.create', compact('outing_types', 'big_brothers', 'small_brothers'));
     }
 
     public function store(StoreOutingRequestRequest $request)
@@ -85,7 +85,7 @@ class OutingRequestController extends Controller
 
         $outingRequest->load('outing_type', 'big_brother', 'small_brother');
 
-        return view('Bigbrother.outingRequests.edit', compact('outing_types', 'outingRequest'));
+        return view('bigbrother.outingRequests.edit', compact('outing_types', 'outingRequest'));
     }
 
     public function update(UpdateOutingRequestRequest $request, OutingRequest $outingRequest)
@@ -103,7 +103,7 @@ class OutingRequestController extends Controller
 
         $outingRequest->load('outing_type', 'big_brother', 'small_brother');
 
-        return view('Bigbrother.outingRequests.show', compact('outingRequest'));
+        return view('bigbrother.outingRequests.show', compact('outingRequest'));
     }
 
     public function destroy(OutingRequest $outingRequest)

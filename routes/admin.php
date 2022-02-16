@@ -156,6 +156,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Challengetype
     Route::delete('challengetypes/destroy', 'ChallengetypeController@massDestroy')->name('challengetypes.massDestroy');
     Route::resource('challengetypes', 'ChallengetypeController');
+
+       //reports
+       Route::get('admin/bigbrothe-reports','GeneralReportingController@index')->name('bigbrothe-reports.index');
+       Route::post('reports/show','GeneralReportingController@show')->name('big-brothers.reports');
+
+        //reports
+        Route::get('admin/smallbrother-reports','GeneralReportingController@SmallBrotherindex')->name('smallbrother-reports.index');
+        Route::post('reports/smallbrithers/show','GeneralReportingController@SmallBrothershow')->name('smallbrother.reports');
+
+     
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

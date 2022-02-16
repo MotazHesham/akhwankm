@@ -67,7 +67,7 @@
 <div class="row">
     <div class="col-md-6 ">
 
-        <img  class="k1" src="{{ URL::to('images/9.jpg') }}" style="width:120px;height:120px; padding:0px 0px 0px 0px;">
+        <img  class="k1" src="{{asset('images/9.jpg')}}" style="width:120px;height:120px; padding:0px 0px 0px 0px;">
         <p style=" font: normal normal bold 30px/56px Cairo; color: #183273; padding:310px 0px 0px 400px;">المنصة الإلكترونية</p>
         <p style="font: normal normal  30px/56px Cairo;font-size:51px ; color: #000000; padding:0px 0px 0px 185px;">لمشروع المؤاخاه</p>
     </div>

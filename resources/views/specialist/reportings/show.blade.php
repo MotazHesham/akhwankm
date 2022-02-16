@@ -45,7 +45,7 @@
                                     {{ trans('cruds.reporting.fields.big_brother') }}
                                 </th>
                                 <td>
-                                    {{ $reporting->big_brother->job ?? '' }}
+                                    {{ $reporting->big_brother->user->name ?? '' }}
                                 </td>
                             </tr>
                             <tr>

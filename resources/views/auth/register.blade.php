@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container  ">
-    <div class="" style=" background-color: white ; height: 1700px; padding: 20px"  id="card">
+    <div class="" style=" background-color: white ;padding: 20px"  id="card">
         <div>
             <button id="btnbig" onclick="view('bigbrother')"  style="border-radius:15px; width: 200px; height: 15; background-color: #183273;color: rgb(255, 255, 255); font-family: cairo" class=" form-control  k2  px-3"> التسجيل كأخ أكبر</button>
             <button id="btnsmall"  onclick="view('smallbrother')" style="border-radius:15px; width: 192px; height: 48px; background-color: #F6F6F6 ; font-family: cairo ; "  class="  btn btn-light   k1"> التسجيل كأخ أصغر</button>
@@ -118,12 +118,15 @@
                 </div>
             </div>
 
-
-
-
+              <div class="row justify-content-between">
+                <div class="form-group ">          
+                      <h4 style="color: #183273; font-family: cairo;text-align:right">الشروط والأحكام</h4>
+                        <input type="checkbox" id="myCheck" onclick="myFunction()"> {{App\Models\GeneralSettings::first()->terms}}
+    </div>
+    </div>
 
         <div class="form-group "  >
-            <button style="  color: rgb(255, 255, 255); border-radius:20px; width: 150px; height: 15; background-color: #183273; font-family: cairo" type="submit" class=" form-control k4  px-3"> حفظ</button>
+            <button style="  color: rgb(255, 255, 255); border-radius:20px; width: 150px; height: 15; background-color: #183273; font-family: cairo" type="submit" class=" form-control k4  px-3" disabled id="save"> حفظ</button>
         </div>
 
     </form>
@@ -156,7 +159,7 @@
 
 
             <div class="form-group "  >
-                <button style="  color: rgb(255, 255, 255); border-radius:20px; width: 150px; height: 15; background-color: #183273; font-family: cairo" type="submit" class=" form-control k4  px-3"> حفظ</button>
+                <button style="  color: rgb(255, 255, 255); border-radius:20px; width: 150px; height: 15; background-color: #183273; font-family: cairo" type="submit" class=" form-control k4  px-3" > حفظ</button>
             </div>
     </form>
 </div>
@@ -244,4 +247,16 @@
        }
     }
     </script>
+    <script>
+function myFunction() {
+
+  var checkBox = document.getElementById("myCheck");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+   document.getElementById("save").disabled = false;
+  } else {
+ document.getElementById("save").disabled = true;
+  }
+}
+</script>
     @endsection

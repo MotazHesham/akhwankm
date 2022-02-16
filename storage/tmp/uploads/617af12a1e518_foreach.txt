@@ -1,0 +1,10 @@
+Alert::success(trans('global.flash.success'), trans('global.flash.created'));
+
+
+
+Alert::success(trans('global.flash.success'), trans('global.flash.updated'));
+
+
+Alert::success(trans('global.flash.success'), trans('global.flash.deleted'));
+
+

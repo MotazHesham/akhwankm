@@ -360,6 +360,33 @@ $general_settings = \App\Models\GeneralSettings::select('admin_color')->first();
                 </ul>
             </li>
         @endcan
+        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/bigbrothe-reports*") ? "c-show" : "" }}">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fas fa-align-justify c-sidebar-nav-icon">
+
+                </i>
+               التقارير
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+             
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.bigbrothe-reports.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/bigbrothe-reports") || request()->is("admin/bigbrothe-reports/*") ? "c-active" : "" }}">
+                            <i class="fa-fw far fa-address-book c-sidebar-nav-icon">
+
+                            </i>
+                         تقارير الأخ الأكبر
+                        </a>
+                    </li>
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.smallbrother-reports.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/smallbrother-reports") || request()->is("admin/smallbrother-reports/*") ? "c-active" : "" }}">
+                            <i class="fa-fw far fa-address-book c-sidebar-nav-icon">
+
+                            </i>
+                           تقارير الأخ الأصغر
+                        </a>
+                    </li>
+            </ul>
+        </li>
         @can('reporting_management_access')
             <li
                 class="c-sidebar-nav-dropdown {{ request()->is('admin/report-types*') ? 'c-show' : '' }} {{ request()->is('admin/reportings*') ? 'c-show' : '' }}">
